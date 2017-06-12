@@ -18,7 +18,7 @@ sys.setdefaultencoding('utf-8')
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 
-sys.path.append("G:/test/testIsomp/common/")
+sys.path.append("G:/testIsomp/common/")
 from _initDriver import *
 from _icommon import getElement,selectElement,frameElement
 
