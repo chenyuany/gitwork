@@ -4,7 +4,7 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-sys.path.append("G:/test/testIsomp/common/")
+sys.path.append("/testIsomp/common/")
 from _excelRead import excelRead
 
 #登陆excel数据文件
@@ -30,6 +30,9 @@ LOCAL_TEST_DATA_URL = "G:/test/testIsomp/testData/local_test_data.xlsx"
 
 #网络设备local资源账号excel数据位置
 LOCAL_USER_TEST_DATA_URL = "G:/test/testIsomp/testData/local_user_test_data.xlsx"
+
+#角色定义数据文件
+ROLE_TEST_DATA_URL = "/testIsomp/testData/role_test_data.xlsx"
 
 class dataFileName(object):
 
@@ -72,4 +75,7 @@ class dataFileName(object):
         
         return data
 
+    #获取角色定义数据文件的数据
+    def get_role_test_data_url(self):
+        return ROLE_TEST_DATA_URL
 #print dataFileName().getLogin_Test_Data()

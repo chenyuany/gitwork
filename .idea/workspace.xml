@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1342862a-9e52-4b0c-8d18-cbe0b6b7d37b" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/login/loginElement.py" afterPath="$PROJECT_DIR$/webElement/login/loginElement.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/test.conf" afterPath="$PROJECT_DIR$/common/test.conf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/role_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/role_test_data.xlsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/_icommon.py" afterPath="$PROJECT_DIR$/common/_icommon.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/_testDataPath.py" afterPath="$PROJECT_DIR$/testData/_testDataPath.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/isomp.log" afterPath="$PROJECT_DIR$/log/isomp.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/test_2role_suite.py" afterPath="$PROJECT_DIR$/testSuite/test_2role_suite.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/role/test_role_case.py" afterPath="$PROJECT_DIR$/testCase/role/test_role_case.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/role/test_roledf.py" afterPath="$PROJECT_DIR$/webElement/role/test_roledf.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/yuan.py" afterPath="$PROJECT_DIR$/common/yuan.py" />
     </list>
@@ -19,12 +24,15 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/testIsomp$yuan.coverage" NAME="yuan Coverage Results" MODIFIED="1497258932758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />
+    <SUITE FILE_PATH="coverage/testIsomp$yuan.coverage" NAME="yuan Coverage Results" MODIFIED="1497525088250" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />
+    <SUITE FILE_PATH="coverage/testIsomp$Unittests_in_testRoleCase.coverage" NAME=" testRoleCase Coverage Results" MODIFIED="1497429095215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testCase/role" />
     <SUITE FILE_PATH="coverage/testIsomp$_cnEncode.coverage" NAME="_cnEncode Coverage Results" MODIFIED="1496223520780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />
     <SUITE FILE_PATH="coverage/testIsomp$Unittests_in_test_suite.coverage" NAME="Unittests in test_suite Coverage Results" MODIFIED="1496219743337" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/testIsomp$_excelRead.coverage" NAME="_excelRead Coverage Results" MODIFIED="1496223814886" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />
     <SUITE FILE_PATH="coverage/testIsomp$_initDriver.coverage" NAME="_initDriver Coverage Results" MODIFIED="1496224594480" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />
+    <SUITE FILE_PATH="coverage/testIsomp$test_role_suite.coverage" NAME="test_role_suite Coverage Results" MODIFIED="1497490486181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/testIsomp$_icommon.coverage" NAME="_icommon Coverage Results" MODIFIED="1496313993395" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />
+    <SUITE FILE_PATH="coverage/testIsomp$Unittests_in_test_role_case.coverage" NAME="Unittests in test_role_case Coverage Results" MODIFIED="1497429219018" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testCase/role" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -35,26 +43,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="test_roledf.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webElement/role/test_roledf.py">
+      <file leaf-file-name="test_role_case.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/testCase/role/test_role_case.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="53" column="47" selection-start-line="53" selection-start-column="47" selection-end-line="53" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.8488665">
+              <caret line="391" column="34" selection-start-line="391" selection-start-column="34" selection-end-line="391" selection-end-column="34" />
               <folding>
-                <element signature="e#466#604#0" expanded="false" />
-                <element signature="e#661#1052#0" expanded="false" />
-                <element signature="e#1117#2306#0" expanded="false" />
-                <element signature="e#2368#3415#0" expanded="false" />
+                <element signature="e#475#514#0" expanded="false" />
+                <element signature="e#5338#6116#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="yuan.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test_roledf.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webElement/role/test_roledf.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="123" column="8" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="8" />
+              <folding>
+                <element signature="e#903#1021#0" expanded="false" />
+                <element signature="e#1059#1463#0" expanded="false" />
+                <element signature="e#1501#2116#0" expanded="false" />
+                <element signature="e#4008#4254#0" expanded="false" />
+                <element signature="e#8550#8745#0" expanded="false" />
+                <element signature="e#9369#9522#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="yuan.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common/yuan.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46242774">
-              <caret line="42" column="28" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="46" column="18" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -83,7 +106,6 @@
         <option value="$PROJECT_DIR$/test_suite.py" />
         <option value="$PROJECT_DIR$/test_single.py" />
         <option value="$PROJECT_DIR$/testSuite/test_1login_suite.py" />
-        <option value="$PROJECT_DIR$/testData/_testDataPath.py" />
         <option value="$PROJECT_DIR$/testCase/sso/test_sso.py" />
         <option value="$PROJECT_DIR$/testCase/login/test_login.py" />
         <option value="$PROJECT_DIR$/common/_cnEncode.py" />
@@ -94,12 +116,15 @@
         <option value="$PROJECT_DIR$/common/_fileRead.py" />
         <option value="$PROJECT_DIR$/webElement/login/loginElement.py" />
         <option value="$PROJECT_DIR$/common/test.conf" />
+        <option value="$PROJECT_DIR$/testCase/role/test_roledf.py" />
+        <option value="$PROJECT_DIR$/testCase/role/test_role.py" />
+        <option value="$PROJECT_DIR$/testData/_testDataPath.py" />
+        <option value="$PROJECT_DIR$/test_role_suite.py" />
+        <option value="$PROJECT_DIR$/testSuite/test_2role_suite.py" />
         <option value="$PROJECT_DIR$/common/_icommon.py" />
         <option value="$PROJECT_DIR$/common/yuan.py" />
-        <option value="$PROJECT_DIR$/testCase/role/test_roledf.py" />
         <option value="$PROJECT_DIR$/webElement/role/test_roledf.py" />
-        <option value="$PROJECT_DIR$/testCase/role/test_role.py" />
-        <option value="$PROJECT_DIR$/testSuite/test_2role_suite.py" />
+        <option value="$PROJECT_DIR$/testCase/role/test_role_case.py" />
       </list>
     </option>
   </component>
@@ -111,10 +136,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1456" />
-    <option name="height" value="876" />
+    <option name="x" value="12" />
+    <option name="y" value="5" />
+    <option name="width" value="1438" />
+    <option name="height" value="858" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -189,7 +214,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="webElement" />
+              <option name="myItemId" value="testCase" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -203,11 +228,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="webElement" />
+              <option name="myItemId" value="testCase" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="role" />
+              <option name="myItemId" value="login" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -238,6 +263,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="FullScreen" value="false" />
     <property name="recentsLimit" value="5" />
+    <property name="restartRequiresConfirmation" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -253,60 +279,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.yuan">
-    <configuration default="false" name="_cnEncode" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/common" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="testIsomp" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/common/_cnEncode.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="_excelRead" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/common" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="testIsomp" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/common/_excelRead.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="_initDriver" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/common" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="testIsomp" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/common/_initDriver.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="_icommon" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -339,6 +311,70 @@
       <module name="testIsomp" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/common/yuan.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name=" testRoleCase" type="tests" factoryName="Unittests" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testCase/role" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="testIsomp" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testCase/role/test_role_case.py" />
+      <option name="CLASS_NAME" value="testRoleCase" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_CLASS" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittests in test_role_case" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testCase/role" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="testIsomp" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testCase/role/test_role_case.py" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="test_role_suite" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="testIsomp" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_role_suite.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -532,19 +568,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python._cnEncode" />
-      <item index="1" class="java.lang.String" itemvalue="Python._excelRead" />
-      <item index="2" class="java.lang.String" itemvalue="Python._initDriver" />
-      <item index="3" class="java.lang.String" itemvalue="Python._icommon" />
-      <item index="4" class="java.lang.String" itemvalue="Python.yuan" />
+      <item index="0" class="java.lang.String" itemvalue="Python._icommon" />
+      <item index="1" class="java.lang.String" itemvalue="Python.yuan" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests. testRoleCase" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in test_role_case" />
+      <item index="4" class="java.lang.String" itemvalue="Python.test_role_suite" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.yuan" />
-        <item index="1" class="java.lang.String" itemvalue="Python._icommon" />
-        <item index="2" class="java.lang.String" itemvalue="Python._initDriver" />
-        <item index="3" class="java.lang.String" itemvalue="Python._excelRead" />
-        <item index="4" class="java.lang.String" itemvalue="Python._cnEncode" />
+        <item index="1" class="java.lang.String" itemvalue="Python.test_role_suite" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in test_role_case" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests. testRoleCase" />
+        <item index="4" class="java.lang.String" itemvalue="Python._icommon" />
       </list>
     </recent_temporary>
   </component>
@@ -562,10 +598,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <frame x="12" y="5" width="1438" height="858" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14971347" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15166909" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3489933" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -575,7 +611,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26442954" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41403025" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -601,7 +637,99 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="67" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/testCase/role/test_role_case.py</url>
+          <line>178</line>
+          <option name="timeStamp" value="129" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/testCase/role/test_role_case.py</url>
+          <line>181</line>
+          <option name="timeStamp" value="132" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/common/_icommon.py</url>
+          <line>677</line>
+          <option name="timeStamp" value="142" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/common/_log.py</url>
+          <line>89</line>
+          <option name="timeStamp" value="149" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/common/_icommon.py</url>
+          <line>678</line>
+          <option name="timeStamp" value="185" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/common/_icommon.py</url>
+          <line>679</line>
+          <option name="timeStamp" value="187" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/common/_icommon.py</url>
+          <line>681</line>
+          <option name="timeStamp" value="188" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/common/_icommon.py</url>
+          <line>650</line>
+          <option name="timeStamp" value="190" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/testCase/role/test_role_case.py</url>
+          <line>179</line>
+          <option name="timeStamp" value="202" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/webElement/role/test_roledf.py</url>
+          <line>147</line>
+          <option name="timeStamp" value="204" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/webElement/role/test_roledf.py</url>
+          <line>434</line>
+          <option name="timeStamp" value="207" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/webElement/role/test_roledf.py</url>
+          <line>440</line>
+          <option name="timeStamp" value="208" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/webElement/role/test_roledf.py</url>
+          <line>443</line>
+          <option name="timeStamp" value="209" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/testCase/role/test_role_case.py</url>
+          <line>187</line>
+          <option name="timeStamp" value="210" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/testCase/role/test_role_case.py</url>
+          <line>185</line>
+          <option name="timeStamp" value="211" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/testCase/role/test_role_case.py</url>
+          <line>184</line>
+          <option name="timeStamp" value="212" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/testCase/role/test_role_case.py</url>
+          <line>183</line>
+          <option name="timeStamp" value="213" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/testCase/role/test_role_case.py</url>
+          <line>182</line>
+          <option name="timeStamp" value="214" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="215" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -611,16 +739,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#493#6773#0" expanded="false" />
-            <element signature="e#844#1906#0" expanded="false" />
-            <element signature="e#2233#3415#0" expanded="false" />
-            <element signature="e#3698#4824#0" expanded="false" />
-            <element signature="e#5111#6213#0" expanded="false" />
-            <element signature="e#6816#9006#0" expanded="false" />
-            <element signature="e#9047#11726#0" expanded="false" />
-            <element signature="e#13002#13146#0" expanded="false" />
-            <element signature="e#13354#13889#0" expanded="false" />
-            <element signature="e#13941#22492#0" expanded="false" />
+            <element signature="e#538#6818#0" expanded="false" />
+            <element signature="e#9676#9867#0" expanded="false" />
+            <element signature="e#11880#11919#0" expanded="false" />
+            <element signature="e#12082#12837#0" expanded="false" />
+            <element signature="e#12883#15071#0" expanded="false" />
+            <element signature="e#13126#13385#0" expanded="false" />
+            <element signature="e#13634#13927#0" expanded="false" />
+            <element signature="e#14465#15059#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -630,16 +756,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#493#6773#0" expanded="false" />
-            <element signature="e#844#1906#0" expanded="false" />
-            <element signature="e#2233#3415#0" expanded="false" />
-            <element signature="e#3698#4824#0" expanded="false" />
-            <element signature="e#5111#6213#0" expanded="false" />
-            <element signature="e#6816#9006#0" expanded="false" />
-            <element signature="e#9047#11726#0" expanded="false" />
-            <element signature="e#13002#13146#0" expanded="false" />
-            <element signature="e#13354#13889#0" expanded="false" />
-            <element signature="e#13941#22492#0" expanded="false" />
+            <element signature="e#538#6818#0" expanded="false" />
+            <element signature="e#9676#9867#0" expanded="false" />
+            <element signature="e#11880#11919#0" expanded="false" />
+            <element signature="e#12082#12837#0" expanded="false" />
+            <element signature="e#12883#15071#0" expanded="false" />
+            <element signature="e#13126#13385#0" expanded="false" />
+            <element signature="e#13634#13927#0" expanded="false" />
+            <element signature="e#14465#15059#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -649,16 +773,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#493#6773#0" expanded="false" />
-            <element signature="e#844#1906#0" expanded="false" />
-            <element signature="e#2233#3415#0" expanded="false" />
-            <element signature="e#3698#4824#0" expanded="false" />
-            <element signature="e#5111#6213#0" expanded="false" />
-            <element signature="e#6816#9006#0" expanded="false" />
-            <element signature="e#9047#11726#0" expanded="false" />
-            <element signature="e#13002#13146#0" expanded="false" />
-            <element signature="e#13354#13889#0" expanded="false" />
-            <element signature="e#13941#22492#0" expanded="false" />
+            <element signature="e#538#6818#0" expanded="false" />
+            <element signature="e#9676#9867#0" expanded="false" />
+            <element signature="e#11880#11919#0" expanded="false" />
+            <element signature="e#12082#12837#0" expanded="false" />
+            <element signature="e#12883#15071#0" expanded="false" />
+            <element signature="e#13126#13385#0" expanded="false" />
+            <element signature="e#13634#13927#0" expanded="false" />
+            <element signature="e#14465#15059#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -682,16 +804,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="456" column="16" selection-start-line="456" selection-start-column="16" selection-end-line="456" selection-end-column="16" />
           <folding>
-            <element signature="e#493#6773#0" expanded="false" />
-            <element signature="e#844#1906#0" expanded="false" />
-            <element signature="e#2233#3415#0" expanded="false" />
-            <element signature="e#3698#4824#0" expanded="false" />
-            <element signature="e#5111#6213#0" expanded="false" />
-            <element signature="e#6816#9006#0" expanded="false" />
-            <element signature="e#9047#11726#0" expanded="false" />
-            <element signature="e#13002#13146#0" expanded="false" />
-            <element signature="e#13354#13889#0" expanded="false" />
-            <element signature="e#13941#22492#0" expanded="false" />
+            <element signature="e#538#6818#0" expanded="false" />
+            <element signature="e#9676#9867#0" expanded="false" />
+            <element signature="e#11880#11919#0" expanded="false" />
+            <element signature="e#12082#12837#0" expanded="false" />
+            <element signature="e#12883#15071#0" expanded="false" />
+            <element signature="e#13126#13385#0" expanded="false" />
+            <element signature="e#13634#13927#0" expanded="false" />
+            <element signature="e#14465#15059#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -708,16 +828,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="456" column="16" selection-start-line="456" selection-start-column="16" selection-end-line="456" selection-end-column="16" />
           <folding>
-            <element signature="e#493#6773#0" expanded="false" />
-            <element signature="e#844#1906#0" expanded="false" />
-            <element signature="e#2233#3415#0" expanded="false" />
-            <element signature="e#3698#4824#0" expanded="false" />
-            <element signature="e#5111#6213#0" expanded="false" />
-            <element signature="e#6816#9006#0" expanded="false" />
-            <element signature="e#9047#11726#0" expanded="false" />
-            <element signature="e#13002#13146#0" expanded="false" />
-            <element signature="e#13354#13889#0" expanded="false" />
-            <element signature="e#13941#22492#0" expanded="false" />
+            <element signature="e#538#6818#0" expanded="false" />
+            <element signature="e#9676#9867#0" expanded="false" />
+            <element signature="e#11880#11919#0" expanded="false" />
+            <element signature="e#12082#12837#0" expanded="false" />
+            <element signature="e#12883#15071#0" expanded="false" />
+            <element signature="e#13126#13385#0" expanded="false" />
+            <element signature="e#13634#13927#0" expanded="false" />
+            <element signature="e#14465#15059#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -831,33 +949,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/logging.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05102041">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/_log.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4222221">
-          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/_excelRead.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.42222223">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/_fileRead.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.0444446">
@@ -866,31 +957,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testData/_testDataPath.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9074074">
-          <caret line="70" column="30" selection-start-line="70" selection-start-column="15" selection-end-line="70" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_single.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.2962963">
-          <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test_sikuli.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/isomp.log">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -946,25 +1013,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/_icommon.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.73217726">
-          <caret line="329" column="0" selection-start-line="329" selection-start-column="0" selection-end-line="329" selection-end-column="0" />
-          <folding>
-            <element signature="e#493#6773#0" expanded="false" />
-            <element signature="e#844#1906#0" expanded="false" />
-            <element signature="e#2233#3415#0" expanded="false" />
-            <element signature="e#3698#4824#0" expanded="false" />
-            <element signature="e#5111#6213#0" expanded="false" />
-            <element signature="e#6816#9006#0" expanded="false" />
-            <element signature="e#9047#11726#0" expanded="false" />
-            <element signature="e#13002#13146#0" expanded="false" />
-            <element signature="e#13354#13889#0" expanded="false" />
-            <element signature="e#13941#22492#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testCase/sso/test_sso.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.65510595">
@@ -973,58 +1021,126 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webElement/login/loginElement.py">
+    <entry file="file://$PROJECT_DIR$/log/isomp.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38535646">
-          <caret line="91" column="25" selection-start-line="91" selection-start-column="25" selection-end-line="91" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/logging.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3015184">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/_excelRead.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.94990367">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_single.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13253012">
+          <caret line="52" column="10" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testSuite/test_1login_suite.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65317917">
-          <caret line="26" column="0" selection-start-line="16" selection-start-column="3" selection-end-line="26" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.9108434">
+          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/unittest/case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28433734">
+          <caret line="231" column="0" selection-start-line="231" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test_suite.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.88439304">
-          <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/_initDriver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.2331407">
-          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testCase/role/test_role_case.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65510595">
-          <caret line="17" column="18" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testSuite/test_2role_suite.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8073218">
-          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.56626505">
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webElement/login/loginElement.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="91" column="8" selection-start-line="91" selection-start-column="8" selection-end-line="91" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testCase/login/test_login.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.0404625">
-          <caret line="64" column="32" selection-start-line="64" selection-start-column="32" selection-end-line="64" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="32" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testData/_testDataPath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.51754385">
+          <caret line="75" column="19" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/_icommon.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.071429">
+          <caret line="650" column="0" selection-start-line="650" selection-start-column="0" selection-end-line="650" selection-end-column="0" />
+          <folding>
+            <element signature="e#538#6818#0" expanded="false" />
+            <element signature="e#9676#9867#0" expanded="false" />
+            <element signature="e#11880#11919#0" expanded="false" />
+            <element signature="e#12082#12837#0" expanded="false" />
+            <element signature="e#12883#15071#0" expanded="false" />
+            <element signature="e#13126#13385#0" expanded="false" />
+            <element signature="e#13634#13927#0" expanded="false" />
+            <element signature="e#14465#15059#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/_log.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6650602">
+          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/yuan.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="18" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -1032,21 +1148,34 @@
     <entry file="file://$PROJECT_DIR$/webElement/role/test_roledf.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="47" selection-start-line="53" selection-start-column="47" selection-end-line="53" selection-end-column="47" />
+          <caret line="123" column="8" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="8" />
           <folding>
-            <element signature="e#466#604#0" expanded="false" />
-            <element signature="e#661#1052#0" expanded="false" />
-            <element signature="e#1117#2306#0" expanded="false" />
-            <element signature="e#2368#3415#0" expanded="false" />
+            <element signature="e#903#1021#0" expanded="false" />
+            <element signature="e#1059#1463#0" expanded="false" />
+            <element signature="e#1501#2116#0" expanded="false" />
+            <element signature="e#4008#4254#0" expanded="false" />
+            <element signature="e#8550#8745#0" expanded="false" />
+            <element signature="e#9369#9522#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/yuan.py">
+    <entry file="file://$PROJECT_DIR$/common/_initDriver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46242774">
-          <caret line="42" column="28" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
+        <state vertical-scroll-proportion="2.8715365">
+          <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testCase/role/test_role_case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8488665">
+          <caret line="391" column="34" selection-start-line="391" selection-start-column="34" selection-end-line="391" selection-end-column="34" />
+          <folding>
+            <element signature="e#475#514#0" expanded="false" />
+            <element signature="e#5338#6116#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
