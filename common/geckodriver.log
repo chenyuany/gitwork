@@ -1,0 +1,11 @@
+1497594764318	geckodriver	INFO	Listening on 127.0.0.1:57164
+1497594766316	mozprofile::profile	INFO	Using profile path C:\Users\ADMINI~1\AppData\Local\Temp\rust_mozprofile.rtplWq1c2O4R
+1497594766321	geckodriver::marionette	INFO	Starting browser C:\Program Files (x86)\Mozilla Firefox\firefox.exe with args []
+1497594766562	geckodriver::marionette	INFO	Connecting to Marionette on localhost:57170
+1497594767690	Marionette	WARN	Deprecated preference marionette.defaultPrefs.enabled detected, please use marionette.enabled
+1497594772366	Marionette	INFO	Listening on port 57170
+1497594773126	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://172.16.10.195/fort/login, line 35: TypeError: sso.update is not a function
+1497595100894	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+1497595100908	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+1497595101366	Marionette	INFO	Ceased listening

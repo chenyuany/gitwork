@@ -21,7 +21,7 @@ from _log import log
 sys.path.append("/testIsomp/webElement/role/")
 from test_roledf import Role
 
-class testRoleCase(object):
+class testRole(object):
 
 	def __init__(self,driver):
 		self.driver = driver

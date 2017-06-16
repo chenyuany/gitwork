@@ -19,7 +19,7 @@ from _initDriver import initDriver
 from _icommon import getElement,selectElement,frameElement,commonFun
 #导入登录
 sys.path.append("/testIsomp/testCase/role/")
-from test_role_case import testRoleCase
+from test_role import testRole
 import unittest
 
 class testRoleSuite(unittest.TestCase):
@@ -28,8 +28,17 @@ class testRoleSuite(unittest.TestCase):
 		self.browser = initDriver().open_driver()
 
 	def test_role(self):
-		role_case = testRoleCase(self.browser)
-		role_case.addsysrole()
+		testrole = testRole(self.browser)
+		testrole.addsysrole_001()
+		testrole.addroledpt_002()
+		testrole.editrole_003()
+		testrole.editmanagerole_004()
+		testrole.checkrolename()
+		testrole.checkshortname()
+		testrole.checkother()
+		testrole.checkbulkdel()
+		testrole.delrole_006()
+		testrole.bulkdelrole_007()
 
 	def tearDown(self):
 		initDriver().close_driver(self.browser)
