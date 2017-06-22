@@ -68,14 +68,15 @@ class dataFileName(object):
     def get_local_user_test_data_url(self):
         return LOCAL_USER_TEST_DATA_URL
 
+    u"""获取角色定义数据文件的数据"""
+    def get_role_test_data_url(self):
+        return ROLE_TEST_DATA_URL
+
     #从sheet名称获取登陆数据
     def get_data(self,dataPath,sheetName):
         #获取excel数据
         data = excelRead().get_excel_data(dataPath,sheetName)
-        
         return data
 
-    #获取角色定义数据文件的数据
-    def get_role_test_data_url(self):
-        return ROLE_TEST_DATA_URL
+
 #print dataFileName().getLogin_Test_Data()
