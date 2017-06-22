@@ -773,7 +773,7 @@ class commonFun(object):
             -index数字开关0代表点击取消，1代表点击确定
     '''
 
-    def click_login_msg_button(self, index):
+    def click_msg_button(self, index):
         if index == 1:
             return self.getElem.find_element_wait_and_click("classname", "aui_state_highlight")
         elif index == 0:
@@ -802,7 +802,7 @@ class commonFun(object):
         else:
             #判断文本内容是否一致
             elemText = self.getElem.find_element_wait_and_compare_text(type, elem, data)
-            self.click_login_msg_button(1)
+            self.click_msg_button(1)
             if elemText:
                 # 页面的内容与检查点内容一致，测试点通过
                 self.log.log_detail(data[0], True)

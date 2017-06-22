@@ -22,7 +22,6 @@ sys.path.append("/testIsomp/webElement/role/")
 from test_roledf import Role
 sys.path.append("/testIsomp/testCase/role/")
 from test_role import testRole
-import time
 
 browers=initDriver().open_driver()
 getElem = getElement(browers)
@@ -32,7 +31,6 @@ tableElem=tableElement(browers)
 role = Role(browers)
 testrole=testRole(browers)
 common=commonFun(browers)
-time.sleep(1)
 a = getElem.find_element_with_wait("id", "loginMethod")
 selectElem.select_element_by_index(a, 0)
 getElem.find_element_wait_and_sendkeys("id", "username", "isomper")

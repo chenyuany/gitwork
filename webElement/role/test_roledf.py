@@ -95,18 +95,21 @@ class Role(object):
 	      -index：select的索引，例0,1,2,从0开始计数
 	'''
 	def select_manage_role(self, index):
-		try:
-			selem = self.getElem.find_element_with_wait("id", "allRoles")
+		manage_index = index + 1
+		option_xpath = "//select[@id='allRoles']/option[" + str(manage_index) + "]"
+		selem = self.getElem.find_element_with_wait("id", "allRoles")
+		bb = self.selectElem.select_element_check("xpath", option_xpath)
+		if bb is False:
 			self.selectElem.select_element_by_index(selem, index)
-		except Exception:
-			print(u"选择可管理角色失败")
 
 	u'''点击可管理角色添加'''
-	def manage_role_add(self):
+	def manage_role_add(self, index):
 		try:
 			self.frameElem.switch_to_content()
 			self.frameElem.switch_to_main()
 			self.getElem.find_element_wait_and_click("id", "add_roles")
+			selem = self.getElem.find_element_with_wait("id", "allRoles")
+			self.selectElem.deselect_element_by_index(selem, index)
 		except Exception:
 			print(u"点击添加按钮失败")
 

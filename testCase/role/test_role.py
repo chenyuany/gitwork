@@ -161,11 +161,11 @@ class testRole(object):
 				if dataRow != 0:
 					self.role.edit(data[2])
 					self.role.select_manage_role(int(data[3]))
-					self.role.manage_role_add()
+					self.role.manage_role_add(int(data[3]))
 					self.cmf.select_check_point("id", roleMsg, data, flag)
 					self.role.save_button()
 					self.role.frameElem.switch_to_content()
-					self.cmf.click_login_msg_button(1)
+					self.cmf.click_msg_button(1)
 					self.cmf.back()
 			except Exception as e:
 				print u"编辑系统管理员可管理角色失败:" + str(e)
@@ -176,7 +176,7 @@ class testRole(object):
 		self.log.log_start("editotherrole")
 		#获取编辑系统管理员测试数据
 		roledfData = self.get_table_data("edit_other_role")
-		#右侧已选可管理角色框
+		#右侧已选其他权限框
 		roleMsg = "otherPrivileges"
 		for dataRow in range(len(roledfData)):
 			data = roledfData[dataRow]
@@ -190,7 +190,7 @@ class testRole(object):
 					self.cmf.select_check_point("id", roleMsg, data, flag)
 					self.role.save_button()
 					self.role.frameElem.switch_to_content()
-					self.cmf.click_login_msg_button(1)
+					self.cmf.click_msg_button(1)
 					self.cmf.back()
 			except Exception as e:
 				print u"编辑系统管理员其他权限失败:" + str(e)
