@@ -28,9 +28,11 @@ class fileRead(object):
         
         #实例化chiEncode
         cnEcod = cnEncode()
-        #打开文件
-        fileObj = open("/testIsomp/common/test.conf","r")
+        
         try:
+            #打开文件
+            fileObj = open("/testIsomp/common/test.conf","r")
+            
             #读取文件所有行
             allLines = fileObj.readlines()
             
@@ -39,7 +41,8 @@ class fileRead(object):
                 list.append(line)
     
             #返回IP，ie驱动路径，google驱动路径等数据        
-            return list   
+            return list 
+            
              
         except IOError:
             print cnEcod.cnCode("test.conf文件不存在！")
@@ -51,8 +54,7 @@ class fileWrite(object):
     
     u'''写入文本文件'''
     def file_write(self,message):
-        #实例化chiEncode
-        cnEcod = cnEncode()
+        
         #打开文件
         fileWriteObj = open("/testIsomp/log/isomp.log","a")
         
@@ -67,9 +69,8 @@ class fileWrite(object):
 
 #if __name__ == "__main__":
 #    addressList = fileRead().get_ip_address()
+#    print addressList
 #    print addressList[0]
 #    print addressList[1]
 #    print addressList[2]
-#    print addressList[3]      
-#    
-#    fileWrite().file_write("123456")
+#    print addressList[3]

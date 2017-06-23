@@ -7,16 +7,16 @@ import os
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import datetime
-import time
+import time 
 #导入驱动
-sys.path.append("G:/test/testIsomp/common")
+sys.path.append("/testSimp/common/")
 from _initDriver import *
 #导入登录
-sys.path.append("G:/test/testIsomp/testCase/login")
+sys.path.append("/testSimp/testCase/")
 from test_login import *
 #导入定位
-#sys.path.append("/test/testIsomp/testCase/position")
-#from position_frame import *
+sys.path.append("/testSimp/testCase/position")
+from position_frame import *
 
 class test_single:
     
@@ -38,10 +38,10 @@ starttime=datetime.datetime.now()
 browser = initDriver().open_driver()
 
 #登录
-testLogin().login_denglu(browser)
+test_login().login_denglu(browser)
 #定位
-#position_frame().leave_frame(browser)
-#position_frame().position_main(browser)
+position_frame().leave_frame(browser)
+position_frame().position_main(browser)
 
 #点击账号按钮
 test_single().set_button_user(browser)

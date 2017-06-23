@@ -4,11 +4,11 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 #导入驱动
-sys.path.append("G:/test/testIsomp/common/")
+sys.path.append("/testIsomp/common/")
 from _initDriver import *
 
 #导入登录
-sys.path.append("G:/test/testIsomp/testCase/login")
+sys.path.append("/testIsomp/testCase/login")
 from test_login import *
 
 import unittest

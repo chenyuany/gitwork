@@ -1,13 +1,39 @@
-1498097161116	geckodriver	INFO	Listening on 127.0.0.1:58038
-1498097163109	mozprofile::profile	INFO	Using profile path C:\Users\ADMINI~1\AppData\Local\Temp\rust_mozprofile.Q1RscCLApy9Z
-1498097163133	geckodriver::marionette	INFO	Starting browser C:\Program Files (x86)\Mozilla Firefox\firefox.exe with args []
-1498097163227	geckodriver::marionette	INFO	Connecting to Marionette on localhost:58044
-1498097164811	Marionette	WARN	Deprecated preference marionette.defaultPrefs.enabled detected, please use marionette.enabled
-1498097170473	Marionette	INFO	Listening on port 58044
-1498097170861	Marionette	WARN	TLS certificate errors will be ignored for this session
-JavaScript error: https://192.168.23.231/fort/login, line 37: TypeError: sso.update is not a function
-1498097186149	Marionette	INFO	Ceased listening
-otes.js, line 44: ReferenceError: sid is not defined
-JavaScript error: https://192.168.23.231/fort//trust/js/views/role/role.js, line 59: TypeError: fortRole is undefined
-defined
-JavaScript error: https://192.168.23.231/fort//trust/js/views/role/role.js, line 216: TypeError: dataObj.fortRole is undefined
+1498105784659	geckodriver	INFO	Listening on 127.0.0.1:62380
+1498105786669	mozprofile::profile	INFO	Using profile path C:\Users\ADMINI~1\AppData\Local\Temp\rust_mozprofile.2oAvNVez6Ii2
+1498105786679	geckodriver::marionette	INFO	Starting browser C:\Program Files (x86)\Mozilla Firefox\firefox.exe with args []
+1498105786773	geckodriver::marionette	INFO	Connecting to Marionette on localhost:62386
+1498105788308	Marionette	WARN	Deprecated preference marionette.defaultPrefs.enabled detected, please use marionette.enabled
+1498105792264	Marionette	INFO	Listening on port 62386
+1498105792693	Marionette	WARN	TLS certificate errors will be ignored for this session
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeE*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message1498108042482	Marionette	INFO	Ceased listening
+ch resource.
+Full stack: 
+*************************
+1498107904349	Marionette	INFO	Ceased listening
+uilds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+console.error: 
+  Message: Error: Connection closed before committing the transaction.
+  Stack:
+    executeTransaction/promise</transactionPromise<@resource://gre/modules/Sqlite.jsm:617:19
+TaskImpl_run@resource://gre/modules/Task.jsm:319:42
+process@resource://gre/modules/Promise.jsm -> resource://gre/modules/Promise-backend.js:917:23
+walkerLoop@resource://gre/modules/Promise.jsm -> resource://gre/modules/Promise-backend.js:801:7
+scheduleWalkerLoop/<@resource://gre/modules/Promise.jsm -> resource://gre/modules/Promise-backend.js:737:11
+observe@resource://gre/modules/AsyncShutdown.jsm:550:9
+addBlocker/moduleBlocker/<@resource://gre/components/nsAsyncShutdown.js:157:15
+Promise@resource://gre/modules/Promise.jsm -> resource://gre/modules/Promise-backend.js:385:5
+moduleBlocker@resource://gre/components/nsAsyncShutdown.js:153:29
+trigger@resource://gre/modules/AsyncShutdown.jsm:719:23
+_wait@resource://gre/modules/AsyncShutdown.jsm:866:7
+wait@resource://gre/modules/AsyncShutdown.jsm:850:28
+observe@resource://gre/modules/AsyncShutdown.jsm:533:17
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+

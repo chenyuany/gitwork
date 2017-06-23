@@ -8,7 +8,7 @@ import HTMLTestRunner
 import time
 import os
 
-sys.path.append("/test/testIsomp/common/")
+sys.path.append("/testIsomp/common/")
 from _mail import *
 
 class testSuite(unittest.TestCase):
@@ -18,7 +18,7 @@ class testSuite(unittest.TestCase):
         isTitle = time.strftime(timeFormat, time.localtime())
         
         #定义测试报告的输出页面
-        reportFile = "/testIsomp/report/testReport.html"
+        reportFile = "d:/testIsomp/report/testReport.html"
         rf = file(reportFile,'wb')
         
         loader = unittest.TestLoader()

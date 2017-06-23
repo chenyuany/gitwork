@@ -1,5 +1,5 @@
 #coding=utf-8
-u'''
+u''' 
 #文件名：_excelRead
 #被测软件版本号：V2.8.1
 #作成人：于洋
@@ -15,11 +15,10 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 import xlrd
-from _cnEncode import cnEncode
 
 class excelRead:
     #获取excel数据
-    def get_excel_data(self,dataUrl,sheetName):
+    def get_excel_data(self,dataUrl,sheetName):  
         #数据和行数
         Data = []
         try:
@@ -29,20 +28,18 @@ class excelRead:
             xlsx_table = xlsx_data.sheet_by_name(sheetName)
             #获取excel的总行数
             xrows = xlsx_table.nrows
-
+            
             for irow in range(xrows):
                 Data.append(xlsx_table.row_values(irow))
 
             return Data
-
+            
         except IOError as e:
             print "excel file error:%s,%s"%(e.args[0],e.args[1])
             #print cnd.chiCode("xlsx数据文件不存在")
-
-
+            
+            
 #data = ExcelData().getExcelData()
 
 #for i in range(len(data)):
 #    print data[i]
-#date=excelRead().get_excel_data("G:/12.xlsx","wqas")
-#print(date)

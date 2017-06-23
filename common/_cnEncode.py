@@ -24,6 +24,15 @@ class cnEncode:
             return cnStr.encode('GBK')
         else:
             return cnStr.decode('utf-8').encode('GBK')
-
-#yu=cnEncode().cnCode("陈圆圆")
-#print(yu)
+    
+    u'''判断字符串是否为float类型
+        Parameters:
+            - enStr：判断的字符串
+    '''
+        
+    def is_float(self,enStr):
+        if isinstance(enStr,float):
+            enStr = int(enStr)
+        else:
+            enStr = str(enStr)
+        return enStr
