@@ -13,33 +13,38 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+sys.path.append("/testIsomp/testData/")
+from _testDataPath import dataFileName
+
 #导入驱动
 sys.path.append("/testIsomp/common/")
 from _initDriver import initDriver
 from _icommon import getElement,selectElement,frameElement
-#导入登录
 sys.path.append("/testIsomp/testCase/role/")
 from test_role import testRole
+#导入登录
+sys.path.append("/testIsomp/webElement/login/")
+from loginElement import loginPage
+
 import unittest
 class testRoleSuite(unittest.TestCase):
 
 	def setUp(self):
 		self.browser = initDriver().open_driver()
+
+	def test_role(self):
 		self.getElem = getElement(self.browser)
-		self.selectElem = selectElement(self.browers)
-		self.frameElem = frameElement(self.browers)
-		self.testrole = testRole(self.browers)
-		a = self.getElem.find_element_with_wait("id", "loginMethod")
-		self.selectElem.select_element_by_index(a, 0)
-		self.getElem.find_element_wait_and_sendkeys("id", "username", "isomper")
-		self.getElem.find_element_wait_and_sendkeys("id", "pwd", "1")
-		self.getElem.find_element_wait_and_click("id","do_login")
+		self.selectElem = selectElement(self.browser)
+		self.frameElem = frameElement(self.browser)
+		self.testrole = testRole(self.browser)
+		self.login = loginPage(self.browser)
+		login_data = self.testrole.get_table_data("login")
+		data = login_data[1]
+		self.login.login(data)
 		self.frameElem.switch_to_content()
 		self.frameElem.switch_to_top()
 		self.getElem.find_element_wait_and_click("link",u"角色管理")
 		self.getElem.find_element_wait_and_click("link",u"角色定义")
-
-	def test_role(self):
 		testrole = testRole(self.browser)
 		u'''添加系统管理员'''
 		testrole.add_sysrole_001()

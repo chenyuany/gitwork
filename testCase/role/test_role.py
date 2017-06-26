@@ -74,10 +74,10 @@ class testRole(object):
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 					#校验添加的角色是否存在
 					self.cmf.back()
-					if self.cmf.is_namevalue_exsit(data[2], "fortRoleName"):
-						print(u"角色已添加成功")
+#					if self.cmf.is_namevalue_exsit(data[2], "fortRoleName"):
+#						print("add sysrole success")
 			except Exception as e:
-				print u"添加系统管理员失败:" + str(e)
+				print ("add sysrole fail:" + str(e))
 		self.log.log_end("addsysrole")
 
 	u'''添加部门管理员'''
@@ -105,10 +105,10 @@ class testRole(object):
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 					self.cmf.back()
 					#校验添加的角色是否存在
-					if self.cmf.is_namevalue_exsit(data[2], "fortRoleName"):
-						print(u"角色已添加成功")
+#					if self.cmf.is_namevalue_exsit(data[2], "fortRoleName"):
+#						print("add dptrole success")
 			except Exception as e:
-				print u"添加部门管理员失败:" + str(e)
+				print ("add sysrole fail:" + str(e))
 		self.log.log_end("addroledpt")
 
 	u'''编辑系统管理员'''
@@ -136,10 +136,10 @@ class testRole(object):
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 					self.cmf.back()
 					#校验编辑后的角色是否存在
-					if self.cmf.is_namevalue_exsit(data[3], "fortRoleName"):
-						print(u"编辑角色成功")
+#					if self.cmf.is_namevalue_exsit(data[3], "fortRoleName"):
+#						print("Edit role success")
 			except Exception as e:
-				print u"编辑系统管理员失败:" + str(e)
+				print ("Edit role fail:" + str(e))
 		self.log.log_end("editrole")
 
 	u'''编辑可管理角色'''
@@ -168,7 +168,7 @@ class testRole(object):
 					self.cmf.click_msg_button(1)
 					self.cmf.back()
 			except Exception as e:
-				print u"编辑系统管理员可管理角色失败:" + str(e)
+				print ("Edit managed roles fail:" + str(e))
 		self.log.log_end("editmanagerole")
 
 	u'''编辑其他权限'''
@@ -193,7 +193,7 @@ class testRole(object):
 					self.cmf.click_msg_button(1)
 					self.cmf.back()
 			except Exception as e:
-				print u"编辑系统管理员其他权限失败:" + str(e)
+				print("Edit other permissions fail:" + str(e))
 		self.log.log_end("editotherrole")
 
 	u'''删除角色'''
@@ -216,9 +216,9 @@ class testRole(object):
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 					#校验删除后的角色是否存在
 					if self.cmf.is_namevalue_exsit(data[2], "fortRoleName"):
-						print(u"超级管理员已删除")
+						print("The super administrator has been deleted")
 			except Exception as e:
-				print u"删除超级管理员失败:" + str(e)
+				print ("Deleting the super administrator failed:" + str(e))
 		self.log.log_end("delrole")
 
 	u'''全选删除角色'''
@@ -243,7 +243,7 @@ class testRole(object):
 					self.role.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 			except Exception as e:
-				print u"全选删除角色失败:" + str(e)
+				print ("Select Delete roles failure:" + str(e))
 		self.log.log_end("bulkdelrole")
 
 	u'''校验角色名称和没有选择菜单项'''
@@ -271,7 +271,7 @@ class testRole(object):
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 					self.role.frameElem.switch_to_main()
 			except Exception as e:
-				print u"校验角色名称失败:" + str(e)
+				print ("Failed to verify the role name" + str(e))
 		self.cmf.back()
 		self.log.log_end("checkrolename")
 
@@ -300,7 +300,7 @@ class testRole(object):
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 					self.cmf.back()
 			except Exception as e:
-				print u"校验名称简写失败:" + str(e)
+				print ("Failed to verify the name abbreviation:" + str(e))
 
 		self.log.log_end("checkshortname")
 
@@ -328,7 +328,7 @@ class testRole(object):
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 					self.cmf.back()
 			except Exception as e:
-				print u"校验其他权限选择失败:" + str(e)
+				print ("Check other rights options failed:" + str(e))
 		self.log.log_end("checkother")
 
 	u'''校验批量删除'''
@@ -351,5 +351,5 @@ class testRole(object):
 					self.role.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 			except Exception as e:
-				print u"校验批量删除失败:" + str(e)
+				print ("Check batch deletion failed" + str(e))
 		self.log.log_end("checkbulkdel")

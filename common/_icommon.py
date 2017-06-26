@@ -252,21 +252,21 @@ class selectElement(object):
     def select_element_check(self, type,value,timeout=1):
         try:
             if type == "xpath":
-                return WebDriverWait(self.driver, timeout).until(EC.element_located_to_be_selected((By.XPATH, value)))
+                return WebDriverWait(self.driver,timeout).until(EC.element_located_to_be_selected((By.XPATH,value)))
             elif type == "id":
-                return WebDriverWait(self.driver, timeout).until(EC.element_located_to_be_selected((By.ID, value)))
+                return WebDriverWait(self.driver,timeout).until(EC.element_located_to_be_selected((By.ID,value)))
             elif type == "name":
-                return WebDriverWait(self.driver, timeout).until(EC.element_located_to_be_selected((By.NAME, value)))
+                return WebDriverWait(self.driver,timeout).until(EC.element_located_to_be_selected((By.NAME,value)))
             elif type == "tagname":
-                return WebDriverWait(self.driver, timeout).until(EC.element_located_to_be_selected((By.TAG_NAME, value)))
+                return WebDriverWait(self.driver,timeout).until(EC.element_located_to_be_selected((By.TAG_NAME,value)))
             elif type == "classname":
-                return WebDriverWait(self.driver, timeout).until(EC.element_located_to_be_selected((By.CLASS_NAME, value)))
+                return WebDriverWait(self.driver,timeout).until(EC.element_located_to_be_selected((By.CLASS_NAME,value)))
             elif type == "css":
-                return WebDriverWait(self.driver, timeout).until(EC.element_located_to_be_selected((By.CSS_SELECTOR, value)))
+                return WebDriverWait(self.driver,timeout).until(EC.element_located_to_be_selected((By.CSS_SELECTOR,value)))
             elif type == "link":
-                return WebDriverWait(self.driver, timeout).until(EC.element_located_to_be_selected((By.LINK_TEXT, value)))
+                return WebDriverWait(self.driver,timeout).until(EC.element_located_to_be_selected((By.LINK_TEXT,value)))
             elif type == "plt":
-                return WebDriverWait(self.driver, timeout).until(EC.element_located_to_be_selected((By.PARTIAL_LINK_TEXT, value)))
+                return WebDriverWait(self.driver,timeout).until(EC.element_located_to_be_selected((By.PARTIAL_LINK_TEXT,value)))
         except Exception:
             return False
 
@@ -275,7 +275,7 @@ class selectElement(object):
     u'''根据value选择
         Parameters:
             - selem:定位带的Select元素
-            - value:select选项中的文本值
+            - value:select选项中的value属性值
     '''
     def select_element_by_value(self,selem,value):
         return Select(selem).select_by_value(value)
@@ -283,7 +283,7 @@ class selectElement(object):
     u'''根据text选择
             Parameters:
                 - selem:定位带的Select元素
-                - text:select选项中的value值
+                - text:select选项中的文本值
         '''
     
     def select_element_by_visible_text(self,selem,text):
@@ -425,6 +425,13 @@ class frameElement(object):
     u'''返回上级frame'''
     def switch_to_content(self):
         self.driver.switch_to_default_content()
+        
+    u'''定位到artIframe'''
+    def switch_to_artIframe(self):
+        self.switch_to_content()
+        if self.getElem.is_element_exsit("id","artIframe"):
+            self.driver.switch_to_frame("artIframe")
+        
     
     u'''从一个frame跳转到其他frame
         Parameters:
@@ -456,6 +463,9 @@ class frameElement(object):
         elif frameName == "rigthFrame":
             #定位到rightFrame            
             self.switch_to_rigth()
+        elif frameName == "artIframe":
+            self.switch_to_artIframe()
+        
 
 #table元素
 class tableElement(object):
@@ -639,16 +649,16 @@ class commonFun(object):
         frameElem.from_frame_to_otherFrame("topFrame")
         
         #点击一级菜单
-        self.getElem.find_element_wait_and_click("link",levelText1)
+        WebDriverWait(self.driver,10).until(EC.element_to_be_clickable((By.LINK_TEXT,levelText1))).click()
         
         #如果有2级菜单，再点击2级菜单
         if levelText2 != 'no':
-            self.getElem.find_element_wait_and_click("link",levelText2)
+            WebDriverWait(self.driver,10).until(EC.element_to_be_clickable((By.LINK_TEXT,levelText2))).click()
         
         #如果有3级菜单，根据名称点击3级菜单
         if levelText3 != 'no':
             frameElem.from_frame_to_otherFrame("leftFrame")
-            self.getElem.find_element_wait_and_click("link",levelText3)
+            WebDriverWait(self.driver,10).until(EC.element_to_be_clickable((By.LINK_TEXT,levelText3))).click()
         
     u'''操作时间控件
         Parameters:
@@ -741,19 +751,7 @@ class commonFun(object):
             dTime[4].clear()
             dTime[4].send_keys(tSen)
             self.getElem.find_element_wait_and_click("id","dpOkInput")
-
-    u'''点击弹框按钮
-          Parameters:
-              -index数字开关0代表点击取消，1代表点击确定
-    '''
-    
-    def click_msg_button(self, index):
-        if index == 1:
-            return self.getElem.find_element_wait_and_click("classname", "aui_state_highlight")
-        elif index == 0:
-           NOBTN = "/html/body/div[1]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr[3]/td/div/button[2]"
-           return self.getElem.find_element_wait_and_click('xpath', NOBTN)
-
+            
     u'''弹窗类检查点
         Parameters:
             - type：定位弹窗中元素的类型
@@ -763,8 +761,22 @@ class commonFun(object):
     '''
     def click_login_msg_button(self):
         #确定按钮
-        OKBTN = "//div[@id='aui_buttons']/button"
+        self.driver.switch_to_default_content()
+        OKBTN = "//div[@id='aui_buttons']/button[1]"
         return self.getElem.find_element_wait_and_click('xpath',OKBTN)
+    
+
+    u'''点击弹框按钮
+          Parameters:
+              -index数字开关0代表点击取消，1代表点击确定
+    '''
+    
+    def click_msg_button(self,index):
+        if index == 1:
+            return self.click_login_msg_button()
+        elif index == 0:
+            NOBTN = "/html/body/div[1]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr[3]/td/div/button[2]"
+            return self.getElem.find_element_wait_and_click('xpath', NOBTN)
 
     u'''弹窗类检查点
         Parameters:
@@ -787,7 +799,8 @@ class commonFun(object):
         #检查点不为空
         else:
             #判断文本内容是否一致
-            elemText = self.getElem.find_element_wait_and_compare_text(type, elem, data)
+#            self.driver.switch_to_default_content()
+            elemText = self.getElem.find_element_wait_and_compare_text(type,elem,data)
             self.click_msg_button(1)
             if elemText:
                 # 页面的内容与检查点内容一致，测试点通过
@@ -813,10 +826,15 @@ class commonFun(object):
     #去掉最后一个checkbox的勾选，checkbox.pop().click()
     '''
     def select_all_checkbox(self):
-        checkboxs = self.driver.find_elements_by_css_selector('input[type=checkbox]')
-        for checkbox in checkboxs: 
-            if checkbox.is_selected() == False:
-                checkbox.click()
+        try:
+            checkboxs = self.driver.find_elements_by_css_selector('input[type=checkbox]')
+            for checkbox in checkboxs: 
+                if checkbox.is_selected() == False and \
+                    self.getElem.is_element_exsit('css','input[type=checkbox]') == True:
+                    checkbox.click()
+        except Exception as e:
+            print "checkbox is not visible:" + str(e)
+
 
     u'''点击返回按钮'''
     def back(self):
@@ -825,7 +843,7 @@ class commonFun(object):
             self.frameElem.switch_to_main()
             self.getElem.find_element_wait_and_click("id", "history_skip")
         except Exception:
-            print(u"点击返回按钮失败")
+            print("Click the return button to fail")
 
     u'''select右边框检查点
         Parameters:
@@ -867,7 +885,7 @@ class commonFun(object):
             self.frameElem.switch_to_main()
             self.getElem.find_element_wait_and_click("id", id)
         except Exception:
-            print(u"点击批量删除按钮失败")
+            print("Failed to hit the batch delete button")
 
     u'''勾选全选框'''
     def check_all(self):
@@ -876,7 +894,7 @@ class commonFun(object):
             self.frameElem.switch_to_main()
             self.getElem.find_element_wait_and_click("id", "checkbox")
         except Exception:
-            print(u"勾选全选框失败")
+            print("Select the check box failure")
 
     u'''判断名称是否存在
        Parameters:

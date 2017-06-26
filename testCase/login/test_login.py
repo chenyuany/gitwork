@@ -3,9 +3,17 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+from threading import Thread
+from selenium import webdriver
+from selenium.webdriver import Remote
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
+
 sys.path.append("/testIsomp/common/")
 from _excelRead import excelRead
 from _cnEncode import cnEncode
+from _transCoding import jsonTranscoding
 
 sys.path.append("/testIsomp/testData/")
 from _testDataPath import dataFileName
@@ -16,6 +24,8 @@ from loginElement import *
 sys.path.append("/testIsomp/common")
 from _icommon import commonFun
 from _icommon import log
+from _fileRead import fileRead
+from _initDriver import initDriver
 
 class testLogin(object):
     
@@ -30,7 +40,7 @@ class testLogin(object):
         u'''可以循环设定数据测试系统登录'''
         dataFile = dataFileName()
         loginPath = dataFile.get_login_test_data_url()
-        sheets_name = ['default','ad','pwd_ad','radius']
+        sheets_name = ['default','ad','pwd_ad','radius']#'default','ad','pwd_ad','radius'
         for sheetname in sheets_name:
             loginData = dataFile.get_data(loginPath,sheetname)
         
@@ -54,8 +64,8 @@ class testLogin(object):
                     if dataRow != 0:
                         if sheetname == 'default':
                             loginFun.login(data)
-                            if dataRow == 1:
-                                loginFun.set_max_login_count()
+#                            if dataRow == 1:
+#                                loginFun.set_max_login_count()
                         elif sheetname == 'ad':
                             loginFun.ad_login(data)
                         elif sheetname == 'pwd_ad':
@@ -81,6 +91,32 @@ class testLogin(object):
         
         
 if __name__ == "__main__":
-    browser = initDriver().open_driver()
     
-    testLogin(browser).login()
+    driver = initDriver().open_driver()
+    testLogin(driver).login()
+    
+    
+    '''
+    lists = jsonTranscoding().set_brower()
+    threads = []
+    
+    def execute_case(host,brower):
+        driver = initDriver().remote_open_driver(host,brower)
+        testLogin(driver).login()
+        initDriver().close_driver(driver)
+        
+    for host,brower in lists.items():
+        th = Thread(target=execute_case,args=(host,brower))
+        th.start()
+        threads.append(th)
+            
+    for th in threads:
+        th.join()
+    '''
+        
+
+    
+    
+
+        
+        

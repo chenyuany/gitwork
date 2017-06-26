@@ -18,7 +18,7 @@ class testSuite(unittest.TestCase):
         isTitle = time.strftime(timeFormat, time.localtime())
         
         #定义测试报告的输出页面
-        reportFile = "d:/testIsomp/report/testReport.html"
+        reportFile = "/testIsomp/report/testReport.html"
         rf = file(reportFile,'wb')
         
         loader = unittest.TestLoader()

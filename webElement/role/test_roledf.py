@@ -47,14 +47,14 @@ class Role(object):
 			self.frameElem.switch_to_main()
 			self.getElem.find_element_wait_and_click("id", self.ADD_ROLE)
 		except Exception:
-			print(u"点击添加按钮失败")
+			print("Click the Add button to fail")
 
 	u'''选择级别为部门级'''
 	def level(self):
 		try:
 			self.getElem.find_element_wait_and_click("id", self.DEPARTMENT)
 		except Exception:
-			print(u"选择级别为部门级失败")
+			print("The selection level is departmental failure")
 
 	u'''全选部门级角色'''
 	def select_dptrole(self):
@@ -65,7 +65,7 @@ class Role(object):
 			self.getElem.find_element_wait_and_click("id", "treeDemo_22_check")
 			self.getElem.find_element_wait_and_click("id", "treeDemo_27_check")
 		except Exception:
-			print(u"全选部门级角色失败")
+			print("Select the role of department level failure")
 
 	u'''全选系统级角色'''
 	def select_sysrole(self):
@@ -79,7 +79,7 @@ class Role(object):
 			self.getElem.find_element_wait_and_click("id", "treeDemo_23_check")
 			self.getElem.find_element_wait_and_click("id", "treeDemo_50_check")
 		except Exception:
-			print(u"全选系统级角色失败")
+			print("Select the role of system level failure")
 
 	u'''点击编辑角色界面的保存按钮'''
 	def save_button(self):
@@ -88,7 +88,7 @@ class Role(object):
 			self.frameElem.switch_to_main()
 			self.getElem.find_element_wait_and_click("id", self.SAVE_ROLE, 5)
 		except Exception:
-			print(u"点击保存按钮失败")
+			print("Click the Save button to fail")
 
 	u'''选择可管理角色
 	   Parameters:
@@ -111,7 +111,7 @@ class Role(object):
 			selem = self.getElem.find_element_with_wait("id", "allRoles")
 			self.selectElem.deselect_element_by_index(selem, index)
 		except Exception:
-			print(u"点击添加按钮失败")
+			print("Click the manageAdd button to fail")
 
 	u'''添加其他权限
 	   Parameters:
@@ -137,7 +137,7 @@ class Role(object):
 			update_xpath = "/html/body/form/div/div[6]/div[2]/div/table/tbody/tr[" + str(row) + "]/td[6]/input[1]"
 			self.getElem.find_element_wait_and_click("xpath", update_xpath)
 		except Exception:
-			print(u"点击编辑按钮失败")
+			print("Click the Edit button to fail")
 
 	u'''点击删除按钮
 	   Parameters:
@@ -149,7 +149,7 @@ class Role(object):
 			update_xpath = "/html/body/form/div/div[6]/div[2]/div/table/tbody/tr[" + str(row) + "]/td[6]/input[2]"
 			self.getElem.find_element_wait_and_click("xpath", update_xpath)
 		except Exception:
-			print(u"点击删除按钮失败")
+			print("Click the delete button to fail")
 
 	u'''编辑角色名称
 	   Parameters:
@@ -160,7 +160,7 @@ class Role(object):
 			self.getElem.find_element_wait_and_clear("id", self.FORTROLE_NAME)
 			self.getElem.find_element_wait_and_sendkeys("id", self.FORTROLE_NAME, rolename)
 		except Exception:
-			print(u"角色名称填写错误")
+			print("Role name fill in error")
 
 	u'''编辑名称简写
 	    Parameters：
@@ -171,4 +171,4 @@ class Role(object):
 			self.getElem.find_element_wait_and_clear("id", self.FORTROLE_SHORTNAME)
 			self.getElem.find_element_wait_and_sendkeys("id", self.FORTROLE_SHORTNAME, shortname)
 		except Exception:
-			print(u"名称简写填写错误")
+			print("Name abbreviation fill in error")

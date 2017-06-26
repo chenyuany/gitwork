@@ -18,11 +18,16 @@ sys.setdefaultencoding('utf-8')
 import os
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+
 
 sys.path.append("/testIsomp/common/")
 from _initDriver import *
 from _icommon import getElement,selectElement,frameElement,commonFun
 from _cnEncode import cnEncode
+
 
  
 class loginPage(object):
@@ -56,11 +61,12 @@ class loginPage(object):
     def __init__(self,driver):
         #selenuim驱动
         self.driver = driver
-        self.getElem = getElement(driver)
-        self.selectElem = selectElement(driver)
+        self.getElem = getElement(self.driver)
+        self.selectElem = selectElement(self.driver)
         self.frameElem = frameElement(self.driver)
         self.commElem = commonFun(self.driver)
         self.cnEnde = cnEncode()
+        self.cmf = commonFun(self.driver)
         
    
     #获取登录方式
@@ -70,10 +76,18 @@ class loginPage(object):
         
     #设定登录方式
     def set_login_method(self,index): 
+        reindex = self.cnEnde.is_float(index)
+#        index = str(reindex)
+        #presence_of_element_located,element_to_be_clickable
+        wait = WebDriverWait(self.driver,10)
+        loginMethod = wait.until(EC.presence_of_element_located((By.ID, self.LOGIN_METHOD)))
+#            loginMethod = self.getElem.find_element_with_wait('id',self.LOGIN_METHOD)
         try:
-            reindex = self.cnEnde.is_float(index)
-            loginMethod = self.getElem.find_element_with_wait('id',self.LOGIN_METHOD)
+#            option_xpath = "//select[@id='loginMethod']/option[" + index + "]"
+#            element = wait.until(EC.element_located_selection_state_to_be((By.XPATH, option_xpath),True))
+#            if element is False:
             self.selectElem.select_element_by_index(loginMethod,reindex)
+#            if  not wait.until(EC.element_to_be_selected(option_xpath)):
         except Exception as e:
             print "login type error:" + str(e)
         
@@ -125,9 +139,13 @@ class loginPage(object):
     #点击登录按钮
     def click_login_button(self):
         try:
-            login_button_js = "var btn = document.getElementById(self.LOGIN_BUTTON);if(btn != null)btn.click();"
-            self.driver.execute_script(login_button_js)
-            self.getElem.find_element_wait_and_click('id',self.LOGIN_BUTTON) 
+#            login_button_js = "var btn = document.getElementById(self.LOGIN_BUTTON);if(btn != null)btn.click();"
+#            self.driver.execute_script(login_button_js)
+            wait = WebDriverWait(self.driver,10)
+            body = wait.until(EC.element_to_be_clickable((By.TAG_NAME,'body')))
+            do_login = wait.until(EC.element_to_be_clickable((By.ID,self.LOGIN_BUTTON)))
+            do_login.click()
+#            self.getElem.find_element_wait_and_click('id',self.LOGIN_BUTTON) 
         except Exception as e:
             print "login button error:" + str(e)
 
@@ -148,8 +166,10 @@ class loginPage(object):
     def is_login_success(self):
         success = False
         try:
-            self.frameElem.switch_to_top()
+            #self.frameElem.switch_to_top()
+            self.frameElem.from_frame_to_otherFrame('topFrame')
             text = self.getElem.find_element_wait_and_get_text("id","message")
+#            print text
         except Exception as e:
             text = ""
         
@@ -194,14 +214,16 @@ class loginPage(object):
             pass
         else:
             self.set_login_method(list[2])
-            os.system(r"D:\testIsomp\au3\cert_firefox.exe")
+            os.system(r"\testIsomp\au3\cert_firefox.exe")
         
     #设置访问失败最大次数   
     def set_max_login_count(self):
         
         self.frameElem.from_frame_to_otherFrame('topFrame')
         self.commElem.select_role(1)
-        time.sleep(3)
+        #time.sleep(3)
+        #self.driver.implicitly_wait(3)
+        self.commElem.select_menu(u"策略配置")
         self.commElem.select_menu(u"策略配置",u"会话配置")
         self.frameElem.from_frame_to_otherFrame('mainFrame')
         strategy_option = self.getElem.find_element_with_wait('id','fortPasswordStrategyId',2)
@@ -216,10 +238,14 @@ class loginPage(object):
 
     #点击退出
     def quit(self):
-        self.frameElem.switch_to_content()
+        #self.frameElem.switch_to_content()
         self.frameElem.from_frame_to_otherFrame('topFrame')
-        self.getElem.find_element_wait_and_click('id',self.QUIT)
-    
+        wait = WebDriverWait(self.driver,10)
+        quit_btn = wait.until(EC.element_to_be_clickable((By.ID,self.QUIT)))
+        quit_btn.click()
+        
+#        self.getElem.find_element_wait_and_click('id',self.QUIT)
+        
 #if __name__ == "__main__":
     #启动页面
 #    browers = initDriver().open_driver()

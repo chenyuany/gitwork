@@ -1,22 +1,15 @@
-1498105784659	geckodriver	INFO	Listening on 127.0.0.1:62380
-1498105786669	mozprofile::profile	INFO	Using profile path C:\Users\ADMINI~1\AppData\Local\Temp\rust_mozprofile.2oAvNVez6Ii2
-1498105786679	geckodriver::marionette	INFO	Starting browser C:\Program Files (x86)\Mozilla Firefox\firefox.exe with args []
-1498105786773	geckodriver::marionette	INFO	Connecting to Marionette on localhost:62386
-1498105788308	Marionette	WARN	Deprecated preference marionette.defaultPrefs.enabled detected, please use marionette.enabled
-1498105792264	Marionette	INFO	Listening on port 62386
-1498105792693	Marionette	WARN	TLS certificate errors will be ignored for this session
-*************************
-A coding exception was thrown and uncaught in a Task.
-
-Full message: TypeE*************************
-A coding exception was thrown and uncaught in a Task.
-
-Full message1498108042482	Marionette	INFO	Ceased listening
-ch resource.
-Full stack: 
-*************************
-1498107904349	Marionette	INFO	Ceased listening
-uilds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1497347108912	geckodriver	INFO	Listening on 127.0.0.1:52587
+1497347110941	mozprofile::profile	INFO	Using profile path C:\Users\guyaru.pc\AppData\Local\Temp\rust_mozprofile.ABYhtIzQ8TOw
+1497347110956	geckodriver::marionette	INFO	Starting browser d:\Program Files (x86)\Mozilla Firefox\browser\firefox.exe
+1497347110979	geckodriver::marionette	INFO	Connecting to Marionette on localhost:52593
+1497347112591	Marionette	INFO	Listening on port 52593
+1497347113821	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://192.168.23.182/fort/login, line 35: TypeError: sso.update is not a function
+ certificate errors will be ignored for this session
+JavaScript error: https://192.168.23.182/fort/login, line 35: TypeError: sso.update is not a function
+1496391841122	Marionette	INFO	New connections will no longer be accepted
+-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6600] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
 console.error: 
   Message: Error: Connection closed before committing the transaction.
   Stack:
