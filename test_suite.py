@@ -9,7 +9,7 @@ import time
 import os
 
 sys.path.append("/testIsomp/common/")
-from _mail import *
+from _mail import sendMail
 
 class testSuite(unittest.TestCase):
     u'''运行所有测试用例集'''
@@ -33,5 +33,5 @@ class testSuite(unittest.TestCase):
         
         #直接跑测试用例
         #unittest.TextTestRunner().run(suite)
-        #sendMail().send_mail()
+        # sendMail().send_mail()
 

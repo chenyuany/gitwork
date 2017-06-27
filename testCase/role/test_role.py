@@ -12,12 +12,19 @@
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
+from threading import Thread
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 sys.path.append("/testIsomp/testData/")
 from _testDataPath import dataFileName
+sys.path.append("/testIsomp/webElement/login/")
+from loginElement import loginPage
+
 sys.path.append("/testIsomp/common")
-from _icommon import commonFun,getElement,selectElement
+from _icommon import commonFun,getElement,selectElement,frameElement
 from _log import log
+from _initDriver import initDriver
+from _transCoding import jsonTranscoding
 sys.path.append("/testIsomp/webElement/role/")
 from test_roledf import Role
 import time
@@ -353,3 +360,32 @@ class testRole(object):
 			except Exception as e:
 				print ("Check batch deletion failed" + str(e))
 		self.log.log_end("checkbulkdel")
+
+# if __name__ == "__main__":
+#
+# 	lists = jsonTranscoding().set_brower()
+# 	threads = []
+# 	def execute_case(host,brower):
+# 		driver = initDriver().remote_open_driver(host,brower)
+# 		getElem = getElement(driver)
+# 		frameElem = frameElement(driver)
+# 		login = loginPage(driver)
+# 		login_data = testRole(driver).get_table_data("login")
+# 		data = login_data[1]
+# 		login.login(data)
+# 		# frameElem.switch_to_content()
+# 		# frameElem.switch_to_top()
+# 		driver.switch_to_default_content()
+# 		driver.switch_to_frame("content1")
+# 		driver.switch_to_frame("topFrame")
+# 		getElem.find_element_wait_and_click("link",u"角色管理")
+# 		getElem.find_element_wait_and_click("link",u"角色定义")
+# 		testRole(driver).add_sysrole_001()
+# 		initDriver().close_driver(driver)
+#
+# 	for host,brower in lists.items():
+# 		th = Thread(target=execute_case,args=(host,brower))
+# 		th.start()
+# 		threads.append(th)
+# 	for th in threads:
+# 		th.join()

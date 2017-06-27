@@ -15,9 +15,12 @@ sys.setdefaultencoding('utf-8')
 
 sys.path.append("/testIsomp/testData/")
 from _testDataPath import dataFileName
+from threading import Thread
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 #导入驱动
 sys.path.append("/testIsomp/common/")
+from _transCoding import jsonTranscoding
 from _initDriver import initDriver
 from _icommon import getElement,selectElement,frameElement
 sys.path.append("/testIsomp/testCase/role/")
@@ -72,5 +75,22 @@ class testRoleSuite(unittest.TestCase):
 	def tearDown(self):
 		initDriver().close_driver(self.browser)
 
-if __name__ == "__main__":
-	unittest.main()
+
+#if __name__ == "__main__":
+##	unittest.main()
+##	testrole = testRole(self.browser)
+#
+#	lists = jsonTranscoding().set_brower()
+#	threads = []
+#	def execute_case(host,brower):
+#		driver = initDriver().remote_open_driver(host,brower)
+#		testRoleSuite(driver).test_role()
+#		initDriver().close_driver(driver)
+#
+#	for host,brower in lists.items():
+#		th = Thread(target=execute_case,args=(host,brower))
+#		th.start()
+#		threads.append(th)
+#	for th in threads:
+#		th.join()
+#

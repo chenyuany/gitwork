@@ -2,49 +2,43 @@
 '''
 发送html文本邮件
 '''
-import smtplib  
-from email.mime.text import MIMEText   
-from email.mime.multipart import MIMEMultipart  
-from email.mime.image import MIMEImage  
+import smtplib,datetime
+from email.mime.text import MIMEText
+from email.header import Header
+from email.mime.multipart import MIMEMultipart
 
 class sendMail:
     def send_mail(self):
-        
-        msg = MIMEMultipart()
-        #发送方邮箱
-        sender = ["susuzhuan0321@163.com"] 
-       
-        #mailto_list=["qingniao0321@sina.com"] 
-        #接收方邮箱
-        to_list = ["tyu1850@163.com","26001698@qq.com"]
-        #msg['To']=";".join(to_list) 
         #设置服务器
         mail_host="smtp.163.com"
-        #用户名
         mail_user="susuzhuan0321"
-        
-        #口令    
-        mail_pass="susu321" 
-       
-        #发件箱的后缀  
-        mail_postfix="163.com" 
+        #授权码
+        mail_pass="susu321"
+        #邮箱的后缀
+        mail_postfix="163.com"
+        #发送邮箱地址
+        sender="susuzhuan0321@163.com"
+        #接收邮件，可设置为你的QQ邮箱或者其他邮箱
+        recedivers=["921510864@qq.com"]
+        #创建一个带附件的实例
+        message = MIMEMultipart()
+        me=mail_user+"<"+mail_user+"@"+mail_postfix+">"
+        message["From"]=me
+        message["To"]=";".join(recedivers)
+        message["Subject"]=Header('test(' + str(datetime.date.today()) + ')',"utf-8")
+        message.attach(MIMEText('this is test', 'plain', 'utf-8'))
+        att = MIMEText(open('\\testIsomp\\report\\testReport.html', 'rb').read(), 'base64', 'utf-8')
+        att["Content-Type"] = 'application/octet-stream'
+         #这里的filename可以任意写，写什么名字，邮件中显示什么名字
+        att["Content-Disposition"] = 'attachment; filename="testReport.html"'
+        message.attach(att)
+        try:
+            server=smtplib.SMTP_SSL(mail_host)
+            server.login(mail_user,mail_pass)
+            server.sendmail(sender,recedivers,message.as_string())
+            server.close()
+        except smtplib.SMTPException:
+            print("send_mail fail")
 
-        msgRoot = MIMEMultipart('related')  
-        msgRoot['Subject'] = '测试itt' 
-          
-        #构造附件  
-        #读取HTML
-        att = MIMEText(open('G:\\testIsomp\\report\\testReport.html', 'rb').read(), 'base64', 'utf-8')  
-        att["Content-Type"] = 'application/octet-stream'  
-        att["Content-Disposition"] = 'attachment; filename="testReport.html"'  
-        msgRoot.attach(att) 
-#        print "a" 
-
-        smtp = smtplib.SMTP()  
-        smtp.connect('smtp.163.com')
-        smtp.login(mail_user, mail_pass)  
-        smtp.sendmail(sender,to_list, msgRoot.as_string())  
-        smtp.quit() 
-        
-#if __name__ == "__main__":
-#    sendMail().send_mail()
+if __name__ == "__main__":
+    sendMail().send_mail()
