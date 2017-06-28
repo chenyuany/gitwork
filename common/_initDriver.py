@@ -67,7 +67,27 @@ class initDriver:
         if "0"  in fileList[2].strip('\n'):
             driver.get("javascript:document.getElementById('overridelink').click();")
         return driver
+    
 
+    u'''web驱动初始化'''
+    #brower为字典
+    def test_open_driver(self,host,brower):
+        driver = Remote(command_executor=host,
+                        desired_capabilities=brower
+                        )
+#        fileList = fileRead().get_ip_address()
+#        ipAdd = fileList[0].strip('\n')
+        driver.maximize_window()
+        driver.get("https://" + ipAdd + "/fort")
+        
+        if brower == DesiredCapabilities.INTERNETEXPLORER:
+            #https访问时弹出安全警告页面后点击继续，0代表有安全警告，1代表没有安全警告            
+            driver.get("javascript:document.getElementById('overridelink').click();")
+            #获取浏览器版本
+            #brower_name = DesiredCapabilities.INTERNETEXPLORER.get('browserName')
+        
+        return driver
+    
     u'''web自定义驱动初始化'''
     def remote_open_driver(self,host,brower):
         driver = Remote(command_executor=host,

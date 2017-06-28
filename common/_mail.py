@@ -1,6 +1,13 @@
 # -*- coding: utf-8 -*-
 '''
-发送html文本邮件
+#文件名：
+#作者：
+#创建日期：
+#模块描述：发送邮件
+#历史修改记录
+#修改人：陈圆圆
+#修改日期：2017/6/27
+#修改内容：
 '''
 import smtplib,datetime
 from email.mime.text import MIMEText

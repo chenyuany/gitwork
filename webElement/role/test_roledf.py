@@ -9,7 +9,7 @@
 #修改日期：
 #修改内容：
 '''
-import sys
+import sys,time
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.path.append("/testIsomp/common/")
@@ -52,18 +52,18 @@ class Role(object):
 	u'''选择级别为部门级'''
 	def level(self):
 		try:
-			self.getElem.find_element_wait_and_click("id", self.DEPARTMENT)
+			self.getElem.find_element_wait_and_click_EC("id", self.DEPARTMENT)
 		except Exception:
 			print("The selection level is departmental failure")
 
 	u'''全选部门级角色'''
 	def select_dptrole(self):
 		try:
-			self.getElem.find_element_wait_and_click("id", "treeDemo_1_check")
-			self.getElem.find_element_wait_and_click("id", "treeDemo_13_check")
-			self.getElem.find_element_wait_and_click("id", "treeDemo_17_check")
-			self.getElem.find_element_wait_and_click("id", "treeDemo_22_check")
-			self.getElem.find_element_wait_and_click("id", "treeDemo_27_check")
+			self.getElem.find_element_wait_and_click_EC("xpath", "/html/body/form/div/div[2]/div[2]/table[1]/tbody/tr[4]/td[2]/ul/li[1]/span[2]")
+			self.getElem.find_element_wait_and_click_EC("xpath", "/html/body/form/div/div[2]/div[2]/table[1]/tbody/tr[4]/td[2]/ul/li[2]/span[2]")
+			self.getElem.find_element_wait_and_click_EC("xpath", "/html/body/form/div/div[2]/div[2]/table[1]/tbody/tr[4]/td[2]/ul/li[3]/span[2]")
+			self.getElem.find_element_wait_and_click_EC("xpath", "/html/body/form/div/div[2]/div[2]/table[1]/tbody/tr[4]/td[2]/ul/li[4]/span[2]")
+			self.getElem.find_element_wait_and_click_EC("xpath", "/html/body/form/div/div[2]/div[2]/table[1]/tbody/tr[4]/td[2]/ul/li[5]/span[2]")
 		except Exception:
 			print("Select the role of department level failure")
 
@@ -86,7 +86,7 @@ class Role(object):
 		try:
 			self.frameElem.switch_to_content()
 			self.frameElem.switch_to_main()
-			self.getElem.find_element_wait_and_click("id", self.SAVE_ROLE, 5)
+			self.getElem.find_element_wait_and_click_EC("id", self.SAVE_ROLE, 5)
 		except Exception:
 			print("Click the Save button to fail")
 
@@ -172,3 +172,8 @@ class Role(object):
 			self.getElem.find_element_wait_and_sendkeys("id", self.FORTROLE_SHORTNAME, shortname)
 		except Exception:
 			print("Name abbreviation fill in error")
+
+	u'''点击确定按钮'''
+	def click_ok_button(self):
+		self.driver.switch_to_default_content()
+		self.getElem.find_element_wait_and_click_EC("xpath","/html/body/div[1]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr[3]/td/div/button",5)

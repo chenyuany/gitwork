@@ -27,6 +27,7 @@ sys.path.append("/testIsomp/common/")
 from _initDriver import *
 from _icommon import getElement,selectElement,frameElement,commonFun
 from _cnEncode import cnEncode
+from _log import log
 
 
  
@@ -65,8 +66,10 @@ class loginPage(object):
         self.selectElem = selectElement(self.driver)
         self.frameElem = frameElement(self.driver)
         self.commElem = commonFun(self.driver)
-        self.cnEnde = cnEncode()
         self.cmf = commonFun(self.driver)
+        self.cnEnde = cnEncode()
+        self.log = log()
+        
         
    
     #获取登录方式
@@ -83,13 +86,11 @@ class loginPage(object):
         loginMethod = wait.until(EC.presence_of_element_located((By.ID, self.LOGIN_METHOD)))
 #            loginMethod = self.getElem.find_element_with_wait('id',self.LOGIN_METHOD)
         try:
-#            option_xpath = "//select[@id='loginMethod']/option[" + index + "]"
-#            element = wait.until(EC.element_located_selection_state_to_be((By.XPATH, option_xpath),True))
-#            if element is False:
             self.selectElem.select_element_by_index(loginMethod,reindex)
 #            if  not wait.until(EC.element_to_be_selected(option_xpath)):
         except Exception as e:
-            print "login type error:" + str(e)
+            self.log.print_detail("login type error",e)
+#            print "login type error:" + str(e)
         
     #填写用户名
     def set_login_username(self,username):
@@ -98,7 +99,8 @@ class loginPage(object):
             self.getElem.find_element_with_wait('id',self.LOGIN_USERNAME).clear()
             self.getElem.find_element_wait_and_sendkeys('id',self.LOGIN_USERNAME,reusername)
         except Exception as e:
-            print "login name error:" + str(e)
+            self.log.print_detail("login name error",e)
+#            print "login name error:" + str(e)
             
     #填写AD域用户名
     def set_ad_login_username(self,adUsername):
@@ -107,7 +109,8 @@ class loginPage(object):
             self.getElem.find_element_with_wait('id',self.LOGIN_LDAP_USERNAME).clear()
             self.getElem.find_element_wait_and_sendkeys('id',self.LOGIN_LDAP_USERNAME,reADUsername)
         except Exception as e:
-            print "LDAP login adUsername error:" + str(e)            
+            self.log.print_detail("LDAP login adUsername error",e)            
+#            print "LDAP login adUsername error:" + str(e)            
         
     #填写口令
     def set_login_pwd(self,pwd):
@@ -116,7 +119,8 @@ class loginPage(object):
             self.getElem.find_element_with_wait('id',self.LOGIN_PWD).clear()
             self.getElem.find_element_wait_and_sendkeys('id',self.LOGIN_PWD,repwd)
         except Exception as e:
-            print "login password error:" + str(e)
+            self.log.print_detail("login password error",e)
+#            print "login password error:" + str(e)
             
     #填写AD域密码
     def set_ad_login_pwd(self,adPwd):
@@ -125,7 +129,8 @@ class loginPage(object):
             self.getElem.find_element_with_wait('id',self.LOGIN_LDAP_PWD).clear()
             self.getElem.find_element_wait_and_sendkeys('id',self.LOGIN_LDAP_PWD,readPwd)
         except Exception as e:
-            print "LDAP login adPwd error:" + str(e)
+            self.log.print_detail("LDAP login adPwd error",e)
+#            print "LDAP login adPwd error:" + str(e)
             
     #填写radius密码
     def set_radius_login_pwd(self,radiusPwd):
@@ -134,7 +139,8 @@ class loginPage(object):
             self.getElem.find_element_with_wait('id',self.LOGIN_RADIUS_PWD).clear()
             self.getElem.find_element_wait_and_sendkeys('id',self.LOGIN_RADIUS_PWD,reRadiusPwd)
         except Exception as e:
-            print "Radius login radiusPwd error:" + str(e)
+            self.log.print_detail("Radius login radiusPwd error",e)
+#            print "Radius login radiusPwd error:" + str(e)
         
     #点击登录按钮
     def click_login_button(self):
@@ -147,7 +153,8 @@ class loginPage(object):
             do_login.click()
 #            self.getElem.find_element_wait_and_click('id',self.LOGIN_BUTTON) 
         except Exception as e:
-            print "login button error:" + str(e)
+            self.log.print_detail("login button error",e)
+#            print "login button error:" + str(e)
 
 
     #点击版权所有

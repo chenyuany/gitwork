@@ -26,6 +26,7 @@ from _icommon import commonFun
 from _icommon import log
 from _fileRead import fileRead
 from _initDriver import initDriver
+from _log import log
 
 class testLogin(object):
     
@@ -85,34 +86,35 @@ class testLogin(object):
                         flag = False
                     
                 except Exception as e: 
-                    print "login type error:" + str(e)
+                    self.log.print_detail("login type error",e)
+#                    print "login type error:" + str(e)
         
         self.log.log_end("login")
         
         
-if __name__ == "__main__":
+#if __name__ == "__main__":
+#    
+##    driver = initDriver().open_driver()
+##    testLogin(driver).login()
+##    
+#    
+#    
+#    lists = jsonTranscoding().set_brower()
+#    threads = []
+#    
+#    def execute_case(host,brower):
+#        driver = initDriver().remote_open_driver(host,brower)
+#        testLogin(driver).login()
+#        initDriver().close_driver(driver)
+#        
+#    for host,brower in lists.items():
+#        th = Thread(target=execute_case,args=(host,brower))
+#        th.start()
+#        threads.append(th)
+#            
+#    for th in threads:
+#        th.join()
     
-    driver = initDriver().open_driver()
-    testLogin(driver).login()
-    
-    
-    '''
-    lists = jsonTranscoding().set_brower()
-    threads = []
-    
-    def execute_case(host,brower):
-        driver = initDriver().remote_open_driver(host,brower)
-        testLogin(driver).login()
-        initDriver().close_driver(driver)
-        
-    for host,brower in lists.items():
-        th = Thread(target=execute_case,args=(host,brower))
-        th.start()
-        threads.append(th)
-            
-    for th in threads:
-        th.join()
-    '''
         
 
     

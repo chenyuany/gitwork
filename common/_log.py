@@ -88,5 +88,10 @@ class log(object):
         else:
             #未通过信息写入日志
             self.logger.info(unPassMsg)
+        
+    def print_detail(self,msg_,errorMsg):
+        msg = self.cn.cnCode(msg_) + str(errorMsg)
+        self.logger.info(msg)
+            
 
 #if __name__ == "__main__":

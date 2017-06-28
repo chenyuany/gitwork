@@ -58,7 +58,7 @@ class getElement(object):
             return WebDriverWait(self.driver,timeout).until(lambda x:x.find_element_by_link_text(value))
         elif type == "plt":
             return WebDriverWait(self.driver,timeout).until(lambda x:x.find_element_by_partial_link_text(value))
-    
+
     
     u'''等待元素出现后再定位元素并发送键值
         parameter:
@@ -111,6 +111,31 @@ class getElement(object):
             return WebDriverWait(self.driver,timeout).until(lambda x:x.find_element_by_link_text(value)).click()
         elif type == "plt":
             return WebDriverWait(self.driver,timeout).until(lambda x:x.find_element_by_partial_link_text(value)).click()
+
+    u'''等待元素出现后再定位元素并点击EC
+        parameter:
+            - type:定位的类型，如id,name,tag name,class name,css,xpath等
+            - value：页面的元素值
+            - timeout:超时前等待的时间
+        return：定位元素并点击该元素
+    '''
+    def find_element_wait_and_click_EC(self,type,value,timeout=1):
+            if type == "id":
+                WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.ID, value))).click()
+            elif type == "xpath":
+                WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.XPATH, value))).click()
+            elif type == "name":
+                WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.NAME, value))).click()
+            elif type == "tagname":
+                WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.TAG_NAME, value))).click()
+            elif type == "classname":
+                WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.CLASS_NAME, value))).click()
+            elif type == "css":
+                WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.CSS_SELECTOR, value))).click()
+            elif type == "link":
+                WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.LINK_TEXT, value))).click()
+            elif type == "plt":
+                WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.PARTIAL_LINK_TEXT, value))).click()
 
     u'''等待元素出现后再定位元素并获取元素的文本
         parameter:
@@ -217,7 +242,8 @@ class getElement(object):
             if element != False:
                 isExsit = True
         except Exception as e:
-            print(value + " element is not exsit.")
+            self.log.print_detail("element is not exsit:",value)
+#            print(value + " element is not exsit.")
         return isExsit
 
 #select元素
@@ -833,7 +859,8 @@ class commonFun(object):
                     self.getElem.is_element_exsit('css','input[type=checkbox]') == True:
                     checkbox.click()
         except Exception as e:
-            print "checkbox is not visible:" + str(e)
+            self.log.print_detail("checkbox is not visible",e)
+#            print "checkbox is not visible:" + str(e)
 
 
     u'''点击返回按钮'''
@@ -843,7 +870,7 @@ class commonFun(object):
             self.frameElem.switch_to_main()
             self.getElem.find_element_wait_and_click("id", "history_skip")
         except Exception:
-            print("Click the return button to fail")
+            print("Click the return button to fail")            
 
     u'''select右边框检查点
         Parameters:
@@ -885,7 +912,7 @@ class commonFun(object):
             self.frameElem.switch_to_main()
             self.getElem.find_element_wait_and_click("id", id)
         except Exception:
-            print("Failed to hit the batch delete button")
+            print("Failed to hit the batch delete button")            
 
     u'''勾选全选框'''
     def check_all(self):
@@ -895,6 +922,7 @@ class commonFun(object):
             self.getElem.find_element_wait_and_click("id", "checkbox")
         except Exception:
             print("Select the check box failure")
+                        
 
     u'''判断名称是否存在
        Parameters:

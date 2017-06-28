@@ -34,11 +34,16 @@ class sendMail(object):
 		message["To"]=";".join(recedivers)
 		message["Subject"]=Header('test(' + str(datetime.date.today()) + ')',"utf-8")
 		message.attach(MIMEText('this is test', 'plain', 'utf-8'))
-		att = MIMEText(open('\\testIsomp\\report\\testReport.html', 'rb').read(), 'base64', 'utf-8')
+		# 构造附件IE浏览器html
+		att = MIMEText(open('\\testIsomp\\report\\internet explorertestReport.html', 'rb').read(), 'base64', 'utf-8')
 		att["Content-Type"] = 'application/octet-stream'
-		# 这里的filename可以任意写，写什么名字，邮件中显示什么名字
-		att["Content-Disposition"] = 'attachment; filename="testReport.html"'
+		att["Content-Disposition"] = 'attachment; filename="internet explorertestReport.html"'
 		message.attach(att)
+		# 构造附件谷歌浏览器html
+		att1 = MIMEText(open('\\testIsomp\\report\\chrometestReport.html', 'rb').read(), 'base64', 'utf-8')
+		att1["Content-Type"] = 'application/octet-stream'
+		att1["Content-Disposition"] = 'attachment; filename="chrometestReport.html"'
+		message.attach(att1)
 		try:
 			server=smtplib.SMTP_SSL(mail_host)
 			server.login(mail_user,mail_pass)
@@ -46,6 +51,6 @@ class sendMail(object):
 			server.close()
 		except smtplib.SMTPException:
 			print("send_mail fail")
-#
-# if __name__ == '__main__':
-# 	sendMail().send_mail()
+
+if __name__ == '__main__':
+	sendMail().send_mail()
