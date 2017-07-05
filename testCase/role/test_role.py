@@ -47,7 +47,7 @@ class testRole(object):
 		roleMsg="/html/body/div[1]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr[2]/td[2]/div"
 		return  roleMsg
 
-	u'''添加系统管理员'''
+	u'''添加系统级角色'''
 	def add_sysrole_001(self):
 
 		#日志开始记录

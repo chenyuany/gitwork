@@ -56,10 +56,8 @@ class sendMail:
 			smtp.connect(server)
 			smtp.login(username,password)
 			smtp.sendmail(sender,toList,msg.as_string())
-			print ('email has send out')
 		except Exception as msg:
 			self.log.print_detail("email send fail:",msg)
-#			print msg
 		finally:
 			smtp.quit()
 

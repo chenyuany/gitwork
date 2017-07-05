@@ -268,6 +268,14 @@ class selectElement(object):
     def deselect_element_by_index(self, selem, index):
         return Select(selem).deselect_by_index(index)
 
+    u'''根据取消选择所有
+        Parameters:
+            - selem:定位到的select元素
+            - value：页面的文本值
+    '''
+    def deselect_text_element(self, selem, value):
+        Select(selem).deselect_by_visible_text(value)
+
     u'''判断select元素是否被选中
         parameter:
             - type:定位的类型，如id,name,tag name,class name,css,xpath等
