@@ -14,7 +14,7 @@ LOGIN_TEST_DATA_URL = "/testIsomp/testData/login_test_data.xlsx"
 PERSON_TEST_DATA_URL = "/testSimp/testData/person_test_data.xlsx"
 
 #unix资源excel数据位置
-UNIX_TEST_DATA_URL = "/testSimp/testData/unix_test_data.xlsx"
+UNIX_TEST_DATA_URL = r"\testIsomp\testData\unix_test_data.xlsx"
 
 #unix资源账号excel数据位置
 UNIX_USER_TEST_DATA_URL = "/testSimp/testData/unix_user_test_data.xlsx"
@@ -32,12 +32,19 @@ LOCAL_TEST_DATA_URL = "/testSimp/testData/local_test_data.xlsx"
 LOCAL_USER_TEST_DATA_URL = "/testIsomp/testData/local_user_test_data.xlsx"
 
 #角色定义数据文件
-ROLE_TEST_DATA_URL = "/testIsomp/testData/role_test_data.xlsx"
+ROLE_TEST_DATA_URL = r"/testIsomp/testData/role_test_data.xlsx"
+
+#认证方式数据文件
+AUTH_METHOD_TEST_DATA_URL = r"/testIsomp/testData/auth_method_test_data.xlsx"
 
 class dataFileName(object):
-
+    #获取用户登录excel中的数据
     def get_login_test_data_url(self):
         return LOGIN_TEST_DATA_URL
+    
+    #获取认证方式excel中的数据
+    def get_auth_method_test_data_url(self):
+       return AUTH_METHOD_TEST_DATA_URL 
     
     #获取自然人excel中的数据
     def get_person_test_data_url(self):
@@ -78,8 +85,9 @@ class dataFileName(object):
         data = excelRead().get_excel_data(dataPath,sheetName)
         
         return data
-
-#login_data = dataFileName().get_data(r"D:\testIsomp\testData\login_test_data.xlsx",'default')
+    
+#dataFile = dataFileName()
+#login_data = dataFileName().get_data(dataFileName().get_auth_method_test_data_url(),'add_auth_method')
 #for dataRow in range(len(login_data)):
 #    data = login_data[dataRow]
 #    print data

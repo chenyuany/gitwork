@@ -32,6 +32,7 @@ class getElement(object):
     def __init__(self,driver):
         #selenium驱动
         self.driver = driver
+        self.log = log()
     
     
     u'''等待元素出现后再定位元素
@@ -267,14 +268,22 @@ class selectElement(object):
     '''
     def deselect_element_by_index(self, selem, index):
         return Select(selem).deselect_by_index(index)
+    
+    u'''根据value值取消选择
+        Parameters:
+            - selem:定位到的select元素
+            - value：option的value值
+    '''    
+    def deselect_element_by_value(self,selem,value):
+        return Select(selem).deselect_by_value(value)
 
     u'''根据文本值取消选择
         Parameters:
             - selem:定位到的select元素
-            - value：页面的文本值
+            - text：页面的文本值
     '''
-    def deselect_text_element(self, selem, value):
-        Select(selem).deselect_by_visible_text(value)
+    def deselect_element_by_text(self, selem, text):
+        Select(selem).deselect_by_visible_text(text)
 
     u'''判断select元素是否被选中
         parameter:
@@ -936,7 +945,7 @@ class commonFun(object):
        Parameters:
           - namevalue:传入的要被查询名称
           - name:表格列的name属性
-       return：角色名称是否存在
+       return：true代表存在，false代表不存在
     '''
     def is_namevalue_exsit(self, namevalue, name):
         isExsit = False
@@ -957,7 +966,7 @@ class commonFun(object):
        Parameters:
           - namevalue:传入的要被查询名称
           - name:表格列的name属性
-       return：定位该角色名称位于第几行
+       return：定位该名称位于第几行
     '''
     def find_row_by_name(self, namevalue, name):
         self.frameElem.switch_to_content()

@@ -176,4 +176,40 @@ class Role(object):
 	u'''点击确定按钮'''
 	def click_ok_button(self):
 		self.driver.switch_to_default_content()
-		self.getElem.find_element_wait_and_click_EC("xpath","/html/body/div[1]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr[3]/td/div/button",5)
+		self.getElem.find_element_wait_and_click_EC("xpath", "/html/body/div[1]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr[3]/td/div/button",5)
+
+	u'''角色名称查询
+	    Parameters：
+	       -rolename  角色名称
+	'''
+	def rolename_query(self, rolename):
+		try:
+			self.frameElem.switch_to_content()
+			self.frameElem.switch_to_main()
+			self.getElem.find_element_wait_and_sendkeys("id", "fortRoleName",rolename)
+		except Exception:
+			print("Query rolename failed")
+
+	u'''名称简写查询
+	    Parameters：
+	       -shortname 名称简写
+	'''
+	def shortname_query(self, shortname):
+		try:
+			self.frameElem.switch_to_content()
+			self.frameElem.switch_to_main()
+			self.getElem.find_element_wait_and_sendkeys("id", "fortRoleShortName", shortname)
+		except Exception:
+			print("Query shortname failed")
+
+	u'''点击查询按钮'''
+	def click_query(self):
+		self.frameElem.switch_to_content()
+		self.frameElem.switch_to_main()
+		self.getElem.find_element_wait_and_click_EC("id", "query_role")
+
+	u'''点击重置按钮'''
+	def click_reset(self):
+		self.frameElem.switch_to_content()
+		self.frameElem.switch_to_main()
+		self.getElem.find_element_wait_and_click_EC("id", "resetting")

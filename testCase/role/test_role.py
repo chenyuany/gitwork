@@ -16,7 +16,7 @@ sys.setdefaultencoding('utf-8')
 sys.path.append("/testIsomp/testData/")
 from _testDataPath import dataFileName
 sys.path.append("/testIsomp/common")
-from _icommon import commonFun,getElement,selectElement,frameElement
+from _icommon import commonFun,getElement,selectElement,frameElement,tableElement
 from _log import log
 sys.path.append("/testIsomp/webElement/role/")
 from test_roledf import Role
@@ -30,6 +30,7 @@ class testRole(object):
 		self.cmf = commonFun(driver)
 		self.getElem = getElement(driver)
 		self.selectElem = selectElement(driver)
+		self.tableElem = tableElement(driver)
 
 	u'''获取测试数据
 	   Parameters:
@@ -358,3 +359,49 @@ class testRole(object):
 			except Exception as e:
 				print ("Check batch deletion failed" + str(e))
 		self.log.log_end("checkbulkdel")
+
+	u'''角色查询'''
+	def role_query_008(self):
+
+		self.log.log_start("rolequery")
+		#获取角色查询的数据
+		roledfData = self.get_table_data("role_query")
+		for dataRow in range(len(roledfData)):
+			#把单行的数据赋值给列表data
+			data = roledfData[dataRow]
+			try:
+				#如果不是第一行标题，则读取数据
+				if dataRow != 0:
+					if dataRow < 3:
+						if dataRow == 1:
+							self.role.shortname_query(data[2])
+							self.role.click_query()
+							self.role.click_reset()
+						elif dataRow == 2:
+							self.role.rolename_query(data[1])
+							self.role.click_query()
+							self.role.click_reset()
+						self.role.frameElem.switch_to_content()
+						self.role.frameElem.switch_to_main()
+						aa = self.tableElem.get_table_rows_count("/html/body/form/div/div[6]/div[2]/div/table")
+						if aa < 1:
+							self.log.log_detail(data[0], True)
+					else:
+						if dataRow == 3:
+							self.role.click_query()
+						elif dataRow == 4:
+							self.role.rolename_query(data[1])
+							self.role.click_query()
+							self.role.click_reset()
+						elif dataRow == 5:
+							self.role.shortname_query(data[2])
+							self.role.click_query()
+							self.role.click_reset()
+						self.role.frameElem.switch_to_content()
+						self.role.frameElem.switch_to_main()
+						aa = self.tableElem.get_table_rows_count("/html/body/form/div/div[6]/div[2]/div/table")
+						if aa > 0:
+							self.log.log_detail(data[0], True)
+			except Exception as e:
+				print ("Query role failed" + str(e))
+		self.log.log_end("rolequery")

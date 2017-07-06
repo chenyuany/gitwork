@@ -148,7 +148,7 @@ class roleMutex(object):
 					mutextarges = selem.find_elements_by_tag_name("option")
 					for mutexopt in mutextarges:
 						if mutexopt.get_attribute("class") == "opti":
-							self.selectElem.deselect_text_element(selem, mutexname)
+							self.selectElem.deselect_element_by_text(selem, mutexname)
 
 	u'''校验选择角色
 	   Parameters:
@@ -190,6 +190,23 @@ class roleMutex(object):
 		role_xpath = "/html/body/form/div/div[7]/div[2]/div/table/tbody/tr[" + str(userrow) + "]/td[9]/input[2]"
 		self.getElem.find_element_wait_and_click("xpath", role_xpath)
 
+	u'''点击用户的编辑按钮
+	   Parameters:
+	      -username：用户账号
+	'''
+	def click_user_edit(self, username):
+		self.frameElem.switch_to_content()
+		self.frameElem.switch_to_top()
+		self.getElem.find_element_wait_and_click("link", u"运维管理")
+		self.getElem.find_element_wait_and_click("link", u"用户")
+		self.frameElem.switch_to_content()
+		self.frameElem.switch_to_main()
+		#获取用户位于第几行
+		userrow = self.cmf.find_row_by_name(username, "fortUserAccount")
+		role_xpath = "/html/body/form/div/div[7]/div[2]/div/table/tbody/tr[" + str(userrow) + "]/td[9]/input[1]"
+		self.getElem.find_element_wait_and_click("xpath", role_xpath)
+
+
 	u'''选择所有角色
 	   Parameters:
 	      -index：select的索引，例0,1,2,从0开始计数
@@ -212,3 +229,12 @@ class roleMutex(object):
 			self.selectElem.deselect_element_by_index(selem, index)
 		except Exception:
 			print("Click add role button to fail")
+
+	u'''点击用户的角色信息按钮'''
+	def click_role_message(self):
+		try:
+			self.frameElem.switch_to_content()
+			self.frameElem.switch_to_main()
+			self.getElem.find_element_wait_and_click_EC("xpath", "//form[@id='user_form']/div/div[2]/div/a[2]")
+		except Exception:
+			print("Click role message button to fail")

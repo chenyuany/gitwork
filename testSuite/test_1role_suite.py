@@ -28,9 +28,9 @@ import unittest
 class testRoleSuite(unittest.TestCase):
 
 	def setUp(self):
-		# self.browser = initDriver().open_driver()
-		driver_lists = globalValue().get_value()
-		self.browser = initDriver().remote_open_driver(driver_lists[0],driver_lists[1])
+		self.browser = initDriver().open_driver()
+		# driver_lists = globalValue().get_value()
+		# self.browser = initDriver().remote_open_driver(driver_lists[0],driver_lists[1])
 
 	def test_role(self):
 		self.getElem = getElement(self.browser)
@@ -53,22 +53,28 @@ class testRoleSuite(unittest.TestCase):
 		testrole.add_dptrole_002()
 		u'''编辑系统管理员'''
 		testrole.edit_role_003()
+		u'''角色查询'''
+		testrole.role_query_008()
 		self.frameElem.switch_to_content()
 		self.frameElem.switch_to_top()
 		self.getElem.find_element_wait_and_click("link",u"角色管理")
 		self.getElem.find_element_wait_and_click("link",u"角色互斥定义")
 		u'''添加互斥角色'''
 		testmutex.add_mutex_role_001()
-		u'''校验添加的互斥角色'''
-		testmutex.check_add_mutex_002()
+		u'''校验添加互斥角色后用户添加角色'''
+		testmutex.check_addmutex_user_addrole_002()
+		u'''校验添加互斥角色后用户编辑中的添加角色'''
+		testmutex.check_addmutex_user_editrole_003()
 		u'''编辑互斥角色'''
-		testmutex.edit_mutex_role_003()
-		u'''校验编辑的互斥角色'''
-		testmutex.check_edit_mutex_004()
+		testmutex.edit_mutex_role_004()
+		u'''校验编辑互斥角色后用户添加角色'''
+		testmutex.check_editmutex_user_addrole_005()
+		u'''校验编辑互斥角色后用户编辑中的添加角色'''
+		testmutex.check_editmutex_user_editrole_006()
 		u'''删除角色互斥'''
-		testmutex.del_mutex_role_005()
+		testmutex.del_mutex_role_007()
 		u'''校验角色互斥'''
-		testmutex.check_mutex_role_006()
+		testmutex.check_mutex_role_008()
 		u'''编辑可管理角色'''
 		testrole.edit_managerole_004()
 		u'''校验其他权限选择'''
