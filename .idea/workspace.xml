@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1342862a-9e52-4b0c-8d18-cbe0b6b7d37b" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testCase/role/test_mutex.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webElement/role/test_role_mutex.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/role_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/role_test_data.xlsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/_icommon.py" afterPath="$PROJECT_DIR$/common/_icommon.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/_mail.py" afterPath="$PROJECT_DIR$/common/_mail.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/isomp.log" afterPath="$PROJECT_DIR$/log/isomp.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/test.conf" afterPath="$PROJECT_DIR$/common/test.conf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/test_1role_suite.py" afterPath="$PROJECT_DIR$/testSuite/test_1role_suite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/role/test_role.py" afterPath="$PROJECT_DIR$/testCase/role/test_role.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/role/test_role_mutex.py" afterPath="$PROJECT_DIR$/webElement/role/test_role_mutex.py" />
     </list>
     <ignored path="testIsomp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,6 +35,7 @@
     <SUITE FILE_PATH="coverage/testIsomp$test_2role_suite.coverage" NAME="test_2role_suite Coverage Results" MODIFIED="1498468596299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSuite" />
     <SUITE FILE_PATH="coverage/testIsomp$test_suite.coverage" NAME="test_suite Coverage Results" MODIFIED="1499226116524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/testIsomp$_oldmail.coverage" NAME="_oldmail Coverage Results" MODIFIED="1498547940659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />
+    <SUITE FILE_PATH="coverage/testIsomp$checkbox_.coverage" NAME="checkbox. Coverage Results" MODIFIED="1499239615522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="G:/study" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -53,12 +46,63 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="isomp.log" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/log/isomp.log">
+      <file leaf-file-name="checkbox.py" pinned="false" current-in-tab="false">
+        <entry file="file://G:/study/checkbox.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="10.876288">
-              <caret line="211" column="0" selection-start-line="211" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+              <folding>
+                <element signature="e#87#117#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_icommon.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/_icommon.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.0">
+              <caret line="275" column="29" selection-start-line="275" selection-start-column="8" selection-end-line="275" selection-end-column="29" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_mutex.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testCase/role/test_mutex.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="50" column="32" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
+              <folding>
+                <element signature="e#578#794#0" expanded="false" />
+                <element signature="e#1649#2682#0" expanded="false" />
+                <element signature="e#2734#3540#0" expanded="false" />
+                <element signature="e#3595#4731#0" expanded="false" />
+                <element signature="e#4782#5366#0" expanded="false" />
+                <element signature="e#5419#6579#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_role_mutex.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/webElement/role/test_role_mutex.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.38659793">
+              <caret line="170" column="61" selection-start-line="170" selection-start-column="61" selection-end-line="170" selection-end-column="61" />
+              <folding>
+                <element signature="e#363#532#0" expanded="false" />
+                <element signature="e#929#1378#0" expanded="false" />
+                <element signature="e#1521#1970#0" expanded="false" />
+                <element signature="e#2460#3100#0" expanded="false" />
+                <element signature="e#3194#3831#0" expanded="false" />
+                <element signature="e#3999#4791#0" expanded="false" />
+                <element signature="e#4903#5096#0" expanded="false" />
+                <element signature="e#5216#5415#0" expanded="false" />
+                <element signature="e#5624#6131#0" expanded="false" />
+                <element signature="e#6241#6543#0" expanded="false" />
+                <element signature="e#6603#6929#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -112,17 +156,17 @@
         <option value="$PROJECT_DIR$/test_suite.py" />
         <option value="$PROJECT_DIR$/common/config.json" />
         <option value="$PROJECT_DIR$/testCase/role/test_role.py" />
-        <option value="G:/study/checkbox.py" />
         <option value="$PROJECT_DIR$/webElement/role/role_mutex_select.js" />
         <option value="C:/Python27/Lib/site-packages/selenium/webdriver/support/select.py" />
-        <option value="$PROJECT_DIR$/common/_icommon.py" />
         <option value="$PROJECT_DIR$/common/jshctest.py" />
         <option value="$PROJECT_DIR$/common/test.conf" />
-        <option value="$PROJECT_DIR$/webElement/role/test_role_mutex.py" />
         <option value="$PROJECT_DIR$/testCase/role/test_mutex.py" />
         <option value="$PROJECT_DIR$/testSuite/test_1role_suite.py" />
         <option value="$PROJECT_DIR$/log/isomp.log" />
         <option value="$PROJECT_DIR$/common/_mail.py" />
+        <option value="G:/study/checkbox.py" />
+        <option value="$PROJECT_DIR$/common/_icommon.py" />
+        <option value="$PROJECT_DIR$/webElement/role/test_role_mutex.py" />
       </list>
     </option>
   </component>
@@ -203,6 +247,20 @@
               <option name="myItemId" value="testIsomp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="study" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testIsomp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testIsomp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -232,7 +290,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="testSuite" />
+              <option name="myItemId" value="webElement" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -250,7 +308,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="log" />
+              <option name="myItemId" value="webElement" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="role" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testIsomp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testIsomp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testIsomp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testCase" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -259,7 +339,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/testSuite/test_1role_suite.py" />
+    <property name="last_opened_file_path" value="G:/study/checkbox.py" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
@@ -285,7 +365,7 @@
       <recent name="G:\testIsomp" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.test_suite">
+  <component name="RunManager" selected="Python.checkbox.">
     <configuration default="false" name="yuanmail" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -546,11 +626,30 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <list size="4">
+    <configuration default="false" name="checkbox." type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Python27\python.exe" />
+      <option name="WORKING_DIRECTORY" value="G:/study" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="testIsomp" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="G:/study/checkbox.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.test_1role_suite" />
-      <item index="1" class="java.lang.String" itemvalue="Python.yuanmail" />
-      <item index="2" class="java.lang.String" itemvalue="Python.test_suite" />
-      <item index="3" class="java.lang.String" itemvalue="Python._mail" />
+      <item index="1" class="java.lang.String" itemvalue="Python.checkbox." />
+      <item index="2" class="java.lang.String" itemvalue="Python.yuanmail" />
+      <item index="3" class="java.lang.String" itemvalue="Python.test_suite" />
+      <item index="4" class="java.lang.String" itemvalue="Python._mail" />
     </list>
     <recent_temporary>
       <list size="3">
@@ -691,13 +790,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://G:/study/checkbox.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6511628">
-          <caret line="33" column="22" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testData/_testDataPath.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44134077">
@@ -807,14 +899,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23463687">
           <caret line="26" column="15" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://G:/study/checkbox.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -1017,50 +1101,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/_icommon.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6417526">
-          <caret line="431" column="4" selection-start-line="431" selection-start-column="4" selection-end-line="431" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webElement/role/test_role_mutex.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33247423">
-          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
-          <folding>
-            <element signature="e#363#532#0" expanded="false" />
-            <element signature="e#929#1378#0" expanded="false" />
-            <element signature="e#1521#1970#0" expanded="false" />
-            <element signature="e#2460#3100#0" expanded="false" />
-            <element signature="e#3194#3831#0" expanded="false" />
-            <element signature="e#3999#4791#0" expanded="false" />
-            <element signature="e#4903#5096#0" expanded="false" />
-            <element signature="e#5216#5415#0" expanded="false" />
-            <element signature="e#5521#5580#0" expanded="false" />
-            <element signature="e#5680#6187#0" expanded="false" />
-            <element signature="e#6297#6599#0" expanded="false" />
-            <element signature="e#6659#6985#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testCase/role/test_mutex.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43556702">
-          <caret line="48" column="16" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
-          <folding>
-            <element signature="e#578#794#0" expanded="false" />
-            <element signature="e#1649#2682#0" expanded="false" />
-            <element signature="e#2734#3540#0" expanded="false" />
-            <element signature="e#3595#4731#0" expanded="false" />
-            <element signature="e#4782#5366#0" expanded="false" />
-            <element signature="e#5419#6579#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testSuite/test_1role_suite.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.742268">
@@ -1079,9 +1119,70 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/log/isomp.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="10.876288">
+        <state vertical-scroll-proportion="0.0">
           <caret line="211" column="0" selection-start-line="211" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://G:/study/checkbox.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.379311">
+          <caret line="33" column="22" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://G:/study/checkbox.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+          <folding>
+            <element signature="e#87#117#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/_icommon.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.0">
+          <caret line="275" column="29" selection-start-line="275" selection-start-column="8" selection-end-line="275" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testCase/role/test_mutex.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="32" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
+          <folding>
+            <element signature="e#578#794#0" expanded="false" />
+            <element signature="e#1649#2682#0" expanded="false" />
+            <element signature="e#2734#3540#0" expanded="false" />
+            <element signature="e#3595#4731#0" expanded="false" />
+            <element signature="e#4782#5366#0" expanded="false" />
+            <element signature="e#5419#6579#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webElement/role/test_role_mutex.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38659793">
+          <caret line="170" column="61" selection-start-line="170" selection-start-column="61" selection-end-line="170" selection-end-column="61" />
+          <folding>
+            <element signature="e#363#532#0" expanded="false" />
+            <element signature="e#929#1378#0" expanded="false" />
+            <element signature="e#1521#1970#0" expanded="false" />
+            <element signature="e#2460#3100#0" expanded="false" />
+            <element signature="e#3194#3831#0" expanded="false" />
+            <element signature="e#3999#4791#0" expanded="false" />
+            <element signature="e#4903#5096#0" expanded="false" />
+            <element signature="e#5216#5415#0" expanded="false" />
+            <element signature="e#5624#6131#0" expanded="false" />
+            <element signature="e#6241#6543#0" expanded="false" />
+            <element signature="e#6603#6929#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

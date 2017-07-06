@@ -170,16 +170,13 @@ class roleMutex(object):
 		selem = self.getElem.find_element_with_wait("name", "select_mutex_role")
 		self.selectElem.select_element_by_index(selem, index)
 
-	u'''校验点击保存按钮
-	   Parameters:
-	      -index：select的索引，例0,1,2,从0开始计数
-	'''
+	u'''校验点击保存按钮'''
 	def check_save_mutex(self):
 		self.getElem.find_element_wait_and_click_EC("name", "save")
 
 	u'''点击用户的角色按钮
 	   Parameters:
-	      -username：用户账户
+	      -username：用户账号
 	'''
 	def click_user_role(self, username):
 		self.frameElem.switch_to_content()

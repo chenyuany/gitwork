@@ -268,7 +268,7 @@ class selectElement(object):
     def deselect_element_by_index(self, selem, index):
         return Select(selem).deselect_by_index(index)
 
-    u'''根据取消选择所有
+    u'''根据文本值取消选择
         Parameters:
             - selem:定位到的select元素
             - value：页面的文本值
