@@ -60,6 +60,31 @@ class getElement(object):
         elif type == "plt":
             return WebDriverWait(self.driver,timeout).until(lambda x:x.find_element_by_partial_link_text(value))
 
+    u'''等待元素出现后再定位元素EC
+        parameter:
+            - type:定位的类型，如id,name,tag name,class name,css,xpath等
+            - value：页面的元素值
+            - timeout:超时前等待的时间
+        return：定位元素并点击该元素
+    '''
+    def find_element_with_wait_EC(self,type,value,timeout=1):
+            if type == "id":
+                WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.ID, value)))
+            elif type == "xpath":
+                WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.XPATH, value)))
+            elif type == "name":
+                WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.NAME, value)))
+            elif type == "tagname":
+                WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.TAG_NAME, value)))
+            elif type == "classname":
+                WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.CLASS_NAME, value)))
+            elif type == "css":
+                WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.CSS_SELECTOR, value)))
+            elif type == "link":
+                WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.LINK_TEXT, value)))
+            elif type == "plt":
+                WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.PARTIAL_LINK_TEXT, value)))
+
     
     u'''等待元素出现后再定位元素并发送键值
         parameter:
@@ -807,7 +832,6 @@ class commonFun(object):
         self.driver.switch_to_default_content()
         OKBTN = "//div[@id='aui_buttons']/button[1]"
         return self.getElem.find_element_wait_and_click('xpath',OKBTN)
-    
 
     u'''点击弹框按钮
           Parameters:

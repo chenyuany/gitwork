@@ -12,8 +12,6 @@
 import sys,time
 reload(sys)
 sys.setdefaultencoding('utf-8')
-
-sys.path.append("/testIsomp/testData/")
 sys.path.append("/testIsomp/common")
 from _icommon import commonFun,getElement,selectElement,frameElement
 sys.path.append("/testIsomp/testCase/role/")

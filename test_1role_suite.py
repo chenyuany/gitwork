@@ -28,9 +28,9 @@ import unittest
 class testRoleSuite(unittest.TestCase):
 
 	def setUp(self):
-		self.browser = initDriver().open_driver()
-		# driver_lists = globalValue().get_value()
-		# self.browser = initDriver().remote_open_driver(driver_lists[0],driver_lists[1])
+		# self.browser = initDriver().open_driver()
+		driver_lists = globalValue().get_value()
+		self.browser = initDriver().remote_open_driver(driver_lists[0],driver_lists[1])
 
 	def test_role(self):
 		self.getElem = getElement(self.browser)

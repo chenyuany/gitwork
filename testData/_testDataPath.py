@@ -34,6 +34,9 @@ LOCAL_USER_TEST_DATA_URL = "/testIsomp/testData/local_user_test_data.xlsx"
 #角色定义数据文件
 ROLE_TEST_DATA_URL = r"/testIsomp/testData/role_test_data.xlsx"
 
+#角色定义数据文件
+DEPARTMENT_TEST_DATA_URL = r"/testIsomp/testData/department_test_data.xlsx"
+
 #认证方式数据文件
 AUTH_METHOD_TEST_DATA_URL = r"/testIsomp/testData/auth_method_test_data.xlsx"
 
@@ -78,6 +81,10 @@ class dataFileName(object):
     u"""获取角色定义数据文件的数据"""
     def get_role_test_data_url(self):
         return ROLE_TEST_DATA_URL
+
+    u"""获取组织定义部门文件的数据"""
+    def get_depart_test_data_url(self):
+        return DEPARTMENT_TEST_DATA_URL
 
     #从sheet名称获取登陆数据
     def get_data(self,dataPath,sheetName):
