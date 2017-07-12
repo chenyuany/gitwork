@@ -642,7 +642,16 @@ class commonFun(object):
         role = self.getElem.find_element_with_wait("id","js_x")
         selectElem = selectElement(self.driver)
         selectElem.select_element_by_index(role,index)
-        
+
+    u'''通过角色名称选择角色
+        Parameters:
+            - text:角色名称
+    '''    
+    def select_role_by_text(self,text):
+        self.getElem.find_element_wait_and_click("id","js_z")
+        role = self.getElem.find_element_with_wait("id","js_x")
+        selectElem = selectElement(self.driver)
+        selectElem.select_element_by_visible_text(role,text)
         
     u'''获取开关的状态
         Parameters:

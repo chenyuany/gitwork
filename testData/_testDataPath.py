@@ -34,7 +34,7 @@ LOCAL_USER_TEST_DATA_URL = "/testIsomp/testData/local_user_test_data.xlsx"
 #角色定义数据文件
 ROLE_TEST_DATA_URL = r"/testIsomp/testData/role_test_data.xlsx"
 
-#角色定义数据文件
+#组织定义数据文件
 DEPARTMENT_TEST_DATA_URL = r"/testIsomp/testData/department_test_data.xlsx"
 
 #认证方式数据文件

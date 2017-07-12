@@ -22,7 +22,7 @@ sys.path.append("/testIsomp/webElement/role/")
 from test_role_mutex import roleMutex
 from test_roledf import Role
 sys.path.append("/testIsomp/webElement/department/")
-from dptmElement import Department
+from test_dptm_ment import Department
 sys.path.append("/testIsomp/testCase/role/")
 from test_role import testRole
 

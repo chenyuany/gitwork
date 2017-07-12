@@ -93,7 +93,7 @@ class Department(object):
 	u'''点击上移、下移按钮校验
 	   parameter:
 	       - deptname:传入要被操作的部门
-	       - operation：代表基本操作0代表添加、1代表编辑、2代表上移、3代表下移
+	       - operation：代表基本操作2代表上移、3代表下移
 	'''
 	def click_up_button(self, deptname, operation):
 		self.frameElem.switch_to_content()
@@ -125,7 +125,7 @@ class Department(object):
 							break
 				break
 
-	u'''返回位于第几行
+	u'''返回在部门树中位于第几行
 	   parameter:
 	       - deptname:传入要被操作的部门
 	'''
