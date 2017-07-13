@@ -54,5 +54,5 @@ class testSuite(unittest.TestCase):
             rf.close()
         #直接跑测试用例
         #unittest.TextTestRunner().run(suite)
-        sendMail().send_mail()
+        # sendMail().send_mail()
 

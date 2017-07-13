@@ -1,0 +1,18 @@
+1499443887813	geckodriver	INFO	Listening on 127.0.0.1:58185
+1499443889866	mozprofile::profile	INFO	Using profile path C:\Users\zzf\AppData\Local\Temp\rust_mozprofile.KuIa0nBQpMtg
+1499443889871	geckodriver::marionette	INFO	Starting browser C:\Program Files (x86)\mozilla firefox\firefox.exe
+1499443889883	geckodriver::marionette	INFO	Connecting to Marionette on localhost:58193
+[GFX1-]: PossiblyBrokenSurfaceSharing_UnexpectedAMDGPU
+1499443891231	Marionette	INFO	Listening on port 58193
+1499443893441	Marionette	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: PossiblyBrokenSurfaceSharing_UnexpectedAMDGPU
+JavaScript error: https://192.168.249.200/fort/login, line 35: TypeError: sso.update is not a function
+JavaScript error: https://192.168.249.200/fort//trust/js/views/operation/sso/view-notes.js, line 44: ReferenceError: sid is not defined
+[Child 7840] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w32-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 7840] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w32-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+_XPC_GS_RETURNED_FAILURE: Component returned failure code: 0x80570016 (NS_ERROR_XPC_GS_RETURNED_FAILURE) [nsIJSCID.getService]
+JavaScript error: chrome://pippki/content/exceptionDialog.js, line 324: NS_ERROR_XPC_GS_RETURNED_FAILURE: Component returned failure code: 0x80570016 (NS_ERROR_XPC_GS_RETURNED_FAILURE) [nsIJSCID.getService]
+JavaScript error: chrome://pippki/content/exceptionDialog.js, line 324: NS_ERROR_XPC_GS_RETURNED_FAILURE: Component returned failure code: 0x80570016 (NS_ERROR_XPC_GS_RETURNED_FAILURE) [nsIJSCID.getService]
+JavaScript error: chrome://pippki/content/exceptionDialog.js, line 324: NS_ERROR_XPC_GS_RETURNED_FAILURE: Component returned failure code: 0x80570016 (NS_ERROR_XPC_GS_RETURNED_FAILURE) [nsIJSCID.getService]
+[Child 6212] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w32-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 6212] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w32-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345

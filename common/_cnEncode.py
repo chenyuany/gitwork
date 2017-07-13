@@ -25,14 +25,13 @@ class cnEncode:
         else:
             return cnStr.decode('utf-8').encode('GBK')
     
-    u'''判断字符串是否为float类型
+    u'''将浮点类型的数字或者字符串转换为整型
         Parameters:
-            - enStr：判断的字符串
-    '''
-        
+            - enStr：转变的字符串
+    '''        
     def is_float(self,enStr):
         if isinstance(enStr,float):
             enStr = int(enStr)
-        else:
-            enStr = str(enStr)
+#        else:
+#            enStr = str(enStr)
         return enStr

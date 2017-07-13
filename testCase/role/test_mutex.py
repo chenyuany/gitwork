@@ -9,7 +9,7 @@
 #修改日期：
 #修改内容：
 '''
-import sys,time
+import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.path.append("/testIsomp/common")
@@ -31,9 +31,11 @@ class testMutex(object):
 		self.cmf = commonFun(driver)
 		self.getElem = getElement(driver)
 		self.selectElem = selectElement(driver)
+		self.frameElem = frameElement(driver)
 
 	u'''添加互斥角色'''
 	def add_mutex_role_001(self):
+
 		#日志开始记录
 		self.log.log_start("addmutexrole")
 		#获取添加互斥角色测试数据
@@ -42,6 +44,7 @@ class testMutex(object):
 		roleMsg = self.role.popup()
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
+
 		for dataRow in range(len(rolemutexData)):
 			data = rolemutexData[dataRow]
 			try:
@@ -51,14 +54,16 @@ class testMutex(object):
 					self.rolemutex.select_role(int(data[2]), dataRow)
 					self.rolemutex.select_mutex_role(int(data[3]), dataRow)
 					self.rolemutex.save_mutex_button(dataRow)
-					self.rolemutex.frameElem.switch_to_content()
+					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 			except Exception as e:
 				print ("add mutexrole fail:" + str(e))
+
 		self.log.log_end("addmutexrole")
 
 	u'''校验添加互斥角色后用户添加角色'''
 	def check_addmutex_user_addrole_002(self):
+
 		#日志开始记录
 		self.log.log_start("check_addmutex_user_addrole")
 		#获取添加互斥角色测试数据
@@ -67,8 +72,10 @@ class testMutex(object):
 		roleMsg = self.role.popup()
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
+
 		for dataRow in range(len(rolemutexData)):
 			data = rolemutexData[dataRow]
+
 			try:
 				#如果不是第一行标题，则读取数据
 				if dataRow != 0:
@@ -77,15 +84,17 @@ class testMutex(object):
 					self.rolemutex.click_add_role(int(data[3]))
 					self.rolemutex.select_all_role(int(data[4]))
 					self.rolemutex.click_add_role(int(data[4]))
-					self.rolemutex.frameElem.switch_to_content()
+					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 					self.cmf.back()
 			except Exception as e:
 				print ("add checkuseraddrole fail:" + str(e))
+
 		self.log.log_end("check_addmutex_user_addrole")
 
 	u'''校验添加互斥角色后用户编辑中的添加角色'''
 	def check_addmutex_user_editrole_003(self):
+
 		#日志开始记录
 		self.log.log_start("check_addmutex_user_editrole")
 		#获取添加互斥角色测试数据
@@ -94,6 +103,7 @@ class testMutex(object):
 		roleMsg = self.role.popup()
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
+
 		for dataRow in range(len(rolemutexData)):
 			data = rolemutexData[dataRow]
 			try:
@@ -105,15 +115,13 @@ class testMutex(object):
 					self.rolemutex.click_add_role(int(data[3]))
 					self.rolemutex.select_all_role(int(data[4]))
 					self.rolemutex.click_add_role(int(data[4]))
-					self.rolemutex.frameElem.switch_to_content()
+					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 					self.cmf.back()
 			except Exception as e:
 				print ("add checkusereditrole fail:" + str(e))
-		self.rolemutex.frameElem.switch_to_content()
-		self.rolemutex.frameElem.switch_to_top()
-		self.getElem.find_element_wait_and_click("link", u"角色管理")
-		self.getElem.find_element_wait_and_click("link", u"角色互斥定义")
+
+		self.cmf.select_menu(u"角色管理", u"角色互斥定义")
 		self.log.log_end("check_addmutex_user_editrole")
 
 	u'''编辑互斥角色'''
@@ -127,6 +135,7 @@ class testMutex(object):
 
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
+
 		for dataRow in range(len(rolemutexData)):
 			data = rolemutexData[dataRow]
 			try:
@@ -137,14 +146,16 @@ class testMutex(object):
 					self.rolemutex.deselect_edit_mutex(data[2], data[3])
 					self.rolemutex.select_mutex_role(int(data[5]), dataRow)
 					self.rolemutex.save_mutex_button(dataRow)
-					self.rolemutex.frameElem.switch_to_content()
+					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 			except Exception as e:
 				print ("Edit mutex role fail:" + str(e))
+
 		self.log.log_end("editmutexrole")
 
 	u'''校验编辑互斥角色后用户添加角色'''
 	def check_editmutex_user_addrole_005(self):
+
 		#日志开始记录
 		self.log.log_start("check_editmutex_user_addrole")
 		#获取添加互斥角色测试数据
@@ -153,6 +164,7 @@ class testMutex(object):
 		roleMsg = self.role.popup()
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
+
 		for dataRow in range(len(rolemutexData)):
 			data = rolemutexData[dataRow]
 			try:
@@ -165,15 +177,17 @@ class testMutex(object):
 					self.rolemutex.click_add_role(int(data[4]))
 					self.rolemutex.select_all_role(int(data[5]))
 					self.rolemutex.click_add_role(int(data[5]))
-					self.rolemutex.frameElem.switch_to_content()
+					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 					self.cmf.back()
 			except Exception as e:
 				print ("add checkeditmutex fail:" + str(e))
+
 		self.log.log_end("check_editmutex_user_addrole")
 
 	u'''校验编辑互斥角色后用户编辑中的添加角色'''
 	def check_editmutex_user_editrole_006(self):
+
 		#日志开始记录
 		self.log.log_start("check_editmutex_user_editrole")
 		#获取添加互斥角色测试数据
@@ -182,6 +196,7 @@ class testMutex(object):
 		roleMsg = self.role.popup()
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
+
 		for dataRow in range(len(rolemutexData)):
 			data = rolemutexData[dataRow]
 			try:
@@ -195,15 +210,13 @@ class testMutex(object):
 					self.rolemutex.click_add_role(int(data[4]))
 					self.rolemutex.select_all_role(int(data[5]))
 					self.rolemutex.click_add_role(int(data[5]))
-					self.rolemutex.frameElem.switch_to_content()
+					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 					self.cmf.back()
 			except Exception as e:
 				print ("add checkeditmutex fail:" + str(e))
-		self.rolemutex.frameElem.switch_to_content()
-		self.rolemutex.frameElem.switch_to_top()
-		self.getElem.find_element_wait_and_click("link", u"角色管理")
-		self.getElem.find_element_wait_and_click("link", u"角色互斥定义")
+
+		self.cmf.select_menu(u"角色管理", u"角色互斥定义")
 		self.log.log_end("check_editmutex_user_editrole")
 
 	u'''删除角色互斥'''
@@ -217,16 +230,18 @@ class testMutex(object):
 
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
+
 		for dataRow in range(len(rolemutexData)):
 			data = rolemutexData[dataRow]
 			try:
 				#如果不是第一行标题，则读取数据
 				if dataRow != 0:
 					self.rolemutex.delete_mutex(data[2])
-					self.rolemutex.frameElem.switch_to_content()
+					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 			except Exception as e:
 				print ("Del mutex role fail:" + str(e))
+
 		self.log.log_end("delmutexrole")
 
 	u'''校验角色互斥'''
@@ -240,7 +255,9 @@ class testMutex(object):
 
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
+
 		self.rolemutex.click_add_mutex()
+
 		for dataRow in range(len(rolemutexData)):
 			data = rolemutexData[dataRow]
 			try:
@@ -254,14 +271,11 @@ class testMutex(object):
 							if dataRow != 2:
 								self.rolemutex.check_select_mutex_role(int(data[3]))
 						self.rolemutex.check_save_mutex()
-					self.rolemutex.frameElem.switch_to_content()
+					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 			except Exception as e:
 				print ("Check mutex role fail:" + str(e))
-		self.rolemutex.frameElem.switch_to_content()
-		self.rolemutex.frameElem.switch_to_top()
-		self.getElem.find_element_wait_and_click("link", u"角色管理")
-		self.getElem.find_element_wait_and_click("link", u"角色定义")
-		self.rolemutex.frameElem.switch_to_content()
-		self.rolemutex.frameElem.switch_to_main()
+
+		self.cmf.select_menu(u"角色管理", u"角色定义")
+		self.frameElem.from_frame_to_otherFrame("mainFrame")
 		self.log.log_end("checkmutexrole")

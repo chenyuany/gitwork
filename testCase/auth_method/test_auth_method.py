@@ -12,11 +12,16 @@
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
+import os
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 
 sys.path.append("/testIsomp/testData/")
 from _testDataPath import dataFileName
 sys.path.append("/testIsomp/common")
 from _icommon import commonFun,getElement,selectElement,frameElement
+from _cnEncode import cnEncode
 from _log import log
 from _initDriver import *
 sys.path.append("/testIsomp/webElement/auth_method/")
@@ -45,6 +50,7 @@ class testAuthMethod(object):
 		self.selectElem = selectElement(driver)
 		self.frameElem = frameElement(driver)
 		self.login = loginPage(self.driver)
+		self.cnEnde = cnEncode()
 		
 	u'''获取测试数据
 		Parameters:
@@ -260,18 +266,48 @@ class testAuthMethod(object):
 					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath",auth_method_msg,data,flag)
 					#清空标识状态
-					flag = False					
-					#校验登录页面是否有认证方式
-#					self.login.quit()
-#					self.frameElem.switch_to_content()
-#					if self.authMethod.check_option_is_selectd('id',login_auth_method,data[3]):
-#						print("Cert auth method add success")
+					flag = False
+					self.login.quit()
 			except Exception as e:
 				print ("Cert auth method add fail: ") + str(e)
 		self.log.log_end("addCertMethod")
+
+	u'''添加所有的认证方式并校验是否添加成功'''
+	def auth_method_add_is_success_006(self):
+		#全部认证方式
+		all_auth_method = "all_globalAuthMethod"
+		#已选认证方式
+		selectd_auth_method = "select_globalAuthMethod"
+		login_auth_method = "loginMethod"
+		auth_method_data = self.get_table_data("login")
+		self.authMethod.login_and_switch_auth_method()
+		#保存成功的弹出框
+		auth_method_msg = self.auth_method_msg()
+		#日志开始记录
+		self.log.log_start("checkout auth method whether add success")
+		flag = False
+		for dataRow in range(len(auth_method_data)):
+			data = auth_method_data[dataRow]
+			try:
+				#如果不是第一行标题，则读取数据
+				if dataRow == 2:
+					self.frameElem.from_frame_to_otherFrame("mainFrame")
+					auth_select_text = self.authMethod.get_select_options_text("id",selectd_auth_method)		
+					#清空标识状态
+					flag = False
+					self.authMethod.get_user_select_auth_text(data)
+					user_select_text = self.authMethod.get_select_options_text("id","fortAuthenticationCode")
+					self.authMethod.compare_list_is_equal(auth_select_text,user_select_text,data)
+					self.login.quit()
+					self.frameElem.switch_to_content()
+					login_select_text = self.authMethod.get_select_options_text("id","loginMethod")
+					self.authMethod.compare_list_is_equal(auth_select_text,login_select_text,data)
+			except Exception as e:
+				print "is not equal" + str(e)
+		self.log.log_end("Add all auth method and checkout whether add success")
 	
 	#修改AD域认证配置
-	def mod_ad_method_006(self):
+	def mod_ad_method_007(self):
 		#已选认证方式
 		ad_auth_ip = "ldapHost0"
 		ad_auth_domian_name = "ldapName0"
@@ -281,7 +317,7 @@ class testAuthMethod(object):
 		self.log.log_start("ModeyADMethodConfig")
 		#获取修改AD域配置测试数据
 		auth_method_data = self.get_table_data("mod_ad_method")
-
+		self.authMethod.login_and_switch_auth_method()
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
 		for dataRow in range(len(auth_method_data)):
@@ -296,8 +332,8 @@ class testAuthMethod(object):
 					self.authMethod.save_button()
 					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath",auth_method_msg,data,flag)
-					self.authMethod.compare_elem_text('id',ad_auth_ip,data[2])
-					self.authMethod.compare_elem_text('id',ad_auth_domian_name,data[4])
+#					self.authMethod.compare_elem_text('id',ad_auth_ip,data[2])
+#					self.authMethod.compare_elem_text('id',ad_auth_domian_name,data[4])
 					#清空标识状态
 					flag = False					
 			except Exception as e:
@@ -305,7 +341,7 @@ class testAuthMethod(object):
 		self.log.log_end("ModeyADMethodConfig")
 	
 	#AD域认证配置校验
-	def ad_method_checkout_007(self):
+	def ad_method_checkout_008(self):
 		#保存成功的弹出框
 		auth_method_msg = self.auth_method_msg()
 		#日志开始记录
@@ -340,7 +376,7 @@ class testAuthMethod(object):
 	
 	
 	u'''radius认证校验'''
-	def radius_checkout_008(self):
+	def radius_checkout_009(self):
 		#保存成功的弹出框
 		auth_method_msg = self.auth_method_msg()
 		#日志开始记录
@@ -383,54 +419,8 @@ class testAuthMethod(object):
 				print ("RadiusCheckout fail: ") + str(e)
 		self.log.log_end("RadiusCheckout")
 
-	u'''删除radius认证方式'''
-	def del_radius_auth_method_009(self):
-		#全部认证方式
-		all_auth_method = "all_globalAuthMethod"
-		#已选认证方式
-		selectd_auth_method = "select_globalAuthMethod"
-		login_auth_method = "loginMethod"
-		#保存成功的弹出框
-		auth_method_msg = self.auth_method_msg()
-		#日志开始记录
-		self.log.log_start("delradiusMethod")
-		#获取添加系统管理员测试数据
-		auth_method_data = self.get_table_data("del_raius_method")
-
-		#无检查点的测试项标识，如果为True说明通过
-		flag = False
-		for dataRow in range(len(auth_method_data)):
-			data = auth_method_data[dataRow]
-			try:
-				#如果不是第一行标题，则读取数据
-				if dataRow == 1:
-					self.frameElem.from_frame_to_otherFrame("mainFrame")
-					self.authMethod.quit_selectd_all_method()
-					self.authMethod.select_del_auth_method(data[2])
-					self.authMethod.auth_del_button()
-					#校验已选认证是否删除radius认证
-					self.authMethod.check_option_is_not_exist('id',selectd_auth_method,data[3])
-					#校验是否添加到全部认证方式
-					self.authMethod.check_option_is_selectd('id',all_auth_method,data[3])
-					self.authMethod.set_radius_auth_ip(data[4])
-					self.authMethod.set_radius_auth_key(data[5])					
-					self.authMethod.save_button()
-					self.frameElem.switch_to_content()
-					self.cmf.test_win_check_point("xpath",auth_method_msg,data,flag)
-					#清空标识状态
-					flag = False
-					
-					#校验登录页面是否有认证方式
-#					self.login.quit()
-#					self.frameElem.switch_to_content()
-#					if self.authMethod.check_option_is_selectd('id',login_auth_method,data[3]):
-#						print("AD auth method add success")
-			except Exception as e:
-				print ("delradiusMethod fail: ") + str(e)
-		self.log.log_end("delradiusMethod")
-
 	u'''删除其他认证方式'''
-	def del_other_auth_method_010(self):
+	def del_auth_method_010(self):
 		#全部认证方式
 		all_auth_method = "all_globalAuthMethod"
 		#已选认证方式
@@ -447,7 +437,7 @@ class testAuthMethod(object):
 			data = auth_method_data[dataRow]
 			try:
 				#如果是第2行标题，则读取数据
-				if dataRow == 2:
+				if dataRow != 0:
 					self.frameElem.from_frame_to_otherFrame("mainFrame")
 					self.authMethod.quit_selectd_all_method()
 					selem = self.getElem.find_element_with_wait("id",selectd_auth_method)
@@ -461,31 +451,43 @@ class testAuthMethod(object):
 				#清空标识状态
 				flag = False				
 			except Exception as e:
-				print ("delotherMethod fail: ") + str(e)
-		self.log.log_end("delotherMethod")
+				print ("delAuthMethod fail: ") + str(e)
+		self.log.log_end("delAuthMethod")
+		
 
-#if __name__ == "__main__":
-#	driver = initDriver().remote_open_driver("http://172.16.10.21:5555/wd/hub","chrome")
-#	login_data = testAuthMethod(driver).get_table_data("login")
-#	data = login_data[1]
-#	loginPage(driver).login(data)
-#	frameElement(driver).switch_to_content()
-#	frameElement(driver).switch_to_top()
+
+if __name__ == "__main__":
+	driver = initDriver().remote_open_driver("http://172.16.10.21:5555/wd/hub","internet explorer")
+	login_data = testAuthMethod(driver).get_table_data("login")
+	data = login_data[1]
+	loginPage(driver).login(data)
+	frameElement(driver).switch_to_content()
+	frameElement(driver).switch_to_top()
 #	commonFun(driver).select_role(1)
-#	commonFun(driver).select_menu(u"策略配置")
-#	commonFun(driver).select_menu(u"策略配置",u"认证强度")
-#	frameElement(driver).from_frame_to_otherFrame("mainFrame")
-#	authMethod = AuthMethodPage(driver)
-#	authMethod.delete_other_auth_method()
+	commonFun(driver).select_role_by_text(u'系统管理员')
+	commonFun(driver).select_menu(u"策略配置")
+	commonFun(driver).select_menu(u"策略配置",u"认证强度")
+	frameElement(driver).from_frame_to_otherFrame("mainFrame")
+	authMethod = AuthMethodPage(driver)
+#	authMethod.select_all_auth()
+##	selem = getElement(driver).find_element_with_wait("id","select_globalAuthMethod")
+##	cnEode = cnEncode()
+##	text = selectElement(driver).get_all_option_text(selem)
+##	print cnEode.cnCode(','.join(text))
+##	authMethod = AuthMethodPage(driver)
+##	authMethod.delete_other_auth_method()
 #	testAuthMethod(driver).add_ad_method_001()
 #	testAuthMethod(driver).add_radius_method_002()
 #	testAuthMethod(driver).add_ad_and_pwd_method_003()
 #	testAuthMethod(driver).add_radius_and_pwd_method_004()
 #	testAuthMethod(driver).add_cert_method_005()
-#	frameElement(driver).from_frame_to_otherFrame("mainFrame")
-#	authMethod.quit_selectd_all_method()
-#	testAuthMethod(driver).mod_ad_method_006()
-#	testAuthMethod(driver).ad_method_checkout_007()
-#	testAuthMethod(driver).radius_checkout_008()
-#	testAuthMethod(driver).del_radius_auth_method_009()
-#	testAuthMethod(driver).del_other_auth_method_010()
+	testAuthMethod(driver).auth_method_add_is_success_006()
+##	frameElement(driver).from_frame_to_otherFrame("mainFrame")
+##	authMethod.quit_selectd_all_method()
+#	testAuthMethod(driver).mod_ad_method_007()
+#	testAuthMethod(driver).ad_method_checkout_008()
+##	frameElement(driver).from_frame_to_otherFrame("mainFrame")
+##	selem = getElement(driver).find_element_with_wait("id",'select_globalAuthMethod')
+##	authMethod.selectd_all_method(selem,'2')
+#	testAuthMethod(driver).radius_checkout_009()
+#	testAuthMethod(driver).del_auth_method_010()

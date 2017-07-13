@@ -1,7 +1,8 @@
 {
-    "APP":{"appip":"172.16.10.155"},
+    "APP":{"appip":"172.16.10.163"},
     "BROWER":[
-                {"detailType":"ie9","ip":"192.168.23.53","port":6666,"type":"internet explorer"}
+                {"detailType":"chrome","ip":"192.168.23.53","port":6666,"type":"chrome"}
+
                               
             ]
 }

@@ -9,7 +9,7 @@
 #修改日期：
 #修改内容：
 '''
-import sys,time
+import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -31,6 +31,7 @@ class testRole(object):
 		self.getElem = getElement(driver)
 		self.selectElem = selectElement(driver)
 		self.tableElem = tableElement(driver)
+		self.frameElem = frameElement(driver)
 
 	u'''获取测试数据
 	   Parameters:
@@ -60,8 +61,10 @@ class testRole(object):
 
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
+
 		for dataRow in range(len(roledfData)):
 			data = roledfData[dataRow]
+
 			try:
 				#如果不是第一行标题，则读取数据
 				if dataRow != 0:
@@ -70,14 +73,12 @@ class testRole(object):
 					self.role.edit_shortname(data[3])
 					self.role.select_sysrole()
 					self.role.save_button()
-					self.role.frameElem.switch_to_content()
+					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
-					#校验添加的角色是否存在
 					self.cmf.back()
-#					if self.cmf.is_namevalue_exsit(data[2], "fortRoleName"):
-#						print("add sysrole success")
 			except Exception as e:
 				print ("add sysrole fail:" + str(e))
+
 		self.log.log_end("addsysrole")
 
 	u'''添加部门管理员'''
@@ -90,8 +91,10 @@ class testRole(object):
 		roleMsg = self.popup()
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
+
 		for dataRow in range(len(roledfData)):
 			data = roledfData[dataRow]
+
 			try:
 				#如果不是第一行标题，则读取数据
 				if dataRow != 0:
@@ -99,18 +102,15 @@ class testRole(object):
 					self.role.edit_rolename(data[2])
 					self.role.edit_shortname(data[3])
 					self.role.level()
-					self.role.frameElem.switch_to_content()
-					self.role.frameElem.switch_to_main()
+					self.frameElem.from_frame_to_otherFrame("mainFrame")
 					self.role.select_dptrole()
 					self.role.save_button()
-					self.role.frameElem.switch_to_content()
+					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 					self.cmf.back()
-					#校验添加的角色是否存在
-#					if self.cmf.is_namevalue_exsit(data[2], "fortRoleName"):
-#						print("add dptrole success")
 			except Exception as e:
 				print ("add sysrole fail:" + str(e))
+
 		self.log.log_end("addroledpt")
 
 	u'''编辑系统管理员'''
@@ -124,6 +124,7 @@ class testRole(object):
 
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
+
 		for dataRow in range(len(roledfData)):
 			data = roledfData[dataRow]
 			try:
@@ -134,14 +135,12 @@ class testRole(object):
 					self.role.edit_rolename(data[3])
 					self.role.edit_shortname(data[4])
 					self.role.save_button()
-					self.role.frameElem.switch_to_content()
+					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 					self.cmf.back()
-					#校验编辑后的角色是否存在
-#					if self.cmf.is_namevalue_exsit(data[3], "fortRoleName"):
-#						print("Edit role success")
 			except Exception as e:
 				print ("Edit role fail:" + str(e))
+
 		self.log.log_end("editrole")
 
 	u'''编辑可管理角色'''
@@ -157,6 +156,7 @@ class testRole(object):
 			data = roledfData[dataRow]
 			#无检查点的测试项标识，如果为True说明通过
 			flag = False
+
 			try:
 
 				#如果不是第一行标题，则读取数据
@@ -166,22 +166,24 @@ class testRole(object):
 					self.role.manage_role_add(int(data[3]))
 					self.cmf.select_check_point("id", roleMsg, data, flag)
 					self.role.save_button()
-					self.role.frameElem.switch_to_content()
+					self.frameElem.switch_to_content()
 					self.role.click_ok_button()
-					self.role.frameElem.switch_to_content()
-					self.role.frameElem.switch_to_main()
+					self.frameElem.from_frame_to_otherFrame("mainFrame")
 					self.cmf.back()
 			except Exception as e:
 				print ("Edit managed roles fail:" + str(e))
+
 		self.log.log_end("editmanagerole")
 
 	u'''编辑其他权限'''
 	def edit_otherrole_005(self):
+
 		self.log.log_start("editotherrole")
 		#获取编辑系统管理员测试数据
 		roledfData = self.get_table_data("edit_other_role")
 		#右侧已选其他权限框
 		roleMsg = "otherPrivileges"
+
 		for dataRow in range(len(roledfData)):
 			data = roledfData[dataRow]
 			#无检查点的测试项标识，如果为True说明通过
@@ -193,13 +195,13 @@ class testRole(object):
 					self.role.other_role_add(int(data[3]))
 					self.cmf.select_check_point("id", roleMsg, data, flag)
 					self.role.save_button()
-					self.role.frameElem.switch_to_content()
+					self.frameElem.switch_to_content()
 					self.role.click_ok_button()
-					self.role.frameElem.switch_to_content()
-					self.role.frameElem.switch_to_main()
+					self.frameElem.from_frame_to_otherFrame("mainFrame")
 					self.cmf.back()
 			except Exception as e:
 				print("Edit other permissions fail:" + str(e))
+
 		self.log.log_end("editotherrole")
 
 	u'''删除角色'''
@@ -212,23 +214,27 @@ class testRole(object):
 		roleMsg = self.popup()
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
+
 		for dataRow in range(len(roledfData)):
 			data = roledfData[dataRow]
+
 			try:
 				#如果不是第一行标题，则读取数据
 				if dataRow != 0:
 					self.role.delete(data[2])
-					self.role.frameElem.switch_to_content()
+					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 					#校验删除后的角色是否存在
 					if self.cmf.is_namevalue_exsit(data[2], "fortRoleName"):
 						print("The super administrator has been deleted")
 			except Exception as e:
 				print ("Deleting the super administrator failed:" + str(e))
+
 		self.log.log_end("delrole")
 
 	u'''全选删除角色'''
 	def bulkdel_role_007(self):
+
 		self.log.log_start("bulkdelrole")
 
 		#获取删除超级管理员测试数据
@@ -239,6 +245,7 @@ class testRole(object):
 
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
+
 		for dataRow in range(len(roledfData)):
 			data = roledfData[dataRow]
 			try:
@@ -246,10 +253,11 @@ class testRole(object):
 				if dataRow != 0:
 					self.cmf.check_all()
 					self.cmf.bulkdel("delete_role")
-					self.role.frameElem.switch_to_content()
+					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 			except Exception as e:
 				print ("Select Delete roles failure:" + str(e))
+
 		self.log.log_end("bulkdelrole")
 
 	u'''校验角色名称和没有选择菜单项'''
@@ -262,22 +270,26 @@ class testRole(object):
 		roleMsg = self.popup()
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
+
 		self.role.add()
+
 		for dataRow in range(len(roledfData)):
 			#把单行的数据赋值给列表data
 			data = roledfData[dataRow]
+
 			try:
 				#如果不是第一行标题，则读取数据
 				if dataRow != 0:
 					self.role.edit_rolename(data[2])
 					self.role.edit_shortname(data[3])
 					self.role.save_button()
-					self.role.frameElem.switch_to_content()
+					self.frameElem.switch_to_content()
 					#设定没有检查点的测试项通过
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
-					self.role.frameElem.switch_to_main()
+					self.frameElem.from_frame_to_otherFrame("mainFrame")
 			except Exception as e:
 				print ("Failed to verify the role name" + str(e))
+
 		self.cmf.back()
 		self.log.log_end("checkrolename")
 
@@ -291,9 +303,11 @@ class testRole(object):
 		roleMsg = self.popup()
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
+
 		for dataRow in range(len(roledfData)):
 			#把单行的数据赋值给列表data
 			data = roledfData[dataRow]
+
 			try:
 				#如果不是第一行标题，则读取数据
 				if dataRow != 0:
@@ -302,7 +316,7 @@ class testRole(object):
 					self.role.edit_shortname(data[3])
 					self.role.select_sysrole()
 					self.role.save_button()
-					self.role.frameElem.switch_to_content()
+					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 					self.cmf.back()
 			except Exception as e:
@@ -320,7 +334,7 @@ class testRole(object):
 		roleMsg = self.popup()
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
-		# list=[]
+
 		for dataRow in range(len(roledfData)):
 			#把单行的数据赋值给列表data
 			data = roledfData[dataRow]
@@ -330,11 +344,12 @@ class testRole(object):
 					self.role.edit(data[2])
 					self.role.other_role_add(int(data[3]))
 					self.role.other_role_add(int(data[4]))
-					self.role.frameElem.switch_to_content()
+					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 					self.cmf.back()
 			except Exception as e:
 				print ("Check other rights options failed:" + str(e))
+
 		self.log.log_end("checkother")
 
 	u'''校验批量删除'''
@@ -347,6 +362,7 @@ class testRole(object):
 		roleMsg = self.popup()
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
+
 		for dataRow in range(len(roledfData)):
 			#把单行的数据赋值给列表data
 			data = roledfData[dataRow]
@@ -354,10 +370,11 @@ class testRole(object):
 				#如果不是第一行标题，则读取数据
 				if dataRow != 0:
 					self.cmf.bulkdel("delete_role")
-					self.role.frameElem.switch_to_content()
+					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", roleMsg, data, flag)
 			except Exception as e:
 				print ("Check batch deletion failed" + str(e))
+
 		self.log.log_end("checkbulkdel")
 
 	u'''角色查询'''
@@ -366,9 +383,12 @@ class testRole(object):
 		self.log.log_start("rolequery")
 		#获取角色查询的数据
 		roledfData = self.get_table_data("role_query")
+
 		for dataRow in range(len(roledfData)):
 			#把单行的数据赋值给列表data
 			data = roledfData[dataRow]
+			table_xpath = "/html/body/form/div/div[6]/div[2]/div/table"
+
 			try:
 				#如果不是第一行标题，则读取数据
 				if dataRow != 0:
@@ -381,10 +401,11 @@ class testRole(object):
 							self.role.rolename_query(data[1])
 							self.role.click_query()
 							self.role.click_reset()
-						self.role.frameElem.switch_to_content()
-						self.role.frameElem.switch_to_main()
-						aa = self.tableElem.get_table_rows_count("/html/body/form/div/div[6]/div[2]/div/table")
-						if aa < 1:
+
+						self.frameElem.from_frame_to_otherFrame("mainFrame")
+						#获取表格行数
+						get_table_rows = self.tableElem.get_table_rows_count(table_xpath)
+						if get_table_rows < 1:
 							self.log.log_detail(data[0], True)
 					else:
 						if dataRow == 3:
@@ -397,11 +418,13 @@ class testRole(object):
 							self.role.shortname_query(data[2])
 							self.role.click_query()
 							self.role.click_reset()
-						self.role.frameElem.switch_to_content()
-						self.role.frameElem.switch_to_main()
-						aa = self.tableElem.get_table_rows_count("/html/body/form/div/div[6]/div[2]/div/table")
-						if aa > 0:
+
+						self.frameElem.from_frame_to_otherFrame("mainFrame")
+						#获取表格行数
+						get_table_rows = self.tableElem.get_table_rows_count(table_xpath)
+						if get_table_rows > 0:
 							self.log.log_detail(data[0], True)
 			except Exception as e:
 				print ("Query role failed" + str(e))
+
 		self.log.log_end("rolequery")

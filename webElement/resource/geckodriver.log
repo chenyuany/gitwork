@@ -1,0 +1,9 @@
+1497521561109	geckodriver	INFO	Listening on 127.0.0.1:60372
+1497521563122	mozprofile::profile	INFO	Using profile path C:\Users\guyaru.pc\AppData\Local\Temp\rust_mozprofile.nUQh4Z7fET1f
+1497521563122	geckodriver::marionette	INFO	Starting browser d:\Program Files (x86)\Mozilla Firefox\browser\firefox.exe
+1497521563137	geckodriver::marionette	INFO	Connecting to Marionette on localhost:60378
+1497521564601	Marionette	INFO	Listening on port 60378
+1497521566133	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://192.168.23.182/fort/login, line 35: TypeError: sso.update is not a function
+[Child 6072] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w32-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 6072] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w32-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345

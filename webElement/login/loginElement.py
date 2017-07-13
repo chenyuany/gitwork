@@ -78,15 +78,15 @@ class loginPage(object):
         return self.selectElem.get_option_text(loginMethod,0)
         
     #设定登录方式
-    def set_login_method(self,index): 
-        reindex = self.cnEnde.is_float(index)
+    def set_login_method(self,value): 
+        revalue = self.cnEnde.is_float(value)
 #        index = str(reindex)
         #presence_of_element_located,element_to_be_clickable
         wait = WebDriverWait(self.driver,10)
         loginMethod = wait.until(EC.presence_of_element_located((By.ID, self.LOGIN_METHOD)))
 #            loginMethod = self.getElem.find_element_with_wait('id',self.LOGIN_METHOD)
         try:
-            self.selectElem.select_element_by_index(loginMethod,reindex)
+            self.selectElem.select_element_by_value(loginMethod,str(revalue))
 #            if  not wait.until(EC.element_to_be_selected(option_xpath)):
         except Exception as e:
             self.log.print_detail("login type error",e)

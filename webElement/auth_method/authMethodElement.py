@@ -22,12 +22,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
-
 sys.path.append("/testIsomp/common/")
 from _initDriver import *
 from _icommon import getElement,selectElement,frameElement,commonFun
 from _cnEncode import cnEncode
 from _log import log
+
+sys.path.append("/testIsomp/testData/")
+from _testDataPath import dataFileName
+sys.path.append("/testIsomp/webElement/login/")
+from loginElement import loginPage
 
 class AuthMethodPage():
 
@@ -72,6 +76,8 @@ class AuthMethodPage():
 		self.frameElem = frameElement(self.driver)
 		self.commElem = commonFun(self.driver)
 		self.cmf = commonFun(self.driver)
+		self.dataFile = dataFileName()
+		self.login = loginPage(self.driver)
 		self.cnEnde = cnEncode()
 		self.log = log()
 	
@@ -256,26 +262,6 @@ class AuthMethodPage():
 		except Exception as e:
 			print ("Auth method save button error : ") + str(e)
 			
-	u'''删除已选认证方式框中除默认认证方式之外的认证方式'''
-	def delete_other_auth_method(self):
-		try:
-			selem = self.getElem.find_element_with_wait("id",self.SELECTED_AUTH_METHOD)
-			options = selem.find_elements_by_tag_name("option")
-			selectd_option_list = self.selectElem.get_all_option_value(selem)
-			default_auth_text = "用户名+口令(默认方式)"
-			text =  self.cnEnde.cnCode(','.join(selectd_option_list))
-			num = len(options)
-			if num != 1 or (num == 1 and text.find(default_auth_text)== -1):
-				for option in options:
-					value = option.get_attribute('value')
-					if value != '2':
-						Select(selem)._setSelected(option)
-				self.auth_del_button()
-				self.save_button()
-				self.cmf.click_login_msg_button()
-		except Exception as e:
-			print ("Selectd auth method is only default: ") + str(e)
-
 	#取消所有选中的证书
 	def quit_selectd_all_method(self):
 		try:
@@ -288,16 +274,16 @@ class AuthMethodPage():
 		except Exception as e:
 			print ("Quit all method error：") + str(e)
 
-	#选中除默认方式所有的认证方式
+	#选中所有的认证方式
 	def selectd_all_method(self,selem,value_,status='0'):
 		try:
 			#selem = self.getElem.find_element_with_wait("id",self.SELECTED_AUTH_METHOD)
 			options = selem.find_elements_by_tag_name("option")
-			selectd_option_list = self.selectElem.get_all_option_value(selem)
+			select_options_text = self.selectElem.get_all_option_text(selem)
 			default_auth_text = "用户名+口令(默认方式)"
-			text =  self.cnEnde.cnCode(','.join(selectd_option_list))			
+			text =  self.cnEnde.cnCode(','.join(select_options_text))			
 			num = len(options)
-			if num != 1 or(num == 1 and text.find(default_auth_text)== -1):
+			if num != 1 or(num == 1 and default_auth_text not in select_options_text):
 				for option in options:
 					value = option.get_attribute('value')
 					if value != value_:
@@ -309,7 +295,6 @@ class AuthMethodPage():
 		except Exception as e:
 			print ("Seleted all method error: ") + str(e)
 
-	
 
 	#判断元素内容是否修改成功
 	def compare_elem_text(self,type,value,text_):
@@ -319,3 +304,77 @@ class AuthMethodPage():
 				print ("Modey element success")
 		except Exception:
 			return False
+
+	#判断两个list是否相等
+	def compare_list_is_equal(self,list1,list2,data):
+		try:
+			selem1_option_text = sorted(list1)
+			selem2_option_text = sorted(list2)
+			selem1_option_num = len(selem1_option_text)
+			selem2_option_num = len(selem2_option_text)
+			if selem1_option_num != selem2_option_num:
+				return False
+			elif selem1_option_text == selem2_option_text:
+				self.log.log_detail(data[0],True)
+				return True
+			else:
+				return False
+		except Exception as e:
+			print ("Two select element is not equal: ") + str(e)
+			
+	#获取select元素所有option的文本值
+	def get_select_options_text(self,type,value):
+		try:
+			selem = WebDriverWait(self.driver,10).until(EC.presence_of_element_located((type,value)))
+			#selem = self.getElem.find_element_with_wait(type,value)
+			select_options_text = self.selectElem.get_all_option_text(selem)
+			return select_options_text
+		except Exception as e:
+			print ("select element text get error: ") + str(e)
+
+	#点击用户的高级选项
+	def get_user_select_auth_text(self,data):
+		self.frameElem.from_frame_to_otherFrame("topFrame")
+		self.cmf.select_menu(u"运维管理")
+		self.cmf.select_menu(u"运维管理",u"用户")
+		#获取用户isomper对应的行号
+		self.frameElem.from_frame_to_otherFrame("mainFrame")
+		user_row = self.cmf.find_row_by_name(data[3],"fortUserAccount")
+#		print user_row
+		edit_xpath = "//table[@id='content_table']/tbody/tr[" + str(user_row) + "]/td[9]/input[1]"
+		self.getElem.find_element_wait_and_click('xpath',edit_xpath,5)
+		self.frameElem.from_frame_to_otherFrame("mainFrame")
+		#点击高级选项
+		self.getElem.find_element_wait_and_click('id','btn_high')
+	#		self.get_select_options_text(type,value)
+
+	#登录并切换至认证方式页面
+	def login_and_switch_auth_method(self):
+		file_path = self.dataFile.get_auth_method_test_data_url()
+		login_data = self.dataFile.get_data(file_path,'add_user')
+#		auth_method_data = self.get_table_data("login")
+		logindata = login_data[1]
+		self.login.login(logindata)
+		self.frameElem.switch_to_content()
+		self.frameElem.switch_to_top()
+		self.cmf.select_role_by_text(logindata[6])
+		self.cmf.select_menu(u"策略配置")
+		self.cmf.select_menu(u"策略配置",u"认证强度")
+		self.frameElem.from_frame_to_otherFrame("mainFrame")
+
+	#选择所有认证方式
+	def select_all_auth(self):
+		selem = WebDriverWait(self.driver,10).until(EC.presence_of_element_located((By.ID,self.ALL_METH_METHOD)))
+		select_list_text = self.selectElem.get_all_option_text(selem)
+		options = selem.find_elements_by_tag_name("option")
+		for option in options:
+			if option.is_selected() == False:
+				option.click()
+		if select_list_text != []:
+			self.auth_add_button()
+			self.set_ad_auth_ip("172.16.10.240")
+			self.set_ad_auth_domian_name("hgcs")
+			self.set_radius_auth_ip("192.168.23.128")
+			self.set_radius_auth_key("123")
+			self.save_button()
+			self.cmf.click_login_msg_button()

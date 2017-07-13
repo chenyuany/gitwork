@@ -9,7 +9,7 @@
 #修改日期：
 #修改内容：
 '''
-import sys,time
+import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -25,6 +25,8 @@ sys.path.append("/testIsomp/webElement/department/")
 from test_dptm_ment import Department
 sys.path.append("/testIsomp/testCase/role/")
 from test_role import testRole
+sys.path.append("/testIsomp/webElement/user/")
+from userElement import UserPage
 
 class testDepartment(object):
 
@@ -40,6 +42,7 @@ class testDepartment(object):
 		self.frameElem = frameElement(driver)
 		self.rolemutex = roleMutex(driver)
 		self.dptment = Department(driver)
+		self.user = UserPage(driver)
 
 	u'''获取测试数据
 	   Parameters:
@@ -54,17 +57,31 @@ class testDepartment(object):
 
 	u'''添加角色'''
 	def add_role(self):
-		self.frameElem.switch_to_content()
-		self.frameElem.switch_to_top()
-		self.getElem.find_element_wait_and_click("link", u"角色管理")
-		self.getElem.find_element_wait_and_click("link", u"角色定义")
+		self.frameElem.from_frame_to_otherFrame("topFrame")
+		self.cmf.select_menu(u"角色管理", u"角色定义")
 		self.testrole.add_sysrole_001()
 		self.testrole.add_dptrole_002()
 
+	u'''添加用户'''
+	def add_user(self):
+		self.cmf.select_menu(u"运维管理", u"用户")
+		self.frameElem.from_frame_to_otherFrame("mainFrame")
+		self.user.add_button()
+		user_data = self.get_dptmtable_data("add_user")
+		data = user_data[1]
+		self.user.set_user_account(data[2])
+		self.user.set_user_name(data[3])
+		self.user.set_user_pwd(data[4])
+		self.user.set_user_enquire_pwd(data[5])
+		self.user.save_button()
+		self.cmf.click_login_msg_button()
+
 	u'''用户赋予角色'''
 	def user_add_role(self):
+
 		#获取用户赋予角色测试数据
 		dptmData = self.get_dptmtable_data("user_add_role")
+
 		for dataRow in range(len(dptmData)):
 			data = dptmData[dataRow]
 			try:
@@ -91,9 +108,18 @@ class testDepartment(object):
 		dptmData = self.get_dptmtable_data("add_department")
 		#保存成功的弹出框
 		dptmMsg = self.testrole.popup()
+
 		self.dptment.click_left_department()
+
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
+
+		#页面弹出框的文本信息
+		pagetext = u"消息"
+
+		#点击展开按钮
+		self.dptment.click_dept_switch()
+
 		for dataRow in range(len(dptmData)):
 			data = dptmData[dataRow]
 			try:
@@ -102,10 +128,11 @@ class testDepartment(object):
 					self.dptment.click_basic_operation(data[2], int(data[3]))
 					self.dptment.popup_sendkey(data[4])
 					self.dptment.click_ok_button()
-					self.role.frameElem.switch_to_content()
-					self.cmf.test_win_check_point("xpath", dptmMsg, data, flag)
+					self.frameElem.switch_to_content()
+					self.dptment.multil_div_check_point("xpath", dptmMsg, data, flag, pagetext)
 			except Exception as e:
 				print ("add add_department fail:" + str(e))
+
 		self.log.log_end("add_department")
 
 	u'''编辑部门'''
@@ -117,9 +144,18 @@ class testDepartment(object):
 		dptmData = self.get_dptmtable_data("edit_department")
 		#保存成功的弹出框
 		dptmMsg = self.testrole.popup()
+
 		self.dptment.click_left_department()
+
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
+
+		#页面弹出框的文本信息
+		pagetext = u"消息"
+
+		#点击展开按钮
+		self.dptment.click_dept_switch()
+
 		for dataRow in range(len(dptmData)):
 			data = dptmData[dataRow]
 			try:
@@ -129,9 +165,10 @@ class testDepartment(object):
 					self.dptment.popup_sendkey(data[4])
 					self.dptment.click_ok_button()
 					self.role.frameElem.switch_to_content()
-					self.cmf.test_win_check_point("xpath", dptmMsg, data, flag)
+					self.dptment.multil_div_check_point("xpath", dptmMsg, data, flag, pagetext)
 			except Exception as e:
 				print ("edit_department fail:" + str(e))
+
 		self.log.log_end("edit_department")
 
 	u'''上移部门'''
@@ -141,7 +178,12 @@ class testDepartment(object):
 		self.log.log_start("up_department")
 		#获取上移部门测试数据
 		dptmData = self.get_dptmtable_data("up_department")
+
 		self.dptment.click_left_department()
+
+		#点击展开按钮
+		self.dptment.click_dept_switch()
+
 		for dataRow in range(len(dptmData)):
 			data = dptmData[dataRow]
 			try:
@@ -164,8 +206,10 @@ class testDepartment(object):
 		flag = False
 		#获取上移部门测试数据
 		dptmData = self.get_dptmtable_data("up_department")
+
 		self.dptment.click_left_department()
 		self.dptment.click_dept_switch()
+
 		for dataRow in range(len(dptmData)):
 			data = dptmData[dataRow]
 			try:
@@ -176,6 +220,7 @@ class testDepartment(object):
 					self.cmf.test_win_check_point("xpath", dptmMsg, data, flag)
 			except Exception as e:
 				print ("up_department_check fail:" + str(e))
+
 		self.log.log_end("up_department_check")
 
 	u'''下移部门校验'''
@@ -188,8 +233,10 @@ class testDepartment(object):
 		flag = False
 		#获取上移部门测试数据
 		dptmData = self.get_dptmtable_data("down_department")
+
 		self.dptment.click_left_department()
 		self.dptment.click_dept_switch()
+
 		for dataRow in range(len(dptmData)):
 			data = dptmData[dataRow]
 			try:
@@ -200,6 +247,7 @@ class testDepartment(object):
 					self.cmf.test_win_check_point("xpath", dptmMsg, data, flag)
 			except Exception as e:
 				print ("down_department_check fail:" + str(e))
+
 		self.log.log_end("down_department_check")
 
 	u'''下移部门'''
@@ -209,7 +257,12 @@ class testDepartment(object):
 		self.log.log_start("down_department")
 		#获取下移部门测试数据
 		dptmData = self.get_dptmtable_data("down_department")
+
 		self.dptment.click_left_department()
+
+		#点击展开按钮
+		self.dptment.click_dept_switch()
+
 		for dataRow in range(len(dptmData)):
 			data = dptmData[dataRow]
 			try:
@@ -219,6 +272,7 @@ class testDepartment(object):
 					self.log.log_detail(data[0],True)
 			except Exception as e:
 				print ("down_department fail:" + str(e))
+
 		self.log.log_end("down_department")
 
 	u'''删除部门'''
@@ -230,21 +284,26 @@ class testDepartment(object):
 		dptmMsg = self.testrole.popup()
 		#获取删除部门测试数据
 		dptmData = self.get_dptmtable_data("del_department")
+
 		self.dptment.click_left_department()
 		flag = False
+
+		#点击展开按钮
 		self.dptment.click_dept_switch()
+
 		for dataRow in range(len(dptmData)):
 			data = dptmData[dataRow]
 			try:
 				#如果不是第一行标题，则读取数据
 				if dataRow != 0:
-					self.dptment.click_del_button(data[2])
+					self.dptment.click_basic_operation(data[2], int(data[3]))
 					self.role.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", dptmMsg, data, flag)
 					self.role.frameElem.switch_to_content()
 					self.cmf.click_msg_button(1)
 			except Exception as e:
 				print ("del_department fail:" + str(e))
+
 		self.log.log_end("del_department")
 
 	u'''检验添加部门'''
@@ -256,9 +315,18 @@ class testDepartment(object):
 		dptmData = self.get_dptmtable_data("check_add_department")
 		#保存成功的弹出框
 		dptmMsg = self.testrole.popup()
+
 		self.dptment.click_left_department()
+
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
+
+		#页面弹出框的文本信息
+		pagetext = u"警告"
+
+		#点击展开按钮
+		self.dptment.click_dept_switch()
+
 		for dataRow in range(len(dptmData)):
 			data = dptmData[dataRow]
 			try:
@@ -269,12 +337,13 @@ class testDepartment(object):
 						self.dptment.popup_sendkey(data[4])
 					self.dptment.click_ok_button()
 					self.frameElem.switch_to_content()
-					self.dptment.multil_div_check_point("xpath", dptmMsg, data, flag)
+					self.dptment.multil_div_check_point("xpath", dptmMsg, data, flag, pagetext)
 					self.driver.implicitly_wait(1)
 					self.frameElem.switch_to_content()
 					self.dptment.click_cancel_button()
 			except Exception as e:
 				print ("check_add_department fail:" + str(e))
+
 		self.log.log_end("check_add_department")
 
 	u'''校验编辑部门'''
@@ -286,9 +355,17 @@ class testDepartment(object):
 		dptmData = self.get_dptmtable_data("check_edit_department")
 		#保存成功的弹出框
 		dptmMsg = self.testrole.popup()
+
 		self.dptment.click_left_department()
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
+
+		#页面弹出框的文本信息
+		pagetext = u"警告"
+
+		#点击展开按钮
+		self.dptment.click_dept_switch()
+
 		for dataRow in range(len(dptmData)):
 			data = dptmData[dataRow]
 			try:
@@ -301,10 +378,11 @@ class testDepartment(object):
 						self.dptment.popup_sendkey(data[4])
 					self.dptment.click_ok_button()
 					self.role.frameElem.switch_to_content()
-					self.dptment.multil_div_check_point("xpath", dptmMsg, data, flag)
+					self.dptment.multil_div_check_point("xpath", dptmMsg, data, flag, pagetext)
 					self.driver.implicitly_wait(1)
 					self.frameElem.switch_to_content()
 					self.dptment.click_cancel_button()
 			except Exception as e:
 				print ("check_edit_department fail:" + str(e))
+
 		self.log.log_end("check_edit_department")

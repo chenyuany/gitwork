@@ -10,8 +10,8 @@ from _excelRead import excelRead
 #登陆excel数据文件
 LOGIN_TEST_DATA_URL = "/testIsomp/testData/login_test_data.xlsx"
 
-#自然人excel数据位置
-PERSON_TEST_DATA_URL = "/testSimp/testData/person_test_data.xlsx"
+#用户excel数据位置
+USER_TEST_DATA_URL = "/testIsomp/testData/user_test_data.xlsx"
 
 #unix资源excel数据位置
 UNIX_TEST_DATA_URL = r"\testIsomp\testData\unix_test_data.xlsx"
@@ -51,7 +51,7 @@ class dataFileName(object):
     
     #获取自然人excel中的数据
     def get_person_test_data_url(self):
-        return PERSON_TEST_DATA_URL
+        return USER_TEST_DATA_URL
     
     #获取unix资源excel中数据
     def get_unix_test_data_url(self):

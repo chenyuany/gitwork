@@ -9,17 +9,15 @@
 #修改日期：
 #修改内容：
 '''
-import sys,time
+import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.path.append("/testIsomp/common/")
 from _log import log
 from _icommon import getElement,selectElement,frameElement,commonFun
-#引入ActionChains类  提供了鼠标的操作方法
-from selenium.webdriver.common.action_chains import  ActionChains
-
 
 class Role(object):
+
 	#角色名称
 	FORTROLE_NAME = "fortRoleName"
 	#名称简写
@@ -38,13 +36,11 @@ class Role(object):
 		self.frameElem = frameElement(driver)
 		self.cmf = commonFun(driver)
 		self.log = log()
-		self.action = ActionChains(driver)
 
 	u'''点击添加按钮'''
 	def add(self):
 		try:
-			self.frameElem.switch_to_content()
-			self.frameElem.switch_to_main()
+			self.frameElem.from_frame_to_otherFrame("mainFrame")
 			self.getElem.find_element_wait_and_click("id", self.ADD_ROLE)
 		except Exception:
 			print("Click the Add button to fail")
@@ -84,8 +80,7 @@ class Role(object):
 	u'''点击编辑角色界面的保存按钮'''
 	def save_button(self):
 		try:
-			self.frameElem.switch_to_content()
-			self.frameElem.switch_to_main()
+			self.frameElem.from_frame_to_otherFrame("mainFrame")
 			self.getElem.find_element_wait_and_click_EC("id", self.SAVE_ROLE, 5)
 		except Exception:
 			print("Click the Save button to fail")
@@ -95,18 +90,21 @@ class Role(object):
 	      -index：select的索引，例0,1,2,从0开始计数
 	'''
 	def select_manage_role(self, index):
+		#option位于是第几个
 		manage_index = index + 1
 		option_xpath = "//select[@id='allRoles']/option[" + str(manage_index) + "]"
 		selem = self.getElem.find_element_with_wait("id", "allRoles")
-		bb = self.selectElem.select_element_check("xpath", option_xpath)
-		if bb is False:
+
+		#查看元素是否被选中
+		option_selected = self.selectElem.select_element_check("xpath", option_xpath)
+
+		if option_selected is False:
 			self.selectElem.select_element_by_index(selem, index)
 
 	u'''点击可管理角色添加'''
 	def manage_role_add(self, index):
 		try:
-			self.frameElem.switch_to_content()
-			self.frameElem.switch_to_main()
+			self.frameElem.from_frame_to_otherFrame("mainFrame")
 			self.getElem.find_element_wait_and_click("id", "add_roles")
 			selem = self.getElem.find_element_with_wait("id", "allRoles")
 			self.selectElem.deselect_element_by_index(selem, index)
@@ -118,13 +116,19 @@ class Role(object):
 	      -index：select的索引，例0,1,2,从0开始计数
 	'''
 	def other_role_add(self, index):
+		#option位于是第几个
 		opt_index = index + 1
 		option_xpath = "//select[@id='allOtherPrivileges']/option[" + str(opt_index) + "]"
 		selem = self.getElem.find_element_with_wait("id", "allOtherPrivileges")
-		aa = self.selectElem.select_element_check("xpath", option_xpath)
-		if aa is False:
+
+		#查看元素是否被选中
+		option_selected = self.selectElem.select_element_check("xpath", option_xpath)
+
+		if option_selected is False:
 			self.selectElem.select_element_by_index(selem, index)
+
 		self.getElem.find_element_wait_and_click("id", "add_privileges")
+		#对已选择的角色取消选择
 		self.selectElem.deselect_element_by_index(selem, index)
 
 	u'''点击编辑按钮
@@ -184,8 +188,7 @@ class Role(object):
 	'''
 	def rolename_query(self, rolename):
 		try:
-			self.frameElem.switch_to_content()
-			self.frameElem.switch_to_main()
+			self.frameElem.from_frame_to_otherFrame("mainFrame")
 			self.getElem.find_element_wait_and_sendkeys("id", "fortRoleName",rolename)
 		except Exception:
 			print("Query rolename failed")
@@ -196,20 +199,17 @@ class Role(object):
 	'''
 	def shortname_query(self, shortname):
 		try:
-			self.frameElem.switch_to_content()
-			self.frameElem.switch_to_main()
+			self.frameElem.from_frame_to_otherFrame("mainFrame")
 			self.getElem.find_element_wait_and_sendkeys("id", "fortRoleShortName", shortname)
 		except Exception:
 			print("Query shortname failed")
 
 	u'''点击查询按钮'''
 	def click_query(self):
-		self.frameElem.switch_to_content()
-		self.frameElem.switch_to_main()
+		self.frameElem.from_frame_to_otherFrame("mainFrame")
 		self.getElem.find_element_wait_and_click_EC("id", "query_role")
 
 	u'''点击重置按钮'''
 	def click_reset(self):
-		self.frameElem.switch_to_content()
-		self.frameElem.switch_to_main()
+		self.frameElem.from_frame_to_otherFrame("mainFrame")
 		self.getElem.find_element_wait_and_click_EC("id", "resetting")

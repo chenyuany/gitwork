@@ -12,14 +12,16 @@
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
+
+sys.path.append("/testIsomp/testCase/user/")
+from test_user import User
 #导入驱动
 sys.path.append("/testIsomp/common/")
 from _initDriver import initDriver
 from _globalVal import globalValue
-from _icommon import getElement,selectElement,frameElement,commonFun
+from _icommon import frameElement,commonFun
 sys.path.append("/testIsomp/testCase/role/")
 from test_role import testRole
-from test_mutex import testMutex
 sys.path.append("/testIsomp/testCase/department/")
 from test_department import testDepartment
 #导入登录
@@ -28,35 +30,36 @@ from loginElement import loginPage
 import unittest
 
 class testRoleSuite(unittest.TestCase):
+
 	def setUp(self):
 		# self.browser = initDriver().open_driver()
 		driver_lists = globalValue().get_value()
 		self.browser = initDriver().remote_open_driver(driver_lists[0],driver_lists[1])
-
-	def test_department(self):
-		self.getElem = getElement(self.browser)
-		self.cmf = commonFun(self.browser)
-		self.selectElem = selectElement(self.browser)
-		self.frameElem = frameElement(self.browser)
 		self.testrole = testRole(self.browser)
 		self.login = loginPage(self.browser)
+		self.cmf = commonFun(self.browser)
+		self.frameElem = frameElement(self.browser)
+		self.user = User(self.browser)
 		self.testdptment = testDepartment(self.browser)
 		login_data = self.testrole.get_table_data("login")
 		data = login_data[1]
 		self.login.login(data)
 		u'''添加角色'''
 		self.testdptment.add_role()
+		u'''添加用户'''
+		# self.testdptment.add_user()
 		u'''用户赋予角色'''
 		self.testdptment.user_add_role()
 		self.login.quit()
 		dptlogin_data = self.testdptment.get_dptmtable_data("deptmetn_login")
 		dptdata = dptlogin_data[1]
 		self.login.login(dptdata)
-		self.frameElem.switch_to_content()
-		self.frameElem.switch_to_top()
+		self.frameElem.from_frame_to_otherFrame("topFrame")
 		self.cmf.select_role(1)
-		self.getElem.find_element_wait_and_click_EC("link", u"运维管理")
-		self.getElem.find_element_wait_and_click_EC("link", u"组织定义")
+		self.cmf.select_menu(u"运维管理", u"组织定义")
+
+	def test_department(self):
+
 		u'''添加部门'''
 		self.testdptment.add_department_001()
 		u'''编辑部门'''
@@ -75,12 +78,16 @@ class testRoleSuite(unittest.TestCase):
 		self.testdptment.check_edit_department_009()
 		u'''删除部门'''
 		self.testdptment.del_department_007()
-		self.frameElem.switch_to_content()
-		self.frameElem.switch_to_top()
-		self.getElem.find_element_wait_and_click_EC("link", u"角色管理")
-		self.getElem.find_element_wait_and_click_EC("link", u"角色定义")
+		self.frameElem.from_frame_to_otherFrame("topFrame")
+		self.cmf.select_menu(u"角色管理", u"角色定义")
 		u'''全选删除角色'''
 		self.testrole.bulkdel_role_007()
+		#退出登录用初始化用户登录删除用户
+		# self.login.quit()
+		# login_data = self.testrole.get_table_data("login")
+		# data = login_data[1]
+		# self.login.login(data)
+		# self.user.del_all_user_008()
 
 	def tearDown(self):
 		initDriver().close_driver(self.browser)
