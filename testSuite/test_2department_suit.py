@@ -88,6 +88,7 @@ class testRoleSuite(unittest.TestCase):
 		# data = login_data[1]
 		# self.login.login(data)
 		# self.user.del_all_user_008()
+	    # self.login.quit()
 
 	def tearDown(self):
 		initDriver().close_driver(self.browser)

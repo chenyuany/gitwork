@@ -23,6 +23,10 @@ from test_mutex import testMutex
 #导入登录
 sys.path.append("/testIsomp/webElement/login/")
 from loginElement import loginPage
+sys.path.append("/testIsomp/testCase/department/")
+from test_department import testDepartment
+sys.path.append("/testIsomp/testCase/user/")
+from test_user import User
 import unittest
 
 class testRoleSuite(unittest.TestCase):
@@ -34,9 +38,13 @@ class testRoleSuite(unittest.TestCase):
 		self.testrole = testRole(self.browser)
 		self.cmf = commonFun(self.browser)
 		self.login = loginPage(self.browser)
+		self.user = User(self.browser)
+		self.testdptment = testDepartment(self.browser)
 		login_data = self.testrole.get_table_data("login")
 		data = login_data[1]
 		self.login.login(data)
+		u'''添加用户'''
+		# self.testdptment.add_user()
 		self.cmf.select_menu(u"角色管理", u"角色定义")
 
 	def test_role(self):
@@ -87,6 +95,10 @@ class testRoleSuite(unittest.TestCase):
 		self.testrole.del_role_006()
 		u'''全选删除角色'''
 		self.testrole.bulkdel_role_007()
+		# #用初始化用户登录删除用户
+		# self.user.del_all_user_008()
+		# #退出登录
+		# self.login.quit()
 
 	def tearDown(self):
 		initDriver().close_driver(self.browser)
