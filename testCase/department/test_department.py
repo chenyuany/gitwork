@@ -99,11 +99,11 @@ class testDepartment(object):
 			except Exception as e:
 				print ("add user_add_role fail:" + str(e))
 
-	u'''添加部门'''
-	def add_department_001(self):
+	u'''添加和编辑部门'''
+	def add_edit_department_001(self):
 
 		#日志开始记录
-		self.log.log_start("add_department")
+		self.log.log_start("add_edit_department")
 		#获取添加部门测试数据
 		dptmData = self.get_dptmtable_data("add_department")
 		#保存成功的弹出框
@@ -131,48 +131,12 @@ class testDepartment(object):
 					self.frameElem.switch_to_content()
 					self.dptment.multil_div_check_point("xpath", dptmMsg, data, flag, pagetext)
 			except Exception as e:
-				print ("add add_department fail:" + str(e))
+				print ("add_edit_department fail:" + str(e))
 
-		self.log.log_end("add_department")
+		self.log.log_end("add_edit_department")
 
-	u'''编辑部门'''
-	def edit_department_002(self):
-
-		#日志开始记录
-		self.log.log_start("edit_department")
-		#获取编辑部门测试数据
-		dptmData = self.get_dptmtable_data("edit_department")
-		#保存成功的弹出框
-		dptmMsg = self.testrole.popup()
-
-		self.dptment.click_left_department()
-
-		#无检查点的测试项标识，如果为True说明通过
-		flag = False
-
-		#页面弹出框的文本信息
-		pagetext = u"消息"
-
-		#点击展开按钮
-		self.dptment.click_dept_switch()
-
-		for dataRow in range(len(dptmData)):
-			data = dptmData[dataRow]
-			try:
-				#如果不是第一行标题，则读取数据
-				if dataRow != 0:
-					self.dptment.click_basic_operation(data[2], int(data[3]))
-					self.dptment.popup_sendkey(data[4])
-					self.dptment.click_ok_button()
-					self.role.frameElem.switch_to_content()
-					self.dptment.multil_div_check_point("xpath", dptmMsg, data, flag, pagetext)
-			except Exception as e:
-				print ("edit_department fail:" + str(e))
-
-		self.log.log_end("edit_department")
-
-	u'''上移部门'''
-	def up_department_003(self):
+	u'''上移和下移部门'''
+	def up_down_department_002(self):
 
 		#日志开始记录
 		self.log.log_start("up_department")
@@ -196,8 +160,8 @@ class testDepartment(object):
 
 		self.log.log_end("up_department")
 
-	u'''上移部门校验'''
-	def up_department_check_005(self):
+	u'''上移和下移部门校验'''
+	def up_down_department_check_003(self):
 
 		#日志开始记录
 		self.log.log_start("up_department_check")
@@ -223,60 +187,8 @@ class testDepartment(object):
 
 		self.log.log_end("up_department_check")
 
-	u'''下移部门校验'''
-	def down_department_check_006(self):
-
-		#日志开始记录
-		self.log.log_start("down_department_check")
-		dptmMsg = self.testrole.popup()
-		#无检查点的测试项标识，如果为True说明通过
-		flag = False
-		#获取上移部门测试数据
-		dptmData = self.get_dptmtable_data("down_department")
-
-		self.dptment.click_left_department()
-		self.dptment.click_dept_switch()
-
-		for dataRow in range(len(dptmData)):
-			data = dptmData[dataRow]
-			try:
-				#如果不是第一行标题，则读取数据
-				if dataRow != 0:
-					self.dptment.click_up_button(data[2], int(data[3]))
-					self.role.frameElem.switch_to_content()
-					self.cmf.test_win_check_point("xpath", dptmMsg, data, flag)
-			except Exception as e:
-				print ("down_department_check fail:" + str(e))
-
-		self.log.log_end("down_department_check")
-
-	u'''下移部门'''
-	def down_department_004(self):
-
-		#日志开始记录
-		self.log.log_start("down_department")
-		#获取下移部门测试数据
-		dptmData = self.get_dptmtable_data("down_department")
-
-		self.dptment.click_left_department()
-
-		#点击展开按钮
-		self.dptment.click_dept_switch()
-
-		for dataRow in range(len(dptmData)):
-			data = dptmData[dataRow]
-			try:
-				#如果不是第一行标题，则读取数据
-				if dataRow != 0:
-					self.dptment.click_basic_operation(data[2], int(data[3]))
-					self.log.log_detail(data[0],True)
-			except Exception as e:
-				print ("down_department fail:" + str(e))
-
-		self.log.log_end("down_department")
-
 	u'''删除部门'''
-	def del_department_007(self):
+	def del_department_005(self):
 
 		#日志开始记录
 		self.log.log_start("del_department")
@@ -306,8 +218,8 @@ class testDepartment(object):
 
 		self.log.log_end("del_department")
 
-	u'''检验添加部门'''
-	def check_add_department_008(self):
+	u'''检验添加和编辑部门'''
+	def check_add_edit_department_004(self):
 
 		#日志开始记录
 		self.log.log_start("check_add_department")
@@ -333,8 +245,12 @@ class testDepartment(object):
 				#如果不是第一行标题，则读取数据
 				if dataRow != 0:
 					self.dptment.click_basic_operation(data[2], int(data[3]))
-					if dataRow != 1:
+					if dataRow != 1 and dataRow != 6:
 						self.dptment.popup_sendkey(data[4])
+
+					if dataRow == 6:
+						self.dptment.clear_depart_text()
+
 					self.dptment.click_ok_button()
 					self.frameElem.switch_to_content()
 					self.dptment.multil_div_check_point("xpath", dptmMsg, data, flag, pagetext)
@@ -345,44 +261,3 @@ class testDepartment(object):
 				print ("check_add_department fail:" + str(e))
 
 		self.log.log_end("check_add_department")
-
-	u'''校验编辑部门'''
-	def check_edit_department_009(self):
-
-		#日志开始记录
-		self.log.log_start("check_edit_department")
-		#获取编辑部门测试数据
-		dptmData = self.get_dptmtable_data("check_edit_department")
-		#保存成功的弹出框
-		dptmMsg = self.testrole.popup()
-
-		self.dptment.click_left_department()
-		#无检查点的测试项标识，如果为True说明通过
-		flag = False
-
-		#页面弹出框的文本信息
-		pagetext = u"警告"
-
-		#点击展开按钮
-		self.dptment.click_dept_switch()
-
-		for dataRow in range(len(dptmData)):
-			data = dptmData[dataRow]
-			try:
-				#如果不是第一行标题，则读取数据
-				if dataRow != 0:
-					self.dptment.click_basic_operation(data[2], int(data[3]))
-					if dataRow == 2:
-						self.dptment.clear_depart_text()
-					if dataRow != 2:
-						self.dptment.popup_sendkey(data[4])
-					self.dptment.click_ok_button()
-					self.role.frameElem.switch_to_content()
-					self.dptment.multil_div_check_point("xpath", dptmMsg, data, flag, pagetext)
-					self.driver.implicitly_wait(1)
-					self.frameElem.switch_to_content()
-					self.dptment.click_cancel_button()
-			except Exception as e:
-				print ("check_edit_department fail:" + str(e))
-
-		self.log.log_end("check_edit_department")

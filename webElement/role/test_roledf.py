@@ -190,6 +190,8 @@ class Role(object):
 		try:
 			self.frameElem.from_frame_to_otherFrame("mainFrame")
 			self.getElem.find_element_wait_and_sendkeys("id", "fortRoleName",rolename)
+			self.click_query()
+			self.click_reset()
 		except Exception:
 			print("Query rolename failed")
 
@@ -201,6 +203,8 @@ class Role(object):
 		try:
 			self.frameElem.from_frame_to_otherFrame("mainFrame")
 			self.getElem.find_element_wait_and_sendkeys("id", "fortRoleShortName", shortname)
+			self.click_query()
+			self.click_reset()
 		except Exception:
 			print("Query shortname failed")
 

@@ -169,7 +169,7 @@ class User():
 					#清空标识状态
 					flag = False
 					self.frameElem.from_frame_to_otherFrame("mainFrame")
-#					self.user.click_back_button()
+#					self.cmf.back()
 			except Exception as e:
 				print ("Create user cert fail: ") + str(e)
 		self.log.log_end("CreateUserCert")
@@ -204,7 +204,7 @@ class User():
 					#清空标识状态
 					flag = False
 					self.frameElem.from_frame_to_otherFrame("mainFrame")
-#					self.user.click_back_button()
+#					self.cmf.back()
 			except Exception as e:
 				print ("ReCreate user cert fail: ") + str(e)
 		self.log.log_end("ReCreateUserCert")
@@ -336,7 +336,7 @@ class User():
 					self.user.click_search_button()
 					self.user.page_select_all()
 					search_row = self.user.get_rows()
-					row = self.user.search_direct_by_account_or_name(data[3])#switch_on
+					row = self.user.search_direct_by_account_or_name(data[3])
 					if row == search_row:
 						self.cmf.test_win_check_point("","",data,True)
 					else:
@@ -491,12 +491,16 @@ class User():
 	
 	
 
-#if __name__ == "__main__":#internet explorer
-#	driver = initDriver().remote_open_driver("http://172.16.10.21:5555/wd/hub","chrome")
-#	user = UserPage(driver)
-#	userCase = User(driver)
-#	user.user_login()
-#	user.switch_to_moudle(u'运维管理',u'用户')
+if __name__ == "__main__":#internet explorer
+	driver = initDriver().remote_open_driver("http://172.16.10.21:5555/wd/hub","chrome")
+	user = UserPage(driver)
+	userCase = User(driver)
+	user.user_login()
+#	user.add_login_data()
+	user.switch_to_moudle(u'运维管理',u'用户')
+	
+#	#改变用户开关状态
+#	user.change_user_status_button("a","switch_off")
 #	userCase.add_user_001()
 #	userCase.edit_user_002()
 #	userCase.create_user_cert_003()
@@ -509,4 +513,4 @@ class User():
 #	userCase.search_user_by_dep_006()
 #	userCase.search_user_by_role_006()
 #	userCase.del_user_007()
-##	userCase.del_all_user_008()
+	userCase.del_all_user_008()

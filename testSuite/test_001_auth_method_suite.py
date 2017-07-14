@@ -22,9 +22,9 @@ import unittest
 
 class testLoginSuite(unittest.TestCase):
     def setUp(self):#internet explorer
-        self.browser = initDriver().remote_open_driver("http://172.16.10.21:5555/wd/hub","firefox")
-#        driver_lists = globalValue().get_value()
-#        self.browser = initDriver().remote_open_driver(driver_lists[0],driver_lists[1])
+#        self.browser = initDriver().remote_open_driver("http://172.16.10.21:5555/wd/hub","chrome")
+        driver_lists = globalValue().get_value()
+        self.browser = initDriver().remote_open_driver(driver_lists[0],driver_lists[1])
         self.authMethod = testAuthMethod(self.browser)
         self.userElem = UserPage(self.browser)
         self.loginPage = loginPage(self.browser)
@@ -72,44 +72,14 @@ class testLoginSuite(unittest.TestCase):
         self.authMethod.radius_checkout_009()
         #删除多种认证方式
         self.authMethod.del_auth_method_010()
-        
-#    u'''添加AD域认证方式'''
-#    def test_001_add_ad_method(self):
-#        self.authMethod.add_ad_method_001()
-    
-#    u'''添加radius认证方式'''
-#    def test_002_add_radius_method(self):
-#        self.authMethod.add_radius_method_002()
-#    
-#    u'''添加AD域+口令认证方式'''
-#    def test_003_add_ad_and_pwd_method(self):
-#        self.authMethod.add_ad_and_pwd_method_003()
-#
-#    u'''添加radius+口令认证方式'''
-#    def test_004_add_radius_and_pwd_method(self):
-#        self.authMethod.add_radius_and_pwd_method_004()
-#
-#    u'''添加数字证书认证方式'''
-#    def test_005_add_cert_method(self):
-#        self.authMethod.add_cert_method_005()
-#    
-#    u'''修改AD域认证方式'''
-#    def test_006_modey_ad_method(self):
-#        self.authMethod.mod_ad_method_006()
-#
-#    u'''添加数字证书认证方式'''
-#    def test_007_ad_method_checkout(self):
-#        self.authMethod.ad_method_checkout_007()
-
-#    u'''添加数字证书认证方式'''
-#    def test_008_radius_checkout(self):
-#        self.authMethod.radius_checkout_008()
-
-#    u'''添加数字证书认证方式'''
-#    def test_009_del_radius_method(self):
-#        self.authMethod.del_radius_method_009()   
 
     def tearDown(self):
+        self.loginPage.quit()
+        #初始化用户登录添加用户  
+        self.userElem.user_login()    
+        self.userElem.del_role()
+        self.userElem.del_user()
+        
         initDriver().close_driver(self.browser)
 
 if __name__ == "__main__":

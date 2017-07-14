@@ -198,6 +198,7 @@ class Department(object):
 
 			if messagetext == pagetext:
 				self.driver.implicitly_wait(5)
+				#鼠标移动到当前窗口
 				actions = ActionChains(self.driver)
 				actions.move_to_element(divselem).perform()
 				# element = self.driver.findElement(By.XPATH(xpath))

@@ -8,13 +8,13 @@ sys.path.append("/testIsomp/common/")
 from _excelRead import excelRead
 
 #登陆excel数据文件
-LOGIN_TEST_DATA_URL = "/testIsomp/testData/login_test_data.xlsx"
+LOGIN_TEST_DATA_URL = r"/testIsomp/testData/login_test_data.xlsx"
 
 #用户excel数据位置
-USER_TEST_DATA_URL = "/testIsomp/testData/user_test_data.xlsx"
+USER_TEST_DATA_URL = r"/testIsomp/testData/user_test_data.xlsx"
 
 #unix资源excel数据位置
-UNIX_TEST_DATA_URL = r"\testIsomp\testData\unix_test_data.xlsx"
+UNIX_TEST_DATA_URL = r"/testIsomp/testData/unix_test_data.xlsx"
 
 #unix资源账号excel数据位置
 UNIX_USER_TEST_DATA_URL = "/testSimp/testData/unix_user_test_data.xlsx"
@@ -49,7 +49,7 @@ class dataFileName(object):
     def get_auth_method_test_data_url(self):
        return AUTH_METHOD_TEST_DATA_URL 
     
-    #获取自然人excel中的数据
+    #获取用户excel中的数据
     def get_person_test_data_url(self):
         return USER_TEST_DATA_URL
     

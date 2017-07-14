@@ -116,6 +116,10 @@ class UserPage():
     INIT_CERT_NAME = "certificateName"
     #证书序列号
     CERT_SERIAL_NUM = "certificateNum"
+    #每页显示
+    PAGE_PER_SHOW = "page_select"
+    #开关按钮
+    SWITCH_STATUS_BUTTON = "btn_qh"
     
     def __init__(self,driver):
         self.driver = driver
@@ -140,45 +144,10 @@ class UserPage():
     u'''点击删除按钮'''
     def del_button(self):
         try:
-            WebDriverWait(self.driver,10).until(EC.element_to_be_clickable((By.CLASS_NAME, self.DEL_BUTTON))).click()
+            WebDriverWait(self.driver,10).until(EC.element_to_be_clickable((By.ID, self.DEL_BUTTON))).click()
         except Exception as e:
             print ("Delete button error: ") + str(e)
 
-    '''账号或名称检索框
-        parameters:
-            accountName : 账号或名称
-    '''
-    def search_accountorname(self,accountName):
-        try:
-            reaccountName = self.cnEnde.cnCode(accountName)
-            self.getElem.find_element_with_wait('id',self.SEARCH_ACCOUNT_OR_NAME).clear()
-            self.getElem.find_element_wait_and_sendkeys('id',self.SEARCH_ACCOUNT_OR_NAME,reaccountName)
-        except Exception as e:
-            print ("search account or name error: ") + str(e)
-
-    '''用户角色检索框
-        parameters:
-            roleText : 用户角色
-    '''
-    def search_user_role(self,roleText):
-        try:
-            selem = self.getElem.find_element_with_wait('id',self.SEARCH_ROLE)
-            self.selectElem.select_element_by_visible_text(selem,str(roleText))
-        except Exception as e:
-            print ("User role search is error: ") + str(e)
-
-    '''用户状态检索
-        parameters:
-            status : 用户状态
-    '''    
-    def search_by_user_status(self,status):
-        try:
-            reStatus = self.cnEnde.is_float(status)
-            selem = self.getElem.find_element_with_wait('id',self.SEARCH_USER_STATUS)
-            self.selectElem.select_element_by_value(selem,str(reStatus))
-            
-        except Exception as e:
-            print ("search by user status is error: ") + str(e)
 
     '''点击检索按钮'''     
     def click_search_button(self):
@@ -198,11 +167,10 @@ class UserPage():
     def page_select_all(self):
         try:
             
-            self.frameElem.switch_to_content()
-            self.frameElem.switch_to_main()
+            self.frameElem.from_frame_to_otherFrame("mainFrame")
             
             #选择每页显示全部
-            selem =  self.getElem.find_element_with_wait('id','page_select')
+            selem =  WebDriverWait(self.driver,10).until(EC.presence_of_element_located((By.ID,self.PAGE_PER_SHOW)))
             self.selectElem.select_element_by_value(selem,'2000')
             
         except Exception as e:
@@ -238,17 +206,6 @@ class UserPage():
             WebDriverWait(self.driver,10).until(EC.element_to_be_clickable((By.XPATH,self.ROLE_MEG_BUTTON))).click()
         except Exception as e:
             print ("user role message button error: ") + str(e)
-
-    u'''选择角色
-            parameters:
-                text : 角色名称
-    '''
-    def set_user_role(self,text):
-        try:
-            select_elem = self.getElem.find_element_with_wait('id',self.ROLE_SELECTD_ELEM)
-            self.selectElem.select_element_by_visible_text(select_elem,str(text))
-        except Exception as e:
-            print ("select role option error: ") + str(e)
     
     u'''角色添加按钮'''
     def click_role_add_button(self):
@@ -256,6 +213,7 @@ class UserPage():
             WebDriverWait(self.driver,10).until(EC.element_to_be_clickable((By.ID,self.ROLE_ADD_BUTTON))).click()
         except Exception as e:
             print ("role add button error: ") + str(e)
+
 
     u'''点击用户操作列对应的按钮
         parameters:
@@ -265,8 +223,7 @@ class UserPage():
     def user_operate_list(self,account,index):
         row = self.cmf.find_row_by_name(account, "fortUserAccount")
         update_xpath = "//table[@id='content_table']/tbody/tr[" + str(row) + "]/td[9]/input[" + index + "]"
-        self.getElem.find_element_wait_and_click("xpath", update_xpath)
-
+        WebDriverWait(self.driver,10).until(EC.element_to_be_clickable((By.XPATH,update_xpath))).click()
 
     u'''点击用户操作列对应的编辑按钮
         parameters:
@@ -309,10 +266,32 @@ class UserPage():
         except Exception:
             print("Click user operation delete button fail")
 
+    u'''改变用户开关状态
+        parameters:
+            account : 用户账号
+            value : 开关状态(switch_on:开,switch_off :关)
+    '''  
+    def change_user_status_button(self,account,value):
+        revalue = self.cnEnde.is_float(value)
+        reaccount = self.cnEnde.is_float(account)
+        
+        self.frameElem.from_frame_to_otherFrame("mainFrame")
+        
+        #获取用户行号
+        row = self.cmf.find_row_by_name(reaccount,"fortUserAccount")
+        status_button_xpath = "//table[@id='content_table']/tbody/tr[" + str(row) + "]/td[8]/input[@id='btn_qh']"        
+        try:
+            status_button = WebDriverWait(self.driver,10).until(EC.presence_of_element_located((By.XPATH,status_button_xpath)))
+            if status_button.get_attribute('class') != revalue:
+                status_button.click()
+        except Exception as e:
+            print ("Change user status button error: ") + str(e)
+
+
     u'''填写变量内容
         parameters:
             var_text : 变量内容
-            *locator : 定位方式
+            locator : 定位方式
     '''      
     def set_common_func(self,var_text,locator):
         try:
@@ -324,20 +303,27 @@ class UserPage():
         except Exception as e:
             print ("set user common text error: ") + str(revar_text) + str(e)
 
+    '''账号或名称检索框
+        parameters:
+            accountName : 账号或名称
+    '''
+    def search_accountorname(self,accountName):
+        return self.set_common_func(accountName,self.SEARCH_ACCOUNT_OR_NAME)
+
 
     u'''填写用户账号
         parameters:
             account : 用户账号
     '''      
     def set_user_account(self,account):
-        self.set_common_func(account,self.USER_ACCOUNT)
+        return self.set_common_func(account,self.USER_ACCOUNT)
 
     u'''填写用户名称
         parameters:
             name : 用户名称
     '''     
     def set_user_name(self,name):
-        self.set_common_func(name,self.USER_NAME)
+        return self.set_common_func(name,self.USER_NAME)
         
 #        rename = self.cnEnde.cnCode(name)
 #        self.set_common_func(name,self.USER_NAME)
@@ -373,7 +359,8 @@ class UserPage():
             value : 0代表锁定,1代表正常
     '''          
     def set_user_status(self,statusValue):
-        self.set_common_rule(statusValue,self.USER_STATUS)
+        self.set_common_select_elem(statusValue,self.USER_STATUS)
+
 
     u'''设置部门
         parameters:
@@ -462,12 +449,12 @@ class UserPage():
         except Exception as e:
             print ("click advanced options error: ") + str(e)
     
-    u'''访问方式通用方法
+    u'''select元素value通用方法
             parameter:
                 var_value : 访问方式value值
                 locator : ID值
     '''
-    def set_common_rule(self,var_value,locator):
+    def set_common_select_elem(self,var_value,locator):
         try:
             revar_value = self.cnEnde.is_float(var_value)
             select_elem = WebDriverWait(self.driver,10).until(EC.presence_of_element_located((By.ID,locator)))
@@ -475,26 +462,64 @@ class UserPage():
         except Exception as e:
             print ("set common access rule error: ") + str(revar_value) + str(e)
 
+    u'''选择角色
+            parameters:
+                text : 角色名称
+    '''
+    def set_user_role(self,roleName):
+        try:
+            reRoleName = self.cnEnde.is_float(roleName)
+            select_elem = WebDriverWait(self.driver,10).until(EC.presence_of_element_located((By.ID,self.ROLE_SELECTD_ELEM)))
+            self.selectElem.select_element_by_visible_text(select_elem,str(reRoleName))
+        except Exception as e:
+            print ("select role option error: ") + str(e)
+
+    '''用户角色检索框
+        parameters:
+            roleText : 用户角色
+    '''
+    def search_user_role(self,roleText):
+        try:
+            reroleText = self.cnEnde.is_float(roleText)
+            selem =  WebDriverWait(self.driver,10).until(EC.presence_of_element_located((By.ID,self.SEARCH_ROLE)))
+            self.selectElem.select_element_by_visible_text(selem,reroleText)
+        except Exception as e:
+            print ("User role search is error: ") + str(e)
+
+    '''用户状态检索
+        parameters:
+            status : 用户状态
+    '''    
+    def search_by_user_status(self,status):
+        self.set_common_select_elem(status,self.SEARCH_USER_STATUS)
+
     u'''设置时间访问规则
             parameter:
                 timeValue : 时间规则option的value值(-1代表请选择)
     '''
     def set_time_access_rule(self,timeValue):
-        return self.set_common_rule(timeValue,self.TIME_RULE)
+        return self.set_common_select_elem(timeValue,self.TIME_RULE)
 
     u'''设置地址访问规则
             parameter:
                 addressValue : 地址规则option的value值(-1代表请选择)
     '''    
     def set_address_access_rule(self,addressValue):
-        return self.set_common_rule(addressValue,self.ADDRESS_RULE)
+        return self.set_common_select_elem(addressValue,self.ADDRESS_RULE)
 
     u'''设置访问方式
             parameter:
                 loginValue : 访问方式option的value值(2代表默认)
     '''    
     def set_auth_method_rule(self,loginValue):
-        return self.set_common_rule(loginValue,self.AUTH_CODE)
+        self.set_common_select_elem(loginValue,self.AUTH_CODE)
+#        try:
+#            reloginValue = self.cnEnde.is_float(loginValue)
+#            select_elem = WebDriverWait(self.driver,10).until(EC.presence_of_element_located((By.ID,self.AUTH_CODE)))
+#            self.selectElem.select_element_by_visible_text(select_elem,str(reloginValue))
+#        except Exception as e:
+#            print ("select access option error: ") + str(e)
+        
 
     u'''填写AD域用户
             parameter:
@@ -554,6 +579,15 @@ class UserPage():
         self.role.save_button()
         self.click_ok_button()
 
+    def del_role(self):
+        self.switch_to_moudle(u'角色管理',u'角色定义')
+        self.frameElem.from_frame_to_otherFrame("mainFrame")
+        self.cmf.check_all()
+        self.cmf.bulkdel("delete_role")
+        self.click_ok_button()
+#        self.role.delete(list[0])
+    
+
     u'''初始化用户登录'''
     def user_login(self):
         data_path = self.dataFile.get_person_test_data_url()
@@ -589,13 +623,13 @@ class UserPage():
 
     u'''通过用户账号或名称获取行数
             parameters:
-                accountName : 账号或名称
+                accountName : 查找条件(账号或名称)
     '''    
     def search_direct_by_account_or_name(self,accountName):
         self.switch_to_main_frame()
 
         row = 0
-        reName = self.cnEnde.cnCode(accountName)
+        reName = self.cnEnde.is_float(accountName)
         try:
             self.page_select_all()
 
@@ -610,7 +644,7 @@ class UserPage():
                 accountValue_text = account_elems[index].text
                 nameValue_text = username_elems[index].text
                 
-                if (accountValue_text == accountName) or (nameValue_text == accountName):
+                if (accountName in accountValue_text) or (accountName in nameValue_text):
                     row = row + 1
             return row
         except Exception as e:
@@ -689,7 +723,7 @@ class UserPage():
 
     u'''获取生成的证书名字'''
     def get_cert(self):
-        self.get_cert_var_text(self.CERT_NAME)
+        return self.get_cert_var_text(self.CERT_NAME)
 
     u'''获取初始证书名字'''
     def get_init_cert_name(self):
@@ -698,7 +732,7 @@ class UserPage():
 
     u'''获取证书序列号'''
     def get_cert_serial_num(self):
-        self.get_cert_var_text(self.CERT_SERIAL_NUM)
+        return self.get_cert_var_text(self.CERT_SERIAL_NUM)
 
     u'''点击返回按钮'''
     def click_back_button(self):
@@ -730,13 +764,54 @@ class UserPage():
         self.save_button()
         self.cmf.click_login_msg_button()
 
-           
+    def del_user(self):
+        self.switch_to_moudle(u"运维管理",u"用户")
+        self.frameElem.from_frame_to_otherFrame("mainFrame")
+        self.select_all_button()
+        self.del_button()
+        self.cmf.click_login_msg_button()
         
-                
-            
-                
-                
+    
+    u'''登录模块用户添加模板
+            parameters:
+                list : 用户添加信息
+    '''
+    def add_login_user(self,list):
+        self.switch_to_moudle(u"运维管理",u"用户")
+        self.frameElem.from_frame_to_otherFrame("mainFrame")
         
+        #添加用户
+        self.add_button()
+        self.set_user_account(list[0])
+        self.set_user_name(list[1])
+        self.set_user_pwd(list[2])
+        self.set_user_enquire_pwd(list[3])
+        self.set_start_time(list[4])
+    
+        #设置访问方式
+        self.click_advanced_option()
+        self.set_auth_method_rule(list[5])
+        if int(list[5]) != 2:
+            self.set_ad_name(list[6])
+        self.save_button()
+        self.cmf.click_login_msg_button()
+        self.frameElem.from_frame_to_otherFrame("mainFrame")
+        self.click_back_button()
+
+    u'''用户状态改变为关'''
+    def change_user_status_off(self,account):
+        off_status = "switch_off"
+        self.change_user_status_button(account,off_status)
+    
+    u'''添加登录测试用户'''
+    def add_login_data(self):
+        filePath = self.dataFile.get_login_test_data_url()
+        user_data = self.dataFile.get_data(filePath,"add_user")#add_user  
+        for dataRow in range(len(user_data)):
+            data = user_data[dataRow]
+            if dataRow != 0:
+                self.add_login_user(data)
+    
 
 #if __name__ == "__main__":
 #    driver = initDriver().remote_open_driver("http://172.16.10.21:5555/wd/hub","chrome")

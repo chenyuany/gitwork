@@ -1,5 +1,5 @@
 {
-    "APP":{"appip":"172.16.10.163"},
+    "APP":{"appip":"172.16.10.169"},
     "BROWER":[
                 {"detailType":"chrome","ip":"192.168.23.53","port":6666,"type":"chrome"}
 

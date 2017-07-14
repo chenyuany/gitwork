@@ -44,7 +44,7 @@ class testRoleSuite(unittest.TestCase):
 		data = login_data[1]
 		self.login.login(data)
 		u'''添加用户'''
-		# self.testdptment.add_user()
+		self.testdptment.add_user()
 		self.cmf.select_menu(u"角色管理", u"角色定义")
 
 	def test_role(self):
@@ -95,10 +95,11 @@ class testRoleSuite(unittest.TestCase):
 		self.testrole.del_role_006()
 		u'''全选删除角色'''
 		self.testrole.bulkdel_role_007()
-		# #用初始化用户登录删除用户
-		# self.user.del_all_user_008()
-		# #退出登录
-		# self.login.quit()
+		self.cmf.select_menu(u"运维管理", u"用户")
+		#用初始化用户登录删除用户
+		self.user.del_all_user_008()
+		#退出登录
+		self.login.quit()
 
 	def tearDown(self):
 		initDriver().close_driver(self.browser)

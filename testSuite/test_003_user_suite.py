@@ -14,6 +14,7 @@ from userElement import UserPage
 
 sys.path.append("/testIsomp/testCase/user/")
 from test_user import User
+
 sys.path.append("/testIsomp/testData/")
 from _testDataPath import dataFileName
 
@@ -21,22 +22,23 @@ import unittest
 
 class testUserSuite(unittest.TestCase):
     def setUp(self):#internet explorer
+        self.browser = initDriver().open_driver()
 #        self.browser = initDriver().remote_open_driver("http://172.16.10.21:5555/wd/hub","firefox")
-        driver_lists = globalValue().get_value()
-        self.browser = initDriver().remote_open_driver(driver_lists[0],driver_lists[1])
+#         driver_lists = globalValue().get_value()
+#         self.browser = initDriver().remote_open_driver(driver_lists[0],driver_lists[1])
         self.userElem = UserPage(self.browser)
         self.userCase = User(self.browser)
         self.dataFile = dataFileName()
         self.userElem.user_login()
-        #self.user.switch_to_moudle(u'角色管理',u'角色定义')
+
         #添加角色
         data_path = self.dataFile.get_person_test_data_url()
         role_data = self.dataFile.get_data(data_path,'role')
         roledata = role_data[1]       
-        self.user.add_sys_role(roledata)
-        self.user.switch_to_moudle(u'运维管理',u'用户')
+        self.userElem.add_sys_role(roledata)
+        self.userElem.switch_to_moudle(u'运维管理',u'用户')
         
-        
+
     def test_login(self):
         #添加用户
         self.userCase.add_user_001()
@@ -58,10 +60,11 @@ class testUserSuite(unittest.TestCase):
         #删除单一用户
         self.userCase.del_user_007()
         #删除全部用户
-#        self.userCase.del_all_user_008()
+        self.userCase.del_all_user_008()
     
     def tearDown(self):
-#        print 1111
+        self.userElem.del_role()
+#        self.userElem.del_user()   
         initDriver().close_driver(self.browser)
 
 if __name__ == "__main__":

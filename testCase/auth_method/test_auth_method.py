@@ -12,6 +12,7 @@
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
+
 import os
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
@@ -87,7 +88,7 @@ class testAuthMethod(object):
 				#如果不是第一行标题，则读取数据
 				if dataRow == 1:
 					self.frameElem.from_frame_to_otherFrame("mainFrame")
-					self.authMethod.select_auth_method(data[2])
+					self.authMethod.select_add_meth_method(data[2])
 					self.authMethod.auth_add_button()
 					self.authMethod.check_option_is_not_exist('id',all_auth_method,data[3])
 					#校验是否添加到已选认证方式
@@ -131,7 +132,7 @@ class testAuthMethod(object):
 				#如果不是第一行标题，则读取数据
 				if dataRow == 2:
 					self.frameElem.from_frame_to_otherFrame("mainFrame")
-					self.authMethod.select_auth_method(data[2])
+					self.authMethod.select_add_meth_method(data[2])
 					self.authMethod.auth_add_button()
 					self.authMethod.check_option_is_not_exist('id',all_auth_method,data[3])
 					#校验是否添加到已选认证方式
@@ -175,7 +176,7 @@ class testAuthMethod(object):
 				#如果不是第一行标题，则读取数据
 				if dataRow == 3:
 					self.frameElem.from_frame_to_otherFrame("mainFrame")
-					self.authMethod.select_auth_method(data[2])
+					self.authMethod.select_add_meth_method(data[2])
 					self.authMethod.auth_add_button()
 					self.authMethod.check_option_is_not_exist('id',all_auth_method,data[3])
 					#校验是否添加到已选认证方式
@@ -216,7 +217,7 @@ class testAuthMethod(object):
 				#如果不是第一行标题，则读取数据
 				if dataRow == 4:
 					self.frameElem.from_frame_to_otherFrame("mainFrame")
-					self.authMethod.select_auth_method(data[2])
+					self.authMethod.select_add_meth_method(data[2])
 					self.authMethod.auth_add_button()
 					self.authMethod.check_option_is_not_exist('id',all_auth_method,data[3])
 					#校验是否添加到已选认证方式
@@ -257,7 +258,7 @@ class testAuthMethod(object):
 				#如果不是第一行标题，则读取数据
 				if dataRow == 5:
 					self.frameElem.from_frame_to_otherFrame("mainFrame")
-					self.authMethod.select_auth_method(data[2])
+					self.authMethod.select_add_meth_method(data[2])
 					self.authMethod.auth_add_button()
 					self.authMethod.check_option_is_not_exist('id',all_auth_method,data[3])
 					#校验是否添加到已选认证方式
@@ -456,38 +457,32 @@ class testAuthMethod(object):
 		
 
 
-if __name__ == "__main__":
-	driver = initDriver().remote_open_driver("http://172.16.10.21:5555/wd/hub","internet explorer")
-	login_data = testAuthMethod(driver).get_table_data("login")
-	data = login_data[1]
-	loginPage(driver).login(data)
-	frameElement(driver).switch_to_content()
-	frameElement(driver).switch_to_top()
-#	commonFun(driver).select_role(1)
-	commonFun(driver).select_role_by_text(u'系统管理员')
-	commonFun(driver).select_menu(u"策略配置")
-	commonFun(driver).select_menu(u"策略配置",u"认证强度")
-	frameElement(driver).from_frame_to_otherFrame("mainFrame")
-	authMethod = AuthMethodPage(driver)
-#	authMethod.select_all_auth()
-##	selem = getElement(driver).find_element_with_wait("id","select_globalAuthMethod")
-##	cnEode = cnEncode()
-##	text = selectElement(driver).get_all_option_text(selem)
-##	print cnEode.cnCode(','.join(text))
-##	authMethod = AuthMethodPage(driver)
-##	authMethod.delete_other_auth_method()
+#if __name__ == "__main__":#internet explorer
+#	driver = initDriver().remote_open_driver("http://172.16.10.21:5555/wd/hub","firefox")
+#	login_data = testAuthMethod(driver).get_table_data("add_user")
+#	data = login_data[1]
+#	loginPage(driver).login(data)
+#	frameElement(driver).switch_to_content()
+#	frameElement(driver).switch_to_top()
+##	commonFun(driver).select_role(1)
+#	commonFun(driver).select_role_by_text(u'系统管理员')
+#	commonFun(driver).select_menu(u"策略配置")
+#	commonFun(driver).select_menu(u"策略配置",u"认证强度")
+#	frameElement(driver).from_frame_to_otherFrame("mainFrame")
+#	authMethod = AuthMethodPage(driver)
+##	
 #	testAuthMethod(driver).add_ad_method_001()
 #	testAuthMethod(driver).add_radius_method_002()
 #	testAuthMethod(driver).add_ad_and_pwd_method_003()
 #	testAuthMethod(driver).add_radius_and_pwd_method_004()
 #	testAuthMethod(driver).add_cert_method_005()
-	testAuthMethod(driver).auth_method_add_is_success_006()
-##	frameElement(driver).from_frame_to_otherFrame("mainFrame")
-##	authMethod.quit_selectd_all_method()
+#	testAuthMethod(driver).auth_method_add_is_success_006()
+###	frameElement(driver).from_frame_to_otherFrame("mainFrame")
+###	authMethod.quit_selectd_all_method()
 #	testAuthMethod(driver).mod_ad_method_007()
 #	testAuthMethod(driver).ad_method_checkout_008()
-##	frameElement(driver).from_frame_to_otherFrame("mainFrame")
-##	selem = getElement(driver).find_element_with_wait("id",'select_globalAuthMethod')
-##	authMethod.selectd_all_method(selem,'2')
+###	frameElement(driver).from_frame_to_otherFrame("mainFrame")
+###	selem = getElement(driver).find_element_with_wait("id",'select_globalAuthMethod')
+###	authMethod.selectd_all_method(selem,'2')
 #	testAuthMethod(driver).radius_checkout_009()
 #	testAuthMethod(driver).del_auth_method_010()

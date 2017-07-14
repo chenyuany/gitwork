@@ -395,12 +395,9 @@ class testRole(object):
 					if dataRow < 3:
 						if dataRow == 1:
 							self.role.shortname_query(data[2])
-							self.role.click_query()
-							self.role.click_reset()
+
 						elif dataRow == 2:
 							self.role.rolename_query(data[1])
-							self.role.click_query()
-							self.role.click_reset()
 
 						self.frameElem.from_frame_to_otherFrame("mainFrame")
 						#获取表格行数
@@ -410,14 +407,12 @@ class testRole(object):
 					else:
 						if dataRow == 3:
 							self.role.click_query()
+
 						elif dataRow == 4:
 							self.role.rolename_query(data[1])
-							self.role.click_query()
-							self.role.click_reset()
+
 						elif dataRow == 5:
 							self.role.shortname_query(data[2])
-							self.role.click_query()
-							self.role.click_reset()
 
 						self.frameElem.from_frame_to_otherFrame("mainFrame")
 						#获取表格行数
