@@ -197,7 +197,7 @@ class Department(object):
 			messagetext = divselem.get_attribute('textContent')
 
 			if messagetext == pagetext:
-				self.driver.implicitly_wait(5)
+				self.driver.implicitly_wait(10)
 				#鼠标移动到当前窗口
 				actions = ActionChains(self.driver)
 				actions.move_to_element(divselem).perform()

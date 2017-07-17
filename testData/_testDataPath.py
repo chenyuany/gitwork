@@ -7,6 +7,8 @@ sys.setdefaultencoding('utf-8')
 sys.path.append("/testIsomp/common/")
 from _excelRead import excelRead
 
+#通用数据excel文件
+COMMON_SUITE_TEST_DATA_URL = r"/testIsomp/testData/common_suite_test_data.xlsx"
 #登陆excel数据文件
 LOGIN_TEST_DATA_URL = r"/testIsomp/testData/login_test_data.xlsx"
 
@@ -41,6 +43,10 @@ DEPARTMENT_TEST_DATA_URL = r"/testIsomp/testData/department_test_data.xlsx"
 AUTH_METHOD_TEST_DATA_URL = r"/testIsomp/testData/auth_method_test_data.xlsx"
 
 class dataFileName(object):
+    #获取通用excel中的数据
+    def get_common_suite_test_data_url(self):
+        return COMMON_SUITE_TEST_DATA_URL
+    
     #获取用户登录excel中的数据
     def get_login_test_data_url(self):
         return LOGIN_TEST_DATA_URL

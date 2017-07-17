@@ -18,12 +18,13 @@ from test_user import User
 #导入驱动
 sys.path.append("/testIsomp/common/")
 from _initDriver import initDriver
-from _globalVal import globalValue
 from _icommon import frameElement,commonFun
 sys.path.append("/testIsomp/testCase/role/")
 from test_role import testRole
 sys.path.append("/testIsomp/testCase/department/")
 from test_department import testDepartment
+sys.path.append("/testIsomp/testSuite/common_suite_file/")
+from common_suite_file import setDriver,CommonSuiteData
 #导入登录
 sys.path.append("/testIsomp/webElement/login/")
 from loginElement import loginPage
@@ -32,9 +33,10 @@ import unittest
 class testRoleSuite(unittest.TestCase):
 
 	def setUp(self):
-		# self.browser = initDriver().open_driver()
-		driver_lists = globalValue().get_value()
-		self.browser = initDriver().remote_open_driver(driver_lists[0],driver_lists[1])
+		#调用本地驱动
+		self.browser = setDriver().set_local_driver()
+		#调用远程驱动
+		# self.browser = setDriver().set_remote_driver()
 
 		self.testrole = testRole(self.browser)
 		self.login = loginPage(self.browser)
@@ -42,10 +44,10 @@ class testRoleSuite(unittest.TestCase):
 		self.frameElem = frameElement(self.browser)
 		self.user = User(self.browser)
 		self.testdptment = testDepartment(self.browser)
+		self.comsuit = CommonSuiteData(self.browser)
 
-		login_data = self.testrole.get_table_data("login")
-		data = login_data[1]
-		self.login.login(data)
+		#初始化用户登录
+		self.comsuit.isomper_login()
 
 		u'''添加角色'''
 		self.testdptment.add_role()
@@ -55,12 +57,10 @@ class testRoleSuite(unittest.TestCase):
 		self.testdptment.user_add_role()
 		self.login.quit()
 
-		dptlogin_data = self.testdptment.get_dptmtable_data("deptmetn_login")
-		dptdata = dptlogin_data[1]
-		self.login.login(dptdata)
+		#使用添加的用户登录并切换至系统级角色
+		self.comsuit.login_and_switch_to_sys()
 
 		self.frameElem.from_frame_to_otherFrame("topFrame")
-		self.cmf.select_role(1)
 		self.cmf.select_menu(u"运维管理", u"组织定义")
 
 	def test_department(self):
@@ -75,15 +75,18 @@ class testRoleSuite(unittest.TestCase):
 		self.testdptment.check_add_edit_department_004()
 		u'''删除部门'''
 		self.testdptment.del_department_005()
+
 		self.frameElem.from_frame_to_otherFrame("topFrame")
 		self.cmf.select_menu(u"角色管理", u"角色定义")
+
 		u'''全选删除角色'''
 		self.testrole.bulkdel_role_007()
+
 		#退出登录用初始化用户登录删除用户
 		self.login.quit()
-		login_data = self.testrole.get_table_data("login")
-		data = login_data[1]
-		self.login.login(data)
+		self.comsuit.isomper_login()
+
+		#删除用户
 		self.user.del_all_user_008()
 		self.login.quit()
 

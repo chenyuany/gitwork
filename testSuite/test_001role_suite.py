@@ -15,8 +15,7 @@ sys.setdefaultencoding('utf-8')
 #导入驱动
 sys.path.append("/testIsomp/common/")
 from _initDriver import initDriver
-from _icommon import getElement,selectElement,frameElement,commonFun
-from _globalVal import globalValue
+from _icommon import commonFun
 sys.path.append("/testIsomp/testCase/role/")
 from test_role import testRole
 from test_mutex import testMutex
@@ -27,31 +26,36 @@ sys.path.append("/testIsomp/testCase/department/")
 from test_department import testDepartment
 sys.path.append("/testIsomp/testCase/user/")
 from test_user import User
+sys.path.append("/testIsomp/testSuite/common_suite_file/")
+from common_suite_file import setDriver,CommonSuiteData
 import unittest
 
 class testRoleSuite(unittest.TestCase):
 
 	def setUp(self):
-		# self.browser = initDriver().open_driver()
-		driver_lists = globalValue().get_value()
-		self.browser = initDriver().remote_open_driver(driver_lists[0],driver_lists[1])
+
+		#调用本地驱动
+		self.browser = setDriver().set_local_driver()
+		#调用远程驱动
+		# self.browser = setDriver().set_remote_driver()
+
 		self.testrole = testRole(self.browser)
 		self.cmf = commonFun(self.browser)
 		self.login = loginPage(self.browser)
 		self.user = User(self.browser)
 		self.testdptment = testDepartment(self.browser)
-		login_data = self.testrole.get_table_data("login")
-		data = login_data[1]
-		self.login.login(data)
+		self.comsuit = CommonSuiteData(self.browser)
+		#初始化用户登录
+		self.comsuit.isomper_login()
+
 		u'''添加用户'''
 		self.testdptment.add_user()
+
+		#切换到角色定义页面
 		self.cmf.select_menu(u"角色管理", u"角色定义")
 
 	def test_role(self):
 
-		self.getElem = getElement(self.browser)
-		self.selectElem = selectElement(self.browser)
-		self.frameElem = frameElement(self.browser)
 		self.testmutex = testMutex(self.browser)
 		u'''添加系统级角色'''
 		self.testrole.add_sysrole_001()
