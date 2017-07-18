@@ -8,6 +8,7 @@ sys.path.append("/testIsomp/common/")
 from _icommon import getElement,selectElement,frameElement,commonFun
 from _initDriver import initDriver
 from _globalVal import globalValue
+from _fileRead import fileRead
 
 sys.path.append("/testIsomp/webElement/auth_method/")
 from authMethodElement import AuthMethodPage
@@ -39,7 +40,17 @@ class setDriver():
         
 #        driver = initDriver().remote_open_driver("http://172.16.10.21:5555/wd/hub","firefox")
         return driver
-    
+
+    #获取驱动
+    def set_driver(self):
+         #读取test.conf文件内容
+        fileList = fileRead().get_ip_address()
+        #读取开关字符，0代表本地登录，1代表远程登录
+        ipAdd = fileList[3].strip('\n')
+        if ipAdd == '0':
+            return self.set_local_driver()
+        elif ipAdd == '1':
+            return self.set_remote_driver()
 
 class CommonSuiteData():
     

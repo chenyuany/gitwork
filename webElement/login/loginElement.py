@@ -16,14 +16,8 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 import os
-from selenium import webdriver
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
 
 sys.path.append("/testIsomp/common/")
-from _initDriver import *
 from _icommon import getElement,selectElement,frameElement,commonFun
 from _cnEncode import cnEncode
 from _log import log
@@ -75,7 +69,7 @@ class loginPage(object):
 
     u'''获取登录方式'''
     def get_login_method(self):
-        loginMethod = self.getElem.find_element_with_wait('id',self.LOGIN_METHOD)
+        loginMethod = self.getElem.find_element_with_wait_EC('id',self.LOGIN_METHOD)
         return self.selectElem.get_option_text(loginMethod,0)
         
     u'''设定登录方式
@@ -84,8 +78,7 @@ class loginPage(object):
     '''
     def set_login_method(self,value): 
         revalue = self.cnEnde.is_float(value)
-        wait = WebDriverWait(self.driver,10)
-        loginMethod = wait.until(EC.presence_of_element_located((By.ID, self.LOGIN_METHOD)))
+        loginMethod = self.getElem.find_element_with_wait_EC('id', self.LOGIN_METHOD)
         try:
             self.selectElem.select_element_by_value(loginMethod,str(revalue))
         except Exception as e:
@@ -96,14 +89,13 @@ class loginPage(object):
             var_text : 变量内容
             locator : 定位方式对应的属性值
     '''       
-    def set_common_var_text(self,var_text,locator):
+    def set_common_var_text(self,var_text,value):
     	try:
     	    revar_text = self.cnEnde.is_float(var_text)
-    	    var_elem = WebDriverWait(self.driver,10).until(EC.presence_of_element_located((By.ID,locator)))
+    	    var_elem = self.getElem.find_element_with_wait_EC('id',value)
     	    var_elem.clear()
     	    var_elem.send_keys(revar_text)
     	except Exception as e:
-#            self.log.print_detail("set login var text error: ",revar_text + " " + e)
     	    print ("set login var text error: ") + str(revar_text) + str(e)
     
         
@@ -146,17 +138,12 @@ class loginPage(object):
     u'''点击登录按钮'''
     def click_login_button(self):
         try:
-            wait = WebDriverWait(self.driver,10)
-            body = wait.until(EC.element_to_be_clickable((By.TAG_NAME,'body')))
-            do_login = wait.until(EC.element_to_be_clickable((By.ID,self.LOGIN_BUTTON)))
-            do_login.click()
+            self.getElem.find_element_wait_and_click_EC('tagname','body')
+            self.getElem.find_element_with_wait_clickable_and_click('id',self.LOGIN_BUTTON)
 
         except Exception as e:
             self.log.print_detail("click login button error",e)
 
-
-    u'''点击版权所有'''
-    def click_login_copyright(self): 
         pass
         
     u'''用户名口令认证登录
@@ -176,7 +163,7 @@ class loginPage(object):
         try:
             #self.frameElem.switch_to_top()
             self.frameElem.from_frame_to_otherFrame('topFrame')
-            text = self.getElem.find_element_wait_and_get_text("id","message")
+            text = self.getElem.find_element_wait_and_get_text("id","message",10)
 #            print text
         except Exception as e:
             text = ""
@@ -233,8 +220,7 @@ class loginPage(object):
     def set_max_login_count(self):
         
         self.frameElem.from_frame_to_otherFrame('topFrame')
-        #切换至系统管理员角色
-#        self.commElem.select_role_by_text(roleName)
+        
 
         self.commElem.select_menu(u"策略配置")
         self.commElem.select_menu(u"策略配置",u"会话配置")
@@ -242,42 +228,23 @@ class loginPage(object):
         self.frameElem.from_frame_to_otherFrame('mainFrame')
 
         #选择密码策略默认配置
-        strategy_option = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.ID,'fortPasswordStrategyId')))
+        strategy_option = self.getElem.find_element_with_wait_EC('id','fortPasswordStrategyId')
         self.selectElem.select_element_by_visible_text(strategy_option,u'请选择')
         
         #设置最大登录数
-        access_max_elem = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.ID,self.ACCESS_MAX_ACCOUNT)))
-        access_max_elem.clear()
-        access_max_elem.send_keys(3)
-        lock_time = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.ID,"lockStrategyTime")))
-        lock_time.clear()
-        lock_time.send_keys(1)        
-#        time.sleep(3)
-        WebDriverWait(self.driver,10).until(EC.element_to_be_clickable((By.ID, self.STRATEGY_SAVE_BUTTON))).click()   
+        self.set_common_var_text(3,self.ACCESS_MAX_ACCOUNT)
+
+        #设定锁定时间
+        self.set_common_var_text(1,"lockStrategyTime")
+        
+        #点击保存按钮
+        self.getElem.find_element_with_wait_clickable_and_click('id',self.STRATEGY_SAVE_BUTTON)
         self.commElem.click_login_msg_button()
 
     u'''点击退出'''
     def quit(self):
         self.frameElem.from_frame_to_otherFrame('topFrame')
-        wait = WebDriverWait(self.driver,10)
-        quit_btn = wait.until(EC.element_to_be_clickable((By.ID,self.QUIT)))
-        quit_btn.click()
-
-        
-        
-#if __name__ == "__main__":
-    #启动页面
-#    browers = initDriver().open_driver()
-#    
-
-#    login_page = loginPage(browers)
-#    list = ["","","0","test","1",'22',""]
-#    login_page.login(list)
-#    list = ["","","0","aaaa","1"]
-#    login_page.login(list)
-#    login_page.set_max_login_count()
-#    login_page.quit()
-#    login_page.click_msg_button()
-    
-    #关闭页面
-    #initDriver().close_driver(browers)
+        try:
+            self.getElem.find_element_with_wait_clickable_and_click('id',self.QUIT)
+        except Exception as e:
+            print ("Click quit button error: ") + str(e)

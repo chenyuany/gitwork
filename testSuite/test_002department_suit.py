@@ -33,10 +33,9 @@ import unittest
 class testRoleSuite(unittest.TestCase):
 
 	def setUp(self):
-		#调用本地驱动
-		self.browser = setDriver().set_local_driver()
-		#调用远程驱动
-		# self.browser = setDriver().set_remote_driver()
+
+		#调用驱动
+		self.browser = setDriver().set_driver()
 
 		self.testrole = testRole(self.browser)
 		self.login = loginPage(self.browser)

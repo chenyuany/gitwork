@@ -64,16 +64,26 @@ class testAuthMethod(object):
 		authFileData = dataFile.get_data(filePath,sheetname)
 		return authFileData	
 
+	u'''校验有弹出框类型用例是否通过
+			parameters: 
+				data : 检查点
+				flag : 通过标识(True or False)
+	'''
+	def check_with_pop_up(self,data,flag):
+		
+		#点击保存按钮弹出框
+		auth_method_msg = self.auth_method_msg()	
+		self.frameElem.switch_to_content()
+		self.cmf.test_win_check_point("xpath",auth_method_msg,data,flag)
+		
+
 	u'''添加AD域认证方式'''
 	def add_ad_method_001(self):
 		#全部认证方式
 		all_auth_method = "all_globalAuthMethod"
 		#已选认证方式
 		selectd_auth_method = "select_globalAuthMethod"
-		login_auth_method = "loginMethod"
-		#保存成功的弹出框
-		auth_method_msg = self.auth_method_msg()
-#		self.authMethod.delete_other_auth_method()
+
 		selem = self.getElem.find_element_with_wait("id",selectd_auth_method)
 		self.authMethod.selectd_all_method(selem,'2')
 		#日志开始记录
@@ -97,15 +107,12 @@ class testAuthMethod(object):
 					self.authMethod.set_ad_auth_port(data[5])
 					self.authMethod.set_ad_auth_domian_name(data[6])
 					self.authMethod.save_button()
-					self.frameElem.switch_to_content()
-					self.cmf.test_win_check_point("xpath",auth_method_msg,data,flag)
+					
+					#判断测试点是否通过
+					self.check_with_pop_up(data,flag)
+					
 					#清空标识状态
 					flag = False					
-					#校验登录页面是否有认证方式
-#					self.login.quit()
-#					self.frameElem.switch_to_content()
-#					if self.authMethod.check_option_is_selectd('id',login_auth_method,data[3]):
-#						print("AD auth method add success")
 			except Exception as e:
 				print ("AD auth method add fail: ") + str(e)
 		self.log.log_end("addADMethod")
@@ -113,12 +120,11 @@ class testAuthMethod(object):
 	u'''添加radius认证方式'''
 	def add_radius_method_002(self):
 		#全部认证方式
-		all_auth_method = "all_globalAuthMethod"		
+		all_auth_method = "all_globalAuthMethod"
 		#已选认证方式
 		selectd_auth_method = "select_globalAuthMethod"
-		login_auth_method = "loginMethod"
-		#保存成功的弹出框
-		auth_method_msg = self.auth_method_msg()
+		
+
 		#日志开始记录
 		self.log.log_start("addRadiusMethod")
 		#获取添加系统管理员测试数据
@@ -141,15 +147,13 @@ class testAuthMethod(object):
 					self.authMethod.set_radius_auth_port(data[5])
 					self.authMethod.set_radius_auth_key(data[7])
 					self.authMethod.save_button()
-					self.frameElem.switch_to_content()
-					self.cmf.test_win_check_point("xpath",auth_method_msg,data,flag)
+					
+					#判断测试点是否通过
+					self.check_with_pop_up(data,flag)
+					
+					
 					#清空标识状态
 					flag = False					
-					#校验登录页面是否有认证方式
-#					self.login.quit()
-#					self.frameElem.switch_to_content()
-#					if self.authMethod.check_option_is_selectd('id',login_auth_method,data[3]):
-#						print("Radius auth method add success")
 			except Exception as e:
 				print ("Radius auth method add fail: ") + str(e)
 		self.log.log_end("addRadiusMethod")
@@ -157,12 +161,11 @@ class testAuthMethod(object):
 	u'''添加AD域+口令认证方式'''
 	def add_ad_and_pwd_method_003(self):
 		#全部认证方式
-		all_auth_method = "all_globalAuthMethod"		
+		all_auth_method = "all_globalAuthMethod"
 		#已选认证方式
 		selectd_auth_method = "select_globalAuthMethod"
-		login_auth_method = "loginMethod"
-		#保存成功的弹出框
-		auth_method_msg = self.auth_method_msg()
+		
+
 		#日志开始记录
 		self.log.log_start("addADAndPwdMethod")
 		#获取添加系统管理员测试数据
@@ -182,15 +185,12 @@ class testAuthMethod(object):
 					#校验是否添加到已选认证方式
 					self.authMethod.check_option_is_selectd('id',selectd_auth_method,data[3])
 					self.authMethod.save_button()
-					self.frameElem.switch_to_content()
-					self.cmf.test_win_check_point("xpath",auth_method_msg,data,flag)
+					
+					#判断测试点是否通过
+					self.check_with_pop_up(data,flag)
+					
 					#清空标识状态
-					flag = False					
-					#校验登录页面是否有认证方式
-#					self.login.quit()
-#					self.frameElem.switch_to_content()
-#					if self.authMethod.check_option_is_selectd('id',login_auth_method,data[3]):
-#						print("AdAndPwd auth method add success")
+					flag = False
 			except Exception as e:
 				print ("AdAndPwd auth method add fail: ") + str(e)
 		self.log.log_end("addADAndPwdMethod")
@@ -198,12 +198,11 @@ class testAuthMethod(object):
 	u'''添加radius+口令认证方式'''
 	def add_radius_and_pwd_method_004(self):
 		#全部认证方式
-		all_auth_method = "all_globalAuthMethod"		
+		all_auth_method = "all_globalAuthMethod"
 		#已选认证方式
 		selectd_auth_method = "select_globalAuthMethod"
-		login_auth_method = "loginMethod"
-		#保存成功的弹出框
-		auth_method_msg = self.auth_method_msg()
+		
+
 		#日志开始记录
 		self.log.log_start("addRadiusMethod")
 		#获取添加系统管理员测试数据
@@ -223,15 +222,12 @@ class testAuthMethod(object):
 					#校验是否添加到已选认证方式
 					self.authMethod.check_option_is_selectd('id',selectd_auth_method,data[3])
 					self.authMethod.save_button()
-					self.frameElem.switch_to_content()
-					self.cmf.test_win_check_point("xpath",auth_method_msg,data,flag)
+					
+					#判断测试点是否通过
+					self.check_with_pop_up(data,flag)
+					
 					#清空标识状态
-					flag = False					
-					#校验登录页面是否有认证方式
-#					self.login.quit()
-#					self.frameElem.switch_to_content()
-#					if self.authMethod.check_option_is_selectd('id',login_auth_method,data[3]):
-#						print("RadiusAndPwd auth method add success")
+					flag = False
 			except Exception as e:
 				print ("RadiusAndPwd auth method add fail: ") + str(e)
 		self.log.log_end("addRadiusAndPwdMethod")
@@ -242,9 +238,8 @@ class testAuthMethod(object):
 		all_auth_method = "all_globalAuthMethod"
 		#已选认证方式
 		selectd_auth_method = "select_globalAuthMethod"
-		login_auth_method = "loginMethod"
-		#保存成功的弹出框
-		auth_method_msg = self.auth_method_msg()
+		
+
 		#日志开始记录
 		self.log.log_start("addCertMethod")
 		#获取添加系统管理员测试数据
@@ -264,8 +259,10 @@ class testAuthMethod(object):
 					#校验是否添加到已选认证方式
 					self.authMethod.check_option_is_selectd('id',selectd_auth_method,data[3])
 					self.authMethod.save_button()
-					self.frameElem.switch_to_content()
-					self.cmf.test_win_check_point("xpath",auth_method_msg,data,flag)
+					
+					#判断测试点是否通过
+					self.check_with_pop_up(data,flag)
+					
 					#清空标识状态
 					flag = False
 					self.login.quit()
@@ -279,6 +276,8 @@ class testAuthMethod(object):
 		all_auth_method = "all_globalAuthMethod"
 		#已选认证方式
 		selectd_auth_method = "select_globalAuthMethod"
+		
+		#登录select框
 		login_auth_method = "loginMethod"
 		auth_method_data = self.get_table_data("login")
 		self.authMethod.login_and_switch_auth_method()
@@ -312,8 +311,7 @@ class testAuthMethod(object):
 		#已选认证方式
 		ad_auth_ip = "ldapHost0"
 		ad_auth_domian_name = "ldapName0"
-		#保存成功的弹出框
-		auth_method_msg = self.auth_method_msg()
+
 		#日志开始记录
 		self.log.log_start("ModeyADMethodConfig")
 		#获取修改AD域配置测试数据
@@ -331,10 +329,10 @@ class testAuthMethod(object):
 					self.authMethod.set_ad_auth_port(data[3])
 					self.authMethod.set_ad_auth_domian_name(data[4])
 					self.authMethod.save_button()
-					self.frameElem.switch_to_content()
-					self.cmf.test_win_check_point("xpath",auth_method_msg,data,flag)
-#					self.authMethod.compare_elem_text('id',ad_auth_ip,data[2])
-#					self.authMethod.compare_elem_text('id',ad_auth_domian_name,data[4])
+					
+					#判断测试点是否通过
+					self.check_with_pop_up(data,flag)
+					
 					#清空标识状态
 					flag = False					
 			except Exception as e:
@@ -343,8 +341,7 @@ class testAuthMethod(object):
 	
 	#AD域认证配置校验
 	def ad_method_checkout_008(self):
-		#保存成功的弹出框
-		auth_method_msg = self.auth_method_msg()
+
 		#日志开始记录
 		self.log.log_start("ADMethodCheckout")
 		#获取修改AD域配置测试数据
@@ -365,8 +362,10 @@ class testAuthMethod(object):
 						self.authMethod.domian1_add_button()
 						self.authMethod.set_domian2_ip(data[5])
 					self.authMethod.save_button()
-					self.frameElem.switch_to_content()
-					self.cmf.test_win_check_point("xpath",auth_method_msg,data,flag)
+					
+					#判断测试点是否通过
+					self.check_with_pop_up(data,flag)
+					
 					#清空标识状态
 					flag = False					
 			except Exception as e:
@@ -378,8 +377,7 @@ class testAuthMethod(object):
 	
 	u'''radius认证校验'''
 	def radius_checkout_009(self):
-		#保存成功的弹出框
-		auth_method_msg = self.auth_method_msg()
+
 		#日志开始记录
 		self.log.log_start("RadiusCheckout")
 		#获取添加系统管理员测试数据
@@ -407,15 +405,13 @@ class testAuthMethod(object):
 					self.authMethod.set_backup_radius_ip(data[5])
 					self.authMethod.set_backup_radius_key(data[6])
 					self.authMethod.save_button()
-					self.frameElem.switch_to_content()
-					self.cmf.test_win_check_point("xpath",auth_method_msg,data,flag)
+
+					#判断测试点是否通过
+					self.check_with_pop_up(data,flag)
+										
 					#清空标识状态
 					flag = False					
-					#校验登录页面是否有认证方式
-#					self.login.quit()
-#					self.frameElem.switch_to_content()
-#					if self.authMethod.check_option_is_selectd('id',login_auth_method,data[3]):
-#						print("Radius auth method add success")
+
 			except Exception as e:
 				print ("RadiusCheckout fail: ") + str(e)
 		self.log.log_end("RadiusCheckout")
@@ -429,8 +425,7 @@ class testAuthMethod(object):
 		login_auth_method = "loginMethod"
 		#获取添加系统管理员测试数据
 		auth_method_data = self.get_table_data("del_raius_method")		
-		#保存成功的弹出框
-		auth_method_msg = self.auth_method_msg()
+
 		#日志开始记录
 		self.log.log_start("delotherMethod")
 		flag = False
@@ -447,10 +442,13 @@ class testAuthMethod(object):
 					#校验已选认证方式只有默认方式
 					self.authMethod.check_option_is_selectd('id',all_auth_method,data[3])
 					self.authMethod.save_button()
-					self.frameElem.switch_to_content()
-					self.cmf.test_win_check_point("xpath",auth_method_msg,data,flag)
+					
+					#判断测试点是否通过
+					self.check_with_pop_up(data,flag)
+					
 				#清空标识状态
-				flag = False				
+				flag = False
+							
 			except Exception as e:
 				print ("delAuthMethod fail: ") + str(e)
 		self.log.log_end("delAuthMethod")

@@ -34,10 +34,8 @@ class testRoleSuite(unittest.TestCase):
 
 	def setUp(self):
 
-		#调用本地驱动
-		self.browser = setDriver().set_local_driver()
-		#调用远程驱动
-		# self.browser = setDriver().set_remote_driver()
+		#调用驱动
+		self.browser = setDriver().set_driver()
 
 		self.testrole = testRole(self.browser)
 		self.cmf = commonFun(self.browser)
@@ -45,6 +43,7 @@ class testRoleSuite(unittest.TestCase):
 		self.user = User(self.browser)
 		self.testdptment = testDepartment(self.browser)
 		self.comsuit = CommonSuiteData(self.browser)
+
 		#初始化用户登录
 		self.comsuit.isomper_login()
 

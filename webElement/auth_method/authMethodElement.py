@@ -1,9 +1,9 @@
 #coding=utf-8
 u''' 
-#文件名：
+#文件名：authMethodElement.py
 #被测软件版本号：V2.8.1
-#作成人：
-#生成日期：
+#作成人：顾亚茹
+#生成日期：2017-07-01
 #模块描述：
 #历史修改记录
 #修改人：
@@ -19,9 +19,7 @@ import os
 import time
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
+
 
 #导入通用模块
 sys.path.append("/testIsomp/common/")
@@ -90,13 +88,13 @@ class AuthMethodPage():
 			parameters:
 				value : 认证方式中选择的value值
 	'''
-	def select_meth_method(self,value,locator):
+	def select_meth_method(self,authValue,value):
 		try:
-			revalue = self.cnEnde.is_float(value)
-			select_elem = WebDriverWait(self.driver,10).until(EC.presence_of_element_located((By.ID,locator)))
-			self.selectElem.select_element_by_value(select_elem,revalue)
+			reauthValue = self.cnEnde.is_float(authValue)
+			select_elem = self.getElem.find_element_with_wait_EC('id',value)
+			self.selectElem.select_element_by_value(select_elem,reauthValue)
 		except Exception as e:
-			print ("select auth method error: ") + locator + str(e)
+			print ("select auth method error: ") + value + str(e)
 
 	u'''选择添加的认证方式
 			parameters:
@@ -118,10 +116,10 @@ class AuthMethodPage():
 				elem : 定位方式对应值
 				list_text : 添加的认证方式名字
 	'''		
-	def check_option_is_not_exist(self,type,elem,list_text):
+	def check_option_is_not_exist(self,type,value,list_text):
 		isExsit = True
 		try:
-			selectd_elem = self.getElem.find_element_with_wait(type,elem)
+			selectd_elem = self.getElem.find_element_with_wait_EC(type,value)
 			allText = self.selectElem.get_all_option_text(selectd_elem)
 			for text in allText:
 				if text == list_text:
@@ -137,10 +135,10 @@ class AuthMethodPage():
 				elem : 定位方式对应值
 				list_text : 添加的认证方式名字
 	'''	
-	def check_option_is_selectd(self,type,elem,list_text):
+	def check_option_is_selectd(self,type,value,list_text):
 		isExsit = False
 		try:
-			selectd_elem = self.getElem.find_element_with_wait(type,elem)
+			selectd_elem = self.getElem.find_element_with_wait_EC(type,value)
 			allText = self.selectElem.get_all_option_text(selectd_elem)
 			for text in allText:
 				if text == list_text:
@@ -155,11 +153,11 @@ class AuthMethodPage():
 	        var_text : 变量内容
 	        locator : 定位方式对应的属性值
 	'''    	
-	def set_common_var_text(self,var_text,locator):
+	def set_common_var_text(self,var_text,value):
 		try:
 		    self.frameElem.from_frame_to_otherFrame("mainFrame")
 		    revar_text = self.cnEnde.is_float(var_text)
-		    var_elem = WebDriverWait(self.driver,10).until(EC.presence_of_element_located((By.ID,locator)))
+		    var_elem = self.getElem.find_element_with_wait_EC('id',value)
 		    var_elem.clear()
 		    var_elem.send_keys(revar_text)
 		except Exception as e:
@@ -232,36 +230,35 @@ class AuthMethodPage():
 	u'''点击域1对应的添加按钮'''
 	def domian1_add_button(self):
 		try:
-			WebDriverWait(self.driver,10).until(EC.element_to_be_clickable((By.ID,self.DOMIAN1_ADD_BUTTON))).click()
+			self.getElem.find_element_with_wait_clickable_and_click('id',self.DOMIAN1_ADD_BUTTON)
 		except Exception as e:
 			print ("domian1 add button error: ") + str(e)
 
 	u'''点击AD域2对应的删除按钮'''
 	def domian2_del_button(self):
 		try:
-			WebDriverWait(self.driver,10).until(EC.element_to_be_clickable((By.ID,self.DOMIAN2_DEL_BUTTON))).click()
+			self.getElem.find_element_with_wait_clickable_and_click('id',self.DOMIAN2_DEL_BUTTON)
 		except Exception as e:
 			print ("domian2 del button error: ") + str(e)
 
 	u'''点击认证方式添加按钮'''
 	def auth_add_button(self):
 		try:
-			WebDriverWait(self.driver,10).until(EC.element_to_be_clickable((By.ID, self.ADD_BUTTON))).click()
+			self.getElem.find_element_with_wait_clickable_and_click('id',self.ADD_BUTTON)
 		except Exception as e:
 			print ("Auth_method add button error: ") + str(e)
 	
 	u'''点击认证方式删除按钮''' 
 	def auth_del_button(self):
 		try:
-			WebDriverWait(self.driver,10).until(EC.element_to_be_clickable((By.ID, self.DELETE_BUTTON))).click()
+			self.getElem.find_element_with_wait_clickable_and_click('id',self.DELETE_BUTTON)
 		except Exception as e:
 			print ("Auth method delete button error: ") + str(e)
 
 	u'''点击保存按钮'''
 	def save_button(self):
 		try:
-			elem = WebDriverWait(self.driver,10).until(EC.element_to_be_clickable((By.ID,self.SAVE_BUTTON)))
-			elem.click()
+			self.getElem.find_element_with_wait_clickable_and_click('id',self.SAVE_BUTTON)
 		except Exception as e:
 			print ("Auth method save button error : ") + str(e)
 			
@@ -270,7 +267,7 @@ class AuthMethodPage():
 		try:
 			
 			#获取已选认证方式的所有option
-			selem = self.getElem.find_element_with_wait("id",self.SELECTED_AUTH_METHOD)
+			selem = self.getElem.find_element_with_wait_EC("id",self.SELECTED_AUTH_METHOD)
 			options = selem.find_elements_by_tag_name("option")
 			for option in options:
 				value = option.get_attribute('value')
@@ -287,7 +284,6 @@ class AuthMethodPage():
 	'''
 	def selectd_all_method(self,selem,value_,status='0'):
 		try:
-			#selem = self.getElem.find_element_with_wait("id",self.SELECTED_AUTH_METHOD)
 			options = selem.find_elements_by_tag_name("option")
 			select_options_text = self.selectElem.get_all_option_text(selem)
 			default_auth_text = "用户名+口令(默认方式)"
@@ -306,22 +302,6 @@ class AuthMethodPage():
 					self.cmf.click_login_msg_button()
 		except Exception as e:
 			print ("Seleted all method error: ") + str(e)
-
-
-	u'''判断文本框内容是否修改成功
-			parameters : 
-				type : 定位方式
-				value : 定位方式对应的属性值
-				text_ : 对比的内容
-	'''
-	def compare_elem_text(self,type,value,text_):
-		try:
-			elem_text = WebDriverWait(self.driver,10).until(EC.text_to_be_present_in_element((type,value),text_))
-			if elem_text == True:
-				return True
-#				print ("Modey element success")
-		except Exception:
-			return False
 
 	u'''判断两个list是否相等
 			parameters : 
@@ -352,7 +332,7 @@ class AuthMethodPage():
 	'''
 	def get_select_options_text(self,type,value):
 		try:
-			selem = WebDriverWait(self.driver,10).until(EC.presence_of_element_located((type,value)))
+			selem = self.getElem.find_element_with_wait_EC(type,value)
 			select_options_text = self.selectElem.get_all_option_text(selem)
 			return select_options_text
 		except Exception as e:
@@ -374,44 +354,43 @@ class AuthMethodPage():
 
 		#点击编辑按钮
 		edit_xpath = "//table[@id='content_table']/tbody/tr[" + str(user_row) + "]/td[9]/input[1]"
-		self.getElem.find_element_wait_and_click('xpath',edit_xpath,5)
+		
+		self.getElem.find_element_with_wait_clickable_and_click('xpath',edit_xpath)
 		
 		self.frameElem.from_frame_to_otherFrame("mainFrame")
 
 		#点击高级选项
-		self.getElem.find_element_wait_and_click('id','btn_high')
+		self.getElem.find_element_with_wait_clickable_and_click('id','btn_high')
 
 	'''登录并切换至认证方式页面'''
 	def login_and_switch_auth_method(self):
 		#登录
 		file_path = self.dataFile.get_auth_method_test_data_url()
-		login_data = self.dataFile.get_data(file_path,'add_user')
+		login_data = self.dataFile.get_data(file_path,'login')
 		logindata = login_data[1]
 		self.login.login(logindata)
 
 		self.frameElem.from_frame_to_otherFrame("topFrame")
 
 		#切换角色
-		self.cmf.select_role_by_text(logindata[6])
+		self.cmf.select_role_by_text(logindata[5])
 		self.cmf.select_menu(u"策略配置")
 		self.cmf.select_menu(u"策略配置",u"认证强度")
 		self.frameElem.from_frame_to_otherFrame("mainFrame")
-
+		
 	u'''添加所有认证方式'''
-	def select_all_auth(self):
-		#认证方式配置数据
-		file_path = self.dataFile.get_auth_method_test_data_url()
-		meth_data = self.dataFile.get_data(file_path,'meth_method_data')
-
-		methdata = meth_data[1]		
-		selem = WebDriverWait(self.driver,10).until(EC.presence_of_element_located((By.ID,self.ALL_METH_METHOD)))
+	def select_all_auth(self,methdata):
+		#获取全部认证方式文本
+		self.frameElem.from_frame_to_otherFrame("mainFrame")
+		selem = self.getElem.find_element_with_wait_EC('id',self.ALL_METH_METHOD)
 		select_list_text = self.selectElem.get_all_option_text(selem)
+		
 		options = selem.find_elements_by_tag_name("option")
-
 		for option in options:
 			if option.is_selected() == False:
 				option.click()
 
+		#判断文本是否为空
 		if select_list_text != []:
 			self.auth_add_button()
 			self.set_ad_auth_ip(methdata[0])
@@ -421,3 +400,4 @@ class AuthMethodPage():
 			self.save_button()
 			self.cmf.click_login_msg_button()
 			time.sleep(3)
+	
