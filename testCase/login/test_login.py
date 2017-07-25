@@ -4,11 +4,6 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 from threading import Thread
-from selenium import webdriver
-from selenium.webdriver import Remote
-from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-
 
 sys.path.append("/testIsomp/common/")
 from _excelRead import excelRead
@@ -106,17 +101,10 @@ class testLogin(object):
         
         
 #if __name__ == "__main__":#internet explorer
-#    driver = initDriver().remote_open_driver("http://172.16.10.21:5555/wd/hub","chrome")
-#    testLogin = testLogin(driver)
+#    browser = setDriver().set_driver()
+#    testLogin = testLogin(browser)
 #    testLogin.login()
-    
-#    
-#    driver_lists = initDriver().remote_driver_defined()
-#    for driver in driver_lists:
-#        testLogin(driver).login()
-    
-    
-    
+
     
     '''
     lists = jsonTranscoding().set_brower()

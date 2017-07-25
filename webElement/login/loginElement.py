@@ -82,7 +82,7 @@ class loginPage(object):
         try:
             self.selectElem.select_element_by_value(loginMethod,str(revalue))
         except Exception as e:
-            self.log.print_detail("login type error",e)
+            self.log.error_detail("login type error",e)
 
     u'''填写变量内容
         parameters:
@@ -142,7 +142,7 @@ class loginPage(object):
             self.getElem.find_element_with_wait_clickable_and_click('id',self.LOGIN_BUTTON)
 
         except Exception as e:
-            self.log.print_detail("click login button error",e)
+            self.log.error_detail("click login button error",e)
 
         pass
         

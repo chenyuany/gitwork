@@ -43,6 +43,7 @@ class testRoleSuite(unittest.TestCase):
 		self.user = User(self.browser)
 		self.testdptment = testDepartment(self.browser)
 		self.comsuit = CommonSuiteData(self.browser)
+		self.testmutex = testMutex(self.browser)
 
 		#初始化用户登录
 		self.comsuit.isomper_login()
@@ -55,7 +56,6 @@ class testRoleSuite(unittest.TestCase):
 
 	def test_role(self):
 
-		self.testmutex = testMutex(self.browser)
 		u'''添加系统级角色'''
 		self.testrole.add_sysrole_001()
 		u'''添加部门管理员'''
@@ -98,13 +98,14 @@ class testRoleSuite(unittest.TestCase):
 		self.testrole.del_role_006()
 		u'''全选删除角色'''
 		self.testrole.bulkdel_role_007()
+
+	def tearDown(self):
+		#切换到用户界面
 		self.cmf.select_menu(u"运维管理", u"用户")
 		#用初始化用户登录删除用户
 		self.user.del_all_user_008()
 		#退出登录
 		self.login.quit()
-
-	def tearDown(self):
 		initDriver().close_driver(self.browser)
 
 

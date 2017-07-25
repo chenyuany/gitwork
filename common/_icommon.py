@@ -170,7 +170,7 @@ class getElement(object):
             - timeout:超时前等待的时间
         return：定位元素并点击该元素
     '''
-    def find_element_wait_and_click_EC(self,type,value,timeout=1):
+    def find_element_wait_and_click_EC(self,type,value,timeout=10):
             if type == "id":
                 WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.ID, value))).click()
             elif type == "xpath":
@@ -293,7 +293,7 @@ class getElement(object):
             if element != False:
                 isExsit = True
         except Exception as e:
-            self.log.print_detail("element is not exsit:",value)
+            self.log.error_detail("element is not exsit:",value)
 #            print(value + " element is not exsit.")
         return isExsit
 
@@ -936,8 +936,9 @@ class commonFun(object):
                     self.getElem.is_element_exsit('css','input[type=checkbox]') == True:
                     checkbox.click()
         except Exception as e:
-            self.log.print_detail("checkbox is not visible",e)
+            self.log.error_detail("checkbox is not visible",e)
 #            print "checkbox is not visible:" + str(e)
+
 
     u'''点击返回按钮'''
     def back(self):
@@ -986,7 +987,7 @@ class commonFun(object):
         try:
             self.frameElem.switch_to_content()
             self.frameElem.switch_to_main()
-            self.getElem.find_element_wait_and_click("id", id)
+            self.getElem.find_element_wait_and_click_EC("id", id)
         except Exception:
             print("Failed to hit the batch delete button")            
 
@@ -995,7 +996,7 @@ class commonFun(object):
         try:
             self.frameElem.switch_to_content()
             self.frameElem.switch_to_main()
-            self.getElem.find_element_wait_and_click("id", "checkbox")
+            self.getElem.find_element_wait_and_click_EC("id", "checkbox")
         except Exception:
             print("Select the check box failure")
                         

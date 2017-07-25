@@ -27,6 +27,7 @@ class log(object):
         self.cn = cnEncode()
         logging.config.fileConfig("/testIsomp/common/logging.conf")
         self.logger = logging.getLogger('simpleExample')
+        self.logger_console = logging.getLogger('consoleLogExample')
         
 
     #日志记录开始
@@ -89,9 +90,9 @@ class log(object):
             #未通过信息写入日志
             self.logger.info(unPassMsg)
         
-    def print_detail(self,msg_,errorMsg):
+    def error_detail(self,msg_,errorMsg):
         msg = self.cn.cnCode(msg_) + str(errorMsg)
-        self.logger.info(msg)
+        self.logger_console.info(msg)
             
 
 #if __name__ == "__main__":

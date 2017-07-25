@@ -102,7 +102,8 @@ class CommonSuiteData():
     '''    
     def set_dep_role(self,list):
         self.set_role_basic_info(list)
-        self.roleElem.select_sysrole()
+        self.roleElem.level()
+        self.roleElem.select_dptrole()
         self.roleElem.save_button()
         self.roleElem.click_ok_button()
     
@@ -146,13 +147,14 @@ class CommonSuiteData():
         self.frameElem.from_frame_to_otherFrame("mainFrame")
         self.userElem.click_role_msg()
         roleList = roleText.split(',')
-        for roleName in roleList:
-            self.userElem.set_common_select_elem_by_text(roleName,"Roles")
+        
         #判断角色是否为空
         if roleText != "":
+            for roleName in roleList:
+                self.userElem.set_common_select_elem_by_text(roleName,"Roles")
             self.userElem.click_role_add_button()
-        self.userElem.save_button()
-        self.cmf.click_login_msg_button()
+            self.userElem.save_button()
+            self.cmf.click_login_msg_button()
     
     
 
@@ -245,6 +247,12 @@ class CommonSuiteData():
             if dataRow != 0:
                 self.set_user_basic_info(data)
 #                self.userElem.click_back_button()
+
+    #使用新添加的用户登录
+    def use_new_user_login(self):
+        login_data = self.get_table_data("common_user")
+        logindata = login_data[1]
+        self.loginElem.login(logindata)
     
     def user_quit(self):
         self.loginElem.quit()

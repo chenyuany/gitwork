@@ -1,0 +1,149 @@
+#-*- coding:utf-8 -*-
+''' 
+#文件名：
+#作者：陈圆圆
+#创建日期：
+#模块描述：liunx资源
+#历史修改记录
+#修改人：
+#修改日期：
+#修改内容：
+'''
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+sys.path.append("/testIsomp/common/")
+from _log import log
+from _icommon import getElement,selectElement,frameElement,commonFun
+sys.path.append("/testIsomp/webElement/resource/")
+from test_resource_common import Resource
+from test_resource_accountmgr_ment import Accountmgr
+
+class LinuxResource(object):
+
+	def __init__(self, driver):
+		self.driver = driver
+		self.getElem = getElement(driver)
+		self.selectElem = selectElement(driver)
+		self.frameElem = frameElement(driver)
+		self.cmf = commonFun(driver)
+		self.log = log()
+		self.resource = Resource(driver)
+		self.account = Accountmgr(driver)
+
+	u'''添加和编辑Linux资源
+	   Parameters:
+	      - rename:资源名称
+	      - ip:资源ip
+	      - depart:归属部门
+	      - fortIp:从IP
+	      - version:系统版本
+	      - pwdtext:密码策略
+	      - drname: 改密驱动名称
+	      - account:管理员帐号
+	      - pwd:管理员口令
+	      - confirmpwd:口令确认
+	      - superPwd:提权账号口令
+	      - upcfPwd:确认口令
+	'''
+	def add_edit_linux_resource(self, rename, ip, depart='no', fortIp= 'no', version='no', pwdtext='no', drname='no', account='no', pwd='no', confirmpwd='no', superPwd='no', upcfPwd='no'):
+		self.frameElem.from_frame_to_otherFrame("mainFrame")
+		self.resource.set_resource_name(rename)
+		self.resource.set_resource_ip(ip)
+		if depart != 'no':
+			self.resource.set_depart(depart)
+		self.resource.select_all_agreement()
+		if fortIp != 'no':
+			self.resource.set_resource_fortIps(fortIp)
+		if version != 'no':
+			self.resource.set_sys_version(version)
+		if drname != 'no':
+			self.resource.set_changePwd_driver(drname)
+		if pwdtext != 'no':
+			self.resource.select_pwd_strategy(pwdtext)
+		if account != 'no':
+			self.resource.click_account_sync()
+			self.resource.set_admin_account(account)
+		if pwd != 'no':
+			self.resource.set_admin_pwd(pwd)
+		if confirmpwd != 'no':
+			self.resource.set_confirm_pwd(confirmpwd)
+			self.resource.click_up_super()
+			self.resource.set_super_pwd(superPwd)
+			self.resource.set_super_confirm_pwd(upcfPwd)
+		self.resource.click_save_button()
+
+	u'''校验Linux资源
+	   Parameters:
+	      - datarow:excel数据位于第几行
+	      - rename:资源名称
+	      - ip:资源ip
+	      - depart:归属部门
+	      - agreement:协议类型
+	      - port:端口
+	      - superPwd:提权账号口令
+	      - upcfPwd:确认口令
+	'''
+	def check_linux_resource(self, datarow, rename, ip, agreement='no', port='no', superPwd='no', upcfPwd='no'):
+		self.frameElem.from_frame_to_otherFrame("mainFrame")
+		self.resource.set_resource_name(rename)
+		self.resource.set_resource_ip(ip)
+		if agreement != 'no':
+			self.resource.select_agreement(agreement)
+		if datarow == 7:
+			self.resource.set_port(agreement, port)
+		if datarow == 8:
+			self.resource.clear_port("Ssh1")
+		if datarow == 9:
+			self.resource.set_port("Ssh1", port)
+		if datarow == 12:
+			self.resource.click_account_sync()
+			self.resource.click_up_super()
+		if datarow == 13:
+			if superPwd != 'no':
+				self.resource.set_super_pwd(superPwd)
+			if upcfPwd != 'no':
+				self.resource.set_super_confirm_pwd(upcfPwd)
+			self.resource.set_super_prompt()
+		self.resource.click_save_button()
+
+	u'''添加linux资源账号
+	   Parameters:
+	      - editacttname:编辑的资源账号名称
+	      - value:选择编辑方式的value值
+	      - addactname:填写的资源账号名称
+	      - pwd:账号口令
+	      - cmfpwd:确认口令
+	'''
+	def add_linux_resource_account(self, editacttname='no', value='no', addactname='no', pwd='no', cmfpwd='no'):
+		self.account.click_account_add_edit_button(editacttname)
+		if value != 'no':
+			self.account.select_edit_way(value)
+		if addactname != 'no':
+			self.account.set_account_name(addactname)
+		if pwd != 'no':
+			self.account.set_account_pwd(pwd)
+		if cmfpwd != 'no':
+			self.account.set_account_confirm_pwd(cmfpwd)
+		self.account.set_authorize()
+		self.account.click_save_account()
+
+	u'''校验linux资源账号
+	   Parameters:
+	      - value:选择编辑方式的value值
+	      - addactname:填写的资源账号名称
+	      - pwd:账号口令
+	      - cmfpwd:确认口令
+	'''
+	def check_linux_resource_account(self, value='no', addactname='no', pwd='no', cmfpwd='no'):
+		self.account.click_account_add_edit_button()
+		if value != 'no':
+			self.account.select_edit_way(value)
+		if addactname != 'no':
+			self.account.set_account_name(addactname)
+		if pwd != 'no':
+			self.account.set_account_pwd(pwd)
+		if cmfpwd != 'no':
+			self.account.set_account_confirm_pwd(cmfpwd)
+		self.account.set_authorize()
+		self.account.click_save_account()

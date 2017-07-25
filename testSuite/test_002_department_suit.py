@@ -30,7 +30,7 @@ sys.path.append("/testIsomp/webElement/login/")
 from loginElement import loginPage
 import unittest
 
-class testRoleSuite(unittest.TestCase):
+class testDepartSuite(unittest.TestCase):
 
 	def setUp(self):
 
@@ -75,6 +75,8 @@ class testRoleSuite(unittest.TestCase):
 		u'''删除部门'''
 		self.testdptment.del_department_005()
 
+	def tearDown(self):
+		#切换到角色定义
 		self.frameElem.from_frame_to_otherFrame("topFrame")
 		self.cmf.select_menu(u"角色管理", u"角色定义")
 
@@ -88,8 +90,6 @@ class testRoleSuite(unittest.TestCase):
 		#删除用户
 		self.user.del_all_user_008()
 		self.login.quit()
-
-	def tearDown(self):
 		initDriver().close_driver(self.browser)
 
 if __name__ == "__main__":

@@ -278,7 +278,7 @@ class UserPage():
         reaccount = self.cnEnde.is_float(account)
         self.frameElem.from_frame_to_otherFrame("topFrame")
         self.cmf.select_menu(u'运维管理')
-        self.cmf.select_menu(u'运维管理','用户')
+        self.cmf.select_menu(u'运维管理',u'用户')
         self.frameElem.from_frame_to_otherFrame("mainFrame")
         
         #获取用户行号
