@@ -72,7 +72,7 @@ class testLinuxResource(object):
 				if dataRow != 0:
 					self.resource.click_add_edit_button()
 					self.resource.select_resource_type(data[2])
-					self.linux.add_edit_linux_resource(data[3], data[4], data[5], data[6], data[7], data[8], data[9], data[10], data[11], data[12], data[13], data[14])
+					self.linux.add_edit_linux_resource(data)
 					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", resourceMsg, data, flag)
 					self.cmf.back()
@@ -134,7 +134,7 @@ class testLinuxResource(object):
 				#如果不是第一行标题，则读取数据
 				if dataRow != 0:
 					self.resource.click_add_edit_button(data[2])
-					self.linux.add_edit_linux_resource(data[3], data[4], data[5])
+					self.linux.add_edit_linux_resource(data)
 					self.frameElem.switch_to_content()
 					self.cmf.click_msg_button(1)
 					self.cmf.test_win_check_point("xpath", resourceMsg, data, flag)
@@ -222,7 +222,7 @@ class testLinuxResource(object):
 			try:
 				#如果不是第一行标题，则读取数据
 				if dataRow != 0:
-					self.linux.check_linux_resource(dataRow, data[2], data[3], data[4], data[5], data[6], data[7])
+					self.linux.check_linux_resource(dataRow, data)
 					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", resourceMsg, data, flag)
 			except Exception as e:

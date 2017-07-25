@@ -73,7 +73,7 @@ class testResourceAccount(object):
 
 		self.log.log_end("add_edit_resource_account")
 
-	u'''查询资源'''
+	u'''查询资源账号'''
 	def query_resource_account_002(self):
 
 		#日志开始记录

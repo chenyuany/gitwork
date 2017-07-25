@@ -65,7 +65,7 @@ class testResourceSuite(unittest.TestCase):
 		u'''添加和编辑部门'''
 		self.testdptment.add_edit_department_001()
 		self.frameElem.switch_to_content()
-		#换至部门级角色
+		# 换至部门级角色
 		self.cmf.select_role_by_text(u"部门管理员")
 
 		self.frameElem.from_frame_to_otherFrame("topFrame")
@@ -73,9 +73,9 @@ class testResourceSuite(unittest.TestCase):
 
 	def test_resource(self):
 
-		#添加linux资源
+		# 添加linux资源
 		self.linuxresource.add_linux_resource_001()
-		#查询资源
+		# 查询资源
 		self.linuxresource.query_resource_002()
 		#编辑linux资源
 		self.linuxresource.edit_linux_resource_003()

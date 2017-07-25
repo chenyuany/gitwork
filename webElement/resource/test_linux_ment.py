@@ -33,77 +33,79 @@ class LinuxResource(object):
 
 	u'''添加和编辑Linux资源
 	   Parameters:
-	      - rename:资源名称
-	      - ip:资源ip
-	      - depart:归属部门
-	      - fortIp:从IP
-	      - version:系统版本
-	      - pwdtext:密码策略
-	      - drname: 改密驱动名称
-	      - account:管理员帐号
-	      - pwd:管理员口令
-	      - confirmpwd:口令确认
-	      - superPwd:提权账号口令
-	      - upcfPwd:确认口令
+	      - data:excel中的一行数据
 	'''
-	def add_edit_linux_resource(self, rename, ip, depart='no', fortIp= 'no', version='no', pwdtext='no', drname='no', account='no', pwd='no', confirmpwd='no', superPwd='no', upcfPwd='no'):
+	def add_edit_linux_resource(self, data):
 		self.frameElem.from_frame_to_otherFrame("mainFrame")
-		self.resource.set_resource_name(rename)
-		self.resource.set_resource_ip(ip)
-		if depart != 'no':
-			self.resource.set_depart(depart)
+		#资源名称
+		self.resource.set_resource_name(data[3])
+		#资源ip
+		self.resource.set_resource_ip(data[4])
+		#归属部门
+		if data[5] != 'no':
+			self.resource.set_depart(data[5])
 		self.resource.select_all_agreement()
-		if fortIp != 'no':
-			self.resource.set_resource_fortIps(fortIp)
-		if version != 'no':
-			self.resource.set_sys_version(version)
-		if drname != 'no':
-			self.resource.set_changePwd_driver(drname)
-		if pwdtext != 'no':
-			self.resource.select_pwd_strategy(pwdtext)
-		if account != 'no':
+		#从IP
+		if data[6] != 'no':
+			self.resource.set_resource_fortIps(data[6])
+		#系统版本
+		if data[7] != 'no':
+			self.resource.set_sys_version(data[7])
+		#密码策略
+		if data[8] != 'no':
+			self.resource.select_pwd_strategy(data[8])
+		#改密驱动名称
+		if data[9] != 'no':
+			self.resource.set_changePwd_driver(data[9])
+
+		#管理员帐号
+		if data[10] != 'no':
 			self.resource.click_account_sync()
-			self.resource.set_admin_account(account)
-		if pwd != 'no':
-			self.resource.set_admin_pwd(pwd)
-		if confirmpwd != 'no':
-			self.resource.set_confirm_pwd(confirmpwd)
+			self.resource.set_admin_account(data[10])
+		#管理员口令
+		if data[11] != 'no':
+			self.resource.set_admin_pwd(data[11])
+		#口令确认
+		if data[12] != 'no':
+			self.resource.set_confirm_pwd(data[12])
 			self.resource.click_up_super()
-			self.resource.set_super_pwd(superPwd)
-			self.resource.set_super_confirm_pwd(upcfPwd)
+			#提权账号口令
+			self.resource.set_super_pwd(data[13])
+			#确认口令
+			self.resource.set_super_confirm_pwd(data[14])
 		self.resource.click_save_button()
 
 	u'''校验Linux资源
 	   Parameters:
 	      - datarow:excel数据位于第几行
-	      - rename:资源名称
-	      - ip:资源ip
-	      - depart:归属部门
-	      - agreement:协议类型
-	      - port:端口
-	      - superPwd:提权账号口令
-	      - upcfPwd:确认口令
+	      - data:excel中的一行数据
 	'''
-	def check_linux_resource(self, datarow, rename, ip, agreement='no', port='no', superPwd='no', upcfPwd='no'):
+	def check_linux_resource(self, datarow, data):
 		self.frameElem.from_frame_to_otherFrame("mainFrame")
-		self.resource.set_resource_name(rename)
-		self.resource.set_resource_ip(ip)
-		if agreement != 'no':
-			self.resource.select_agreement(agreement)
+		#资源名称
+		self.resource.set_resource_name(data[2])
+		#资源ip
+		self.resource.set_resource_ip(data[3])
+		#协议类型
+		if data[4] != 'no':
+			self.resource.select_agreement(data[4])
+		#协议类型 端口
 		if datarow == 7:
-			self.resource.set_port(agreement, port)
+			self.resource.set_port(data[4], data[5])
 		if datarow == 8:
 			self.resource.clear_port("Ssh1")
 		if datarow == 9:
-			self.resource.set_port("Ssh1", port)
+			self.resource.set_port("Ssh1", data[5])
 		if datarow == 12:
 			self.resource.click_account_sync()
 			self.resource.click_up_super()
 		if datarow == 13:
-			if superPwd != 'no':
-				self.resource.set_super_pwd(superPwd)
-			if upcfPwd != 'no':
-				self.resource.set_super_confirm_pwd(upcfPwd)
+			#提权账号口令
+			if data[6] != 'no':
+				self.resource.set_super_pwd(data[6])
+			#确认口令
+			if data[7] != 'no':
+				self.resource.set_super_confirm_pwd(data[7])
 			self.resource.set_super_prompt()
 		self.resource.click_save_button()
 

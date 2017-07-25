@@ -2,31 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1342862a-9e52-4b0c-8d18-cbe0b6b7d37b" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webElement/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testSuite/test_006_resource_suite.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webElement/resource/test_linux_ment.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testCase/resource/test_linux_resource.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testCase/resource/test_resource_accountmgr.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webElement/resource/test_resource_accountmgr_ment.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webElement/resource/test_resource_common.py" />
-      <change type="DELETED" beforePath="G:\testIsomp\testCase\resource\test_resource.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\geckodriver.log" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_001_user_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\webElement\resource\resourceElement.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/common_suite_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/common_suite_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/_icommon.py" afterPath="$PROJECT_DIR$/common/_icommon.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/_log.py" afterPath="$PROJECT_DIR$/common/_log.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/linux_resource_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/linux_resource_test_data.xlsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/_testDataPath.py" afterPath="$PROJECT_DIR$/testData/_testDataPath.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/common_suite_file.py" afterPath="$PROJECT_DIR$/testSuite/common_suite_file.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/isomp.log" afterPath="$PROJECT_DIR$/log/isomp.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/logging.conf" afterPath="$PROJECT_DIR$/common/logging.conf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/login/loginElement.py" afterPath="$PROJECT_DIR$/webElement/login/loginElement.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/login/test_login.py" afterPath="$PROJECT_DIR$/testCase/login/test_login.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/user/userElement.py" afterPath="$PROJECT_DIR$/webElement/user/userElement.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/test_006_resource_suite.py" afterPath="$PROJECT_DIR$/testSuite/test_006_resource_suite.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/resource/test_linux_ment.py" afterPath="$PROJECT_DIR$/webElement/resource/test_linux_ment.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/resource/test_linux_resource.py" afterPath="$PROJECT_DIR$/testCase/resource/test_linux_resource.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/resource/test_resource_accountmgr.py" afterPath="$PROJECT_DIR$/testCase/resource/test_resource_accountmgr.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="G:\testIsomp\testSuite\test_001_user_suite.py" afterPath="$PROJECT_DIR$/testSuite/test_005_user_suite.py" />
-      <change type="MOVED" beforePath="G:\testIsomp\testSuite\test_001role_suite.py" afterPath="$PROJECT_DIR$/testSuite/test_001_role_suite.py" />
-      <change type="MOVED" beforePath="G:\testIsomp\testSuite\test_002department_suit.py" afterPath="$PROJECT_DIR$/testSuite/test_002_department_suit.py" />
     </list>
     <ignored path="testIsomp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,7 +40,7 @@
     <SUITE FILE_PATH="coverage/testIsomp$checkbox.coverage" NAME="checkbox Coverage Results" MODIFIED="1499936141260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="G:/study" />
     <SUITE FILE_PATH="coverage/testIsomp$test_1role_suite.coverage" NAME="test_resource_suit Coverage Results" MODIFIED="1500364971490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSuite" />
     <SUITE FILE_PATH="coverage/testIsomp$test_2role_suite.coverage" NAME="test_2role_suite Coverage Results" MODIFIED="1498468596299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSuite" />
-    <SUITE FILE_PATH="coverage/testIsomp$test_suite.coverage" NAME="test_suite Coverage Results" MODIFIED="1500367990595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/testIsomp$test_suite.coverage" NAME="test_suite Coverage Results" MODIFIED="1500968612418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/testIsomp$_oldmail.coverage" NAME="_oldmail Coverage Results" MODIFIED="1498547940659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />
     <SUITE FILE_PATH="coverage/testIsomp$test_resource_suit.coverage" NAME="test_resource_suit Coverage Results" MODIFIED="1500954324726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSuite" />
     <SUITE FILE_PATH="coverage/testIsomp$checkbox_.coverage" NAME="checkbox. Coverage Results" MODIFIED="1499239615522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="G:/study" />
@@ -71,22 +54,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="test_001_role_suite.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testSuite/test_001_role_suite.py">
+      <file leaf-file-name="test_linux_ment.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/webElement/resource/test_linux_ment.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_003_auth_method_suite.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/testSuite/test_003_auth_method_suite.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.12224449">
+              <caret line="82" column="50" selection-start-line="82" selection-start-column="50" selection-end-line="82" selection-end-column="50" />
+              <folding>
+                <element signature="e#22#93#1" expanded="false" />
+                <element signature="e#485#744#0" expanded="false" />
+                <element signature="e#855#1859#0" expanded="false" />
+                <element signature="e#2003#2759#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -153,16 +131,16 @@
         <option value="$PROJECT_DIR$/webElement/resource/test_linux_resource.py" />
         <option value="$PROJECT_DIR$/testCase/resource/test_resource.py" />
         <option value="$PROJECT_DIR$/testSuite/test_006resource_suite.py" />
-        <option value="$PROJECT_DIR$/testData/_testDataPath.py" />
         <option value="$PROJECT_DIR$/common/_icommon.py" />
         <option value="$PROJECT_DIR$/webElement/resource/test_resource_accountmgr_ment.py" />
-        <option value="$PROJECT_DIR$/testCase/resource/test_linux_resource.py" />
-        <option value="$PROJECT_DIR$/webElement/resource/test_linux_ment.py" />
-        <option value="$PROJECT_DIR$/testCase/resource/test_resource_accountmgr.py" />
         <option value="$PROJECT_DIR$/webElement/resource/test_resource_common.py" />
         <option value="$PROJECT_DIR$/log/error.log" />
+        <option value="$PROJECT_DIR$/testCase/resource/test_resource_accountmgr.py" />
+        <option value="$PROJECT_DIR$/testCase/resource/test_linux_resource.py" />
         <option value="$PROJECT_DIR$/testSuite/test_006_resource_suite.py" />
         <option value="$PROJECT_DIR$/log/isomp.log" />
+        <option value="$PROJECT_DIR$/testData/_testDataPath.py" />
+        <option value="$PROJECT_DIR$/webElement/resource/test_linux_ment.py" />
       </list>
     </option>
   </component>
@@ -259,6 +237,46 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testIsomp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testIsomp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testIsomp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webElement" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testIsomp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testIsomp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testIsomp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webElement" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -293,7 +311,7 @@
       <recent name="G:\testIsomp\webElement" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.test_resource_suit">
+  <component name="RunManager" selected="Python.test_suite">
     <configuration default="false" name="test_suite" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -543,7 +561,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="7" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -551,8 +569,8 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32806325" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39194632" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18911175" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29127517" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18911175" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -606,7 +624,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="602" />
+      <option name="time" value="605" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -787,14 +805,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testData/_testDataPath.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5815324">
-          <caret line="98" column="40" selection-start-line="98" selection-start-column="8" selection-end-line="98" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testSuite/test_004_login_suite.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -840,17 +850,6 @@
         <state vertical-scroll-proportion="2.0041754">
           <caret line="48" column="71" selection-start-line="48" selection-start-column="67" selection-end-line="48" selection-end-column="71" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webElement/department/test_dptm_ment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.9666667">
-          <caret line="199" column="28" selection-start-line="199" selection-start-column="28" selection-end-line="199" selection-end-column="47" />
-          <folding>
-            <element signature="e#3091#3355#0" expanded="false" />
-            <element signature="e#6176#6636#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -910,24 +909,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webElement/resource/test_linux_ment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.04225352">
-          <caret line="132" column="31" selection-start-line="132" selection-start-column="31" selection-end-line="132" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webElement/resource/test_resource_accountmgr_ment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33239436">
-          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
-          <folding>
-            <element signature="e#2143#2466#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testSuite/common_suite_file.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.59076923">
@@ -947,18 +928,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testSuite/test_002_department_suit.py">
+    <entry file="file://$PROJECT_DIR$/testSuite/test_003_auth_method_suite.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3521127">
-          <caret line="77" column="23" selection-start-line="77" selection-start-column="23" selection-end-line="77" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.6132075">
+          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/error.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webElement/department/test_dptm_ment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5212264">
+          <caret line="199" column="47" selection-start-line="199" selection-start-column="47" selection-end-line="199" selection-end-column="47" />
+          <folding>
+            <element signature="e#3091#3355#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testCase/department/test_department.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4198113">
-          <caret line="105" column="49" selection-start-line="105" selection-start-column="49" selection-end-line="105" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.7099057">
+          <caret line="131" column="48" selection-start-line="131" selection-start-column="48" selection-end-line="131" selection-end-column="48" />
           <folding>
             <element signature="e#1494#1654#0" expanded="false" />
             <element signature="e#1692#2091#0" expanded="false" />
@@ -971,77 +970,149 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/log/error.log">
+    <entry file="file://$PROJECT_DIR$/testSuite/test_002_department_suit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.43396226">
+          <caret line="67" column="41" selection-start-line="67" selection-start-column="41" selection-end-line="67" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testSuite/test_006_resource_suite.py">
+    <entry file="file://$PROJECT_DIR$/webElement/resource/test_resource_accountmgr_ment.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.13207547">
-          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webElement/resource/test_resource_common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5754717">
-          <caret line="548" column="33" selection-start-line="548" selection-start-column="33" selection-end-line="548" selection-end-column="33" />
+        <state vertical-scroll-proportion="1.240481">
+          <caret line="180" column="0" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
           <folding>
-            <element signature="e#2603#2801#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testCase/resource/test_linux_resource.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3254717">
-          <caret line="97" column="46" selection-start-line="97" selection-start-column="46" selection-end-line="97" selection-end-column="46" />
-          <folding>
-            <element signature="e#1441#2264#0" expanded="false" />
-            <element signature="e#3297#4069#0" expanded="false" />
-            <element signature="e#4116#4746#0" expanded="false" />
-            <element signature="e#4799#5470#0" expanded="false" />
-            <element signature="e#5530#6344#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testCase/resource/test_resource_accountmgr.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.523585">
-          <caret line="192" column="52" selection-start-line="192" selection-start-column="52" selection-end-line="192" selection-end-column="52" />
-          <folding>
-            <element signature="e#2125#2948#0" expanded="false" />
+            <element signature="e#22#101#1" expanded="false" />
+            <element signature="e#417#630#0" expanded="false" />
+            <element signature="e#757#1103#0" expanded="false" />
+            <element signature="e#1243#1852#0" expanded="false" />
+            <element signature="e#1903#2025#0" expanded="false" />
+            <element signature="e#2143#2466#0" expanded="false" />
+            <element signature="e#2583#2904#0" expanded="false" />
+            <element signature="e#2957#3077#0" expanded="false" />
+            <element signature="e#3193#3523#0" expanded="false" />
+            <element signature="e#3629#3873#0" expanded="false" />
+            <element signature="e#3976#4206#0" expanded="false" />
+            <element signature="e#4312#4533#0" expanded="false" />
+            <element signature="e#4585#4705#0" expanded="false" />
+            <element signature="e#4814#5058#0" expanded="false" />
+            <element signature="e#5150#5390#0" expanded="false" />
+            <element signature="e#5502#5760#0" expanded="false" />
+            <element signature="e#5861#5990#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/log/isomp.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.41791046">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testCase/resource/test_linux_resource.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6012024">
+          <caret line="135" column="48" selection-start-line="135" selection-start-column="48" selection-end-line="135" selection-end-column="48" />
+          <folding>
+            <element signature="e#2206#3131#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testCase/resource/test_resource_accountmgr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5991984">
+          <caret line="163" column="0" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
+          <folding>
+            <element signature="e#22#101#1" expanded="false" />
+            <element signature="e#763#1170#0" expanded="false" />
+            <element signature="e#1246#2068#0" expanded="false" />
+            <element signature="e#2127#2950#0" expanded="false" />
+            <element signature="e#3020#3817#0" expanded="false" />
+            <element signature="e#3874#4606#0" expanded="false" />
+            <element signature="e#4669#5452#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testSuite/test_006_resource_suite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.244489">
+          <caret line="56" column="40" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webElement/resource/test_resource_common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5851703">
+          <caret line="184" column="62" selection-start-line="184" selection-start-column="62" selection-end-line="184" selection-end-column="62" />
+          <folding>
+            <element signature="e#22#96#1" expanded="false" />
+            <element signature="e#1139#1352#0" expanded="false" />
+            <element signature="e#1468#1791#0" expanded="false" />
+            <element signature="e#3054#3379#0" expanded="false" />
+            <element signature="e#4099#4601#0" expanded="false" />
+            <element signature="e#4702#4891#0" expanded="false" />
+            <element signature="e#5381#5555#0" expanded="false" />
+            <element signature="e#5656#5982#0" expanded="false" />
+            <element signature="e#6084#6412#0" expanded="false" />
+            <element signature="e#6963#7297#0" expanded="false" />
+            <element signature="e#7347#7570#0" expanded="false" />
+            <element signature="e#7680#8004#0" expanded="false" />
+            <element signature="e#8102#8418#0" expanded="false" />
+            <element signature="e#8518#8853#0" expanded="false" />
+            <element signature="e#8898#9098#0" expanded="false" />
+            <element signature="e#9194#9516#0" expanded="false" />
+            <element signature="e#9620#9958#0" expanded="false" />
+            <element signature="e#10051#10357#0" expanded="false" />
+            <element signature="e#10406#10610#0" expanded="false" />
+            <element signature="e#10662#10783#0" expanded="false" />
+            <element signature="e#10876#11047#0" expanded="false" />
+            <element signature="e#11098#11302#0" expanded="false" />
+            <element signature="e#11352#11475#0" expanded="false" />
+            <element signature="e#11603#13214#0" expanded="false" />
+            <element signature="e#13353#13674#0" expanded="false" />
+            <element signature="e#13786#13969#0" expanded="false" />
+            <element signature="e#14028#14155#0" expanded="false" />
+            <element signature="e#14253#14388#0" expanded="false" />
+            <element signature="e#14503#15388#0" expanded="false" />
+            <element signature="e#15560#16089#0" expanded="false" />
+            <element signature="e#16228#16678#0" expanded="false" />
+            <element signature="e#16729#16849#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testSuite/test_001_role_suite.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.6132265">
+          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testSuite/test_003_auth_method_suite.py">
+    <entry file="file://$PROJECT_DIR$/testData/_testDataPath.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.41791046">
+          <caret line="99" column="43" selection-start-line="99" selection-start-column="43" selection-end-line="99" selection-end-column="43" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webElement/resource/test_linux_ment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12224449">
+          <caret line="82" column="50" selection-start-line="82" selection-start-column="50" selection-end-line="82" selection-end-column="50" />
+          <folding>
+            <element signature="e#22#93#1" expanded="false" />
+            <element signature="e#485#744#0" expanded="false" />
+            <element signature="e#855#1859#0" expanded="false" />
+            <element signature="e#2003#2759#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
