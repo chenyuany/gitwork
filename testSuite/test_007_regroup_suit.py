@@ -2,49 +2,55 @@
 ''' 
 #文件名：
 #作者：陈圆圆
-#创建日期：2017/7/18
-#模块描述：资源
+#创建日期：
+#模块描述：
 #历史修改记录
 #修改人：
 #修改日期：
 #修改内容：
 '''
-
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
-import unittest
+
+sys.path.append("/testIsomp/testCase/user/")
+from test_user import User
+#导入驱动
 sys.path.append("/testIsomp/common/")
 from _initDriver import initDriver
 from _icommon import frameElement,commonFun
-sys.path.append("/testIsomp/testSuite/common_suite_file/")
-from common_suite_file import setDriver,CommonSuiteData
-sys.path.append("/testIsomp/testCase/department/")
-from test_department import testDepartment
-sys.path.append("/testIsomp/webElement/login/")
-from loginElement import loginPage
 sys.path.append("/testIsomp/testCase/role/")
 from test_role import testRole
-sys.path.append("/testIsomp/testCase/user/")
-from test_user import User
+sys.path.append("/testIsomp/testCase/department/")
+from test_department import testDepartment
+sys.path.append("/testIsomp/testCase/group/")
+from test_rsgroup import testRegroup
+sys.path.append("/testIsomp/testSuite/common_suite_file/")
+from common_suite_file import setDriver,CommonSuiteData
+#导入登录
+sys.path.append("/testIsomp/webElement/login/")
+from loginElement import loginPage
 sys.path.append("/testIsomp/testCase/resource/")
 from test_linux_resource import testLinuxResource
-from test_resource_accountmgr import testResourceAccount
 
-class testResourceSuite(unittest.TestCase):
+import unittest
+
+class testDepartSuite(unittest.TestCase):
 
 	def setUp(self):
+
 		#调用驱动
 		self.browser = setDriver().set_driver()
-		self.comsuit = CommonSuiteData(self.browser)
+
+		self.testrole = testRole(self.browser)
 		self.login = loginPage(self.browser)
 		self.cmf = commonFun(self.browser)
 		self.frameElem = frameElement(self.browser)
-		self.testdptment = testDepartment(self.browser)
-		self.testrole = testRole(self.browser)
 		self.user = User(self.browser)
+		self.testdptment = testDepartment(self.browser)
+		self.comsuit = CommonSuiteData(self.browser)
 		self.linuxresource = testLinuxResource(self.browser)
-		self.account = testResourceAccount(self.browser)
+		self.testregroup = testRegroup(self.browser)
 
 		#初始化用户登录
 		self.comsuit.isomper_login()
@@ -70,33 +76,38 @@ class testResourceSuite(unittest.TestCase):
 
 		self.frameElem.from_frame_to_otherFrame("topFrame")
 		self.cmf.select_menu(u"运维管理", u"资源")
-
-	def test_resource(self):
-
 		# 添加linux资源
 		self.linuxresource.add_linux_resource_001()
-		# 查询资源
-		self.linuxresource.query_resource_002()
-		#编辑linux资源
-		self.linuxresource.edit_linux_resource_003()
-		#添加和编辑linux资源账号
-		self.account.add_edit_linux_resource_account_001()
-		#查询资源账号
-		self.account.query_resource_account_002()
-		#校验资源账号
-		self.account.check_linux_resource_account_003()
-		#删除资源账号
-		self.account.del_resource_account_004()
-		#全选删除资源账号
-		self.account.bulkdel_resource_account_005()
-		#校验linux资源
-		self.linuxresource.check_linux_resource_004()
-		#删除资源
-		self.linuxresource.del_resource_005()
+		self.cmf.select_menu(u"运维管理", u"组织定义")
+
+	def test_department(self):
+
+		u'''添加和编辑资源组'''
+		self.testregroup.add_edit_regroup_001()
+		u'''上移和下移资源组'''
+		self.testregroup.up_down_regroup_002()
+		u'''上移和下移资源组校验'''
+		self.testregroup.up_down_regroup_check_003()
+		u'''检验添加和编辑资源组'''
+		self.testregroup.check_add_edit_regroup_004()
+		u'''资源组中添加资源'''
+		self.testregroup.regroup_add_resource_001()
+		u'''资源组中查询资源名称和IP'''
+		self.testregroup.query_regroup_002()
+		u'''资源组删除资源'''
+		self.testregroup.regroup_del_resouce_003()
+		u'''资源组全选删除资源'''
+		self.testregroup.regroup_bulk_resouce_004()
+		u'''删除资源组'''
+		self.testregroup.del_regroup_005()
+
+	def tearDown(self):
+
+		self.frameElem.from_frame_to_otherFrame("topFrame")
+		self.cmf.select_menu(u"运维管理", u"资源")
 		#全选删除资源
 		self.linuxresource.bulkdel_resource_006()
 
-	def tearDown(self):
 		#换至系统级角色
 		self.cmf.select_role_by_text(u"系统管理员")
 

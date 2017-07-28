@@ -45,6 +45,12 @@ AUTH_METHOD_TEST_DATA_URL = r"/testIsomp/testData/auth_method_test_data.xlsx"
 #资源数据文件
 LINUX_RESOURCE_TEST_DATA_URL = r"/testIsomp/testData/linux_resource_test_data.xlsx"
 
+#资源组数据文件
+REGROUP_TEST_DATA_URL = r"/testIsomp/testData/regroup_test_data.xlsx"
+
+#用户组数据文件
+USERGROUP_TEST_DATA_URL = r"/testIsomp/testData/usergroup_test_data.xlsx"
+
 class dataFileName(object):
     #获取通用excel中的数据
     def get_common_suite_test_data_url(self):
@@ -98,6 +104,14 @@ class dataFileName(object):
     u"""获取linux资源文件的数据"""
     def get_linux_resource_test_data_url(self):
         return LINUX_RESOURCE_TEST_DATA_URL
+
+    u"""获取资源组文件的数据"""
+    def get_regroup_test_data_url(self):
+        return REGROUP_TEST_DATA_URL
+
+    u"""获取用户组文件的数据"""
+    def get_usergroup_test_data_url(self):
+        return USERGROUP_TEST_DATA_URL
 
     #从sheet名称获取登陆数据
     def get_data(self,dataPath,sheetName):

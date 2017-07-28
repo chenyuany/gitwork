@@ -9,14 +9,16 @@
 #修改日期：
 #修改内容：
 '''
-import sys
+import sys,time
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.path.append("/testIsomp/common/")
+from _cnEncode import cnEncode
 from _log import log
 from _icommon import getElement,selectElement,frameElement,commonFun
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
+
 
 class Department(object):
 
@@ -27,6 +29,7 @@ class Department(object):
 		self.frameElem = frameElement(driver)
 		self.cmf = commonFun(driver)
 		self.log = log()
+		self.cnEn = cnEncode()
 
 	u'''点击用户的保存按钮'''
 	def save_user_button(self):
@@ -98,9 +101,10 @@ class Department(object):
 	       - idstr:下移按钮id的字符
 	'''
 	def move_down_check(self, elemid, locates, idstr):
+		selemid = self.cnEn.cnCode(elemid)
 
 		for locate in locates:
-			buttonid = idstr + str(elemid[-3])
+			buttonid = idstr + filter(str.isdigit, selemid)
 			self.getElem.find_element_wait_and_click("id", buttonid)
 			if locate == locates[-1]:
 				break
@@ -137,14 +141,15 @@ class Department(object):
 		for elem in elems:
 			elemtext = elem.get_attribute("title")
 			elemid = elem.get_attribute("id")
+			selemid = self.cnEn.cnCode(elemid)
 
 			if deptname == elemtext:
 				self.getElem.find_element_wait_and_click("id", elemid)
 
 				if end != 'no':
-					buttonid = first + str(elemid[-3]) + end
+					buttonid = first + filter(str.isdigit, selemid) + end
 				else:
-					buttonid = first + str(elemid[-3])
+					buttonid = first + filter(str.isdigit, selemid)
 
 				self.getElem.find_element_wait_and_click("id", buttonid)
 				break
@@ -160,7 +165,7 @@ class Department(object):
 
 	u'''点击确定按钮'''
 	def click_ok_button(self):
-
+		self.frameElem.switch_to_content()
 		xpath = "/html/body/div[1]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr[3]/td/div/button[1]"
 		self.click_frame_public_method(u"消息", xpath)
 
@@ -197,10 +202,11 @@ class Department(object):
 			messagetext = divselem.get_attribute('textContent')
 
 			if messagetext == pagetext:
-				self.driver.implicitly_wait(10)
+				self.driver.implicitly_wait(20)
 				#鼠标移动到当前窗口
 				actions = ActionChains(self.driver)
 				actions.move_to_element(divselem).perform()
+				# time.sleep(5)
 				# element = self.driver.findElement(By.XPATH(xpath))
 				# self.driver.execute_script("arguments[0].click()", element)
 				self.getElem.find_element_wait_and_click_EC("xpath", xpath)
