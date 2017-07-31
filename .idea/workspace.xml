@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1342862a-9e52-4b0c-8d18-cbe0b6b7d37b" name="默认的" comment="">
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_001_role_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_002_department_suit.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_003_auth_method_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_004_login_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_005_user_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_006_resource_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_007_regroup_suit.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/department_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/department_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/usergroup_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/usergroup_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/isomp.log" afterPath="$PROJECT_DIR$/log/isomp.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/test_008_usergroup_suit.py" afterPath="$PROJECT_DIR$/testSuite/test_008_usergroup_suit.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/group/test_regroup_ment.py" afterPath="$PROJECT_DIR$/webElement/group/test_regroup_ment.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/group/test_usergroup.py" afterPath="$PROJECT_DIR$/testCase/group/test_usergroup.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/group/test_usergroup_ment.py" afterPath="$PROJECT_DIR$/webElement/group/test_usergroup_ment.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="1342862a-9e52-4b0c-8d18-cbe0b6b7d37b" name="默认的" comment="" />
     <ignored path="testIsomp.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -60,18 +44,7 @@
     <favorites_list name="testIsomp" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="isomp.log" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/log/isomp.log">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.7969348">
-              <caret line="401" column="50" selection-start-line="401" selection-start-column="50" selection-end-line="401" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -559,7 +532,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="7" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44966444" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -568,7 +541,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32806325" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22013423" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19985673" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19985673" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1111,10 +1084,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/testSuite/test_001_role_suite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/log/isomp.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.7969348">
-          <caret line="401" column="50" selection-start-line="401" selection-start-column="50" selection-end-line="401" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.5019157">
+          <caret line="461" column="45" selection-start-line="461" selection-start-column="45" selection-end-line="461" selection-end-column="45" />
           <folding />
         </state>
       </provider>
