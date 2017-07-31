@@ -278,7 +278,7 @@ class Regroup(object):
 		self.frameElem.from_frame_to_otherFrame("artIframe")
 		self.click_public_method(deptname, "user_tree_", "_check")
 
-	u'''勾选单个资源框'''
+	u'''勾选单个资源框或者部门框'''
 	def check_one_resource(self, rename):
 		self.frameElem.from_frame_to_otherFrame("artIframe")
 		#获取table对象
@@ -300,7 +300,7 @@ class Regroup(object):
 				self.getElem.find_element_wait_and_click_EC("xpath", xpath)
 				break
 
-	u'''勾选全部资源框'''
+	u'''勾选全部资源框或者部门框'''
 	def check_all_resource(self):
 		self.frameElem.from_frame_to_otherFrame("artIframe")
 		self.getElem.find_element_wait_and_click_EC("id", "user_check_all")
