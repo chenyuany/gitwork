@@ -257,7 +257,7 @@ class Regroup(object):
 
 	u'''添加资源页面填写资源ip
 	   parameter:
-	       - rename:资源ip
+	       - ipdress:资源ip
 	'''
 	def set_ip(self, ipdress):
 		self.frameElem.from_frame_to_otherFrame("artIframe")
@@ -278,7 +278,10 @@ class Regroup(object):
 		self.frameElem.from_frame_to_otherFrame("artIframe")
 		self.click_public_method(deptname, "user_tree_", "_check")
 
-	u'''勾选单个资源框或者部门框'''
+	u'''勾选资源框或者部门框
+	   parameter:
+		   - rename:资源名称或者部门名称   
+	'''
 	def check_one_resource(self, rename):
 		self.frameElem.from_frame_to_otherFrame("artIframe")
 		#获取table对象

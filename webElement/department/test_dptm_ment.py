@@ -31,11 +31,6 @@ class Department(object):
 		self.log = log()
 		self.cnEn = cnEncode()
 
-	u'''点击用户的保存按钮'''
-	def save_user_button(self):
-		self.frameElem.from_frame_to_otherFrame("mainFrame")
-		self.getElem.find_element_wait_and_click("id", "save_user")
-
 	u'''左边框点击部门'''
 	def click_left_department(self):
 		self.frameElem.from_frame_to_otherFrame("leftFrame")

@@ -13,21 +13,13 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-sys.path.append("/testIsomp/testCase/user/")
-from test_user import User
 #导入驱动
 sys.path.append("/testIsomp/common/")
 from _initDriver import initDriver
-from _icommon import frameElement,commonFun
-sys.path.append("/testIsomp/testCase/role/")
-from test_role import testRole
 sys.path.append("/testIsomp/testCase/department/")
 from test_department import testDepartment
 sys.path.append("/testIsomp/testSuite/common_suite_file/")
 from common_suite_file import setDriver,CommonSuiteData
-#导入登录
-sys.path.append("/testIsomp/webElement/login/")
-from loginElement import loginPage
 import unittest
 
 class testDepartSuite(unittest.TestCase):
@@ -37,30 +29,11 @@ class testDepartSuite(unittest.TestCase):
 		#调用驱动
 		self.browser = setDriver().set_driver()
 
-		self.testrole = testRole(self.browser)
-		self.login = loginPage(self.browser)
-		self.cmf = commonFun(self.browser)
-		self.frameElem = frameElement(self.browser)
-		self.user = User(self.browser)
-		self.testdptment = testDepartment(self.browser)
 		self.comsuit = CommonSuiteData(self.browser)
+		self.testdptment = testDepartment(self.browser)
 
-		#初始化用户登录
-		self.comsuit.isomper_login()
-
-		u'''添加角色'''
-		self.testdptment.add_role()
-		u'''添加用户'''
-		self.testdptment.add_user()
-		u'''用户赋予角色'''
-		self.testdptment.user_add_role()
-		self.login.quit()
-
-		#使用添加的用户登录并切换至系统级角色
-		self.comsuit.login_and_switch_to_sys()
-
-		self.frameElem.from_frame_to_otherFrame("topFrame")
-		self.cmf.select_menu(u"运维管理", u"组织定义")
+		#部门前置条件
+		self.comsuit.depart_module_prefix_condition()
 
 	def test_department(self):
 
@@ -76,20 +49,9 @@ class testDepartSuite(unittest.TestCase):
 		self.testdptment.del_department_005()
 
 	def tearDown(self):
-		#切换到角色定义
-		self.frameElem.from_frame_to_otherFrame("topFrame")
-		self.cmf.select_menu(u"角色管理", u"角色定义")
+		#部门后置条件
+		self.comsuit.depart_module_post_condition()
 
-		u'''全选删除角色'''
-		self.testrole.bulkdel_role_007()
-
-		#退出登录用初始化用户登录删除用户
-		self.login.quit()
-		self.comsuit.isomper_login()
-
-		#删除用户
-		self.user.del_all_user_008()
-		self.login.quit()
 		initDriver().close_driver(self.browser)
 
 if __name__ == "__main__":

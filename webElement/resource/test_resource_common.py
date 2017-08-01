@@ -166,7 +166,7 @@ class Resource(object):
 
 	u'''选择运维协议
 	   parameter:
-	       - agreement:协议名称
+	       - agreement:协议的id属性中协议名称
 	'''
 	def select_agreement(self, agreement):
 		self.frameElem.from_frame_to_otherFrame("mainFrame")
@@ -374,7 +374,9 @@ class Resource(object):
 
 	u'''资源类型查询
 	   parameter:
-	       - typename:资源类型名称
+	       - firstname:一级资源资源类型名称
+		   - secondname:二级资源资源类型名称
+		   - treename:三级资源资源类型名称
 	'''
 	def query_type(self, firstname, secondname='no', treename='no'):
 		try:

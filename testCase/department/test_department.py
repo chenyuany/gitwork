@@ -55,57 +55,13 @@ class testDepartment(object):
 		dptmData = dataFile.get_data(dptmPath, sheetname)
 		return dptmData
 
-	u'''添加角色'''
-	def add_role(self):
-		self.frameElem.from_frame_to_otherFrame("topFrame")
-		self.cmf.select_menu(u"角色管理", u"角色定义")
-		self.testrole.add_sysrole_001()
-		self.testrole.add_dptrole_002()
-
-	u'''添加用户'''
-	def add_user(self):
-		self.cmf.select_menu(u"运维管理", u"用户")
-		self.frameElem.from_frame_to_otherFrame("mainFrame")
-		self.user.add_button()
-		user_data = self.get_dptmtable_data("add_user")
-		data = user_data[1]
-		self.user.set_user_account(data[2])
-		self.user.set_user_name(data[3])
-		self.user.set_user_pwd(data[4])
-		self.user.set_user_enquire_pwd(data[5])
-		self.user.save_button()
-		self.cmf.click_login_msg_button()
-
-	u'''用户赋予角色'''
-	def user_add_role(self):
-
-		#获取用户赋予角色测试数据
-		dptmData = self.get_dptmtable_data("user_add_role")
-
-		for dataRow in range(len(dptmData)):
-			data = dptmData[dataRow]
-			try:
-				#如果不是第一行标题，则读取数据
-				if dataRow != 0:
-					self.rolemutex.click_user_role(data[1])
-					self.rolemutex.select_all_role(int(data[2]))
-					self.rolemutex.click_add_role(int(data[2]))
-					self.rolemutex.select_all_role(int(data[3]))
-					self.rolemutex.click_add_role(int(data[3]))
-					self.rolemutex.frameElem.switch_to_content()
-					self.dptment.save_user_button()
-					self.cmf.click_msg_button(1)
-					self.cmf.back()
-			except Exception as e:
-				print ("add user_add_role fail:" + str(e))
-
 	u'''添加和编辑部门'''
 	def add_edit_department_001(self):
 
 		#日志开始记录
 		self.log.log_start("add_edit_department")
 		#获取添加部门测试数据
-		dptmData = self.get_dptmtable_data("add_department")
+		dptmData = self.get_dptmtable_data("add_edit_department")
 		#保存成功的弹出框
 		dptmMsg = self.testrole.popup()
 
@@ -139,9 +95,9 @@ class testDepartment(object):
 	def up_down_department_002(self):
 
 		#日志开始记录
-		self.log.log_start("up_department")
+		self.log.log_start("up_down_department")
 		#获取上移部门测试数据
-		dptmData = self.get_dptmtable_data("up_department")
+		dptmData = self.get_dptmtable_data("up_down_department")
 
 		self.dptment.click_left_department()
 
@@ -156,20 +112,20 @@ class testDepartment(object):
 					self.dptment.click_basic_operation(data[2], int(data[3]))
 					self.log.log_detail(data[0],True)
 			except Exception as e:
-				print ("up_department fail:" + str(e))
+				print ("up_down_department fail:" + str(e))
 
-		self.log.log_end("up_department")
+		self.log.log_end("up_down_department")
 
 	u'''上移和下移部门校验'''
 	def up_down_department_check_003(self):
 
 		#日志开始记录
-		self.log.log_start("up_department_check")
+		self.log.log_start("up_down_department_check")
 		dptmMsg = self.testrole.popup()
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
 		#获取上移部门测试数据
-		dptmData = self.get_dptmtable_data("up_department")
+		dptmData = self.get_dptmtable_data("up_down_department")
 
 		self.dptment.click_left_department()
 		self.dptment.click_dept_switch()
@@ -183,9 +139,9 @@ class testDepartment(object):
 					self.role.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", dptmMsg, data, flag)
 			except Exception as e:
-				print ("up_department_check fail:" + str(e))
+				print ("up_down_department_check fail:" + str(e))
 
-		self.log.log_end("up_department_check")
+		self.log.log_end("up_down_department_check")
 
 	u'''删除部门'''
 	def del_department_005(self):
@@ -222,9 +178,9 @@ class testDepartment(object):
 	def check_add_edit_department_004(self):
 
 		#日志开始记录
-		self.log.log_start("check_add_department")
+		self.log.log_start("check_add_edit_department")
 		#获取检验添加部门测试数据
-		dptmData = self.get_dptmtable_data("check_add_department")
+		dptmData = self.get_dptmtable_data("check_add_edit_department")
 		#保存成功的弹出框
 		dptmMsg = self.testrole.popup()
 
@@ -258,6 +214,6 @@ class testDepartment(object):
 					self.frameElem.switch_to_content()
 					self.dptment.click_cancel_button()
 			except Exception as e:
-				print ("check_add_department fail:" + str(e))
+				print ("check_add_edit_department fail:" + str(e))
 
-		self.log.log_end("check_add_department")
+		self.log.log_end("check_add_edit_department")

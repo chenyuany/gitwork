@@ -237,6 +237,7 @@ class AuthMethodPage():
 	u'''点击AD域2对应的删除按钮'''
 	def domian2_del_button(self):
 		try:
+			time.sleep(1)
 			self.getElem.find_element_with_wait_clickable_and_click('id',self.DOMIAN2_DEL_BUTTON)
 		except Exception as e:
 			print ("domian2 del button error: ") + str(e)

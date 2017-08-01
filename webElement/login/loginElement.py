@@ -16,6 +16,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 import os
+import time
 
 sys.path.append("/testIsomp/common/")
 from _icommon import getElement,selectElement,frameElement,commonFun
@@ -245,6 +246,9 @@ class loginPage(object):
     def quit(self):
         self.frameElem.from_frame_to_otherFrame('topFrame')
         try:
-            self.getElem.find_element_with_wait_clickable_and_click('id',self.QUIT)
+            login_elem = self.getElem.find_element_with_wait_EC('id',self.QUIT)
+            if login_elem.is_displayed():
+                time.sleep(1)
+                login_elem.click()
         except Exception as e:
             print ("Click quit button error: ") + str(e)

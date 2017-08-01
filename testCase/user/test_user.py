@@ -118,11 +118,12 @@ class User():
 					self.user.add_button()
 					self.user.set_user_account(data[2])
 					self.user.set_user_name(data[3])
-					self.user.set_user_pwd(data[8])
-					self.user.set_user_enquire_pwd(data[9])
-					self.user.click_role_msg()
+					if data[6] != "":
+						self.user.set_dep(data[6])
+					self.user.set_user_pwd(data[7])
+					self.user.set_user_enquire_pwd(data[8])
 					self.user.set_user_role(data[15])
-					self.user.click_role_add_button()               
+					self.user.click_role_add_button()
 					self.user.save_button()
 					
 					#判断测试项是否通过
@@ -130,9 +131,9 @@ class User():
 					
 					#清空标识状态
 					flag = False
-					self.switch_to_user_module()
+#					self.switch_to_user_module()
 #					self.cmf.back()
-#					self.user.click_back_button()
+					self.user.click_back_button()
 					if self.cmf.is_namevalue_exsit(data[2],"fortUserAccount"):
 						print ("add user success")
 			except Exception as e:
@@ -159,8 +160,6 @@ class User():
 					self.user.operate_edit(data[2])
 					self.user.set_user_account(data[3])
 					self.user.set_user_name(data[4])
-					self.user.set_dep("")
-#					self.user.set_dep(data[7])
 					self.user.set_user_status(data[8])
 					self.user.set_user_pwd(data[9])
 					self.user.set_user_enquire_pwd(data[10])               
@@ -282,10 +281,6 @@ class User():
 				print ("Delete user cert fail: ") + str(e)
 		self.log.log_end("DeleteUserCert")
 
-
-
-	
-
 	u'''校验用户'''
 	def checkout_user_005(self):
 		#保存成功的弹出框
@@ -402,8 +397,14 @@ class User():
 				#如果不是第一行标题，则读取数据
 				if dataRow != 0:
 					self.frameElem.from_frame_to_otherFrame("mainFrame")
-					row = self.user.search_direct_by_dep(data[3])
-					self.user.set_dep(data[3])
+					if dataRow == 1:
+						row = self.user.search_direct_by_dep(data[3])
+						self.user.set_dep(data[3])
+					elif dataRow == 2:
+						row = self.user.get_rows()
+						self.user.click_child_node()
+						self.user.set_dep(data[3])
+					
 					self.user.click_search_button()
 					search_row = self.user.get_rows()
 					
@@ -480,7 +481,7 @@ class User():
 	
 	
 
-	u'''删除一页全部用户'''
+	u'''删除全部用户'''
 	def del_all_user_008(self):
 
 		#日志开始记录
@@ -512,32 +513,19 @@ class User():
 		self.log.log_end("DelAllUser")
 	
 
-	
-
-	def test(self):
-		self.frameElem.from_frame_to_otherFrame("mainFrame")
-		update_xpath = "//table[@id='content_table']"
-		text = self.tableEle.get_table_cell_text(update_xpath,0,4)[0]
-		print self.cnEnde.cnCode(text)
-#		text = self.getElem.find_element_wait_and_get_text('id',update_xpath)
-	
-	
-	
-	
-
 #if __name__ == "__main__":#internet explorer
 #	browser = setDriver().set_local_driver()
 #	commonSuite = CommonSuiteData(browser)
 #	userCase = User(browser)
 #	commonSuite.isomper_login()
 #	cmf = commonFun(browser)
+#
+#	#添加角色
+#	commonSuite.add_sys_role()
+##	commonSuite.add_dep_role()
 #	cmf.select_menu(u'运维管理')
 #	cmf.select_menu(u'运维管理','用户')
-#	userCase.add_user_001()
-#	userCase.edit_user_002()
 	
-#	#改变用户开关状态
-#	user.change_user_status_button("a","switch_off")
 #	userCase.add_user_001()
 #	userCase.edit_user_002()
 #	userCase.create_user_cert_003()

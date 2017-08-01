@@ -16,17 +16,8 @@ sys.setdefaultencoding('utf-8')
 import unittest
 sys.path.append("/testIsomp/common/")
 from _initDriver import initDriver
-from _icommon import frameElement,commonFun
 sys.path.append("/testIsomp/testSuite/common_suite_file/")
 from common_suite_file import setDriver,CommonSuiteData
-sys.path.append("/testIsomp/testCase/department/")
-from test_department import testDepartment
-sys.path.append("/testIsomp/webElement/login/")
-from loginElement import loginPage
-sys.path.append("/testIsomp/testCase/role/")
-from test_role import testRole
-sys.path.append("/testIsomp/testCase/user/")
-from test_user import User
 sys.path.append("/testIsomp/testCase/resource/")
 from test_linux_resource import testLinuxResource
 from test_resource_accountmgr import testResourceAccount
@@ -36,40 +27,13 @@ class testResourceSuite(unittest.TestCase):
 	def setUp(self):
 		#调用驱动
 		self.browser = setDriver().set_driver()
+
 		self.comsuit = CommonSuiteData(self.browser)
-		self.login = loginPage(self.browser)
-		self.cmf = commonFun(self.browser)
-		self.frameElem = frameElement(self.browser)
-		self.testdptment = testDepartment(self.browser)
-		self.testrole = testRole(self.browser)
-		self.user = User(self.browser)
 		self.linuxresource = testLinuxResource(self.browser)
 		self.account = testResourceAccount(self.browser)
 
-		#初始化用户登录
-		self.comsuit.isomper_login()
-
-		u'''添加角色'''
-		self.testdptment.add_role()
-		u'''添加用户'''
-		self.testdptment.add_user()
-		u'''用户赋予角色'''
-		self.testdptment.user_add_role()
-		self.login.quit()
-		#使用新添加的用户登录
-		self.comsuit.use_new_user_login()
-		#换至系统级角色
-		self.cmf.select_role_by_text(u"系统管理员")
-		self.frameElem.from_frame_to_otherFrame("topFrame")
-		self.cmf.select_menu(u"运维管理", u"组织定义")
-		u'''添加和编辑部门'''
-		self.testdptment.add_edit_department_001()
-		self.frameElem.switch_to_content()
-		# 换至部门级角色
-		self.cmf.select_role_by_text(u"部门管理员")
-
-		self.frameElem.from_frame_to_otherFrame("topFrame")
-		self.cmf.select_menu(u"运维管理", u"资源")
+		#资源前置条件
+		self.comsuit.resource_module_prefix_condition()
 
 	def test_resource(self):
 
@@ -97,30 +61,9 @@ class testResourceSuite(unittest.TestCase):
 		self.linuxresource.bulkdel_resource_006()
 
 	def tearDown(self):
-		#换至系统级角色
-		self.cmf.select_role_by_text(u"系统管理员")
+		#资源后置条件
+		self.comsuit.resource_module_post_condition()
 
-		#切换到组织定义页面
-		self.frameElem.from_frame_to_otherFrame("topFrame")
-		self.cmf.select_menu(u"运维管理", u"组织定义")
-
-		u'''删除部门'''
-		self.testdptment.del_department_005()
-
-		#切换到角色定义页面
-		self.frameElem.from_frame_to_otherFrame("topFrame")
-		self.cmf.select_menu(u"角色管理", u"角色定义")
-
-		u'''全选删除角色'''
-		self.testrole.bulkdel_role_007()
-
-		#退出登录用初始化用户登录删除用户
-		self.login.quit()
-		self.comsuit.isomper_login()
-
-		#删除用户
-		self.user.del_all_user_008()
-		self.login.quit()
 		initDriver().close_driver(self.browser)
 
 if __name__ == "__main__":

@@ -19,13 +19,6 @@ from _icommon import commonFun
 sys.path.append("/testIsomp/testCase/role/")
 from test_role import testRole
 from test_mutex import testMutex
-#导入登录
-sys.path.append("/testIsomp/webElement/login/")
-from loginElement import loginPage
-sys.path.append("/testIsomp/testCase/department/")
-from test_department import testDepartment
-sys.path.append("/testIsomp/testCase/user/")
-from test_user import User
 sys.path.append("/testIsomp/testSuite/common_suite_file/")
 from common_suite_file import setDriver,CommonSuiteData
 import unittest
@@ -37,22 +30,13 @@ class testRoleSuite(unittest.TestCase):
 		#调用驱动
 		self.browser = setDriver().set_driver()
 
-		self.testrole = testRole(self.browser)
-		self.cmf = commonFun(self.browser)
-		self.login = loginPage(self.browser)
-		self.user = User(self.browser)
-		self.testdptment = testDepartment(self.browser)
 		self.comsuit = CommonSuiteData(self.browser)
+		self.cmf = commonFun(self.browser)
+		self.testrole = testRole(self.browser)
 		self.testmutex = testMutex(self.browser)
 
-		#初始化用户登录
-		self.comsuit.isomper_login()
-
-		u'''添加用户'''
-		self.testdptment.add_user()
-
-		#切换到角色定义页面
-		self.cmf.select_menu(u"角色管理", u"角色定义")
+		#角色前置条件
+		self.comsuit.role_module_prefix_condition()
 
 	def test_role(self):
 
@@ -100,14 +84,10 @@ class testRoleSuite(unittest.TestCase):
 		self.testrole.bulkdel_role_007()
 
 	def tearDown(self):
-		#切换到用户界面
-		self.cmf.select_menu(u"运维管理", u"用户")
-		#用初始化用户登录删除用户
-		self.user.del_all_user_008()
-		#退出登录
-		self.login.quit()
-		initDriver().close_driver(self.browser)
+		#角色后置条件
+		self.comsuit.role_module_post_condition()
 
+		initDriver().close_driver(self.browser)
 
 if __name__ == "__main__":
 	unittest.main()

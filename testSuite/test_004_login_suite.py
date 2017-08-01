@@ -23,6 +23,8 @@ class testLoginSuite(unittest.TestCase):
         self.commonSuite = CommonSuiteData(self.browser)
         self.userElem = UserPage(self.browser)
         
+        self.commonSuite.login_module_prefix_condition()
+        '''
         #初始化用户登录
         self.commonSuite.isomper_login()
         
@@ -47,18 +49,22 @@ class testLoginSuite(unittest.TestCase):
         #改变a的状态为关
         self.userElem.change_user_status_off("a")
         self.commonSuite.user_quit()
-        
+        '''
+
     def test_login(self):
         test_login = testLogin(self.browser)
         #登录
         test_login.login()
     
     def tearDown(self):
+        self.commonSuite.login_module_post_condition()
+        '''
         self.commonSuite.isomper_login()
         #删除角色     
         self.commonSuite.del_role()
         #删除用户
-        self.commonSuite.del_user()        
+        self.commonSuite.del_user()
+        '''       
         initDriver().close_driver(self.browser)
 
 if __name__ == "__main__":

@@ -94,7 +94,7 @@ class testLogin(object):
     def login(self):
         self.log.log_start("login")
         u'''可以循环设定数据测试系统登录'''
-        sheets_name = ['default','ad','pwd_ad','radius']#'default','ad','pwd_ad','radius'
+        sheets_name = ['default','radius']#'default','ad','pwd_ad','radius'
         for sheetname in sheets_name:
             self.login_type(sheetname)
         self.log.log_end("login")

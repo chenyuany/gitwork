@@ -42,6 +42,9 @@ DEPARTMENT_TEST_DATA_URL = r"/testIsomp/testData/department_test_data.xlsx"
 #认证方式数据文件
 AUTH_METHOD_TEST_DATA_URL = r"/testIsomp/testData/auth_method_test_data.xlsx"
 
+#授权数据文件
+AUTHORIZATION_TEST_DATA_URL = r"/testIsomp/testData/authorization_test_data.xlsx"
+
 #资源数据文件
 LINUX_RESOURCE_TEST_DATA_URL = r"/testIsomp/testData/linux_resource_test_data.xlsx"
 
@@ -67,6 +70,10 @@ class dataFileName(object):
     #获取用户excel中的数据
     def get_person_test_data_url(self):
         return USER_TEST_DATA_URL
+    
+    #获取授权excel中的数据
+    def get_authorization_test_data_url(self):
+        return AUTHORIZATION_TEST_DATA_URL
     
     #获取unix资源excel中数据
     def get_unix_test_data_url(self):

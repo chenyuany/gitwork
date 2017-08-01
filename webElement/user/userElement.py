@@ -115,6 +115,10 @@ class UserPage():
     PAGE_PER_SHOW = "page_select"
     #开关按钮
     SWITCH_STATUS_BUTTON = "btn_qh"
+    #返回按钮
+    BACK_BUTTON = "history_skip"
+    #查询子节点
+    QUERY_CHILD_NODE = "query_zijiedian"
     
     def __init__(self,driver):
         self.driver = driver
@@ -158,17 +162,10 @@ class UserPage():
             self.getElem.find_element_with_wait_clickable_and_click('id',self.RESRT_BUTTON)
         except Exception as e:
             print ("click reset button error: ") + str(e)
-    
-    u'''切换至用户模块'''
-    def switch_to_user_module(self):
-    	self.frameElem.from_frame_to_otherFrame("topFrame")
-    	self.cmf.select_menu(u"运维管理")
-    	self.cmf.select_menu(u"运维管理",u"用户")    
 
     u'''每页选择全部'''
     def page_select_all(self):
         try:
-#            self.switch_to_user_module()
             self.frameElem.from_frame_to_otherFrame("mainFrame")
             
             #选择每页显示全部
@@ -205,7 +202,10 @@ class UserPage():
     u'''点击角色信息'''
     def click_role_msg(self):
         try:
-            self.getElem.find_element_with_wait_clickable_and_click('xpath',self.ROLE_MEG_BUTTON)
+            role = self.getElem.find_element_with_wait_EC('xpath',self.ROLE_MEG_BUTTON)
+            if role.is_displayed():
+                time.sleep(1)
+                role.click()
         except Exception as e:
             print ("user role message button error: ") + str(e)
     
@@ -276,9 +276,9 @@ class UserPage():
     def change_user_status_button(self,account,value):
         revalue = self.cnEnde.is_float(value)
         reaccount = self.cnEnde.is_float(account)
-        self.frameElem.from_frame_to_otherFrame("topFrame")
-        self.cmf.select_menu(u'运维管理')
-        self.cmf.select_menu(u'运维管理',u'用户')
+#        self.frameElem.from_frame_to_otherFrame("topFrame")
+#        self.cmf.select_menu(u'运维管理')
+#        self.cmf.select_menu(u'运维管理',u'用户')
         self.frameElem.from_frame_to_otherFrame("mainFrame")
         
         #获取用户行号
@@ -320,8 +320,6 @@ class UserPage():
             var_elem.send_keys(reaccountName)
         except Exception as e:
             print ("set search user accountOrname  error: ") + str(accountName) + str(e)
-        
-#        return self.set_common_func(accountName,self.SEARCH_ACCOUNT_OR_NAME)
 
 
     u'''填写用户账号
@@ -348,7 +346,6 @@ class UserPage():
             self.driver.execute_script(start_time_js)
         except Exception as e:
             print ("start_time js execute error: ") + str(e)
-            
         self.set_common_func(startTime,self.USER_START_TIME)
 
     u'''设置结束时间
@@ -358,11 +355,11 @@ class UserPage():
     def set_end_time(self,endTime):
         try:
             end_time_js = "$('input[id=fortEndTime]').attr('readonly',false)"
-            self.driver.execute_script(end_time_js)           
+            self.driver.execute_script(end_time_js)  
+            self.set_common_func(endTime,self.USER_END_TIME)       
         except Exception as e:
             print ("set endTime error: ") + str(e)
         
-        self.set_common_func(endTime,self.USER_END_TIME)
 
     u'''设置用户状态
         parameters:
@@ -370,39 +367,74 @@ class UserPage():
     '''          
     def set_user_status(self,statusValue):
         self.set_common_select_elem(statusValue,self.USER_STATUS)
-
-
-    u'''设置部门
-        parameters:
-            dep : 部门
-    '''
-    def set_dep(self,index,status='0'):
-        try:
-            reindex = self.cnEnde.is_float(index)
-            self.getElem.find_element_with_wait_clickable_and_click('id','department_name')
-            if status == '0':
-                self.getElem.find_element_wait_and_click_EC('id','tree_1_span')
-            elif status == '1':
-                self.getElem.find_element_wait_and_click_EC('id','tree_1_switch')
-                dep_id = "treeDemo_" + reindex + "_span"
-                self.getElem.find_element_wait_and_click_EC('id',dep_id)
-        except Exception as e:
-            print "set department error : " + str(e)
     
-    def set_dep1(self,dep):
+    u'''获取部门箭头的展开状态'''
+    def get_element_attribute(self):
+        selem = self.getElem.find_element_with_wait_EC('id','tree_1_switch')
+        selem_class = selem.get_attribute('class')
+        arrow_type = selem_class.split('_')[-1]
+        return arrow_type
+    
+    u'''获取部门a标签
+       parameter:
+           deptname:部门名称
+    '''
+    def get_tag_by_a(self, deptname):
         try:
-            #设置为false
-            js = "$('input[id=department_name]').attr('readonly',false)"
-            self.driver.execute_script(js)
-            self.set_common_func(dep,self.USER_DEP)          
+            #获取所有a标签的对象
+            elems = self.driver.find_elements_by_tag_name("a")
+    
+            for elem in elems:
+                #获取a标签title
+                elemtext = elem.get_attribute("title")
+                #获取a标签id
+                elemid = elem.get_attribute("id")
+    
+                if deptname == elemtext:
+                    self.getElem.find_element_wait_and_click_EC('id',elemid)
+                    break
+    
         except Exception as e:
-            print ("set user department error: ") + str(e)
+            print "Get tag a error:" + str(e)
+    
+    u'''选择部门公用方法
+            parameters : 
+                input_id : 部门input框id
+                deptname : 部门名称
+    '''
+    def select_depmt_common(self,input_id,deptname):
+        self.frameElem.from_frame_to_otherFrame("mainFrame")
+        self.getElem.find_element_wait_and_click_EC("id",input_id)
+        #点开部门箭头
+        if self.get_element_attribute() != "open":
+            self.getElem.find_element_wait_and_click_EC('id','tree_1_switch')
+        self.get_tag_by_a(deptname)
+        
+    u'''用户部门'''
+    def set_dep(self,deptname):
+        try:
+            self.select_depmt_common(self.USER_DEP,deptname)
+        except Exception as e:
+            print ("Set user department error: ") + str(e)
+    
+    u'''部门查询'''
+    def set_query_depmt(self,depmtName):
+        try:
+            query_dep_js = "$('input[id=department_name]').attr('readonly',false)"
+            self.driver.execute_script(query_dep_js)  
+            self.set_common_func(depmtName,self.USER_DEP)   
+        except Exception as e:
+            print ("set query department error: ") + str(e)        
+    
+    u'''勾选子查询'''
+    def click_child_node(self):
+        self.getElem.find_element_wait_and_click_EC('id',self.USER_DEP)
+        self.click_checkbox(self.QUERY_CHILD_NODE)
 
     u'''清空部门'''
     def clear_dep(self):
         self.getElem.find_element_with_wait_clickable_and_click("id",self.USER_DEP)
         self.getElem.find_element_with_wait_clickable_and_click("id",self.DEP_CLEAR)
-
 
     u'''填写口令
         parameters:
@@ -453,7 +485,7 @@ class UserPage():
     '''
     def click_checkbox(self,value):
         try:
-            checkbox = self.getElem.find_element_with_wait_clickable_and_click("id",value)
+            checkbox = self.getElem.find_element_with_wait_EC("id",value)
             if checkbox.is_selected() == False:
                 checkbox.click()
         except Exception as e:
@@ -502,7 +534,19 @@ class UserPage():
             self.selectElem.select_element_by_visible_text(select_elem,str(var_text))
         except Exception as e:
             print ("selected select element option  by visible text error: ") + str(revar_text) + str(e)
-        
+    
+    u'''设置用户角色'''
+    def set_user_role(self,roleText):
+        self.frameElem.from_frame_to_otherFrame("mainFrame")
+        self.click_role_msg()        
+        roleList = roleText.split(',')
+        try:
+            #判断角色是否为空
+            if roleText != "":
+                for roleName in roleList:
+                    self.set_common_select_elem_by_text(roleName,self.ROLE_SELECTD_ELEM)
+        except Exception as e:
+            print ("Set user role error: ") + str(e)
 
     '''用户角色检索框
         parameters:
@@ -543,7 +587,6 @@ class UserPage():
     def set_auth_method_rule(self,loginValue):
         self.set_common_select_elem(loginValue,self.AUTH_CODE)
         
-
     u'''填写AD域用户
             parameter:
                 adUser : AD域用户名称
@@ -556,13 +599,8 @@ class UserPage():
                 radiusUser : RADIUS用户名称
     '''        
     def set_radius_name(self,radiusUser):
-        return self.set_common_func(radiusUser,self.USER_RADIUS)   
-
-    u'''点击角色添加页面确定按钮'''
-    def click_ok_button(self):
-    	self.driver.switch_to_default_content()
-        ok_button_xpath = "/html/body/div[1]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr[3]/td/div/button"
-    	self.getElem.find_element_wait_and_click_EC("xpath",ok_button_xpath,5)
+        return self.set_common_func(radiusUser,self.USER_RADIUS)
+    
 
     u'''通过用户状态获取行数
             parameters:
@@ -624,7 +662,6 @@ class UserPage():
         redep = self.cnEnde.cnCode(dep)
         try:
 #            self.page_select_all()
-            
             text_list = self.driver.find_elements_by_name("fortDepartmentName")
             for fortDepValue in text_list:
                 fortDepValue_text = fortDepValue.text
@@ -680,7 +717,6 @@ class UserPage():
     '''
     def get_cert_var_text(self,locator):
         try:
-
             cert_var_text = self.getElem.find_element_with_wait_EC("id",locator).text
             return cert_var_text
         
@@ -702,78 +738,58 @@ class UserPage():
 
     u'''点击返回按钮'''
     def click_back_button(self):
+        self.frameElem.from_frame_to_otherFrame("mainFrame")
         try:
-            self.frameElem.from_frame_to_otherFrame("mainFrame")
-            time.sleep(3)
-#            back_css = "input[value=u'返回']"
-            back_xpath = "//html/body/form/div/div[4]/input[@id='history_skip']"
-            self.getElem.find_element_with_wait_clickable_and_click('xpath',back_xpath)
+            back_button = self.getElem.find_element_with_wait_EC('id',self.BACK_BUTTON)
+            if back_button.is_displayed():
+                time.sleep(1)
+                back_button.click()
         except Exception as e:
             print("Click the return button error: ") + str(e)
 
     u'''填写用户基本信息
             parameters:
                 data : 用户列表数据
+                roleText : 用户角色
     '''
-#    def add_user_with_role(self,data):
-    def set_user_basic_info(self,data):
-        self.switch_to_moudle(u"运维管理",u"用户")				
+    def set_user_basic_info(self,data,roleText):
+        self.cmf.select_menu(u"运维管理")
+        self.cmf.select_menu(u"运维管理",u"用户")			
         self.frameElem.from_frame_to_otherFrame("mainFrame")
         self.add_button()
-        self.set_user_account(data[3])
-        self.set_user_name(data[1])
-        self.set_user_pwd(data[4])
-        self.set_user_enquire_pwd(data[5])
-        self.set_start_time(list[6])
-        
-        #设置访问方式
-        self.click_advanced_option()
-        self.set_auth_method_rule(list[7])
-        
-        #访问方式不是默认方式
-        if int(list[7]) != 2:
-            self.set_ad_name(list[8])
-        self.save_button()
+        self.set_user_account(data[2])
+        self.set_user_name(data[3])
+        self.set_start_time(data[4])
+        self.set_end_time(data[5])
+        self.set_dep(data[6])
+        self.set_user_pwd(data[7])
+        self.set_user_enquire_pwd(data[8])
+        self.set_user_mobile(data[9])
+        self.set_user_phone(data[10])
+        self.set_user_email(data[11])
+        self.set_user_address(data[12])
+        if data[13] != "":
+            #点击高级选项
+            self.click_advanced_option()
+            self.set_auth_method_rule(data[13])
+            
+            #访问方式不是默认方式
+            if int(data[13]) != 2:
+                self.userElem.set_ad_name(data[14])
+        if data[15] != "":
+            self.set_user_role(roleText)
+            self.click_role_add_button()
+
+        self.userElem.save_button()
         self.cmf.click_login_msg_button()
-        
-    
-    u'''选择角色
-            parameters:
-                data : 角色名称
-    '''
-    def set_user_role(self,roleText):
-        self.frameElem.from_frame_to_otherFrame("mainFrame")
-        self.click_role_msg()
-        roleList = roleText.split(',')
-        #判断角色是否为空
-        if roleText != "":
-            for roleName in roleList:
-                self.set_common_select_elem_by_text(roleName,self.ROLE_SELECTD_ELEM)
+        self.click_back_button()
 
     u'''用户状态改变为关'''
     def change_user_status_off(self,account):
         off_status = "switch_off"
         self.change_user_status_button(account,off_status)
     
-
-#if __name__ == "__main__":
-#    driver = initDriver().remote_open_driver("http://172.16.10.21:5555/wd/hub","chrome")
-#    selectElem = selectElement(driver)
-    
-#    list_sys = [u'系统管理员',u'系统']
-#    list_dep = [u'部门管理员',u'部管']
-#    dataFile = dataFileName()
-#    file_path = dataFile.get_person_test_data_url()
-#    login_data = dataFile.get_data(file_path,'login')
-#    logindata = login_data[1]
-#    login = loginPage(driver)
-#    login.login(logindata)    
-#    self.frameElem.switch_to_content()
-#    self.frameElem.switch_to_top()
-#    self.cmf.select_menu(u"角色管理")
-#    self.cmf.select_menu(u"角色管理",u"角色定义")    
-#    userElem =  UserPage(driver)
-#    userElem.set_start_time("2016-02-93 12:34:23")
-#    userElem.switch_to_role_moudle()
-#    userElem.add_sys_role(list_sys)
-##
+    u'''用户状态改变为开'''
+    def change_user_status_on(self,account):
+        on_status = "switch_on"
+        self.change_user_status_button(account,on_status)
