@@ -228,7 +228,7 @@ class Department(object):
 		else:
 			#判断文本内容是否一致
 			elemText = self.getElem.find_element_wait_and_compare_text(type,elem,data)
-
+			# time.sleep(2)
 			self.click_Outermost_button(pagetext)
 			if elemText:
 				# 页面的内容与检查点内容一致，测试点通过

@@ -135,24 +135,7 @@ class CommonSuiteData():
         self.cmf.bulkdel("delete_role")
         self.roleElem.click_ok_button()
 
-#----------------------------------------用户相关------------------------------
-    u'''为用户设置角色
-            parameters :
-                roleText : 用户角色
-    '''
-    def set_user_role(self,roleText):
-        self.frameElem.from_frame_to_otherFrame("mainFrame")
-        self.userElem.click_role_msg()
-        roleList = roleText.split(',')
-        
-        #判断角色是否为空
-        if roleText != "":
-            for roleName in roleList:
-                self.userElem.set_common_select_elem_by_text(roleName,"Roles")
-            self.userElem.click_role_add_button()
-#            self.userElem.save_button()
-#            self.cmf.click_login_msg_button()
-#            self.userElem.click_back_button()    
+#----------------------------------------用户相关------------------------------  
     
     u'''填写用户信息
             parameters:
@@ -175,6 +158,8 @@ class CommonSuiteData():
         self.userElem.set_user_pwd(data[4])
         self.userElem.set_user_enquire_pwd(data[5])
         self.userElem.set_start_time(data[6])
+        if data[10] != "":
+            self.userElem.set_dep(data[10])
         if data[7] !="":
             #设置访问方式
             self.userElem.click_advanced_option()
@@ -184,7 +169,8 @@ class CommonSuiteData():
             if int(data[7]) != 2:
                 self.userElem.set_ad_name(data[8])
         if data[9] != "":
-            self.set_user_role(roleText)
+            self.userElem.set_user_role(roleText)
+            self.userElem.click_role_add_button()
         self.userElem.save_button()
         self.cmf.click_login_msg_button()
         
@@ -226,7 +212,18 @@ class CommonSuiteData():
         self.cmf.click_login_msg_button()
         self.cmf.click_login_msg_button()
         
-#-----------------------------用户组------------------------------------------
+#-----------------------------用户组------------------------------------------    
+    u'''添加用户到用户组'''
+    def set_user_to_group(self,data):
+#        self.usergroup.click_left_usergroup()
+#        self.usergroup.click_usergroup_switch()
+        self.usergroup.click_usergroup_add_user(data[3], data[4])
+        self.regroup.check_depart(data[5])
+        self.usergroup.click_usergroup_add_user_query()
+        self.regroup.check_all_resource()
+        self.regroup.click_resource_okbutton()
+        self.cmf.click_login_msg_button()
+    
     u'''填写用户组信息
             parameters:
                 data[0] : 操作类型(添加：0)
@@ -242,6 +239,8 @@ class CommonSuiteData():
         self.dptment.popup_sendkey(data[3])
         self.dptment.click_ok_button()
         self.cmf.click_login_msg_button()
+        if data[4] != "":
+            self.set_user_to_group(data)
     
     u'''删除用户组
             parameters :
@@ -258,7 +257,18 @@ class CommonSuiteData():
         self.cmf.click_login_msg_button()
         
         
-#-----------------------------资源组------------------------------------------
+#-----------------------------资源组------------------------------------------    
+    u'''添加资源到资源组'''
+    def set_res_to_group(self,data):
+#        self.regroup.click_left_regroup()
+#        self.regroup.click_regroup_switch()
+        self.regroup.click_regroup_add_resouce(data[3], data[4])
+        self.regroup.check_depart(data[5])
+        self.regroup.click_regroup_add_resouce_query()
+        self.regroup.check_all_resource()
+        self.regroup.click_resource_okbutton()
+        self.cmf.click_login_msg_button()
+    
     u'''填写资源组信息
             parameters:
                 data[0] : 操作类型(添加：0)
@@ -274,6 +284,8 @@ class CommonSuiteData():
         self.dptment.popup_sendkey(data[3])
         self.dptment.click_ok_button()
         self.cmf.click_login_msg_button()
+        if data[4] != "":
+            self.set_res_to_group(data)
     
     u'''删除资源组
             parameters :
@@ -594,13 +606,14 @@ class CommonSuiteData():
         self.add_user_with_role()
         self.user_quit()
         self.login_and_switch_to_dep()
-#        self.add_dep()
-        self.add_authorization_user()
-#        self.sys_switch_to_dep()
-        self.add_res_group()
-        self.add_user_group()
         self.add_resource()
         self.add_res_account()
+
+        self.add_authorization_user()
+
+        self.add_res_group()
+        self.add_user_group()
+
         self.switch_to_moudle(u'运维管理',u'授权')
         
     def authori_module_post_condition(self):
