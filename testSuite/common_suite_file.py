@@ -181,7 +181,10 @@ class CommonSuiteData():
         self.frameElem.from_frame_to_otherFrame("mainFrame")
         self.userElem.select_all_button()
         self.userElem.del_button()
+        self.frameElem.switch_to_content()
         self.cmf.click_login_msg_button()
+        self.cmf.click_login_msg_button()
+
     
     u'''用户退出'''
     def user_quit(self):

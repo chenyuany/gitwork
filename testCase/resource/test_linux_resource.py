@@ -76,13 +76,79 @@ class testLinuxResource(object):
 					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", resourceMsg, data, flag)
 					self.cmf.back()
+					self.frameElem.switch_to_content()
+					elemText = self.getElem.find_element_wait_and_compare_text("xpath", resourceMsg, [0, "ip可用性校验失败！"])
+					if elemText:
+						self.cmf.click_msg_button(1)
 			except Exception as e:
 				print ("add_resource fail:" + str(e))
 
 		self.log.log_end("add_resource")
 
+	u'''编辑linux资源'''
+	def edit_linux_resource_002(self):
+
+		#日志开始记录
+		self.log.log_start("edit_resource")
+		#获取添加资源测试数据
+		resourceData = self.get_resource_table_data("edit_linux_resource")
+		#保存成功的弹出框
+		resourceMsg = self.testrole.popup()
+
+		#无检查点的测试项标识，如果为True说明通过
+		flag = False
+
+		for dataRow in range(len(resourceData)):
+			data = resourceData[dataRow]
+			try:
+				#如果不是第一行标题，则读取数据
+				if dataRow != 0:
+					self.resource.click_add_edit_button(data[2])
+					self.linux.add_edit_linux_resource(data)
+					self.frameElem.switch_to_content()
+					self.cmf.click_msg_button(1)
+					self.cmf.test_win_check_point("xpath", resourceMsg, data, flag)
+					self.cmf.back()
+			except Exception as e:
+				print ("edit_resource fail:" + str(e))
+
+		self.log.log_end("edit_resource")
+
+	u'''检验linux资源'''
+	def check_linux_resource_003(self):
+
+		#日志开始记录
+		self.log.log_start("check_linux_resource")
+		#获取检验资源测试数据
+		resourceData = self.get_resource_table_data("check_linux_resource")
+		#保存成功的弹出框
+		resourceMsg = self.testrole.popup()
+
+		#无检查点的测试项标识，如果为True说明通过
+		flag = False
+
+		#点击添加按钮
+		self.resource.click_add_edit_button()
+		#选择debian类型
+		self.resource.select_resource_type("Debian")
+
+		for dataRow in range(len(resourceData)):
+			data = resourceData[dataRow]
+			try:
+				#如果不是第一行标题，则读取数据
+				if dataRow != 0:
+					self.linux.check_linux_resource(dataRow, data)
+					self.frameElem.switch_to_content()
+					self.cmf.test_win_check_point("xpath", resourceMsg, data, flag)
+			except Exception as e:
+				print ("check_linux_resource fail:" + str(e))
+
+		self.cmf.back()
+
+		self.log.log_end("check_linux_resource")
+
 	u'''查询资源'''
-	def query_resource_002(self):
+	def query_resource_004(self):
 
 		#日志开始记录
 		self.log.log_start("query_resource")
@@ -111,38 +177,8 @@ class testLinuxResource(object):
 					self.log.log_detail(data[0], True)
 			except Exception as e:
 				print ("query_resource fail:" + str(e))
-
-		self.log.log_end("query_resource")
-
-	u'''编辑linux资源'''
-	def edit_linux_resource_003(self):
-
-		#日志开始记录
-		self.log.log_start("edit_resource")
-		#获取添加资源测试数据
-		resourceData = self.get_resource_table_data("edit_linux_resource")
-		#保存成功的弹出框
-		resourceMsg = self.testrole.popup()
-
-		#无检查点的测试项标识，如果为True说明通过
-		flag = False
 		self.resource.click_resource_query()
-
-		for dataRow in range(len(resourceData)):
-			data = resourceData[dataRow]
-			try:
-				#如果不是第一行标题，则读取数据
-				if dataRow != 0:
-					self.resource.click_add_edit_button(data[2])
-					self.linux.add_edit_linux_resource(data)
-					self.frameElem.switch_to_content()
-					self.cmf.click_msg_button(1)
-					self.cmf.test_win_check_point("xpath", resourceMsg, data, flag)
-					self.cmf.back()
-			except Exception as e:
-				print ("edit_resource fail:" + str(e))
-
-		self.log.log_end("edit_resource")
+		self.log.log_end("query_resource")
 
 	u'''删除资源'''
 	def del_resource_005(self):
@@ -199,35 +235,3 @@ class testLinuxResource(object):
 
 		self.log.log_end("bulkdel_resource")
 
-	u'''检验linux资源'''
-	def check_linux_resource_004(self):
-
-		#日志开始记录
-		self.log.log_start("check_linux_resource")
-		#获取检验资源测试数据
-		resourceData = self.get_resource_table_data("check_linux_resource")
-		#保存成功的弹出框
-		resourceMsg = self.testrole.popup()
-
-		#无检查点的测试项标识，如果为True说明通过
-		flag = False
-
-		#点击添加按钮
-		self.resource.click_add_edit_button()
-		#选择debian类型
-		self.resource.select_resource_type("Debian")
-
-		for dataRow in range(len(resourceData)):
-			data = resourceData[dataRow]
-			try:
-				#如果不是第一行标题，则读取数据
-				if dataRow != 0:
-					self.linux.check_linux_resource(dataRow, data)
-					self.frameElem.switch_to_content()
-					self.cmf.test_win_check_point("xpath", resourceMsg, data, flag)
-			except Exception as e:
-				print ("check_linux_resource fail:" + str(e))
-
-		self.cmf.back()
-
-		self.log.log_end("check_linux_resource")

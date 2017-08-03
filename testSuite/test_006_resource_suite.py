@@ -21,6 +21,10 @@ from common_suite_file import setDriver,CommonSuiteData
 sys.path.append("/testIsomp/testCase/resource/")
 from test_linux_resource import testLinuxResource
 from test_resource_accountmgr import testResourceAccount
+from test_network_resource import testNetworkResource
+sys.path.append("/testIsomp/testData/")
+import _testDataPath
+
 
 class testResourceSuite(unittest.TestCase):
 
@@ -30,31 +34,55 @@ class testResourceSuite(unittest.TestCase):
 
 		self.comsuit = CommonSuiteData(self.browser)
 		self.linuxresource = testLinuxResource(self.browser)
+		self.network = testNetworkResource(self.browser)
 		self.account = testResourceAccount(self.browser)
+
+		# self.comsuit.login_and_switch_to_dep()
+		# self.comsuit.switch_to_moudle(u"运维管理", u"资源")
 
 		#资源前置条件
 		self.comsuit.resource_module_prefix_condition()
 
 	def test_resource(self):
+		#------------------------------网络设备资源-----------------------------------
+		# 添加网络设备资源
+		self.network.add_network_resource_001()
+		# 编辑网络设备资源
+		self.network.edit_network_resource_002()
+		# 校验网络设备资源
+		self.network.check_network_resource_003()
+		# 添加和编辑网络设备资源账号
+		self.account.add_edit_resource_account_001(_testDataPath.NETWORK_RESOURCE_TEST_DATA_URL, "add_network_account")
+		#查询网络设备资源账号
+		self.account.query_resource_account_002(_testDataPath.NETWORK_RESOURCE_TEST_DATA_URL, "query_network_account")
+		#校验网络设备资源账号
+		self.account.check_resource_account_003(_testDataPath.NETWORK_RESOURCE_TEST_DATA_URL, "check_network_account")
+		#删除网络设备资源账号
+		self.account.del_resource_account_004(_testDataPath.NETWORK_RESOURCE_TEST_DATA_URL, "del_network_account")
+		#全选删除网络设备资源账号
+		self.account.bulkdel_resource_account_005(_testDataPath.NETWORK_RESOURCE_TEST_DATA_URL, "bulkdel_network_account")
 
+		#------------------------------linux资源-----------------------------------
 		# 添加linux资源
 		self.linuxresource.add_linux_resource_001()
-		# 查询资源
-		self.linuxresource.query_resource_002()
 		#编辑linux资源
-		self.linuxresource.edit_linux_resource_003()
-		#添加和编辑linux资源账号
-		self.account.add_edit_linux_resource_account_001()
-		#查询资源账号
-		self.account.query_resource_account_002()
-		#校验资源账号
-		self.account.check_linux_resource_account_003()
-		#删除资源账号
-		self.account.del_resource_account_004()
-		#全选删除资源账号
-		self.account.bulkdel_resource_account_005()
+		self.linuxresource.edit_linux_resource_002()
 		#校验linux资源
-		self.linuxresource.check_linux_resource_004()
+		self.linuxresource.check_linux_resource_003()
+		#添加和编辑linux资源账号
+		self.account.add_edit_resource_account_001(_testDataPath.LINUX_RESOURCE_TEST_DATA_URL, "add_linux_account")
+		#查询linux资源账号
+		self.account.query_resource_account_002(_testDataPath.LINUX_RESOURCE_TEST_DATA_URL, "query_linux_account")
+		#校验linux资源账号
+		self.account.check_resource_account_003(_testDataPath.LINUX_RESOURCE_TEST_DATA_URL, "check_linux_account")
+		#删除linux资源账号
+		self.account.del_resource_account_004(_testDataPath.LINUX_RESOURCE_TEST_DATA_URL, "del_linux_account")
+		# #全选删除linux资源账号
+		self.account.bulkdel_resource_account_005(_testDataPath.LINUX_RESOURCE_TEST_DATA_URL, "bulkdel_linux_account")
+
+		#------------------------------查询资源、删除、全选删除资源-----------------------------------
+		# 查询资源
+		self.linuxresource.query_resource_004()
 		#删除资源
 		self.linuxresource.del_resource_005()
 		#全选删除资源

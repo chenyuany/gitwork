@@ -14,7 +14,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 sys.path.append("/testIsomp/common")
-from _icommon import commonFun,getElement,selectElement,frameElement,tableElement
+from _icommon import commonFun,frameElement
 from _log import log
 sys.path.append("/testIsomp/testCase/role/")
 from test_role import testRole
@@ -23,8 +23,8 @@ from test_roledf import Role
 sys.path.append("/testIsomp/webElement/resource/")
 from test_resource_accountmgr_ment import Accountmgr
 from test_linux_ment import LinuxResource
-sys.path.append("/testIsomp/testCase/resource/")
-from test_linux_resource import testLinuxResource
+sys.path.append("/testIsomp/testData/")
+from _testDataPath import dataFileName
 
 class testResourceAccount(object):
 
@@ -32,23 +32,20 @@ class testResourceAccount(object):
 		self.driver = driver
 		self.log = log()
 		self.cmf = commonFun(driver)
-		self.getElem = getElement(driver)
-		self.selectElem = selectElement(driver)
-		self.tableElem = tableElement(driver)
 		self.frameElem = frameElement(driver)
 		self.testrole = testRole(driver)
 		self.linux = LinuxResource(driver)
-		self.resource = testLinuxResource(driver)
 		self.account = Accountmgr(driver)
 		self.role = Role(driver)
+		self.data = dataFileName()
 
-	u'''添加和编辑linux资源账号'''
-	def add_edit_linux_resource_account_001(self):
+	u'''添加和编辑资源账号'''
+	def add_edit_resource_account_001(self, dataPath, sheetName):
 
 		#日志开始记录
 		self.log.log_start("add_edit_resource_account")
 		#获取添加资源账号测试数据
-		accountData = self.resource.get_resource_table_data("add_resource_account")
+		accountData = self.data.get_data(dataPath, sheetName)
 		#保存成功的弹出框
 		accountMsg = self.testrole.popup()
 
@@ -63,7 +60,7 @@ class testResourceAccount(object):
 					#点击账号管理
 					if dataRow == 1:
 						self.account.click_account_manage_button(data[2])
-					self.linux.add_linux_resource_account(data[3], data[4], data[5], data[6], data[7])
+					self.linux.add_edit_resource_account(data[3], data[4], data[5], data[6], data[7])
 					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", accountMsg, data, flag)
 					self.cmf.back()
@@ -74,12 +71,12 @@ class testResourceAccount(object):
 		self.log.log_end("add_edit_resource_account")
 
 	u'''查询资源账号'''
-	def query_resource_account_002(self):
+	def query_resource_account_002(self, dataPath, sheetName):
 
 		#日志开始记录
 		self.log.log_start("query_resource_account")
 		#获取查询资源账号测试数据
-		accountData = self.resource.get_resource_table_data("query_resource_account")
+		accountData = self.data.get_data(dataPath, sheetName)
 
 		for dataRow in range(len(accountData)):
 			data = accountData[dataRow]
@@ -103,13 +100,13 @@ class testResourceAccount(object):
 
 		self.log.log_end("query_resource_account")
 
-	u'''检验linux资源账号'''
-	def check_linux_resource_account_003(self):
+	u'''检验资源账号'''
+	def check_resource_account_003(self, dataPath, sheetName):
 
 		#日志开始记录
 		self.log.log_start("check_resource_account")
 		#获取检验资源测试数据
-		resourceData = self.resource.get_resource_table_data("check_resource_account")
+		resourceData = self.data.get_data(dataPath, sheetName)
 		#保存成功的弹出框
 		resourceMsg = self.testrole.popup()
 
@@ -123,7 +120,7 @@ class testResourceAccount(object):
 				if dataRow != 0:
 					if dataRow == 1:
 						self.account.click_account_manage_button(data[2])
-					self.linux.check_linux_resource_account(data[3], data[4], data[5], data[6])
+					self.linux.check_resource_account(data[3], data[4], data[5], data[6])
 					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", resourceMsg, data, flag)
 					self.cmf.back()
@@ -132,15 +129,15 @@ class testResourceAccount(object):
 
 		self.cmf.back()
 
-		self.log.log_end("check_linux_resource")
+		self.log.log_end("check_resource_account")
 
 	u'''删除资源账号'''
-	def del_resource_account_004(self):
+	def del_resource_account_004(self, dataPath, sheetName):
 
 		#日志开始记录
 		self.log.log_start("del_resource_account")
 		#获取删除资源账号测试数据
-		accountData = self.resource.get_resource_table_data("del_resource_account")
+		accountData = self.data.get_data(dataPath, sheetName)
 		#保存成功的弹出框
 		accountMsg = self.testrole.popup()
 
@@ -158,17 +155,17 @@ class testResourceAccount(object):
 					self.cmf.test_win_check_point("xpath", accountMsg, data, flag)
 					self.cmf.click_msg_button(1)
 			except Exception as e:
-				print ("del_resource fail:" + str(e))
+				print ("del_resource_account fail:" + str(e))
 		self.cmf.back()
 		self.log.log_end("del_resource_account")
 
 	u'''全选删除资源账号'''
-	def bulkdel_resource_account_005(self):
+	def bulkdel_resource_account_005(self, dataPath, sheetName):
 
 		#日志开始记录
 		self.log.log_start("bulkdel_resource_account")
 		#获取全选删除资源账号测试数据
-		accountData = self.resource.get_resource_table_data("bulkdel_resource_account")
+		accountData = self.data.get_data(dataPath, sheetName)
 		#保存成功的弹出框
 		accountMsg = self.testrole.popup()
 
