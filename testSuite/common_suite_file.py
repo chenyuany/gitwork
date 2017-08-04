@@ -339,7 +339,7 @@ class CommonSuiteData():
         
     u'''填写资源账号基本信息
             parameters: 
-                data[0]:资源名称
+                data[1]:资源名称
                 data[4] : 账号编辑方式
                 data[5] : 账号名称
                 data[6] : 口令
