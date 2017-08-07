@@ -56,12 +56,10 @@ class testLinuxResourceSuite(unittest.TestCase):
 		self.account.del_resource_account_004(_testDataPath.LINUX_RESOURCE_TEST_DATA_URL, "del_linux_account")
 		# #全选删除linux资源账号
 		self.account.bulkdel_resource_account_005(_testDataPath.LINUX_RESOURCE_TEST_DATA_URL, "bulkdel_linux_account")
-
-		#------------------------------查询资源、删除、全选删除资源-----------------------------------
-		# 查询资源
-		self.linuxresource.query_resource_004()
-		#删除资源
-		self.linuxresource.del_resource_005()
+		# 查询linux资源
+		self.linuxresource.query_resource_004(_testDataPath.LINUX_RESOURCE_TEST_DATA_URL, "query_linux_resource")
+		#删除linux资源
+		self.linuxresource.del_resource_005(_testDataPath.LINUX_RESOURCE_TEST_DATA_URL, "del_linux_resource")
 		#全选删除资源
 		self.linuxresource.bulkdel_resource_006()
 

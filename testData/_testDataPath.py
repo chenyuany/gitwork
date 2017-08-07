@@ -33,6 +33,9 @@ LINUX_RESOURCE_TEST_DATA_URL = r"/testIsomp/testData/linux_resource_test_data.xl
 #网络设备资源数据位置
 NETWORK_RESOURCE_TEST_DATA_URL = r"/testIsomp/testData/network_resource_test_data.xlsx"
 
+#Windows资源数据位置
+WINDOWS_RESOURCE_TEST_DATA_URL = r"/testIsomp/testData/windows_resource_test_data.xlsx"
+
 #资源组数据文件
 REGROUP_TEST_DATA_URL = r"/testIsomp/testData/regroup_test_data.xlsx"
 
@@ -83,6 +86,10 @@ class dataFileName(object):
     u"""获取网络设备资源文件的数据"""
     def get_network_resource_test_data_url(self):
         return NETWORK_RESOURCE_TEST_DATA_URL
+
+    u"""获取windows资源文件的数据"""
+    def get_windows_resource_test_data_url(self):
+        return WINDOWS_RESOURCE_TEST_DATA_URL
 
     #从sheet名称获取登陆数据
     def get_data(self,dataPath,sheetName):

@@ -117,7 +117,10 @@ class NetworkResource(object):
 			self.resource.set_super_prompt()
 		self.resource.click_save_button()
 
-	u'''选择telnet登录模式'''
+	u'''选择telnet登录模式
+	   Parameters:
+	      - mode:value属性
+	'''
 	def telnet_login_type(self, mode):
 		model = self.cnEn.is_float(mode)
 		self.frameElem.from_frame_to_otherFrame("mainFrame")

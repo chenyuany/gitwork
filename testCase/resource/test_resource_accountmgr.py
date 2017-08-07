@@ -120,12 +120,14 @@ class testResourceAccount(object):
 				if dataRow != 0:
 					if dataRow == 1:
 						self.account.click_account_manage_button(data[2])
+						self.account.click_account_add_edit_button()
 					self.linux.check_resource_account(data[3], data[4], data[5], data[6])
 					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", resourceMsg, data, flag)
-					self.cmf.back()
 			except Exception as e:
 				print ("check_resource_account fail:" + str(e))
+
+		self.cmf.back()
 
 		self.cmf.back()
 

@@ -40,6 +40,7 @@ class testLinuxResource(object):
 		self.resource = Resource(driver)
 		self.linux = LinuxResource(driver)
 		self.role = Role(driver)
+		self.data = dataFileName()
 
 	u'''获取测试数据
 	   Parameters:
@@ -76,10 +77,6 @@ class testLinuxResource(object):
 					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", resourceMsg, data, flag)
 					self.cmf.back()
-					self.frameElem.switch_to_content()
-					elemText = self.getElem.find_element_wait_and_compare_text("xpath", resourceMsg, [0, "ip可用性校验失败！"])
-					if elemText:
-						self.cmf.click_msg_button(1)
 			except Exception as e:
 				print ("add_resource fail:" + str(e))
 
@@ -148,12 +145,12 @@ class testLinuxResource(object):
 		self.log.log_end("check_linux_resource")
 
 	u'''查询资源'''
-	def query_resource_004(self):
+	def query_resource_004(self, dataPath, sheetName):
 
 		#日志开始记录
 		self.log.log_start("query_resource")
 		#获取添加资源测试数据
-		resourceData = self.get_resource_table_data("query_resource")
+		resourceData = self.data.get_data(dataPath, sheetName)
 
 		for dataRow in range(len(resourceData)):
 			data = resourceData[dataRow]
@@ -181,12 +178,12 @@ class testLinuxResource(object):
 		self.log.log_end("query_resource")
 
 	u'''删除资源'''
-	def del_resource_005(self):
+	def del_resource_005(self, dataPath, sheetName):
 
 		#日志开始记录
 		self.log.log_start("del_resource")
 		#获取添加资源测试数据
-		resourceData = self.get_resource_table_data("del_resource")
+		resourceData = self.data.get_data(dataPath, sheetName)
 		#保存成功的弹出框
 		resourceMsg = self.testrole.popup()
 

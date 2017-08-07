@@ -150,6 +150,11 @@ class Accountmgr(object):
 		self.getElem.find_element_wait_and_clear("id", "fortAccountName")
 		self.getElem.find_element_wait_and_sendkeys("id", "fortAccountName", actname)
 
+	u'''清空资源账号名称'''
+	def clear_account_name(self):
+		self.frameElem.from_frame_to_otherFrame("mainFrame")
+		self.getElem.find_element_wait_and_clear("id", "fortAccountName")
+
 	u'''填写资源账号口令
 	   Parameters:
 	      - pwd:资源账号口令
@@ -160,6 +165,11 @@ class Accountmgr(object):
 		self.getElem.find_element_wait_and_clear("id", "fortAccountPassword")
 		self.getElem.find_element_wait_and_sendkeys("id", "fortAccountPassword", rspwd)
 
+	u'''清空资源账号口令'''
+	def clear_account_pwd(self):
+		self.frameElem.from_frame_to_otherFrame("mainFrame")
+		self.getElem.find_element_wait_and_clear("id", "fortAccountPassword")
+
 	u'''填写资源账号确认口令
 	   Parameters:
 	      - confpwd:资源账号确认口令
@@ -169,6 +179,14 @@ class Accountmgr(object):
 		self.frameElem.from_frame_to_otherFrame("mainFrame")
 		self.getElem.find_element_wait_and_clear("id", "fortAccountPasswordAgain")
 		self.getElem.find_element_wait_and_sendkeys("id", "fortAccountPasswordAgain", rscfpwd)
+
+	u'''清空资源账号确认口令
+	   Parameters:
+	      - confpwd:资源账号确认口令
+	'''
+	def clear_account_confirm_pwd(self):
+		self.frameElem.from_frame_to_otherFrame("mainFrame")
+		self.getElem.find_element_wait_and_clear("id", "fortAccountPasswordAgain")
 
 	u'''勾选是否可授权按钮
 	   Parameters:

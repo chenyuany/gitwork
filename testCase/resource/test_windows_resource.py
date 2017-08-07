@@ -22,9 +22,9 @@ sys.path.append("/testIsomp/testCase/role/")
 from test_role import testRole
 sys.path.append("/testIsomp/webElement/resource/")
 from test_resource_common import Resource
-from test_network_ment import NetworkResource
+from test_windows_ment import WindowsResource
 
-class testNetworkResource(object):
+class testWindowsResource(object):
 
 	def __init__(self, driver):
 		self.driver = driver
@@ -34,106 +34,106 @@ class testNetworkResource(object):
 		self.frameElem = frameElement(driver)
 		self.testrole = testRole(driver)
 		self.resource = Resource(driver)
-		self.net = NetworkResource(driver)
+		self.window = WindowsResource(driver)
 
 	u'''获取测试数据
 	   Parameters:
 	      - sheetname:sheet名称
 	   return：表格数据
 	'''
-	def get_network_table_data(self, sheetname):
+	def get_windows_table_data(self, sheetname):
 		dataFile = dataFileName()
-		networkPath = dataFile.get_network_resource_test_data_url()
-		networkData = dataFile.get_data(networkPath, sheetname)
-		return networkData
+		windowsPath = dataFile.get_windows_resource_test_data_url()
+		windowsData = dataFile.get_data(windowsPath, sheetname)
+		return windowsData
 
-	u'''添加网络设备资源'''
-	def add_network_resource_001(self):
+	u'''添加windows资源'''
+	def add_windows_resource_001(self):
 
 		#日志开始记录
-		self.log.log_start("add_network_resource")
-		#获取添加网络设备资源测试数据
-		networkData = self.get_network_table_data("add_network_resource")
+		self.log.log_start("add_windows_resource")
+		#获取添加windows资源测试数据
+		windowsData = self.get_windows_table_data("add_windows_resource")
 		#保存成功的弹出框
-		networkMsg = self.testrole.popup()
+		windowsMsg = self.testrole.popup()
 
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
 
-		for dataRow in range(len(networkData)):
-			data = networkData[dataRow]
+		for dataRow in range(len(windowsData)):
+			data = windowsData[dataRow]
 			try:
 				#如果不是第一行标题，则读取数据
 				if dataRow != 0:
 					self.resource.click_add_edit_button()
 					self.resource.select_resource_type(data[2])
-					self.net.add_edit_network_resource(data)
+					self.window.add_edit_windows_resource(data)
 					self.frameElem.switch_to_content()
-					self.cmf.test_win_check_point("xpath", networkMsg, data, flag)
+					self.cmf.test_win_check_point("xpath", windowsMsg, data, flag)
 					self.cmf.back()
 			except Exception as e:
-				print ("add_network_resource fail:" + str(e))
+				print ("add_windows_resource fail:" + str(e))
 
-		self.log.log_end("add_network_resource")
+		self.log.log_end("add_windows_resource")
 
-	u'''编辑网络设备资源'''
-	def edit_network_resource_002(self):
+	u'''编辑windows资源'''
+	def edit_windows_resource_002(self):
 
 		#日志开始记录
-		self.log.log_start("edit_network_resource")
-		#获取编辑网络设备资源测试数据
-		networkData = self.get_network_table_data("edit_network_resource")
+		self.log.log_start("edit_windows_resource")
+		#获取编辑windows资源测试数据
+		windowsData = self.get_windows_table_data("edit_windows_resource")
 		#保存成功的弹出框
-		networkMsg = self.testrole.popup()
+		windowsMsg = self.testrole.popup()
 
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
 
-		for dataRow in range(len(networkData)):
-			data = networkData[dataRow]
+		for dataRow in range(len(windowsData)):
+			data = windowsData[dataRow]
 			try:
 				#如果不是第一行标题，则读取数据
 				if dataRow != 0:
 					self.resource.click_add_edit_button(data[2])
-					self.net.add_edit_network_resource(data)
+					self.window.add_edit_windows_resource(data)
 					self.frameElem.switch_to_content()
 					self.cmf.click_msg_button(1)
-					self.cmf.test_win_check_point("xpath", networkMsg, data, flag)
+					self.cmf.test_win_check_point("xpath", windowsMsg, data, flag)
 					self.cmf.back()
 			except Exception as e:
-				print ("edit_network_resource fail:" + str(e))
+				print ("edit_windows_resource fail:" + str(e))
 
-		self.log.log_end("edit_network_resource")
+		self.log.log_end("edit_windows_resource")
 
-	u'''检验网络设备资源'''
-	def check_network_resource_003(self):
+	u'''检验windows资源'''
+	def check_windows_resource_003(self):
 
 		#日志开始记录
-		self.log.log_start("check_network_resource")
-		#获取校验网络设备资源测试数据
-		networkData = self.get_network_table_data("check_network_resource")
+		self.log.log_start("check_windows_resource")
+		#获取校验windows资源测试数据
+		windowsData = self.get_windows_table_data("check_windows_resource")
 		#保存成功的弹出框
-		networkMsg = self.testrole.popup()
+		windowsMsg = self.testrole.popup()
 
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
 
 		#点击添加按钮
 		self.resource.click_add_edit_button()
-		#选择debian类型
-		self.resource.select_resource_type("迈普")
+		#选择windows类型
+		self.resource.select_resource_type("Windows Server 2008")
 
-		for dataRow in range(len(networkData)):
-			data = networkData[dataRow]
+		for dataRow in range(len(windowsData)):
+			data = windowsData[dataRow]
 			try:
 				#如果不是第一行标题，则读取数据
 				if dataRow != 0:
-					self.net.check_network_resource(dataRow, data)
+					self.window.check_windows_resource(dataRow, data)
 					self.frameElem.switch_to_content()
-					self.cmf.test_win_check_point("xpath", networkMsg, data, flag)
+					self.cmf.test_win_check_point("xpath", windowsMsg, data, flag)
 			except Exception as e:
-				print ("check_network_resource fail:" + str(e))
+				print ("check_windows_resource fail:" + str(e))
 
 		self.cmf.back()
 
-		self.log.log_end("check_network_resource")
+		self.log.log_end("check_windows_resource")

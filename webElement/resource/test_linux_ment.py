@@ -138,7 +138,12 @@ class LinuxResource(object):
 	      - cmfpwd:确认口令
 	'''
 	def check_resource_account(self, value='no', addactname='no', pwd='no', cmfpwd='no'):
-		self.account.click_account_add_edit_button()
+		if addactname == 'no':
+			self.account.clear_account_name()
+		if pwd == 'no':
+			self.account.clear_account_pwd()
+		if cmfpwd == 'no':
+			self.account.clear_account_confirm_pwd()
 		if value != 'no':
 			self.account.select_edit_way(value)
 		if addactname != 'no':

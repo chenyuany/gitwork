@@ -134,6 +134,9 @@ class Resource(object):
 			self.frameElem.from_frame_to_otherFrame("mainFrame")
 			self.getElem.find_element_wait_and_clear('id', self.RESOURCE_IP)
 			self.getElem.find_element_wait_and_sendkeys('id', self.RESOURCE_IP, ipdress)
+			self.getElem.find_element_wait_and_click_EC("id", "spanid")
+			self.getElem.find_element_with_wait_EC("classname", "ip_succ")
+			self.driver.implicitly_wait(5)
 		except Exception as e:
 			print "resourcename is error :" + str(e)
 

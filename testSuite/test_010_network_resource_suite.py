@@ -36,9 +36,6 @@ class testNetworkResourceSuite(unittest.TestCase):
 		self.network = testNetworkResource(self.browser)
 		self.account = testResourceAccount(self.browser)
 
-		# self.comsuit.login_and_switch_to_dep()
-		# self.comsuit.switch_to_moudle(u"运维管理", u"资源")
-
 		#资源前置条件
 		self.comsuit.resource_module_prefix_condition()
 
@@ -60,12 +57,10 @@ class testNetworkResourceSuite(unittest.TestCase):
 		self.account.del_resource_account_004(_testDataPath.NETWORK_RESOURCE_TEST_DATA_URL, "del_network_account")
 		#全选删除网络设备资源账号
 		self.account.bulkdel_resource_account_005(_testDataPath.NETWORK_RESOURCE_TEST_DATA_URL, "bulkdel_network_account")
-
-		#------------------------------查询资源、删除、全选删除资源-----------------------------------
-		# 查询资源
-		self.linuxresource.query_resource_004()
-		#删除资源
-		self.linuxresource.del_resource_005()
+		# 查询网络设备资源
+		self.linuxresource.query_resource_004(_testDataPath.NETWORK_RESOURCE_TEST_DATA_URL, "query_network_resource")
+		#删除网络设备资源
+		self.linuxresource.del_resource_005(_testDataPath.NETWORK_RESOURCE_TEST_DATA_URL, "del_network_resource")
 		#全选删除资源
 		self.linuxresource.bulkdel_resource_006()
 
