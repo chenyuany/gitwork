@@ -16,7 +16,7 @@ sys.setdefaultencoding('utf-8')
 sys.path.append("/testIsomp/testData/")
 from _testDataPath import dataFileName
 sys.path.append("/testIsomp/common")
-from _icommon import commonFun,getElement,selectElement,frameElement,tableElement
+from _icommon import commonFun,frameElement
 from _log import log
 sys.path.append("/testIsomp/testCase/role/")
 from test_role import testRole
@@ -32,9 +32,6 @@ class testLinuxResource(object):
 		self.driver = driver
 		self.log = log()
 		self.cmf = commonFun(driver)
-		self.getElem = getElement(driver)
-		self.selectElem = selectElement(driver)
-		self.tableElem = tableElement(driver)
 		self.frameElem = frameElement(driver)
 		self.testrole = testRole(driver)
 		self.resource = Resource(driver)

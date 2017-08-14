@@ -13,9 +13,8 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.path.append("/testIsomp/common/")
-from _log import log
 from _cnEncode import cnEncode
-from _icommon import getElement,selectElement,frameElement,commonFun
+from _icommon import getElement,frameElement
 sys.path.append("/testIsomp/webElement/department/")
 from test_dptm_ment import Department
 
@@ -24,11 +23,8 @@ class Regroup(object):
 	def __init__(self, driver):
 		self.driver = driver
 		self.getElem = getElement(driver)
-		self.selectElem = selectElement(driver)
 		self.frameElem = frameElement(driver)
-		self.cmf = commonFun(driver)
 		self.cnEn = cnEncode()
-		self.log = log()
 		self.dptment = Department(driver)
 
 	u'''左边框点击资源组'''

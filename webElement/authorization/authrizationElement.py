@@ -1045,6 +1045,7 @@ class AuthorizationPage():
     
     u'''点击建立关联'''
     def click_create_relate(self):
+        self.frameElem.switch_to_artIframe()
         self.click_button_common('id',self.CREATE_RELATE)
     
     u'''取消关联'''

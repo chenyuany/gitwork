@@ -20,7 +20,6 @@ from _icommon import getElement,selectElement,frameElement
 from _cnEncode import cnEncode
 sys.path.append("/testIsomp/webElement/resource/")
 from test_resource_common import Resource
-from test_resource_accountmgr_ment import Accountmgr
 
 class WindowsResource(object):
 
@@ -29,9 +28,7 @@ class WindowsResource(object):
 		self.getElem = getElement(driver)
 		self.selectElem = selectElement(driver)
 		self.frameElem = frameElement(driver)
-		self.log = log()
 		self.resource = Resource(driver)
-		self.account = Accountmgr(driver)
 		self.cnEn = cnEncode()
 
 	u'''添加和编辑windows资源

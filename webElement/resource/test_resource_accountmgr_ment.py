@@ -13,7 +13,6 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.path.append("/testIsomp/common/")
-from _log import log
 from _icommon import getElement,selectElement,frameElement,commonFun
 from _cnEncode import cnEncode
 
@@ -28,7 +27,6 @@ class Accountmgr(object):
 		self.selectElem = selectElement(driver)
 		self.frameElem = frameElement(driver)
 		self.cmf = commonFun(driver)
-		self.log = log()
 		self.cnEn = cnEncode()
 
 	u'''点击账号管理按钮

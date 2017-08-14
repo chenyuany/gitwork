@@ -16,7 +16,7 @@ sys.setdefaultencoding('utf-8')
 sys.path.append("/testIsomp/testData/")
 from _testDataPath import dataFileName
 sys.path.append("/testIsomp/common")
-from _icommon import commonFun,getElement,selectElement,frameElement,tableElement
+from _icommon import commonFun,frameElement
 from _log import log
 sys.path.append("/testIsomp/webElement/department/")
 from test_dptm_ment import Department
@@ -32,9 +32,6 @@ class testRegroup(object):
 		self.log = log()
 		self.testrole = testRole(driver)
 		self.cmf = commonFun(driver)
-		self.getElem = getElement(driver)
-		self.selectElem = selectElement(driver)
-		self.tableElem = tableElement(driver)
 		self.frameElem = frameElement(driver)
 		self.regroup = Regroup(driver)
 		self.dptment = Department(driver)

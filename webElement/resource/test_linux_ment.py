@@ -13,8 +13,7 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.path.append("/testIsomp/common/")
-from _log import log
-from _icommon import getElement,selectElement,frameElement,commonFun
+from _icommon import frameElement
 sys.path.append("/testIsomp/webElement/resource/")
 from test_resource_common import Resource
 from test_resource_accountmgr_ment import Accountmgr
@@ -23,11 +22,7 @@ class LinuxResource(object):
 
 	def __init__(self, driver):
 		self.driver = driver
-		self.getElem = getElement(driver)
-		self.selectElem = selectElement(driver)
 		self.frameElem = frameElement(driver)
-		self.cmf = commonFun(driver)
-		self.log = log()
 		self.resource = Resource(driver)
 		self.account = Accountmgr(driver)
 

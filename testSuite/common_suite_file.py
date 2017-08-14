@@ -36,6 +36,8 @@ from test_resource_accountmgr_ment import Accountmgr
 sys.path.append("/testIsomp/webElement/group/")
 from test_regroup_ment import Regroup
 from test_usergroup_ment import Usergroup
+sys.path.append("/testIsomp/webElement/authorization/")
+from authrizationElement import AuthorizationPage
 
 
 class setDriver():
@@ -81,6 +83,7 @@ class CommonSuiteData():
         self.account = Accountmgr(self.driver)
         self.usergroup = Usergroup(self.driver)
         self.regroup = Regroup(self.driver)
+        self.authElem = AuthorizationPage(driver)
 
     u'''切换模块
             parameter:
@@ -357,6 +360,40 @@ class CommonSuiteData():
         self.account.click_save_account()
         self.cmf.click_login_msg_button()
 
+#-----------------------------授权----------------------------------------
+    u'''填写授权基本信息
+            parameters:
+                data[1]:授权名称
+                data[2]:部门名称
+                data[3]:状态
+    '''
+    def set_authorization(self, data):
+        self.switch_to_moudle(u'运维管理', u'授权')
+        self.authElem.add_button()
+        self.authElem.set_auth_name(data[1])
+        self.authElem.set_dep(data[2], data[3])
+        self.authElem.click_add_user()
+        self.authElem.set_select_user_search_button()
+        self.authElem.set_user_check_all_button()
+        self.authElem.set_ok_button()
+        #添加资源
+        self.authElem.click_add_res()
+        self.authElem.set_select_res_search_button()
+        self.authElem.set_res_check_all_button()
+        self.authElem.set_ok_button()
+        self.authElem.save_button()
+        self.cmf.click_login_msg_button()
+        self.cmf.back()
+
+    u'''删除授权'''
+    def del_authorization(self):
+        self.switch_to_moudle(u"运维管理", u"授权")
+        self.frameElem.from_frame_to_otherFrame("mainFrame")
+        self.cmf.check_all()
+        self.cmf.bulkdel("delete_authorization")
+        self.cmf.click_login_msg_button()
+        self.cmf.click_login_msg_button()
+
         
 #-----------------------------数据----------------------------------------
     u'''获取数据
@@ -440,8 +477,8 @@ class CommonSuiteData():
     def use_new_user_login(self):
         login_data = self.get_table_data("common_user")
         logindata = login_data[1]
+        time.sleep(1)
         self.loginElem.login(logindata)
-    
     
     u'''添加认证配置'''
     def add_meth_method(self):
@@ -529,6 +566,14 @@ class CommonSuiteData():
             data = res_group_data[dataRow]
             if dataRow != 0:
                 self.set_del_res_group(data)
+
+    u'''添加授权'''
+    def add_authrization(self, rowList):
+        auth_data = self.get_table_data("add_authorization")
+        for dataRow in rowList:
+            data = auth_data[dataRow]
+            if dataRow != 0:
+                self.set_authorization(data)
 
 #-------------------------------前置条件---------------------------------------
     u'''前置条件通用'''
@@ -719,6 +764,37 @@ class CommonSuiteData():
         self.switch_to_moudle(u"运维管理", u"组织定义")
 
     def usergroup_module_post_condition(self):
+        #切换至系统级角色
+        self.dep_switch_to_sys()
+        self.module_common_post_condition()
+
+#------------------------------流程前置条件-----------------------------------
+    def process_module_prefix_condition(self):
+        self.module_common_prefix_condition()
+        self.add_user_with_role()
+        #添加用户
+        self.add_user_data_module([2,3,5,11])
+        #退出
+        self.user_quit()
+        #使用添加的用户登录并切换至部门级角色
+        self.login_and_switch_to_dep()
+        #切换到资源
+        self.switch_to_moudle(u"运维管理", u"资源")
+        #添加资源
+        self.add_resource()
+        #添加资源账号
+        self.add_res_account()
+        #切换到授权
+        self.switch_to_moudle(u'运维管理', u'授权')
+        self.add_authrization([1])
+
+    def process_module_post_condition(self):
+        #用户登录切换部门角色
+        self.login_and_switch_to_dep()
+        #删除授权
+        self.del_authorization()
+        #删除资源
+        self.del_resource()
         #切换至系统级角色
         self.dep_switch_to_sys()
         self.module_common_post_condition()

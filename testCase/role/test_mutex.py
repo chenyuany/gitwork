@@ -13,7 +13,7 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.path.append("/testIsomp/common")
-from _icommon import commonFun,getElement,selectElement,frameElement
+from _icommon import commonFun,frameElement
 sys.path.append("/testIsomp/testCase/role/")
 from test_role import  testRole
 sys.path.append("/testIsomp/log/")
@@ -29,8 +29,6 @@ class testMutex(object):
 		self.rolemutex = roleMutex(driver)
 		self.role = testRole(driver)
 		self.cmf = commonFun(driver)
-		self.getElem = getElement(driver)
-		self.selectElem = selectElement(driver)
 		self.frameElem = frameElement(driver)
 
 	u'''添加互斥角色'''

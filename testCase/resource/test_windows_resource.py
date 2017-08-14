@@ -16,7 +16,7 @@ sys.setdefaultencoding('utf-8')
 sys.path.append("/testIsomp/testData/")
 from _testDataPath import dataFileName
 sys.path.append("/testIsomp/common")
-from _icommon import commonFun,frameElement,getElement
+from _icommon import commonFun,frameElement
 from _log import log
 sys.path.append("/testIsomp/testCase/role/")
 from test_role import testRole
@@ -30,7 +30,6 @@ class testWindowsResource(object):
 		self.driver = driver
 		self.log = log()
 		self.cmf = commonFun(driver)
-		self.getElem = getElement(driver)
 		self.frameElem = frameElement(driver)
 		self.testrole = testRole(driver)
 		self.resource = Resource(driver)

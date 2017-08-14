@@ -42,6 +42,12 @@ REGROUP_TEST_DATA_URL = r"/testIsomp/testData/regroup_test_data.xlsx"
 #用户组数据文件
 USERGROUP_TEST_DATA_URL = r"/testIsomp/testData/usergroup_test_data.xlsx"
 
+#访问审批数据文件
+ACCAPPROVAL_TEST_DATA_URL = r"/testIsomp/testData/accapproval_test_data.xlsx"
+
+#双人授权数据文件
+DOUBLE_LICENSE_TEST_DATA_URL = r"/testIsomp/testData/double_license_test_data.xlsx"
+
 class dataFileName(object):
     #获取通用excel中的数据
     def get_common_suite_test_data_url(self):
@@ -90,6 +96,14 @@ class dataFileName(object):
     u"""获取windows资源文件的数据"""
     def get_windows_resource_test_data_url(self):
         return WINDOWS_RESOURCE_TEST_DATA_URL
+
+    u"""获取访问审批文件的数据"""
+    def get_accapproval_test_data_url(self):
+        return ACCAPPROVAL_TEST_DATA_URL
+
+    u"""获取双人授权文件的数据"""
+    def get_double_license_test_data_url(self):
+        return DOUBLE_LICENSE_TEST_DATA_URL
 
     #从sheet名称获取登陆数据
     def get_data(self,dataPath,sheetName):

@@ -15,7 +15,7 @@ sys.setdefaultencoding('utf-8')
 sys.path.append("/testIsomp/common/")
 from _cnEncode import cnEncode
 from _log import log
-from _icommon import getElement,selectElement,frameElement,commonFun
+from _icommon import getElement,frameElement
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 
@@ -25,9 +25,7 @@ class Department(object):
 	def __init__(self, driver):
 		self.driver = driver
 		self.getElem = getElement(driver)
-		self.selectElem = selectElement(driver)
 		self.frameElem = frameElement(driver)
-		self.cmf = commonFun(driver)
 		self.log = log()
 		self.cnEn = cnEncode()
 

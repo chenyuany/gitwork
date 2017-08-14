@@ -776,7 +776,9 @@ class commonFun(object):
     def select_time(self,wdateId,fxpath,status='0',type='t',txpath = None,time = None):
         
         self.getElem.find_element_wait_and_click("id",wdateId)
-        
+
+        self.driver.switch_to_default_content()
+
         frame = self.driver.find_element_by_xpath(fxpath)
         self.driver.switch_to_frame(frame)
     
@@ -810,8 +812,9 @@ class commonFun(object):
                 #设定月
                 dTitle[0].clear()
                 dTitle[0].send_keys(tMon)
+                self.getElem.find_element_wait_and_click_EC("id", "dpTitle")
                 if txpath is not None:
-                
+
                     table_elem = tableElement(self.driver)
                                     
                     iStatus = False
