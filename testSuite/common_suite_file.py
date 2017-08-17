@@ -477,7 +477,7 @@ class CommonSuiteData():
     def use_new_user_login(self):
         login_data = self.get_table_data("common_user")
         logindata = login_data[1]
-        time.sleep(1)
+        time.sleep(2)
         self.loginElem.login(logindata)
     
     u'''添加认证配置'''

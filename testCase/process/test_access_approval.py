@@ -20,6 +20,8 @@ from _icommon import commonFun
 from _log import log
 sys.path.append("/testIsomp/webElement/process/")
 from test_access_approval_ment import Accapproval
+sys.path.append("/testIsomp/testSuite/common_suite_file/")
+from common_suite_file import CommonSuiteData
 sys.path.append("/testIsomp/webElement/authorization")
 from authrizationElement import AuthorizationPage
 sys.path.append("/testIsomp/webElement/login/")
@@ -33,6 +35,7 @@ class testAccapproval(object):
 		self.data = dataFileName()
 		self.cmf = commonFun(driver)
 		self.acproval = Accapproval(driver)
+		self.comsuit = CommonSuiteData(self.driver)
 		self.loginElem = loginPage(self.driver)
 		self.authElem = AuthorizationPage(self.driver)
 
@@ -83,6 +86,8 @@ class testAccapproval(object):
 
 	u'''访问审批通过流程控制拒绝审批'''
 	def access_deny_approvel_002(self):
+
+		self.cmf.select_role_by_text(u"运维操作员")
 		#日志开始记录
 		self.log.log_start("access_deny_approvel")
 		#获取访问审批申请的数据
@@ -99,12 +104,17 @@ class testAccapproval(object):
 					number = self.acproval.get_new_process_number()
 					self.loginElem.quit()
 					self.acproval.approval_by_approver(acpData, number)
+					self.comsuit.use_new_user_login()
+					self.acproval.check_access_ico_len(data[1])
+					self.loginElem.quit()
 			except Exception as e:
 				print ("access_deny_approvel fail: ") + str(e)
 		self.log.log_end("access_deny_approvel")
 
 	u'''访问审批通过流程控制同意审批'''
 	def access_agree_approvel_003(self):
+
+		self.comsuit.use_new_user_login()
 		#日志开始记录
 		self.log.log_start("access_agree_approvel")
 		#获取访问审批申请的数据
@@ -121,12 +131,17 @@ class testAccapproval(object):
 					number = self.acproval.get_new_process_number()
 					self.loginElem.quit()
 					self.acproval.approval_by_approver(acpData, number)
+					self.comsuit.use_new_user_login()
+					self.acproval.check_access_ico_len(data[1])
+					self.loginElem.quit()
 			except Exception as e:
 				print ("access_agree_approvel fail: ") + str(e)
 		self.log.log_end("access_agree_approvel")
 
 	u'''紧急运维通过流程控制拒绝审批'''
 	def urgent_deny_approvel_004(self):
+
+		self.comsuit.use_new_user_login()
 		#日志开始记录
 		self.log.log_start("urgent_deny_approvel")
 		#获取访问审批申请的数据
@@ -149,6 +164,8 @@ class testAccapproval(object):
 
 	u'''紧急运维通过流程控制同意审批'''
 	def urgent_agree_approvel_005(self):
+
+		self.comsuit.use_new_user_login()
 		#日志开始记录
 		self.log.log_start("urgent_agree_approvel")
 		#获取访问审批申请的数据

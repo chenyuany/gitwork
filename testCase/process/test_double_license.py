@@ -23,6 +23,10 @@ sys.path.append("/testIsomp/webElement/authorization")
 from authrizationElement import AuthorizationPage
 sys.path.append("/testIsomp/webElement/login/")
 from loginElement import loginPage
+sys.path.append("/testIsomp/testSuite/common_suite_file/")
+from common_suite_file import CommonSuiteData
+sys.path.append("/testIsomp/webElement/process/")
+from test_access_approval_ment import Accapproval
 
 class testDobapproval(object):
 
@@ -32,8 +36,10 @@ class testDobapproval(object):
 		self.data = dataFileName()
 		self.cmf = commonFun(driver)
 		self.double = Dobapproval(driver)
+		self.comsuit = CommonSuiteData(self.driver)
 		self.loginElem = loginPage(self.driver)
 		self.authElem = AuthorizationPage(self.driver)
+		self.acproval = Accapproval(driver)
 
 	u'''获取测试数据
 	   Parameters:
@@ -73,37 +79,94 @@ class testDobapproval(object):
 
 	u'''双人审批同终端审批'''
 	def same_termina_approvel_002(self):
+
+		self.cmf.select_role_by_text(u"运维操作员")
 		#日志开始记录
 		self.log.log_start("same_termina_approvel")
 		#获取双人审批申请的数据
-		appData = self.get_double_data("double_license_sso")
+		dobData = self.get_double_data("double_license_sso")
 
-		for dataRow in range(len(appData)):
-			data = appData[dataRow]
+		for dataRow in range(len(dobData)):
+			data = dobData[dataRow]
 			try:
 				#如果是第1行,读取数据
 				if dataRow == 1:
 					self.double.send_double_license_applicant(data)
+					self.double.check_ico_len(data[1])
 					self.loginElem.quit()
 			except Exception as e:
 				print ("same_termina_approvel fail: ") + str(e)
 		self.log.log_end("same_termina_approvel")
 
-	u'''双人审批终端拒绝审批'''
-	def termina_deny_approvel_003(self):
-		#日志开始记录
-		self.log.log_start("termina_deny_approvel")
-		#获取双人审批申请的数据
-		appData = self.get_double_data("double_license_sso")
+	u'''双人审批申请人已下线审批过期'''
+	def termina_expired_approvel_003(self):
 
-		for dataRow in range(len(appData)):
-			data = appData[dataRow]
+		self.comsuit.use_new_user_login()
+		#日志开始记录
+		self.log.log_start("Expired_approvel")
+		#获取双人审批申请的数据
+		dobData = self.get_double_data("double_license_sso")
+		expData = self.get_double_data("termina_approvel")
+
+		for dataRow in range(len(dobData)):
+			data = dobData[dataRow]
 			try:
 				#如果不是第1行,读取数据
 				if dataRow == 2:
 					self.double.send_double_license_applicant(data)
+					number = self.acproval.get_new_process_number()
 					self.loginElem.quit()
-					self.comsuit.use_new_user_login()
+					self.double.approver_by_process_approval(expData, number)
 			except Exception as e:
-				print ("termina_deny_approvel fail: ") + str(e)
-		self.log.log_end("termina_deny_approvel")
+				print ("Expired_approvel fail: ") + str(e)
+		self.log.log_end("Expired_approvel")
+
+	u'''双人审批审批人拒绝申请'''
+	def termina_deny_approvel_004(self):
+
+		self.comsuit.use_new_user_login()
+		#日志开始记录
+		self.log.log_start("deny_double_approvel")
+		#获取双人审批申请的数据
+		dobData = self.get_double_data("double_license_sso")
+		expData = self.get_double_data("deny_approvel")
+
+		for dataRow in range(len(dobData)):
+			data = dobData[dataRow]
+			try:
+				#如果不是第1行,读取数据
+				if dataRow == 2:
+					self.double.send_double_license_applicant(data)
+					number = self.acproval.get_new_process_number()
+					self.double.approver_remote_approval(expData, number)
+					self.cmf.select_menu(u"运维操作", u"SSO")
+					self.double.check_ico_len(data[1])
+					self.loginElem.quit()
+			except Exception as e:
+				print ("deny_double_approvel fail: ") + str(e)
+		self.log.log_end("deny_double_approvel")
+
+	u'''双人审批审批人同意申请'''
+	def termina_agree_approvel_005(self):
+
+		self.comsuit.use_new_user_login()
+		#日志开始记录
+		self.log.log_start("agree_double_approvel")
+		#获取双人审批申请的数据
+		dobData = self.get_double_data("double_license_sso")
+		expData = self.get_double_data("agree_approvel")
+
+		for dataRow in range(len(dobData)):
+			data = dobData[dataRow]
+			try:
+				#如果不是第1行,读取数据
+				if dataRow == 2:
+					self.double.send_double_license_applicant(data)
+					number = self.acproval.get_new_process_number()
+					self.double.approver_remote_approval(expData, number)
+					self.cmf.select_menu(u"运维操作", u"SSO")
+					self.double.check_ico_len(data[1])
+					self.loginElem.quit()
+			except Exception as e:
+				print ("agree_double_approvel fail: ") + str(e)
+		self.log.log_end("agree_double_approvel")

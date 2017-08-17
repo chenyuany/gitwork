@@ -16,8 +16,6 @@ sys.setdefaultencoding('utf-8')
 from datetime import datetime
 from xlrd import xldate_as_tuple
 
-from selenium import webdriver
-
 sys.path.append("/testIsomp/common/")
 from _log import log
 from _icommon import getElement, selectElement, frameElement, commonFun
@@ -376,18 +374,39 @@ class Accapproval(object):
 		for input in inputselems:
 			input.click()
 
-	def a(self):
-		pass
+	u'''点击刷新图标
+            parameters :
+                rename : 资源名称
+    '''
+	def click_refresh_icon(self, rename):
+		self.frameElem.from_frame_to_otherFrame("rigthFrame")
+		rname = self.cnEn.is_float(rename)
+		row = self.find_name_by_row(rname, "fortResourceName")
+		xpath = "/html/body/div[1]/div[7]/div[2]/div/table/tbody/tr[" + str(
+			row * 2) + "]/td/div/table/tbody/tr/td[3]/a/img"
+		isExsit = self.getElem.is_element_exsit("xpath", xpath)
 
-	# newhlond = webdriver.Ie()
-	# #IE窗口最大化
-	# newhlond.maximize_window()
-	# newhlond.get("https://172.16.10.169")
-	# newhlond.get("javascript:document.getElementById('overridelink').click();")
-	# self.frameElem.switch_to_content()
-	# self.loginElem.set_login_method(listuser)
-	# self.loginElem.set_login_username(user)
-	# self.user_login(listuser)
+		if isExsit == True:
+			self.getElem.find_element_wait_and_click_EC("xpath", xpath)
+
+	u'''校验图标
+	   parameters :
+            - rename:资源名称
+	'''
+	def check_access_ico_len(self, rename):
+		self.frameElem.from_frame_to_otherFrame("rigthFrame")
+		time.sleep(5)
+		row = self.select_resoure_sso(rename)
+		self.click_refresh_icon(rename)
+		ico_xpath = "/html/body/div[1]/div[7]/div[2]/div[1]/table/tbody/tr[" + str(
+			row * 2) + "]/td/div/table/tbody/tr/td[2]"
+		selem = self.getElem.find_element_with_wait_EC("xpath", ico_xpath)
+		selems = selem.find_elements_by_tag_name("a")
+		lengh = len(selems)
+		if lengh > 2:
+			self.log.log_detail(u"访问审批已同意申请，可进行单点登录操作", True)
+		else:
+			self.log.log_detail(u"访问审批已拒绝申请，不可进行单点登录操作", True)
 
 	u'''申请人发送访问审批申请
 	   Parameters:
