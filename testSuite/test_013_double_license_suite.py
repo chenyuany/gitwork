@@ -34,7 +34,7 @@ class testAccapprovalSuite(unittest.TestCase):
 		#流程前置条件
 		self.comsuit.process_module_prefix_condition()
 
-	def test_access_approval(self):
+	def test_double_approval(self):
 		# 添加双人授权
 		self.double.add_double_license_001()
 		u'''双人审批同终端审批'''
@@ -45,6 +45,16 @@ class testAccapprovalSuite(unittest.TestCase):
 		self.double.termina_deny_approvel_004()
 		u'''双人审批审批人同意申请'''
 		self.double.termina_agree_approvel_005()
+		u'''双人审批流程任务查询'''
+		self.double.double_query_process_task_006()
+		u'''双人审批个人历史查询'''
+		self.double.double_query_personal_history_007()
+		u'''双人审批申请历史查询'''
+		self.double.double_query_apply_history_008()
+		u'''双人审批全部历史查询'''
+		self.double.double_query_all_history_009()
+		u'''双人审批部门历史查询'''
+		self.double.double_query_department_history_010()
 
 	def tearDown(self):
 		#流程后置条件

@@ -503,8 +503,11 @@ class Resource(object):
 	def select_depart_common(self, idname, swithid, deptname):
 		try:
 			self.frameElem.from_frame_to_otherFrame("mainFrame")
+			self.driver.implicitly_wait(10)
 			self.getElem.find_element_wait_and_click_EC('id', idname)
+			self.driver.implicitly_wait(10)
 			self.getElem.find_element_wait_and_click_EC('id', swithid)
+			self.driver.implicitly_wait(10)
 
 			#获取所有a标签的对象
 			elems = self.driver.find_elements_by_tag_name("a")

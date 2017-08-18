@@ -33,17 +33,26 @@ class testAccapprovalSuite(unittest.TestCase):
 		self.comsuit.process_module_prefix_condition()
 
 	def test_access_approval(self):
-		pass
 		# 添加访问审批
 		self.accapproval.add_access_approvel_001()
-		#访问审批通过流程控制拒绝审批
+		u'''访问审批通过流程控制拒绝审批'''
 		self.accapproval.access_deny_approvel_002()
-		# #访问审批通过流程控制同意审批
+		u'''访问审批通过流程控制同意审批'''
 		self.accapproval.access_agree_approvel_003()
-		# #紧急运维通过流程控制拒绝审批
+		u'''紧急运维通过流程控制拒绝审批'''
 		self.accapproval.urgent_deny_approvel_004()
-		# #紧急运维通过流程控制同意审批
+		u'''紧急运维通过流程控制同意审批'''
 		self.accapproval.urgent_agree_approvel_005()
+		u'''访问审批流程任务查询'''
+		self.accapproval.access_query_process_task_006()
+		u'''访问审批个人历史查询'''
+		self.accapproval.access_query_personal_history_007()
+		u'''访问审批申请历史查询'''
+		self.accapproval.access_query_apply_history_008()
+		u'''访问审批全部历史查询'''
+		self.accapproval.access_query_all_history_009()
+		u'''访问审批部门历史查询'''
+		self.accapproval.access_query_department_history_010()
 
 	def tearDown(self):
 		#流程后置条件

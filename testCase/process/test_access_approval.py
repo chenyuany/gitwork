@@ -20,6 +20,7 @@ from _icommon import commonFun
 from _log import log
 sys.path.append("/testIsomp/webElement/process/")
 from test_access_approval_ment import Accapproval
+from test_process_common import Flowcontrol
 sys.path.append("/testIsomp/testSuite/common_suite_file/")
 from common_suite_file import CommonSuiteData
 sys.path.append("/testIsomp/webElement/authorization")
@@ -38,6 +39,7 @@ class testAccapproval(object):
 		self.comsuit = CommonSuiteData(self.driver)
 		self.loginElem = loginPage(self.driver)
 		self.authElem = AuthorizationPage(self.driver)
+		self.flow = Flowcontrol(self.driver)
 
 	u'''获取测试数据
 	   Parameters:
@@ -185,3 +187,100 @@ class testAccapproval(object):
 			except Exception as e:
 				print ("urgent_agree_approvel fail: ") + str(e)
 		self.log.log_end("urgent_agree_approvel")
+
+	u'''访问审批流程任务查询'''
+	def access_query_process_task_006(self):
+		#日志开始记录
+		self.log.log_start("access_query_process_task")
+		#获取流程任务查询的数据
+		taskData = self.get_accapproval_data("process_task")
+
+		for dataRow in range(len(taskData)):
+			data = taskData[dataRow]
+			try:
+				#如果不是第1行,读取数据
+				if dataRow != 0:
+					if dataRow == 1:
+						self.acproval.user_login(data[1])
+					self.flow.query_process_task(data)
+					self.log.log_detail(data[0], True)
+			except Exception as e:
+				print ("access_query_process_task fail: ") + str(e)
+		self.log.log_end("access_query_process_task")
+
+	u'''访问审批个人历史查询'''
+	def access_query_personal_history_007(self):
+		#日志开始记录
+		self.log.log_start("access_query_personal_history")
+		#获取个人历史查询的数据
+		perData = self.get_accapproval_data("personal_history")
+
+		for dataRow in range(len(perData)):
+			data = perData[dataRow]
+			try:
+				#如果不是第1行,读取数据
+				if dataRow != 0:
+					self.flow.query_personal_history(data)
+					self.log.log_detail(data[0], True)
+			except Exception as e:
+				print ("access_query_personal_history fail: ") + str(e)
+		self.loginElem.quit()
+		self.log.log_end("access_query_personal_history")
+
+	u'''访问审批申请历史查询'''
+	def access_query_apply_history_008(self):
+		self.comsuit.use_new_user_login()
+		#日志开始记录
+		self.log.log_start("access_query_apply_history")
+		#获取申请历史查询的数据
+		applyData = self.get_accapproval_data("apply_history")
+
+		for dataRow in range(len(applyData)):
+			data = applyData[dataRow]
+			try:
+				#如果不是第1行,读取数据
+				if dataRow != 0:
+					self.flow.query_apply_history(data)
+					self.log.log_detail(data[0], True)
+			except Exception as e:
+				print ("access_query_apply_history fail: ") + str(e)
+		self.log.log_end("access_query_apply_history")
+
+	u'''访问审批全部历史查询'''
+	def access_query_all_history_009(self):
+		self.comsuit.dep_switch_to_sys()
+		#日志开始记录
+		self.log.log_start("access_query_all_history")
+		#获取全部历史查询的数据
+		allData = self.get_accapproval_data("all_history")
+
+		for dataRow in range(len(allData)):
+			data = allData[dataRow]
+			try:
+				#如果不是第1行,读取数据
+				if dataRow != 0:
+					self.flow.query_all_history(data)
+					self.log.log_detail(data[0], True)
+			except Exception as e:
+				print ("access_query_all_history fail: ") + str(e)
+		self.log.log_end("access_query_all_history")
+
+	u'''访问审批部门历史查询'''
+	def access_query_department_history_010(self):
+		self.comsuit.sys_switch_to_dep()
+		#日志开始记录
+		self.log.log_start("access_query_department_history")
+		#获取流程任务查询的数据
+		deprtData = self.get_accapproval_data("department_history")
+
+		for dataRow in range(len(deprtData)):
+			data = deprtData[dataRow]
+			try:
+				#如果不是第1行,读取数据
+				if dataRow != 0:
+					self.flow.query_department_history(data)
+					self.log.log_detail(data[0], True)
+			except Exception as e:
+				print ("access_query_department_history fail: ") + str(e)
+		self.loginElem.quit()
+		self.log.log_end("access_query_department_history")

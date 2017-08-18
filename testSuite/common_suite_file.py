@@ -324,6 +324,7 @@ class CommonSuiteData():
         self.resource.set_resource_name(data[1])
         self.resource.set_resource_ip(data[2])
         if data[3] != 'no':
+            time.sleep(5)
             self.resource.set_depart(data[3])
         self.resource.click_save_button()
         self.cmf.click_login_msg_button()
