@@ -36,9 +36,13 @@ from test_resource_accountmgr_ment import Accountmgr
 sys.path.append("/testIsomp/webElement/group/")
 from test_regroup_ment import Regroup
 from test_usergroup_ment import Usergroup
-sys.path.append("/testIsomp/webElement/authorization/")
+#导入应用发布
+sys.path.append("/testIsomp/webElement/application")
+from appConfElement import AppPage
+sys.path.append("/testIsomp/webElement/authorization")
 from authrizationElement import AuthorizationPage
-
+sys.path.append("/testIsomp/testCase/authorization/")
+from test_authorization import testAuthorization
 
 class setDriver():
    
@@ -83,7 +87,9 @@ class CommonSuiteData():
         self.account = Accountmgr(self.driver)
         self.usergroup = Usergroup(self.driver)
         self.regroup = Regroup(self.driver)
-        self.authElem = AuthorizationPage(driver)
+        self.appElem = AppPage(self.driver)
+        self.authorizationElem = AuthorizationPage(self.driver)
+        self.testAutho = testAuthorization(self.driver)
 
     u'''切换模块
             parameter:
@@ -106,7 +112,6 @@ class CommonSuiteData():
         self.roleElem.add()
         self.roleElem.edit_rolename(list[0])
         self.roleElem.edit_shortname(list[1])
-        
         
     u'''系统级角色模板
             parameter : 
@@ -187,7 +192,6 @@ class CommonSuiteData():
         self.frameElem.switch_to_content()
         self.cmf.click_login_msg_button()
         self.cmf.click_login_msg_button()
-
     
     u'''用户退出'''
     def user_quit(self):
@@ -262,7 +266,6 @@ class CommonSuiteData():
         self.cmf.click_login_msg_button()
         self.cmf.click_login_msg_button()
         
-        
 #-----------------------------资源组------------------------------------------    
     u'''添加资源到资源组'''
     def set_res_to_group(self,data):
@@ -326,6 +329,18 @@ class CommonSuiteData():
         if data[3] != 'no':
             time.sleep(5)
             self.resource.set_depart(data[3])
+        #选择协议
+        if data[4] != "":
+            self.resource.select_agreement(data[4])
+        if data[5] != "":
+            self.resource.click_account_sync()
+            self.resource.set_admin_account(data[5])
+            self.resource.set_admin_pwd(data[6])
+            self.resource.set_confirm_pwd(data[7])
+        if data[8] != "":
+            self.resource.click_up_super()
+            self.resource.set_super_pwd(data[8])
+            self.resource.set_super_confirm_pwd(data[9])
         self.resource.click_save_button()
         self.cmf.click_login_msg_button()
         time.sleep(3)
@@ -351,12 +366,13 @@ class CommonSuiteData():
     '''
     def set_res_account(self,data):
         self.switch_to_moudle(u"运维管理",u"资源")
-        self.account.click_account_manage_button(data[1])
+        self.account.click_account_manage_button(data[0])
         self.account.click_account_add()
-        self.account.select_edit_way(data[4])
-        self.account.set_account_name(data[5])
-        self.account.set_account_pwd(data[6])
-        self.account.set_account_confirm_pwd(data[7])
+        self.account.select_edit_way(data[1])
+        if data[2] != "no":
+            self.account.set_account_name(data[2])
+        self.account.set_account_pwd(data[3])
+        self.account.set_account_confirm_pwd(data[4])
         self.account.set_authorize()
         self.account.click_save_account()
         self.cmf.click_login_msg_button()
@@ -370,28 +386,61 @@ class CommonSuiteData():
     '''
     def set_authorization(self, data):
         self.switch_to_moudle(u'运维管理', u'授权')
-        self.authElem.add_button()
-        self.authElem.set_auth_name(data[1])
-        self.authElem.set_dep(data[2], data[3])
-        self.authElem.click_add_user()
-        self.authElem.set_select_user_search_button()
-        self.authElem.set_user_check_all_button()
-        self.authElem.set_ok_button()
+        self.authorizationElem.add_button()
+        self.authorizationElem.set_auth_name(data[1])
+        self.authorizationElem.set_dep(data[2], data[3])
+        self.authorizationElem.click_add_user()
+        self.authorizationElem.set_select_user_search_button()
+        self.authorizationElem.set_user_check_all_button()
+        self.authorizationElem.set_ok_button()
         #添加资源
-        self.authElem.click_add_res()
-        self.authElem.set_select_res_search_button()
-        self.authElem.set_res_check_all_button()
-        self.authElem.set_ok_button()
-        self.authElem.save_button()
+        self.authorizationElem.click_add_res()
+        self.authorizationElem.set_select_res_search_button()
+        self.authorizationElem.set_res_check_all_button()
+        self.authorizationElem.set_ok_button()
+        self.authorizationElem.save_button()
         self.cmf.click_login_msg_button()
         self.cmf.back()
+#---------------------------------填写应用发布信息----------------------------
+    u'''填写应用发布信息'''
+    def set_application_info(self,data):
+        self.switch_to_moudle(u"系统配置",u"关联服务")
+        self.appElem.app_module_button()
+        self.appElem.click_add_button()
+        self.appElem.set_name(data[0])
+        self.appElem.set_ip(data[1])
+        self.appElem.set_app_account(data[3])
+        self.appElem.set_pwd(data[4])
+        self.appElem.set_repwd(data[5])
+        self.appElem.ip_is_succ()
+        self.appElem.click_save_button()
+        self.cmf.click_login_msg_button()
+
+    u'''删除应用发布'''
+    def del_application(self):
+        self.switch_to_moudle(u"系统配置",u"关联服务")
+        self.appElem.app_module_button()
+        self.appElem.del_all()
+        self.cmf.click_login_msg_button()
+        self.cmf.click_login_msg_button()
+    
+#------------------------------资源账号授权---------------------------------------
+    u'''添加用户和资源账号类型的授权'''
+    def set_authorization_info(self,data):
+        self.switch_to_moudle(u"运维管理",u"授权")
+        self.testAutho.common_part(data)
+        self.testAutho.add_user(data)
+        self.testAutho.add_res_account(data)
+        self.authorizationElem.res_account_status()
+        self.authorizationElem.save_button()
+        self.cmf.click_login_msg_button()
 
     u'''删除授权'''
     def del_authorization(self):
         self.switch_to_moudle(u"运维管理", u"授权")
         self.frameElem.from_frame_to_otherFrame("mainFrame")
-        self.cmf.check_all()
-        self.cmf.bulkdel("delete_authorization")
+        self.authorizationElem.check_all()
+        self.authorizationElem.del_button()
         self.cmf.click_login_msg_button()
         self.cmf.click_login_msg_button()
 
@@ -406,6 +455,14 @@ class CommonSuiteData():
         filePath = self.dataFile.get_common_suite_test_data_url()
         fileData = self.dataFile.get_data(filePath,sheetname)
         return fileData
+    
+    u'''添加应用发布'''
+    def add_application(self):
+        app_data = self.get_table_data('add_application')
+        for dataRow in range(len(app_data)):
+            data = app_data[dataRow]
+            if dataRow != 0:
+                self.set_application_info(data)
 
     u'''初始化用户登录'''
     def isomper_login(self):
@@ -413,7 +470,7 @@ class CommonSuiteData():
         logindata = login_data[1]
         self.loginElem.login(logindata)
     
-    u'''添加系统级角色'''    
+    u'''添加系统级角色'''   
     def add_sys_role(self):
         role_data = self.get_table_data("add_role")
         roleData = role_data[1]
@@ -474,6 +531,10 @@ class CommonSuiteData():
         roleList = self.login_and_switch_to_common("login")
         self.cmf.select_role_by_text(roleList[0]) 
     
+    u'''切换至运维操作员'''
+    def switch_to_operation(self):
+        self.cmf.select_role_by_text(u"运维操作员")
+    
     #使用新添加的用户登录
     def use_new_user_login(self):
         login_data = self.get_table_data("common_user")
@@ -504,6 +565,11 @@ class CommonSuiteData():
         rowList = [8,9,10,11,12]
         self.add_user_data_module(rowList)
     
+    u'''添加应用发布用户'''
+    def add_app_user(self):
+        rowList = [3]
+        self.add_user_data_module(rowList)
+    
     u'''添加部门'''
     def add_dep(self, rowList):
         dep_data = self.get_table_data("add_dep")
@@ -520,22 +586,46 @@ class CommonSuiteData():
             if dataRow != 0:
                 self.set_del_dep(data)
     
-    u'''增加资源'''
-    def add_resource(self):
-        res_data = self.get_table_data("add_authori_res")
-        for dataRow in range(len(res_data)):
+    u'''增加资源数据模板'''
+    def add_resource_modele(self,rowList):
+        res_data = self.get_table_data("add_res")
+        for dataRow in rowList:
             data = res_data[dataRow]
             if dataRow != 0:
                 self.set_resource_info(data)
     
-    u'''添加资源账号'''
-    def add_res_account(self):
-        account_data = self.get_table_data("add_authori_res")
-        for dataRow in range(len(account_data)):
+    u'''添加授权资源'''
+    def add_resource(self):
+        rowList = [1,2]
+        self.add_resource_modele(rowList)
+    
+    def add_sso_resource(self):
+        rowList = [1,3,4,5]
+        self.add_resource_modele(rowList)
+    
+    u'''添加依附操作系统'''
+    def add_database_resource(self):
+        rowList = [2]
+        self.add_resource_modele(rowList)
+    
+    u'''添加资源账号数据模板'''
+    def add_res_account_module(self,rowList):
+        account_data = self.get_table_data("res_account")
+        for dataRow in rowList:
             data = account_data[dataRow]
             if dataRow != 0:
-                self.set_res_account(data)
-       
+                self.set_res_account(data)    
+    
+    u'''添加授权资源账号'''
+    def add_res_account(self):
+        rowList = [1,3]
+        self.add_res_account_module(rowList)
+    
+    u'''添加sso资源账号'''
+    def add_sso_res_account(self):
+        rowList = [1,2,4,5,6,7]
+        self.add_res_account_module(rowList)
+        
     u'''添加用户组'''
     def add_user_group(self):
         user_group_data = self.get_table_data("add_user_group")
@@ -575,6 +665,20 @@ class CommonSuiteData():
             data = auth_data[dataRow]
             if dataRow != 0:
                 self.set_authorization(data)
+
+    u'''添加授权数据模板'''
+    def add_authorization_module(self,rowList):
+        autho_data = self.get_table_data("add_account_auth")
+        for dataRow in rowList:
+            data = autho_data[dataRow]
+            if dataRow != 0:
+                self.set_authorization_info(data)
+                self.authorizationElem.back_button()
+                
+    u'''添加单点登录授权'''
+    def add_sso_authorization(self):
+        rowList = [1]
+        self.add_authorization_module(rowList)
 
 #-------------------------------前置条件---------------------------------------
     u'''前置条件通用'''
@@ -669,11 +773,69 @@ class CommonSuiteData():
         self.del_resource()
         self.del_res_group()
         self.del_user_group()
+        self.auth_method_post_condition()
+    
+#-----------------------------客户端配置前置条件------------------------------
+    def client_module_prefix_condition(self):
+        self.module_common_prefix_condition()
+        self.add_user_with_role()
         self.user_quit()
-        self.isomper_login()
-        self.del_role()
-        self.del_user()
+        self.login_and_switch_to_sys()
+        self.switch_to_moudle(u"系统配置", u"客户端配置")
+    
+    def client_module_post_condition(self):
+        self.auth_method_post_condition()
+
+#-------------------------------应用发布后置条件-------------------------------
+    def application_module_prefix_condition(self):
+        self.module_common_prefix_condition()
+        self.add_user_with_role()
+        self.add_app_user()
+        self.user_quit()
+        self.login_and_switch_to_sys()
+        self.switch_to_moudle(u"系统配置", u"关联服务")
+
+#-----------------------------数据库前置条件----------------------------------
+    def database_resource_prefix_condition(self):
+        self.module_common_prefix_condition()
+        self.add_user_with_role()
+        self.user_quit()
+        self.login_and_switch_to_sys()
+        #添加应用发布
+        self.add_application()
+        self.user_quit()
+        self.login_and_switch_to_dep()
+        self.add_database_resource()
+        self.switch_to_moudle(u"运维管理",u"资源")
         
+    def database_resource_post_condition(self):
+        self.user_quit()
+        self.login_and_switch_to_sys()
+        self.del_application()
+        self.auth_method_post_condition()
+    
+#------------------------------单点登录前置条件------------------------------
+    u'''单点登录前置条件'''
+    def sso_prefix_condition(self):
+        self.module_common_prefix_condition()
+        self.add_user_with_role()
+        self.user_quit()
+        self.login_and_switch_to_dep()
+        self.add_sso_resource()
+        self.add_sso_res_account()
+        self.add_sso_authorization()
+        self.switch_to_operation()
+#        self.user_quit()
+#        self.login_and_switch_to_common()
+    
+    u'''单点登录后置条件'''
+    def sso_post_condition(self):
+        self.user_quit()
+        self.login_and_switch_to_dep()
+        self.del_resource()
+        self.del_authorization()
+        self.auth_method_post_condition()
+
 #------------------------------角色前置条件-----------------------------------
     def role_module_prefix_condition(self):
         #初始化用户登录

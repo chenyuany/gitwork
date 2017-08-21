@@ -28,17 +28,6 @@ class testUserSuite(unittest.TestCase):
         
         #前置条件
         self.commonSuite.user_module_prefix_condition()
-        
-        '''
-        #初始化用户登录
-        self.commonSuite.isomper_login()
-        
-        #添加角色
-        self.commonSuite.add_sys_role()
-        self.commonSuite.add_dep_role()
-        
-        self.commonSuite.switch_to_moudle(u'运维管理',u'用户')
-        '''
 
     def test_login(self):
         #添加用户
@@ -64,9 +53,7 @@ class testUserSuite(unittest.TestCase):
         self.userCase.del_all_user_008()
     
     def tearDown(self):
-        self.commonSuite.user_module_post_condition()
-        #删除角色
-#        self.commonSuite.del_role()   
+        self.commonSuite.user_module_post_condition()  
         initDriver().close_driver(self.browser)
 
 if __name__ == "__main__":

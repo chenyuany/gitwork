@@ -26,27 +26,9 @@ class testAuthSuite(unittest.TestCase):
 
         self.commonSuite = CommonSuiteData(self.browser)
         self.authCase = testAuthorization(self.browser)
-#        self.commonSuite.login_and_switch_to_dep()
-#        self.commonSuite.switch_to_moudle(u'运维管理',u'授权')
+
         self.commonSuite.authori_module_prefix_condition()
-        '''
-        #初始化用户登录
-        self.commonSuite.isomper_login()
-        
-        #添加角色
-        self.commonSuite.add_sys_role()
-        self.commonSuite.add_dep_role()
-        #添加用户
-        self.commonSuite.add_user_with_role()
-        #添加授权用户
-        self.commonSuite.add_authorization_user()
-        self.commonSuite.user_quit()
 
-        #使用添加的用户登录
-        self.commonSuite.login_and_switch_to_dep()
-
-        self.commonSuite.switch_to_moudle(u'运维管理',u'授权')
-        '''
     def test_authori(self):
         #添加用户和资源类型的授权
         self.authCase.add_user_and_res_auth_001()
@@ -76,11 +58,6 @@ class testAuthSuite(unittest.TestCase):
     
     def tearDown(self):
         self.commonSuite.authori_module_post_condition()
-#        self.commonSuite.user_quit()
-        #初始化用户登录
-#        self.commonSuite.isomper_login()   
-#        self.commonSuite.del_role()
-#        self.commonSuite.del_user()
         initDriver().close_driver(self.browser)
 
 if __name__ == "__main__":

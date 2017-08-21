@@ -18,30 +18,8 @@ class testLoginSuite(unittest.TestCase):
         self.browser = setDriver().set_driver()
         self.commonSuite = CommonSuiteData(self.browser)        
         self.authMethod = testAuthMethod(self.browser)
-        
+        #认证方式前置条件
         self.commonSuite.auth_method_prefix_condition()
-        
-        '''
-        #初始化用户登录
-        self.commonSuite.isomper_login()
-        
-        #添加角色
-        self.commonSuite.add_sys_role()
-        self.commonSuite.add_dep_role()
-
-        #添加用户
-        self.commonSuite.add_user_with_role()
-        
-        #初始化用户退出
-        self.commonSuite.user_quit()
-        
-        #使用添加的用户登录并切换至系统管理员角色
-        self.commonSuite.login_and_switch_to_sys()
-        
-        commonFun(self.browser).select_menu(u"策略配置")
-        commonFun(self.browser).select_menu(u"策略配置",u"认证强度")
-        frameElement(self.browser).from_frame_to_otherFrame("mainFrame")
-        '''       
     
     def test_auth_method(self):
         #添加AD域认证方式
@@ -66,13 +44,7 @@ class testLoginSuite(unittest.TestCase):
         self.authMethod.del_auth_method_010()
 
     def tearDown(self):
-        '''
-        self.commonSuite.user_quit()
-        #初始化用户登录
-        self.commonSuite.isomper_login()    
-        self.commonSuite.del_role()
-        self.commonSuite.del_user()
-        '''
+        #认证方式后置条件
         self.commonSuite.auth_method_post_condition()
         initDriver().close_driver(self.browser)
 

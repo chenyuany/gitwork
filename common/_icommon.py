@@ -276,6 +276,31 @@ class getElement(object):
 		elif type == "plt":
 			WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.PARTIAL_LINK_TEXT, value))).click()
 			WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.PARTIAL_LINK_TEXT, value))).clear()
+    
+    u'''清空文本框的内容
+        parameter:
+            - type:定位的类型，如id,name,tag name,class name,css,xpath等
+            - value：页面的元素值
+            - timeout:超时前等待的时间
+    '''
+    def find_element_wait_and_clear_EC(self, type, value, timeout=5):
+    
+        if type == "id":
+            WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.ID, value))).clear()
+        elif type == "xpath":
+            WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.XPATH, value))).clear()
+        elif type == "name":
+            WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.NAME, value))).clear()
+        elif type == "tagname":
+            WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.TAG_NAME, value))).clear()
+        elif type == "classname":
+            WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.CLASS_NAME, value))).clear()
+        elif type == "css":
+            WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.CSS_SELECTOR, value))).clear()
+        elif type == "link":
+            WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.LINK_TEXT, value))).clear()
+        elif type == "plt":
+            WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.PARTIAL_LINK_TEXT, value))).clear()
 
     u'''元素是否存在
         parameter:
@@ -576,7 +601,7 @@ class tableElement(object):
         get_elem = getElement(self.driver)
         
         #定位到table
-        table_elem = get_elem.find_element_with_wait("xpath",table_xpath)
+        table_elem = get_elem.find_element_with_wait_EC("xpath",table_xpath)
         #获取table中的所有行
         row_elems = table_elem.find_elements_by_tag_name("tr")
              
@@ -776,9 +801,8 @@ class commonFun(object):
     def select_time(self,wdateId,fxpath,status='0',type='t',txpath = None,time = None):
         
         self.getElem.find_element_wait_and_click("id",wdateId)
-
         self.driver.switch_to_default_content()
-
+        
         frame = self.driver.find_element_by_xpath(fxpath)
         self.driver.switch_to_frame(frame)
     
@@ -814,7 +838,7 @@ class commonFun(object):
                 dTitle[0].send_keys(tMon)
                 self.getElem.find_element_wait_and_click_EC("id", "dpTitle")
                 if txpath is not None:
-
+                
                     table_elem = tableElement(self.driver)
                                     
                     iStatus = False
@@ -948,6 +972,7 @@ class commonFun(object):
         try:
             self.frameElem.switch_to_content()
             self.frameElem.switch_to_main()
+            time.sleep(1)
             self.getElem.find_element_wait_and_click("id", "history_skip")
         except Exception:
             print("Click the return button to fail")            
@@ -999,6 +1024,7 @@ class commonFun(object):
         try:
             self.frameElem.switch_to_content()
             self.frameElem.switch_to_main()
+            time.sleep(1)
             self.getElem.find_element_wait_and_click_EC("id", "checkbox")
         except Exception:
             print("Select the check box failure")

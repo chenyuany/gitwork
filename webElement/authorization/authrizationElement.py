@@ -263,7 +263,8 @@ class AuthorizationPage():
             index : 操作功能按钮对应的input位置
     '''
     def auth_operate_list(self,name,index):
-        row = self.cmf.find_row_by_name(name, "fortAuthorizationName")
+        reName = self.cnEnde.is_float(name)
+        row = self.cmf.find_row_by_name(reName, "fortAuthorizationName")
         
         update_xpath = "//table[@id='content_table']/tbody/tr[" + str(row-1) + "]/td[6]/input[" + index + "]"
         self.click_button_common('xpath',update_xpath)
@@ -591,11 +592,11 @@ class AuthorizationPage():
                 selem_id = selem.get_attribute('id')
                 #获取a标签的title
                 selem_title = selem.get_attribute("title")
-                #获取勾选框的id
-                checkbox_id = selem_id[:-1] + "check"
+                #获取勾选框的id或者部门展开箭头id
+                var_id = selem_id[:-1] + "check"#end_str
                 if selem_title == reName:
                     #勾选checkbox
-                    self.getElem.find_element_wait_and_click_EC('id',checkbox_id)
+                    self.getElem.find_element_wait_and_click_EC('id',var_id)
         except Exception as e:
             print ("Click department tree checkbox error: ") + str(e)
     
@@ -805,8 +806,7 @@ class AuthorizationPage():
         elif restatus == '4':
             return self.search_direct_by_res_account(condition)
     
-
-    #---------------------------------------------------------------
+#------------------------------------------------------------------------
     
     u'''获取指定属性的文本内容
             parameters:
@@ -926,6 +926,17 @@ class AuthorizationPage():
     u'''设置动态运行开关状态为关'''
     def set_switch_off(self):
         self.switch_status_common(0)
+    
+    u'''资源账号开关状态'''
+    def res_account_status(self):
+        self.frameElem.from_frame_to_otherFrame("mainFrame")
+#        time.sleep(1)
+        self.driver.execute_script("window.scrollBy(1000,0)","")
+        parent_elem = self.getElem.find_element_with_wait_EC("id","add_account_page")
+        elems = parent_elem.find_elements_by_class_name("switch_off")
+        for elem in elems:
+            if elem.is_displayed():
+                elem.click()
             
     u'''获取value值'''
     def get_value(self,type,value):
@@ -1045,7 +1056,6 @@ class AuthorizationPage():
     
     u'''点击建立关联'''
     def click_create_relate(self):
-        self.frameElem.switch_to_artIframe()
         self.click_button_common('id',self.CREATE_RELATE)
     
     u'''取消关联'''
