@@ -16,17 +16,14 @@ sys.setdefaultencoding('utf-8')
 sys.path.append("/testIsomp/testData/")
 from _testDataPath import dataFileName
 sys.path.append("/testIsomp/common")
-from _icommon import commonFun,getElement,selectElement,frameElement,tableElement
+from _icommon import commonFun,frameElement
 from _log import log
 sys.path.append("/testIsomp/webElement/role/")
-from test_role_mutex import roleMutex
 from test_roledf import Role
 sys.path.append("/testIsomp/webElement/department/")
 from test_dptm_ment import Department
 sys.path.append("/testIsomp/testCase/role/")
 from test_role import testRole
-sys.path.append("/testIsomp/webElement/user/")
-from userElement import UserPage
 
 class testDepartment(object):
 
@@ -36,13 +33,8 @@ class testDepartment(object):
 		self.role = Role(driver)
 		self.testrole = testRole(driver)
 		self.cmf = commonFun(driver)
-		self.getElem = getElement(driver)
-		self.selectElem = selectElement(driver)
-		self.tableElem = tableElement(driver)
 		self.frameElem = frameElement(driver)
-		self.rolemutex = roleMutex(driver)
 		self.dptment = Department(driver)
-		self.user = UserPage(driver)
 
 	u'''获取测试数据
 	   Parameters:

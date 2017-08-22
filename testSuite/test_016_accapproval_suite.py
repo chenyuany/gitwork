@@ -30,6 +30,7 @@ class testAccapprovalSuite(unittest.TestCase):
 		self.accapproval = testAccapproval(self.browser)
 
 		#流程前置条件
+
 		self.comsuit.process_module_prefix_condition()
 
 	def test_access_approval(self):

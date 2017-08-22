@@ -3,7 +3,7 @@
 #文件名：
 #作者：陈圆圆
 #创建日期：
-#模块描述：
+#模块描述：windows资源
 #历史修改记录
 #修改人：
 #修改日期：
@@ -15,7 +15,6 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.path.append("/testIsomp/common/")
-from _log import log
 from _icommon import getElement,selectElement,frameElement
 from _cnEncode import cnEncode
 sys.path.append("/testIsomp/webElement/resource/")

@@ -13,7 +13,6 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.path.append("/testIsomp/common/")
-from _log import log
 from _icommon import getElement,selectElement,frameElement,commonFun
 
 class Role(object):
@@ -35,7 +34,6 @@ class Role(object):
 		self.selectElem = selectElement(driver)
 		self.frameElem = frameElement(driver)
 		self.cmf = commonFun(driver)
-		self.log = log()
 
 	u'''点击添加按钮'''
 	def add(self):

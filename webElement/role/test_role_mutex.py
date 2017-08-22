@@ -9,7 +9,7 @@
 #修改日期：
 #修改内容：
 '''
-import sys,time
+import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.path.append("/testIsomp/common/")

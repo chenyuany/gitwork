@@ -15,7 +15,7 @@ sys.setdefaultencoding('utf-8')
 
 sys.path.append("/testIsomp/testData/")
 from _testDataPath import dataFileName
-from _icommon import commonFun,getElement,selectElement,frameElement,tableElement
+from _icommon import commonFun,frameElement
 from _log import log
 sys.path.append("/testIsomp/webElement/process/")
 from test_double_license_ment import Dobapproval
@@ -42,6 +42,7 @@ class testDobapproval(object):
 		self.authElem = AuthorizationPage(self.driver)
 		self.acproval = Accapproval(driver)
 		self.flow = Flowcontrol(self.driver)
+		self.frameElem = frameElement(self.driver)
 
 	u'''获取测试数据
 	   Parameters:
@@ -69,6 +70,7 @@ class testDobapproval(object):
 					self.authElem.click_all_approver()
 					self.authElem.click_all_candidate()
 					self.authElem.click_start_association()
+					self.frameElem.switch_to_artIframe()
 					self.authElem.click_create_relate()
 					self.cmf.click_login_msg_button()
 					#点击返回

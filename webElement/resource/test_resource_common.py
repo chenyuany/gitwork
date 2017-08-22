@@ -10,7 +10,7 @@
 #修改内容：
 '''
 
-import sys
+import sys,time
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.path.append("/testIsomp/common/")
@@ -134,7 +134,7 @@ class Resource(object):
 			self.getElem.find_element_wait_and_sendkeys('id', self.RESOURCE_IP, ipdress)
 			self.getElem.find_element_wait_and_click_EC("id", "spanid")
 			self.getElem.find_element_with_wait_EC("classname", "ip_succ")
-			self.driver.implicitly_wait(5)
+			time.sleep(3)
 		except Exception as e:
 			print "resourcename is error :" + str(e)
 
@@ -145,6 +145,7 @@ class Resource(object):
 	def set_depart(self, deptname):
 		self.frameElem.from_frame_to_otherFrame("mainFrame")
 		depart = self.cnEn.is_float(deptname)
+		time.sleep(3)
 		self.select_depart_common(self.ATTRIBUTION_DEPARTMENT, "tree_1_switch", depart)
 
 	u'''选择所有运维协议'''

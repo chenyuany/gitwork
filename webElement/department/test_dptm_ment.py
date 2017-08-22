@@ -16,7 +16,6 @@ sys.path.append("/testIsomp/common/")
 from _cnEncode import cnEncode
 from _log import log
 from _icommon import getElement,frameElement
-from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 
 
@@ -199,9 +198,6 @@ class Department(object):
 				#鼠标移动到当前窗口
 				actions = ActionChains(self.driver)
 				actions.move_to_element(divselem).perform()
-				# time.sleep(5)
-				# element = self.driver.findElement(By.XPATH(xpath))
-				# self.driver.execute_script("arguments[0].click()", element)
 				self.getElem.find_element_wait_and_click_EC("xpath", xpath)
 				break
 

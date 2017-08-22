@@ -3,7 +3,7 @@
 #文件名：
 #作者：陈圆圆
 #创建日期：
-#模块描述：
+#模块描述：用户组
 #历史修改记录
 #修改人：
 #修改日期：
@@ -222,7 +222,7 @@ class Usergroup(object):
 		if deptname != 'no':
 			#点击要操作部门的展开按钮
 			self.dptment.click_basic_operation_public_method(deptname, "user_group_", "_switch")
-		#选中资源组
+		#选中用户组
 		self.dptment.click_basic_operation_public_method(usergroup, "user_group_", "_span")
 		self.regroup.check_delect_all()
 
