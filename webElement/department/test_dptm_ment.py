@@ -175,9 +175,38 @@ class Department(object):
 
 	#点击最外层警告按钮
 	def click_Outermost_button(self, pagetext):
+		self.frame_public_method(pagetext)
 
-		xpath = "/html/body/div[1]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr[3]/td/div/button"
-		self.click_frame_public_method(pagetext, xpath)
+		# xpath = "/html/body/div[1]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr[3]/td/div/button"
+		# self.click_frame_public_method(pagetext, xpath)
+
+	u'''弹窗的公用方法
+	   Parameters:
+	      - pagetext：页面弹框的title文本
+	'''
+	def frame_public_method(self, pagetext):
+
+		self.frameElem.switch_to_content()
+		#获取title集合
+		divselems = self.driver.find_elements_by_class_name("aui_title")
+		#获取table集合
+		tableselems = self.driver.find_elements_by_class_name("aui_dialog")
+		#是否点击确定按钮标识，如果为True说明已经点击确定按钮
+		step = False
+
+		#循环table集合
+		for table in tableselems:
+			#循环title集合
+			for divselem in divselems:
+				#获取title文本
+				messagetext = divselem.get_attribute('textContent')
+				if messagetext == pagetext:
+					time.sleep(2)
+					table.find_element_by_class_name("aui_state_highlight").click()
+					step = True
+					break
+			if step is True:
+				break
 
 	u'''弹窗的公用方法
 	   Parameters:
@@ -198,6 +227,7 @@ class Department(object):
 				#鼠标移动到当前窗口
 				actions = ActionChains(self.driver)
 				actions.move_to_element(divselem).perform()
+				time.sleep(1)
 				self.getElem.find_element_wait_and_click_EC("xpath", xpath)
 				break
 
@@ -222,7 +252,6 @@ class Department(object):
 		else:
 			#判断文本内容是否一致
 			elemText = self.getElem.find_element_wait_and_compare_text(type,elem,data)
-
 			self.click_Outermost_button(pagetext)
 			if elemText:
 				# 页面的内容与检查点内容一致，测试点通过
