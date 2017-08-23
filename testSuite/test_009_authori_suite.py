@@ -26,28 +26,28 @@ class testAuthSuite(unittest.TestCase):
 
         self.commonSuite = CommonSuiteData(self.browser)
         self.authCase = testAuthorization(self.browser)
-#        self.commonSuite.login_and_switch_to_dep()
-#        self.commonSuite.switch_to_moudle(u"运维管理", u"授权")
+        self.commonSuite.login_and_switch_to_dep()
+        self.commonSuite.switch_to_moudle(u"运维管理", u"授权")
 
-        self.commonSuite.authori_module_prefix_condition()
+        # self.commonSuite.authori_module_prefix_condition()
 
     def test_authori(self):
         #添加用户和资源类型的授权
-        self.authCase.add_user_and_res_auth_001()
+        # self.authCase.add_user_and_res_auth_001()
         #添加用户和资源组类型的授权
-        self.authCase.add_user_and_res_group_auth_002()
-        #添加用户和资源账号类型的授权
-        self.authCase.add_user_and_res_account_auth_003()
-        #添加用户组和资源类型的授权
-        self.authCase.add_user_group_and_res_auth_004()
-        #添加用户组和资源组类型的授权
-        self.authCase.add_user_group_and_res_group_auth_005()
-        #添加用户组和资源账号类型的授权   
-        self.authCase.add_user_group_and_res_account_auth_006()
-        #修改授权名称
-        self.authCase.edit_auth_name_007()
+        # self.authCase.add_user_and_res_group_auth_002()
+        # #添加用户和资源账号类型的授权
+        # self.authCase.add_user_and_res_account_auth_003()
+        # #添加用户组和资源类型的授权
+        # self.authCase.add_user_group_and_res_auth_004()
+        # #添加用户组和资源组类型的授权
+        # self.authCase.add_user_group_and_res_group_auth_005()
+        # #添加用户组和资源账号类型的授权
+        # self.authCase.add_user_group_and_res_account_auth_006()
+        # #修改授权名称
+        # self.authCase.edit_auth_name_007()
         #授权校验
-        self.authCase.auth_checkout_008()
+        self.authCase.auth_chshoweckout_008()
         #授权检索
         self.authCase.auth_query_009()
 
