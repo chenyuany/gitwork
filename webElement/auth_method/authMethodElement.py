@@ -400,5 +400,6 @@ class AuthMethodPage():
 			self.set_radius_auth_key(methdata[3])
 			self.save_button()
 			self.cmf.click_login_msg_button()
+#			self.getElem.find_element_with_wait_EC('classname','radiusIp0')
 			time.sleep(3)
 	

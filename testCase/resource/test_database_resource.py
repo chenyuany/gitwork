@@ -104,7 +104,7 @@ class testDatabaseResource(object):
 					self.database.add_edit_database_resource(data)
 					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", windowsMsg, data, flag)
-					time.sleep(1)
+#					time.sleep(1)
 					self.cmf.back()
 			except Exception as e:
 				print ("edit_database_resource fail:" + str(e))
@@ -125,7 +125,7 @@ class testDatabaseResource(object):
 		#点击添加按钮
 		self.resource.click_add_edit_button()
 		#选择windows类型
-		self.resource.select_resource_type("Oracle10g")		
+		self.resource.select_resource_type("Oracle10g")	
 		
 		for dataRow in range(len(databaseData)):
 			data = databaseData[dataRow]
@@ -145,11 +145,11 @@ class testDatabaseResource(object):
 					self.resource.click_save_button()
 					self.frameElem.switch_to_content()
 					self.cmf.test_win_check_point("xpath", windowsMsg, data, flag)
+					
 			except Exception as e:
-				print ("edit_mysql_resource fail:" + str(e))
-		time.sleep(1)
+				print ("check_database_resource fail:" + str(e))
 		self.cmf.back()
-		self.database.is_pop_up()
+		self.database.is_pop_up()			
 		self.log.log_end("check_database_resource")
 		
 

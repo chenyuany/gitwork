@@ -109,6 +109,7 @@ class AppPage():
     def app_module_button(self):
         self.frameElem.from_frame_to_otherFrame("leftFrame")
         try:
+            time.sleep(1)
             self.click_button_common('id',self.APP_MODULE)
         except Exception as e:
             print ("Click app module button error: ") + str(e)

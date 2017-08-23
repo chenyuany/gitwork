@@ -1,7 +1,7 @@
 #-*- coding:utf-8 -*-
 ''' 
 #文件名：
-#作者：
+#作者：顾亚茹
 #创建日期：
 #模块描述：
 #历史修改记录
@@ -70,8 +70,8 @@ class testDatabaseResourceSuite(unittest.TestCase):
 		
 
 	def tearDown(self):
-		#资源后置条件
-#		self.comsuit.database_resource_post_condition()
+		#数据库后置条件
+		self.comsuit.database_resource_post_condition()
 		initDriver().close_driver(self.browser)
 
 if __name__ == "__main__":

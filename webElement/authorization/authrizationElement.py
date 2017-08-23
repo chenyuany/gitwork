@@ -681,6 +681,7 @@ class AuthorizationPage():
     def click_add_res_group(self):
         self.frameElem.from_frame_to_otherFrame("mainFrame")
         try:
+            time.sleep(1)
             self.click_button_common('id',self.ADD_RES_GROUP_BUTTON)
         except Exception as e:
             print ("Click add resource group button error : ") + str(e)
@@ -699,6 +700,7 @@ class AuthorizationPage():
     def click_add_res_account(self):
         self.frameElem.from_frame_to_otherFrame("mainFrame")
         try:
+            time.sleep(1)
             self.click_button_common('id',self.ADD_RES_ACCOUNT)
         except Exception as e:
             print ("Click add res account button error : ") + str(e)

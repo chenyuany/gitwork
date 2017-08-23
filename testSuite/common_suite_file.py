@@ -725,8 +725,9 @@ class CommonSuiteData():
         #系统管理员退出
         self.user_quit()
         self.isomper_login()
-        self.del_role()
         self.del_user()
+        self.del_role()
+        
 #---------------------------------登录模块前置条件-----------------------------
     u'''登录模块前置条件'''
     def login_module_prefix_condition(self):
@@ -750,8 +751,8 @@ class CommonSuiteData():
     u'''登录模块后置条件'''
     def login_module_post_condition(self):
         self.isomper_login()
-        self.del_role()
         self.del_user()
+        self.del_role()
     
 #------------------------------授权前置条件-----------------------------------
     def authori_module_prefix_condition(self):
@@ -824,9 +825,9 @@ class CommonSuiteData():
         self.add_sso_resource()
         self.add_sso_res_account()
         self.add_sso_authorization()
-        self.switch_to_operation()
-#        self.user_quit()
-#        self.login_and_switch_to_common()
+        #self.switch_to_operation()
+        self.user_quit()
+        self.login_and_switch_to_common()
     
     u'''单点登录后置条件'''
     def sso_post_condition(self):

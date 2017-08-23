@@ -26,6 +26,8 @@ class testAuthSuite(unittest.TestCase):
 
         self.commonSuite = CommonSuiteData(self.browser)
         self.authCase = testAuthorization(self.browser)
+#        self.commonSuite.login_and_switch_to_dep()
+#        self.commonSuite.switch_to_moudle(u"运维管理", u"授权")
 
         self.commonSuite.authori_module_prefix_condition()
 
