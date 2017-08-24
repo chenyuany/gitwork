@@ -76,7 +76,7 @@ class Accapproval(object):
 
 	u'''设置级别中的审批人个数
             parameters :
-                selem : select元素
+                level : 级别
                 value : option的value值
     '''
 	def select_approval_num(self, level, value):

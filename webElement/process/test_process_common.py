@@ -61,7 +61,7 @@ class Flowcontrol(object):
 
 	u'''查询审批人
 	   Parameters:
-	      - aplname:审批人名称
+	      - approver:审批人名称
 	'''
 	def query_approver(self, approver):
 		self.frameElem.from_frame_to_otherFrame("mainFrame")
