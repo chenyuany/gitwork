@@ -430,7 +430,12 @@ class CommonSuiteData():
         self.switch_to_moudle(u"运维管理",u"授权")
         self.testAutho.common_part(data)
         self.testAutho.add_user(data)
-        self.testAutho.add_res_account(data)
+        self.authorizationElem.click_add_res_account()
+        self.authorizationElem.set_select_res_ip(data[6])
+        self.authorizationElem.set_select_res_account(data[8])
+        self.authorizationElem.set_select_res_search_button()
+        self.authorizationElem.set_res_check_all_button()
+        self.authorizationElem.set_ok_button()
         self.authorizationElem.res_account_status()
         self.authorizationElem.save_button()
         self.cmf.click_login_msg_button()
@@ -542,6 +547,12 @@ class CommonSuiteData():
         time.sleep(2)
         self.loginElem.login(logindata)
     
+    u'''运维管理员登录'''
+    def sso_user_login(self,rowList):
+        login_data = self.get_table_data("common_user")
+        logindata = login_data[rowList]
+        self.loginElem.login(logindata)
+        
     u'''添加认证配置'''
     def add_meth_method(self):
         meth_data = self.get_table_data("meth_method")
@@ -570,6 +581,11 @@ class CommonSuiteData():
         rowList = [3]
         self.add_user_data_module(rowList)
     
+    u'''添加单点登录用户'''
+    def add_sso_user(self):
+        rowList = [8,9,10]
+        self.add_user_data_module(rowList)
+        
     u'''添加部门'''
     def add_dep(self, rowList):
         dep_data = self.get_table_data("add_dep")
@@ -599,6 +615,7 @@ class CommonSuiteData():
         rowList = [1,2]
         self.add_resource_modele(rowList)
     
+    u'''添加sso资源'''
     def add_sso_resource(self):
         rowList = [1,3,4,5]
         self.add_resource_modele(rowList)
@@ -677,7 +694,7 @@ class CommonSuiteData():
                 
     u'''添加单点登录授权'''
     def add_sso_authorization(self):
-        rowList = [1]
+        rowList = [1,2,3,4]
         self.add_authorization_module(rowList)
 
 #-------------------------------前置条件---------------------------------------
@@ -727,6 +744,7 @@ class CommonSuiteData():
         self.isomper_login()
         self.del_user()
         self.del_role()
+        self.user_quit()
         
 #---------------------------------登录模块前置条件-----------------------------
     u'''登录模块前置条件'''
@@ -820,6 +838,7 @@ class CommonSuiteData():
     def sso_prefix_condition(self):
         self.module_common_prefix_condition()
         self.add_user_with_role()
+        self.add_sso_user()
         self.user_quit()
         self.login_and_switch_to_dep()
         self.add_sso_resource()
@@ -833,8 +852,8 @@ class CommonSuiteData():
     def sso_post_condition(self):
         self.user_quit()
         self.login_and_switch_to_dep()
-        self.del_resource()
         self.del_authorization()
+        self.del_resource()
         self.auth_method_post_condition()
 
 #------------------------------角色前置条件-----------------------------------

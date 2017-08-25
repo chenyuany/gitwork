@@ -9,6 +9,10 @@ $cmdList = $CmdLine[4]
 ;等待窗口被激活
 Func wait_windows_active($iconType)
 	If $iconType == "putty" Then
+		If WinExists("PuTTY Security Alert") Then
+			$hWnd = WinGetHandle("PuTTY Security Alert")
+			ControlClick($hWnd, "", "Button1")
+		EndIf
 		$hWnd = WinWait("[CLASS:PuTTY]", "", 10)
 	ElseIf $iconType == "secureCRT" Then
 		$hWnd = WinWait("[CLASS:VanDyke Software - SecureCRT]", "", 10)
@@ -20,8 +24,6 @@ Func wait_windows_active($iconType)
 	WinActivate($hWnd)
 EndFunc
 
-Func pass_one_key($word)
-EndFunc
 
 ;输入账号
 Func enter_username($username)
@@ -37,7 +39,7 @@ EndFunc
 Func enter_pwd($pwd)
 	Send($pwd)
 	Send("{ENTER}")
-	Sleep(1500)
+	Sleep(3000)
 EndFunc
 
 Func writeTmpTxt($cmdList)
@@ -82,6 +84,7 @@ EndFunc
 
 ;执行操作
 Func cmd_enter($iconType,$username,$pwd,$cmdList)
+
 	wait_windows_active($iconType)
 
 	If $username <> "no" Then

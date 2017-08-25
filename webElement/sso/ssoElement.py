@@ -75,10 +75,11 @@ class SsoPage():
     def select_account(self,resName,seAccount):
         reaccount = self.cnEnde.is_float(seAccount)
         row = self.get_resource_row("fortResourceName",resName)
+        time.sleep(2)
         selectXpath = "//table[@id='content_table']/tbody/tr[" + str(2*row-1) + "]/td[6]/select"
         seElem = self.getElem.find_element_with_wait_EC("xpath",selectXpath)
         self.selectElem.select_element_by_visible_text(seElem,reaccount)
-        seElem.click()
+        #seElem.click()
     
     u'''选择登录图标
             parameters:
@@ -90,23 +91,23 @@ class SsoPage():
         row = self.get_resource_row("fortResourceName",resName)
         #资源名称路径
         resname_xpath = "//table[@id='content_table']/tbody/tr[" + str(2*row-1) + \
-        "]/td[5]"
-#        time.sleep(1)
-        resElem = self.getElem.find_element_with_wait_EC("xpath",resname_xpath)
-        self.action.click_and_hold(resElem)
-#        self.action.move_to_element(resElem).click(resElem).perform()
-#        self.getElem.find_element_with_wait_clickable_and_click("xpath",resname_xpath)
+        "]/td[2]"
+        #resElem = self.getElem.find_element_with_wait_EC("xpath",resname_xpath)
+        self.getElem.find_element_wait_and_click_EC("xpath",resname_xpath)
+        #self.action.click_and_hold(resElem)
+        
+        #self.action.move_to_element(resElem).click(resElem).perform()
 #        body_xpath = "//table[@id='content_table']/tbody/tr[" + str(2*row) + \
 #        "]/td[@id='open01']/div/table/tbody[1]"
 #        self.getElem.find_element_wait_and_click_EC("xpath",body_xpath)
-        img_xpath = "//table[@id='content_table']/tbody/tr[" + str(2*row) + \
-        "]/td[@id='open01']/div/table/tbody/tr/td[2]/a/img[@alt=" + reiconName + "]"
+        time.sleep(1)        
+        img_xpath = "/html/body/div[1]/div[7]/div[2]/div/table[@id='content_table'] \
+        /tbody/tr[" + str(2*row) + "]/td[@id='open01']/div/table/tbody/tr/td[2]/a[@alt=" + reiconName + "]/img"
         
+        time.sleep(1)
         img_elem = self.getElem.find_element_with_wait_EC("xpath",img_xpath)
-        self.action.click_and_hold(img_elem)
+        
         self.getElem.find_element_wait_and_click_EC("xpath",img_xpath)
-        self.driver.implicitly_wait(10)
-        #self.action.move_to_element(img_elem).click(img_elem).perform()
     
     u'''选择登录协议
             parameters :
@@ -139,25 +140,24 @@ class SsoPage():
         rename = self.cnEnde.is_float(username)
         rePwd = self.cnEnde.is_float(pwd)
         recmdList = self.cnEnde.is_float(cmdList)
+        reList = str(recmdList)
         os.system(exePath + " " + iconType + " " + username + " " + pwd + " " \
-        + cmdList)
+        + reList)
     
     u'''根据浏览器类型进行单点登录'''
     def choice_browser(self,iconType,username,pwd,cmdList):
         fileList = fileRead().get_ip_address()
         browserType = fileList[1].strip('\n')
-        if browserType == '0':
-            pass
-        elif browserType == '1':
+        if browserType == '1':
             self.execute_chrome_key()
-        else:
+        elif browserType != '0' or browserType != '1' :
             self.opt_cmd("\\testIsomp\\webElement\\sso\\sso_firefox.exe","", \
             "","","")
+#        else:
+#            self.opt_cmd("\\testIsomp\\webElement\\sso\\sso_firefox.exe","", \
+#            "","","")
         self.opt_cmd("\\testIsomp\\webElement\\sso\\sso_client.exe",iconType, \
         username,pwd,cmdList)
-        
-    def refresh_windows(self):
-        self.driver.refresh()
  
             
         

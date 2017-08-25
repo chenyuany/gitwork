@@ -26,7 +26,10 @@ class testSsoSuite(unittest.TestCase):
     
     def test_sso_method(self):
         #单点登录
-        self.ssoMethod.sso_login_001()
+        self.ssoMethod.cisco_sso_login_001()
+        self.ssoMethod.cisco_niming_sso_login_002()
+        self.ssoMethod.huawei_sso_login_003()
+        self.ssoMethod.debian_sso_login_004()
         
     def tearDown(self):
         pass
