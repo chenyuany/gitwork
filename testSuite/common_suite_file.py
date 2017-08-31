@@ -36,6 +36,8 @@ from test_resource_accountmgr_ment import Accountmgr
 sys.path.append("/testIsomp/webElement/group/")
 from test_regroup_ment import Regroup
 from test_usergroup_ment import Usergroup
+sys.path.append("/testIsomp/webElement/rule")
+from test_command_rule_ment import CommandRule
 #导入应用发布
 sys.path.append("/testIsomp/webElement/application")
 from appConfElement import AppPage
@@ -43,6 +45,7 @@ sys.path.append("/testIsomp/webElement/authorization")
 from authrizationElement import AuthorizationPage
 sys.path.append("/testIsomp/testCase/authorization/")
 from test_authorization import testAuthorization
+
 
 class setDriver():
    
@@ -90,6 +93,7 @@ class CommonSuiteData():
         self.appElem = AppPage(self.driver)
         self.authorizationElem = AuthorizationPage(self.driver)
         self.testAutho = testAuthorization(self.driver)
+        self.command = CommandRule(self.driver)
 
     u'''切换模块
             parameter:
@@ -981,6 +985,40 @@ class CommonSuiteData():
         #切换至系统级角色
         self.dep_switch_to_sys()
         self.module_common_post_condition()
+
+#------------------------------规则前置条件-----------------------------------
+    def rule_module_prefix_condition(self):
+        self.module_common_prefix_condition()
+        self.add_user_with_role()
+        #添加用户
+        self.add_user_data_module([2])
+        #退出
+        self.user_quit()
+        #使用添加的用户登录并切换至部门级角色
+        self.login_and_switch_to_dep()
+        #切换到资源
+        self.switch_to_moudle(u"运维管理", u"资源")
+        #添加资源
+        self.add_resource_modele([7])
+        #添加资源账号
+        self.add_res_account_module([9])
+        #切换到授权
+        self.switch_to_moudle(u'运维管理', u'授权')
+        self.add_authrization([2])
+        #切换到规则定义
+        self.switch_to_moudle(u'运维管理', u'规则定义')
+        self.command.click_left_rule(0)
+
+    def rule_module_post_condition(self):
+        #删除授权
+        self.del_authorization()
+        #删除资源
+        self.del_resource()
+        #切换至系统级角色
+        self.dep_switch_to_sys()
+        self.module_common_post_condition()
+
+
 
 
 #if __name__ == "__main__":

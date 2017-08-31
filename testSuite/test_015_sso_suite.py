@@ -20,7 +20,7 @@ class testSsoSuite(unittest.TestCase):
         self.browser = setDriver().set_driver()
         self.commonSuite = CommonSuiteData(self.browser)        
         self.ssoMethod = testSso(self.browser)
-        #self.commonSuite.login_and_switch_to_common()
+        # self.commonSuite.login_and_switch_to_common()
         #单点登录前置条件
         self.commonSuite.sso_prefix_condition()
     
