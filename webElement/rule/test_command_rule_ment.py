@@ -144,7 +144,7 @@ class CommandRule(object):
 		self.frameElem.from_frame_to_otherFrame("rigthFrame")
 		self.getElem.find_element_wait_and_click_EC("id", "del_resource")
 
-	u'''点击添加资源账号按钮'''
+	u'''点击删除资源账号按钮'''
 	def click_del_reaccount_button(self):
 		self.frameElem.from_frame_to_otherFrame("rigthFrame")
 		self.getElem.find_element_wait_and_click_EC("id", "del_account")
@@ -354,12 +354,13 @@ class CommandRule(object):
 
 	u'''选择审批用户
 	   parameter:
-		   - text:审批用户名称
+		   - username:审批用户名称
 	'''
-	def select_approval_user(self, text):
+	def select_approval_user(self, username):
 		self.frameElem.from_frame_to_otherFrame('artIframe')
+		name = self.cnEn.is_float(username)
 		elem = self.getElem.find_element_with_wait_EC("id", "fortApproverId")
-		self.selectElem.select_element_by_visible_text(elem, text)
+		self.selectElem.select_element_by_visible_text(elem, name)
 
 	u'''填写口令
 	   Parameters:
