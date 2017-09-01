@@ -220,13 +220,13 @@ class testCommand(object):
 			try:
 				#如果不是第一行标题，则读取数据
 				if dataRow != 0:
-					time.sleep(3)
-					self.sso.sso_common_func(data)
+					self.command.sso_command(data)
 					if dataRow == 2:
-						time.sleep(5)
 						self.command.command_by_message_approval(data[9], data[10], data[11])
 						self.cmf.click_login_msg_button()
-						time.sleep(2)
+					time.sleep(3)
+					self.command.choice_browser_close(data[4])
+					self.log.log_detail(data[0], True)
 			except Exception as e:
 				print ("command_approval fail:" + str(e))
 		self.log.log_end("command_approval")

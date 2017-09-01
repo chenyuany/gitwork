@@ -999,12 +999,12 @@ class CommonSuiteData():
         #切换到资源
         self.switch_to_moudle(u"运维管理", u"资源")
         #添加资源
-        self.add_resource_modele([7])
+        self.add_resource_modele([3])
         #添加资源账号
-        self.add_res_account_module([9])
+        self.add_res_account_module([4])
         #切换到授权
         self.switch_to_moudle(u'运维管理', u'授权')
-        self.add_authrization([2])
+        self.add_authorization_module([1])
         #切换到规则定义
         self.switch_to_moudle(u'运维管理', u'规则定义')
         self.command.click_left_rule(0)

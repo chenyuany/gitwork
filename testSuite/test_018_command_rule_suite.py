@@ -31,6 +31,7 @@ class testComRuleSuite(unittest.TestCase):
 
 		#规则前置条件
 		self.comsuit.rule_module_prefix_condition()
+		# self.comsuit.login_and_switch_to_dep()
 
 	def test_command_rule(self):
 		#添加命令规则

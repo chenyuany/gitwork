@@ -9,14 +9,17 @@
 #修改日期：
 #修改内容：
 '''
-import sys
+import sys,time
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.path.append("/testIsomp/common/")
+from _fileRead import fileRead
 from _icommon import getElement,selectElement,frameElement,commonFun
 from _cnEncode import cnEncode
 sys.path.append("/testIsomp/webElement/process/")
 from test_access_approval_ment import Accapproval
+sys.path.append("/testIsomp/webElement/sso")
+from ssoElement import SsoPage
 
 class CommandRule(object):
 	def __init__(self, driver):
@@ -27,6 +30,7 @@ class CommandRule(object):
 		self.cmf = commonFun(driver)
 		self.cnEn = cnEncode()
 		self.acproval = Accapproval(driver)
+		self.ssoElem = SsoPage(self.driver)
 
 	u'''左边框点击规则
 	   Parameters:
@@ -346,7 +350,9 @@ class CommandRule(object):
 	u'''点击消息详情'''
 	def click_message_detail(self):
 		self.frameElem.from_frame_to_otherFrame('topFrame')
+		time.sleep(3)
 		self.click_message_prompt()
+		time.sleep(2)
 		ulselem = self.getElem.find_element_with_wait_EC("id", "digest")
 		# 找到ul下所有a对象
 		aselems = ulselem.find_elements_by_tag_name("a")
@@ -389,11 +395,16 @@ class CommandRule(object):
             - descrip:备注信息
 	'''
 	def command_by_message_approval(self, user, pwd, descrip):
+		self.frameElem.switch_to_content()
+		time.sleep(5)
 		self.click_message_detail()
+		time.sleep(2)
 		self.select_approval_user(user)
+		time.sleep(1)
 		self.set_passwd(pwd)
 		self.set_descrip(descrip)
 		self.check_sure_button()
+		time.sleep(2)
 
 	u'''通过流程控制进行命令审批
 	   Parameters:
@@ -410,3 +421,32 @@ class CommandRule(object):
 		self.set_passwd(pwd)
 		self.set_descrip(descrip)
 		self.check_sure_button()
+
+	u'''根据浏览器类型进行单点登录'''
+	def choice_browser_open(self,iconType,username,pwd,cmdList):
+		fileList = fileRead().get_ip_address()
+		browserType = fileList[1].strip('\n')
+		if browserType == '1':
+			time.sleep(5)
+			self.ssoElem.execute_chrome_key()
+		elif browserType != '0' or browserType != '1':
+			self.ssoElem.opt_cmd("\\testIsomp\\webElement\\sso\\sso_firefox.exe","", "","","")
+		time.sleep(3)
+		self.ssoElem.opt_cmd("\\testIsomp\\webElement\\rule\\sso_command_open.exe",iconType, username,pwd,cmdList)
+
+	u'''根据浏览器类型关闭单点登录'''
+	def choice_browser_close(self,iconType):
+		self.ssoElem.opt_cmd("\\testIsomp\\webElement\\rule\\sso_command_close.exe",iconType,"","","")
+
+	u'''命令审批单点登录'''
+	def sso_command(self, data):
+		time.sleep(5)
+		self.frameElem.from_frame_to_otherFrame("rigthFrame")
+		self.ssoElem.select_account(data[2],data[3])
+		self.ssoElem.select_sso_icon(data[2],data[4])
+		time.sleep(2)
+		if data[5] != "":
+			self.ssoElem.select_protocol(data[5])
+		time.sleep(2)
+		self.choice_browser_open(data[4],data[6],data[7],data[8])
+		time.sleep(2)
