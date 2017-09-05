@@ -237,7 +237,7 @@ class testCommand(object):
 		self.comsuit.switch_to_moudle(u"运维管理", u"规则定义")
 		#日志开始记录
 		self.log.log_start("del_command_rule")
-		#获取编辑命令规则测试数据
+		#获取删除命令规则测试数据
 		comrulData = self.get_table_data("del_command_rule")
 		#保存成功的弹出框
 		comrulMsg = self.testrole.popup()

@@ -986,8 +986,8 @@ class CommonSuiteData():
         self.dep_switch_to_sys()
         self.module_common_post_condition()
 
-#------------------------------规则前置条件-----------------------------------
-    def rule_module_prefix_condition(self):
+#------------------------------命令规则前置条件-----------------------------------
+    def commandrule_module_prefix_condition(self):
         self.module_common_prefix_condition()
         self.add_user_with_role()
         #添加用户
@@ -1009,11 +1009,30 @@ class CommonSuiteData():
         self.switch_to_moudle(u'运维管理', u'规则定义')
         self.command.click_left_rule(0)
 
-    def rule_module_post_condition(self):
+    def commandrule_module_post_condition(self):
         #删除授权
         self.del_authorization()
         #删除资源
         self.del_resource()
+        #切换至系统级角色
+        self.dep_switch_to_sys()
+        self.module_common_post_condition()
+
+#------------------------------时间规则前置条件-----------------------------------
+    def timerule_module_prefix_condition(self):
+        self.module_common_prefix_condition()
+        self.add_user_with_role()
+        #添加用户
+        self.add_user_data_module([2,3,5,11,13])
+        #退出
+        self.user_quit()
+        #使用添加的用户登录并切换至部门级角色
+        self.login_and_switch_to_dep()
+        #切换到规则定义
+        self.switch_to_moudle(u'运维管理', u'规则定义')
+        self.command.click_left_rule(1)
+
+    def timerule_module_post_condition(self):
         #切换至系统级角色
         self.dep_switch_to_sys()
         self.module_common_post_condition()

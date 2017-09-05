@@ -63,6 +63,9 @@ DOUBLE_LICENSE_TEST_DATA_URL = r"/testIsomp/testData/double_license_test_data.xl
 #命令规则数据文件
 COMMAND_RULE_TEST_DATA_URL = r"/testIsomp/testData/command_rule_test_data.xlsx"
 
+#时间规则数据文件
+TIME_RULE_TEST_DATA_URL = r"/testIsomp/testData/time_rule_test_data.xlsx"
+
 
 class dataFileName(object):
     #获取通用excel中的数据
@@ -140,6 +143,10 @@ class dataFileName(object):
     u"""获取命令规则数据"""
     def get_command_test_data_url(self):
         return COMMAND_RULE_TEST_DATA_URL
+
+    u"""获取时间规则数据"""
+    def get_timerule_test_data_url(self):
+        return TIME_RULE_TEST_DATA_URL
 
     #从sheet名称获取登陆数据
     def get_data(self,dataPath,sheetName):
