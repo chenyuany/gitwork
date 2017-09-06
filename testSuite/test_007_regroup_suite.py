@@ -37,7 +37,7 @@ class testRegroupSuite(unittest.TestCase):
 
 	def test_regroup(self):
 
-		#添加和编辑资源组
+		u'''添加和编辑资源组'''
 		self.testregroup.add_edit_regroup_001()
 		u'''上移和下移资源组'''
 		self.testregroup.up_down_regroup_002()

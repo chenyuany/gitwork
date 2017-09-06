@@ -66,6 +66,7 @@ class ClientPage():
     u'''点击资源类型选择框'''
     def click_res_type(self):
         try:
+            time.sleep(1)
             self.click_button_common('id',self.RES_TYPE_QUERY)
         except Exception as e:
             print ("Resource type select error: ") + str(e)

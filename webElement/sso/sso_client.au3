@@ -14,14 +14,23 @@ Func wait_windows_active($iconType)
 			ControlClick($hWnd, "", "Button1")
 		EndIf
 		$hWnd = WinWait("[CLASS:PuTTY]", "", 10)
+		WinActivate($hWnd)
 	ElseIf $iconType == "secureCRT" Then
 		$hWnd = WinWait("[CLASS:VanDyke Software - SecureCRT]", "", 10)
+		WinActivate($hWnd)
+	ElseIf $iconType == "mstsc" or $iconType == "oracle10g" or $iconType == "B/S" or $iconType == "mysql" Then
+		$hWnd = WinWait("远程桌面连接", "", 10)
+		WinActivate($hWnd)
+		Sleep(1000)
+		ControlClick($hWnd, "", "Button13")
+	ElseIf $iconType == "sftp" Then
+		$hWnd = WinWait("[CLASS:SunAwtFrame]", "", 10)
+		WinActivate($hWnd)
 	EndIf
+	;WinActivate($hWnd)
 
 	;$hWnd = WinWait($iconType, "", 10)
 	;$hWnd = WinWait("[CLASS:" & $iconType & "]", "", 10)
-
-	WinActivate($hWnd)
 EndFunc
 
 
@@ -38,8 +47,9 @@ EndFunc
 ;输入密码
 Func enter_pwd($pwd)
 	Send($pwd)
+	Sleep(1000)
 	Send("{ENTER}")
-	Sleep(3000)
+	Sleep(1000)
 EndFunc
 
 Func writeTmpTxt($cmdList)
@@ -70,13 +80,30 @@ Func close_windows($iconType)
 		$hWndType = WinWait("[CLASS:PuTTY]", "", 10)
 	ElseIf $iconType == "secureCRT" Then
 		$hWndType = WinWait("[CLASS:VanDyke Software - SecureCRT]", "", 10)
+	ElseIf $iconType == "mstsc"  Then
+		$hWndType = WinWait("[CLASS:TscShellContainerClass]", "", 10)
+	ElseIf $iconType == "oracle10g" or $iconType == "B/S" or $iconType == "mysql" Then
+		$hWndType = WinWait("[CLASS:TscShellContainerClass]", "", 10)
+		Sleep(20000)
+	ElseIf $iconType == "sftp" Then
+		$hWndType = WinWait("[CLASS:SunAwtFrame]", "", 10)
 	EndIf
 
-	Sleep(1000)
+	Sleep(2000)
 	WinKill($hWndType)
 	If WinExists("SecureCRT") Then
 		$hWnd = WinGetHandle("SecureCRT")
 		ControlClick($hWnd, "", "Button1")
+	EndIf
+	If WinExists("远程桌面连接") Then
+		$hWnd = WinGetHandle("远程桌面连接")
+		ControlClick($hWnd,"","Button1")
+	EndIf
+	If WinExists("提示") Then
+		$hWnd = WinGetHandle("提示")
+		Sleep(1000)
+		Send("{ENTER}")
+		;ControlClick($hWnd,"","Button1")
 	EndIf
 	;WinClose($hWndType)
 	Sleep(500)
@@ -93,7 +120,10 @@ Func cmd_enter($iconType,$username,$pwd,$cmdList)
 	If $pwd <> "no" Then
 		enter_pwd($pwd)
 	EndIf
-	excute_cmd($cmdList)
+	Sleep(1000)
+	If $cmdList <> "no" Then
+		excute_cmd($cmdList)
+	EndIf
 	close_windows($iconType)
 EndFunc
 

@@ -2,16 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1342862a-9e52-4b0c-8d18-cbe0b6b7d37b" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testSuite/test_019_time_rule_suite.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testCase/rule/test_time_rule.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webElement/rule/test_time_rule_ment.py" />
+      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_018_command_rule_suite.py" afterPath="" />
+      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_019_time_rule_suite.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/common_suite_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/common_suite_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/_testDataPath.py" afterPath="$PROJECT_DIR$/testData/_testDataPath.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/login_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/login_test_data.xlsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/sso/sso_client.exe" afterPath="$PROJECT_DIR$/webElement/sso/sso_client.exe" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/sso_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/sso_test_data.xlsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/authorization/authrizationElement.py" afterPath="$PROJECT_DIR$/webElement/authorization/authrizationElement.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/client_conf/clientConfElement.py" afterPath="$PROJECT_DIR$/webElement/client_conf/clientConfElement.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/common_suite_file.py" afterPath="$PROJECT_DIR$/testSuite/common_suite_file.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/error.log" afterPath="$PROJECT_DIR$/log/error.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/isomp.log" afterPath="$PROJECT_DIR$/log/isomp.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/test_018_command_rule_suite.py" afterPath="$PROJECT_DIR$/testSuite/test_018_command_rule_suite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/rule/test_command_rule.py" afterPath="$PROJECT_DIR$/testCase/rule/test_command_rule.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/sso/ssoElement.py" afterPath="$PROJECT_DIR$/webElement/sso/ssoElement.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/sso/sso_client.au3" afterPath="$PROJECT_DIR$/webElement/sso/sso_client.au3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/test_007_regroup_suite.py" afterPath="$PROJECT_DIR$/testSuite/test_007_regroup_suite.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/test_015_sso_suite.py" afterPath="$PROJECT_DIR$/testSuite/test_015_sso_suite.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/sso/test_sso.py" afterPath="$PROJECT_DIR$/testCase/sso/test_sso.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="testIsomp.iws" />
@@ -63,18 +67,7 @@
     <favorites_list name="testIsomp" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="test_019_time_rule_suite.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/testSuite/test_019_time_rule_suite.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.53246754">
-              <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -141,11 +134,11 @@
         <option value="$PROJECT_DIR$/common/_icommon.py" />
         <option value="$PROJECT_DIR$/webElement/rule/test_time_rule_ment.py" />
         <option value="$PROJECT_DIR$/testCase/rule/test_command_rule.py" />
-        <option value="$PROJECT_DIR$/testSuite/common_suite_file.py" />
         <option value="$PROJECT_DIR$/testCase/rule/test_time_rule.py" />
         <option value="$PROJECT_DIR$/testSuite/test_019_time_rule_suite.py" />
         <option value="$PROJECT_DIR$/log/isomp.log" />
         <option value="$PROJECT_DIR$/log/error.log" />
+        <option value="$PROJECT_DIR$/testSuite/common_suite_file.py" />
       </list>
     </option>
   </component>
@@ -210,8 +203,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -258,12 +249,14 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="webElement" />
+              <option name="myItemId" value="testSuite" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -584,32 +577,32 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="7" />
     <editor active="false" />
     <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18767908" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5312" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32751676" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40402684" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18481375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32751676" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5312" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31134564" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40402684" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39709762" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="UnknownFeatures">
@@ -663,11 +656,6 @@
           <url>file://$PROJECT_DIR$/testCase/group/test_usergroup.py</url>
           <line>77</line>
           <option name="timeStamp" value="653" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/testSuite/common_suite_file.py</url>
-          <line>189</line>
-          <option name="timeStamp" value="669" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/common/_globalVal.py</url>
@@ -752,7 +740,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -894,19 +881,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testSuite/test_018_command_rule_suite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07821229">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testData/_testDataPath.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23463687">
           <caret line="137" column="4" selection-start-line="137" selection-start-column="4" selection-end-line="137" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -914,7 +892,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3325527">
           <caret line="160" column="9" selection-start-line="160" selection-start-column="8" selection-end-line="160" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -922,7 +899,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -930,7 +906,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3325527">
           <caret line="150" column="10" selection-start-line="150" selection-start-column="9" selection-end-line="150" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -938,7 +913,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3325527">
           <caret line="47" column="13" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -946,7 +920,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.733333">
           <caret line="35" column="31" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -954,7 +927,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3325527">
           <caret line="47" column="13" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -962,7 +934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3325527">
           <caret line="38" column="13" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -970,7 +941,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.124726474">
           <caret line="497" column="4" selection-start-line="497" selection-start-column="4" selection-end-line="502" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -978,7 +948,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33260393">
           <caret line="275" column="8" selection-start-line="275" selection-start-column="8" selection-end-line="275" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -998,7 +967,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1014,7 +982,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3793911">
           <caret line="238" column="37" selection-start-line="238" selection-start-column="37" selection-end-line="238" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1032,7 +999,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="5.8643327">
           <caret line="143" column="12" selection-start-line="143" selection-start-column="10" selection-end-line="143" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1040,7 +1006,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7624703">
           <caret line="135" column="20" selection-start-line="135" selection-start-column="20" selection-end-line="135" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1048,7 +1013,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33254156">
           <caret line="351" column="8" selection-start-line="351" selection-start-column="8" selection-end-line="351" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1056,7 +1020,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="743" column="39" selection-start-line="743" selection-start-column="27" selection-end-line="743" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1064,7 +1027,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6175772">
           <caret line="85" column="55" selection-start-line="85" selection-start-column="55" selection-end-line="85" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1072,7 +1034,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33246753">
           <caret line="330" column="0" selection-start-line="330" selection-start-column="0" selection-end-line="330" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1080,7 +1041,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.853392">
           <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1098,7 +1058,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.37636763">
           <caret line="65" column="61" selection-start-line="65" selection-start-column="61" selection-end-line="65" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1110,19 +1069,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testSuite/common_suite_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48708487">
-          <caret line="1024" column="13" selection-start-line="1024" selection-start-column="13" selection-end-line="1024" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webElement/rule/test_time_rule_ment.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="214" column="18" selection-start-line="214" selection-start-column="18" selection-end-line="214" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1130,11 +1080,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27272728">
           <caret line="239" column="48" selection-start-line="239" selection-start-column="48" selection-end-line="239" selection-end-column="48" />
-          <folding>
-            <element signature="e#2748#3699#0" expanded="false" />
-            <element signature="e#4801#5891#0" expanded="false" />
-            <element signature="e#5942#6483#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1142,7 +1087,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1150,14 +1094,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testSuite/test_019_time_rule_suite.py">
+    <entry file="file://$PROJECT_DIR$/testSuite/common_suite_file.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53246754">
-          <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.3603352">
+          <caret line="1164" column="11" selection-start-line="1164" selection-start-column="11" selection-end-line="1164" selection-end-column="11" />
           <folding />
         </state>
       </provider>

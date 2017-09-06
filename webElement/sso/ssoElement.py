@@ -35,7 +35,10 @@ class SsoPage():
     IP_OR_NAME = "query_ip_or_name"
     #sso列表table元素xpath
     TABLE_XPATH = "html/body/div[1]/div[7]/div[2]/div[1]/table[@id='content_table']"
-    
+    #mstsc账号
+    MSTSC_ACCOUNT = "ssoAccount"
+    #mstsc口令
+    MSTSC_PWD = "ssoPasswd"
     
     def __init__(self,driver):
         self.driver = driver
@@ -52,6 +55,7 @@ class SsoPage():
     u'''通过name属性获取所在行数
             parameters : 
                 - nameValue : name属性值
+                - resName : 资源名字
     '''
     def get_resource_row(self,nameValue,resName):
         self.frameElem.from_frame_to_otherFrame("rigthFrame")
@@ -75,11 +79,9 @@ class SsoPage():
     def select_account(self,resName,seAccount):
         reaccount = self.cnEnde.is_float(seAccount)
         row = self.get_resource_row("fortResourceName",resName)
-        time.sleep(2)
         selectXpath = "//table[@id='content_table']/tbody/tr[" + str(2*row-1) + "]/td[6]/select"
         seElem = self.getElem.find_element_with_wait_EC("xpath",selectXpath)
         self.selectElem.select_element_by_visible_text(seElem,reaccount)
-        #seElem.click()
     
     u'''选择登录图标
             parameters:
@@ -95,18 +97,8 @@ class SsoPage():
         #resElem = self.getElem.find_element_with_wait_EC("xpath",resname_xpath)
         self.getElem.find_element_wait_and_click_EC("xpath",resname_xpath)
         #self.action.click_and_hold(resElem)
-        
-        #self.action.move_to_element(resElem).click(resElem).perform()
-#        body_xpath = "//table[@id='content_table']/tbody/tr[" + str(2*row) + \
-#        "]/td[@id='open01']/div/table/tbody[1]"
-#        self.getElem.find_element_wait_and_click_EC("xpath",body_xpath)
-        time.sleep(1)        
         img_xpath = "/html/body/div[1]/div[7]/div[2]/div/table[@id='content_table'] \
         /tbody/tr[" + str(2*row) + "]/td[@id='open01']/div/table/tbody/tr/td[2]/a[@alt=" + reiconName + "]/img"
-        
-        time.sleep(1)
-        img_elem = self.getElem.find_element_with_wait_EC("xpath",img_xpath)
-        
         self.getElem.find_element_wait_and_click_EC("xpath",img_xpath)
     
     u'''选择登录协议
@@ -158,6 +150,54 @@ class SsoPage():
 #            "","","")
         self.opt_cmd("\\testIsomp\\webElement\\sso\\sso_client.exe",iconType, \
         username,pwd,cmdList)
+        
+#-----------------------------------RDP相关-----------------------------------
+    u'''填写不代填用户和密码类型的账号'''
+    def set_mstsc_account(self,account):
+        reaccount = self.cnEnde.is_float(account)
+        self.frameElem.from_frame_to_otherFrame("artIframe")
+        self.getElem.find_element_wait_and_sendkeys("id",self.MSTSC_ACCOUNT,reaccount)
+    
+    u'''填写不代填用户和密码类型的密码'''
+    def set_mstsc_pwd(self,pwd):
+        repwd = self.cnEnde.is_float(pwd)
+        self.frameElem.from_frame_to_otherFrame("artIframe")
+        self.getElem.find_element_wait_and_sendkeys("id",self.MSTSC_PWD,repwd)
+        
+#-----------------------------------数据库相关--------------------------------
+    u'''选择应用发布'''
+    def select_app(self,resName,appName):
+        reName = self.cnEnde.is_float(appName)
+        row = self.get_resource_row("fortResourceName",resName)
+        selectXpath = "//table[@id='content_table']/tbody/tr[" + str(2*row) + \
+        "]/td[@id='open01']/div/table/tbody/tr/td[1]/select"
+        seElem = self.getElem.find_element_with_wait_EC("xpath",selectXpath)
+        self.selectElem.select_element_by_visible_text(seElem,reName)
+    
+    u'''选择应用发布和登录图标
+            parameters:
+                - resName:资源名称
+                - iconName:图标名称
+                - appName : 应用发布名称
+    '''    
+    def select_app_and_sso_icon(self,resName,appName,iconName):
+        reiconName = "'%s'"%eval('iconName')
+        row = self.get_resource_row("fortResourceName",resName)
+        #资源名称路径
+        resname_xpath = "//table[@id='content_table']/tbody/tr[" + str(2*row-1) + \
+        "]/td[3]"
+        self.getElem.find_element_wait_and_click_EC("xpath",resname_xpath)
+        self.select_app(resName,appName)
+        img_xpath = "/html/body/div[1]/div[7]/div[2]/div/table[@id='content_table']/tbody/tr[" \
+         + str(2*row) + "]/td[@id='open01']/div/table/tbody/tr/td[4]/a[@alt=" \
+        + reiconName + "]/img"
+        self.getElem.find_element_wait_and_click_EC("xpath",img_xpath)
+    
+            
+            
+        
+        
+        
  
             
         

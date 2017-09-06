@@ -932,8 +932,8 @@ class AuthorizationPage():
     u'''资源账号开关状态'''
     def res_account_status(self):
         self.frameElem.from_frame_to_otherFrame("mainFrame")
-#        time.sleep(1)
         self.driver.execute_script("window.scrollBy(1000,0)","")
+        time.sleep(1)
         parent_elem = self.getElem.find_element_with_wait_EC("id","add_account_page")
         elems = parent_elem.find_elements_by_class_name("switch_off")
         for elem in elems:
