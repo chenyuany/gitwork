@@ -18,7 +18,7 @@ class testSsoSuite(unittest.TestCase):
     def setUp(self):
         #定义驱动
         self.browser = setDriver().set_driver()
-        self.commonSuite = CommonSuiteData(self.browser)        
+        self.commonSuite = CommonSuiteData(self.browser)     
         self.ssoMethod = testSso(self.browser)
         #self.commonSuite.login_and_switch_to_common()
         #单点登录前置条件
@@ -30,9 +30,9 @@ class testSsoSuite(unittest.TestCase):
         self.ssoMethod.cisco_niming_sso_login_002()
         self.ssoMethod.huawei_sso_login_003()
         self.ssoMethod.debian_sso_login_004()
-        self.ssoMethod.windows_sso_login_005()
-        self.ssoMethod.domain_sso_login_006()
-        self.ssoMethod.yunei_sso_login_007()
+#        self.ssoMethod.windows_sso_login_005()
+#        self.ssoMethod.domain_sso_login_006()
+#        self.ssoMethod.yunei_sso_login_007()
         
     def tearDown(self):
         pass

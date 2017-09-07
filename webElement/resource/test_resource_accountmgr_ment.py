@@ -9,7 +9,7 @@
 #修改日期：
 #修改内容：
 '''
-import sys
+import sys,time
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.path.append("/testIsomp/common/")
@@ -48,8 +48,10 @@ class Accountmgr(object):
 	def click_account_add_edit_button(self, accountname='no'):
 		try:
 			actname = self.cnEn.is_float(accountname)
+			isexist = self.cmf.is_namevalue_exsit(actname, "fortAccountName")
+			#time.sleep(1)
 			#如果资源名称等于no就点击添加按钮，否则点击编辑按钮
-			if actname == 'no':
+			if actname == 'no' or isexist == False :
 				self.frameElem.from_frame_to_otherFrame("mainFrame")
 				self.getElem.find_element_wait_and_click_EC("id", self.ADD_ACCOUNT)
 			else:
@@ -192,5 +194,8 @@ class Accountmgr(object):
 	'''
 	def set_authorize(self):
 		self.frameElem.from_frame_to_otherFrame("mainFrame")
-		self.getElem.find_element_wait_and_click_EC("id", "fortIsAllowAuthorized")
+		elem = self.getElem.find_element_with_wait_EC("id", "fortIsAllowAuthorized")
+		if elem.is_selected() == False:
+			elem.click()
+		#self.getElem.find_element_wait_and_click_EC("id", "fortIsAllowAuthorized")
 

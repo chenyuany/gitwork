@@ -82,6 +82,7 @@ class testSso():
 			self.ssoElem.set_mstsc_pwd(data[10])
 			self.cmf.click_login_msg_button()
 		self.ssoElem.choice_browser(data[4],data[6],data[7],data[8])
+		
 		#判断测试项是否通过
 		self.log.log_detail(data[0], True)
 		time.sleep(4)		
@@ -98,11 +99,12 @@ class testSso():
 			data = sso_data[dataRow]
 			try:
 				#如果不是第一行标题，则读取数据
+				#if dataRow == 2:
 				if 0 < dataRow <= 4:
 					self.sso_common_func(data)
 			except Exception as e:
 				print ("Cisco SSO login fail: ") + str(e)
-		self.commSuite.user_quit()
+		#self.commSuite.user_quit()
 		self.log.log_end("CiscossoLogin")
 	
 	u'''cisco匿名单点登录'''
@@ -111,7 +113,7 @@ class testSso():
 		self.log.log_start("nimingssoLogin")
 		#获取单点登录的数据
 		sso_data = self.get_table_data("sso")
-		self.commSuite.sso_user_login(8)
+		#self.commSuite.sso_user_login(8)
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
 		for dataRow in range(len(sso_data)):
@@ -122,14 +124,14 @@ class testSso():
 					self.sso_common_func(data)
 			except Exception as e:
 				print ("niming SSO login fail: ") + str(e)
-		self.commSuite.user_quit()
+		#self.commSuite.user_quit()
 		self.log.log_end("nimingssoLogin")	
 	
 	u'''华为资源单点登录'''
 	def huawei_sso_login_003(self):
 		#日志开始记录
 		self.log.log_start("huaweissoLogin")
-		self.commSuite.sso_user_login(9)
+		#self.commSuite.sso_user_login(9)
 		#无检查点的测试项标识，如果为True说明通过
 		sso_data = self.get_table_data("sso")
 		flag = False
@@ -141,14 +143,14 @@ class testSso():
 					self.sso_common_func(data)
 			except Exception as e:
 				print ("hauwei SSO login fail: ") + str(e)
-		self.commSuite.user_quit()
+		#self.commSuite.user_quit()
 		self.log.log_end("huaweissoLogin")
 		
 	u'''linux资源单点登录'''
 	def debian_sso_login_004(self):
 		#日志开始记录
 		self.log.log_start("debianssoLogin")
-		self.commSuite.sso_user_login(10)
+		#self.commSuite.sso_user_login(10)
 		sso_data = self.get_table_data("sso")
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
@@ -160,14 +162,14 @@ class testSso():
 					self.sso_common_func(data)
 			except Exception as e:
 				print ("debian SSO login fail: ") + str(e)
-		self.commSuite.user_quit()
+		#self.commSuite.user_quit()
 		self.log.log_end("debianssoLogin")
 	
 	u'''windowsRdp单点登录'''
 	def windows_sso_login_005(self):
 		#日志开始记录
 		self.log.log_start("windowsssoLogin")
-		self.commSuite.sso_user_login(11)
+		#self.commSuite.sso_user_login(11)
 		sso_data = self.get_table_data("windows_sso")
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False
@@ -198,14 +200,14 @@ class testSso():
 					self.windows_common_func(data)					
 			except Exception as e:
 				print ("Domain SSO login fail: ") + str(e)
-		self.commSuite.user_quit()
+		#self.commSuite.user_quit()
 		self.log.log_end("DomainssoLogin")
 	
 	u'''域内资源单点登录'''
 	def yunei_sso_login_007(self):
 		#日志开始记录
 		self.log.log_start("yuneissoLogin")
-		self.commSuite.sso_user_ad_login(13)
+		#self.commSuite.sso_user_ad_login(13)
 		sso_data = self.get_table_data("yunei_sso")
 		#无检查点的测试项标识，如果为True说明通过
 		flag = False

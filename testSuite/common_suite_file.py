@@ -412,7 +412,7 @@ class CommonSuiteData():
     def set_res_account(self,data):
         self.switch_to_moudle(u"运维管理",u"资源")
         self.account.click_account_manage_button(data[0])
-        self.account.click_account_add()
+        self.account.click_account_add_edit_button(data[2])
         self.account.select_edit_way(data[1])
         if data[2] != "no":
             self.account.set_account_name(data[2])
@@ -694,7 +694,8 @@ class CommonSuiteData():
     
     u'''添加sso资源'''
     def add_sso_resource(self):
-        rowList = [1,2,3,4,5,7,8]
+        #rowList = [1,2,3,4,5,7,8]
+        rowList = [1,3,4,5]
         self.add_resource_modele(rowList)
     
     u'''添加依附操作系统'''
@@ -717,7 +718,8 @@ class CommonSuiteData():
     
     u'''添加sso资源账号'''
     def add_sso_res_account(self):
-        rowList = [1,2,3,4,5,6,7,9,10]
+        rowList = [1,2,4,5,6,7]
+        #rowList = [1,2,3,4,5,6,7,9,10]
         self.add_res_account_module(rowList)
         
     u'''添加用户组'''
@@ -771,7 +773,8 @@ class CommonSuiteData():
                 
     u'''添加单点登录授权'''
     def add_sso_authorization(self):
-        rowList = [1,2,3,4,5,6,7]
+        rowList = [1]
+        #rowList = [1,2,3,4,5,6,7]
         self.add_authorization_module(rowList)
     
     u'''添加客户端数据模板'''
@@ -936,18 +939,18 @@ class CommonSuiteData():
         self.del_application()
         self.auth_method_post_condition()
     
-#------------------------------单点登录前置条件------------------------------
+#------------------------------命令单点登录前置条件----------------------------
     u'''单点登录前置条件'''
     def sso_prefix_condition(self):
         self.module_common_prefix_condition()
         self.add_user_with_role()
         self.user_quit()
-        self.login_and_switch_to_sys()
+#        self.login_and_switch_to_sys()
         #配置认证方式
-        self.add_meth_method()
-        self.add_sso_user()
-        self.sys_switch_to_dep()
-        #self.login_and_switch_to_dep()
+#        self.add_meth_method()
+#        self.add_sso_user()
+#        self.sys_switch_to_dep()
+        self.login_and_switch_to_dep()
         self.add_sso_resource()
         self.add_sso_res_account()
         self.add_sso_authorization()
@@ -960,9 +963,38 @@ class CommonSuiteData():
         self.user_quit()
         self.login_and_switch_to_dep()
         self.del_authorization()
+        #self.del_one_resource("yunei")
+        self.del_resource()
+        self.auth_method_post_condition()
+        
+#------------------------------windows单点登录前置条件-------------------------
+    u'''windows单点登录前置条件'''
+    def windows_sso_prefix_condition(self):
+        self.module_common_prefix_condition()
+        self.add_user_with_role()
+        self.user_quit()
+        self.login_and_switch_to_sys()
+        #配置认证方式
+        self.add_meth_method()
+        self.add_user_data_module([6])
+        self.sys_switch_to_dep()
+        #self.login_and_switch_to_dep()
+        self.add_resource_modele([2,7,8])
+        self.add_res_account_module([3,9,10])
+        self.add_authorization_module([3,4])
+        self.switch_to_operation()
+        #self.user_quit()
+        #self.login_and_switch_to_common()
+    
+    u'''单点登录后置条件'''
+    def windows_sso_post_condition(self):
+        self.user_quit()
+        self.login_and_switch_to_dep()
+        self.del_authorization()
         self.del_one_resource("yunei")
         self.del_resource()
         self.auth_method_post_condition()
+
         
 #------------------------------数据库单点登录前置条件-------------------------
     u'''数据库单点登录前置条件'''
@@ -980,10 +1012,8 @@ class CommonSuiteData():
         #self.login_and_switch_to_dep()
         self.add_database_res_module([1,2,3])
         self.add_res_account_module([11,12,13])
-        self.add_authorization_module([8])#,9
+        self.add_authorization_module([5])
         self.switch_to_operation()
-#        self.user_quit()
-#        self.login_and_switch_to_common()
     
     u'''数据库单点登录后置条件'''
     def database_sso_post_condition(self):
@@ -1111,7 +1141,7 @@ class CommonSuiteData():
         self.add_res_account_module([3,8])
         #切换到授权
         self.switch_to_moudle(u'运维管理', u'授权')
-        self.add_authrization([1])
+        self.add_authrization([2])
 
     def process_module_post_condition(self):
         #用户登录切换部门角色
@@ -1142,7 +1172,7 @@ class CommonSuiteData():
         self.add_res_account_module([4])
         #切换到授权
         self.switch_to_moudle(u'运维管理', u'授权')
-        self.add_authorization_module([1])
+        self.add_authorization_module([2])
         #切换到规则定义
         self.switch_to_moudle(u'运维管理', u'规则定义')
         self.command.click_left_rule(0)

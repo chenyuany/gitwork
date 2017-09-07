@@ -21,7 +21,7 @@ Func wait_windows_active($iconType)
 	ElseIf $iconType == "mstsc" or $iconType == "oracle10g" or $iconType == "B/S" or $iconType == "mysql" Then
 		$hWnd = WinWait("远程桌面连接", "", 10)
 		WinActivate($hWnd)
-		Sleep(1000)
+		Sleep(3000)
 		ControlClick($hWnd, "", "Button13")
 	ElseIf $iconType == "sftp" Then
 		$hWnd = WinWait("[CLASS:SunAwtFrame]", "", 10)

@@ -80,6 +80,7 @@ class SsoPage():
         reaccount = self.cnEnde.is_float(seAccount)
         row = self.get_resource_row("fortResourceName",resName)
         selectXpath = "//table[@id='content_table']/tbody/tr[" + str(2*row-1) + "]/td[6]/select"
+        time.sleep(1)
         seElem = self.getElem.find_element_with_wait_EC("xpath",selectXpath)
         self.selectElem.select_element_by_visible_text(seElem,reaccount)
     
@@ -133,7 +134,7 @@ class SsoPage():
         rePwd = self.cnEnde.is_float(pwd)
         recmdList = self.cnEnde.is_float(cmdList)
         reList = str(recmdList)
-        os.system(exePath + " " + iconType + " " + username + " " + pwd + " " \
+        os.popen(exePath + " " + iconType + " " + username + " " + pwd + " " \
         + reList)
     
     u'''根据浏览器类型进行单点登录'''
@@ -144,10 +145,7 @@ class SsoPage():
             self.execute_chrome_key()
         elif browserType != '0' or browserType != '1' :
             self.opt_cmd("\\testIsomp\\webElement\\sso\\sso_firefox.exe","", \
-            "","","")
-#        else:
-#            self.opt_cmd("\\testIsomp\\webElement\\sso\\sso_firefox.exe","", \
-#            "","","")
+            "","","")        
         self.opt_cmd("\\testIsomp\\webElement\\sso\\sso_client.exe",iconType, \
         username,pwd,cmdList)
         

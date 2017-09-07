@@ -1042,6 +1042,7 @@ class commonFun(object):
         self.frameElem.switch_to_main()
         try:
             text_list = self.driver.find_elements_by_name(name)
+            time.sleep(1)
             for fortNameValue in text_list:
                 fortNameValue_text = fortNameValue.text
                 if fortNameValue_text == namevalue:
