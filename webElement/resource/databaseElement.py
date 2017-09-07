@@ -314,3 +314,30 @@ class DatabaseResource(object):
 		flag = self.getElem.find_element_wait_and_compare_text("xpath", xpath, [0, "ip可用性校验失败！"])
 		if flag:
 			self.cmf.click_login_msg_button()
+#--------------------------windows资源-----------------------------------------
+	u'''填写windows域名
+	   parameter:
+	       - domainname:windows域名
+	'''
+	def set_domain_name(self, domainname):
+		try:
+			doname = self.cnEn.is_float(domainname)
+			self.frameElem.from_frame_to_otherFrame("mainFrame")
+			self.getElem.find_element_wait_and_clear_EC('id', "fortDomainName")
+			self.getElem.find_element_wait_and_sendkeys('id', "fortDomainName", doname)
+		except Exception as e:
+			print "domainname is error :" + str(e)
+	
+	u'''填写主机名称
+	   parameter:
+	       - hostname:主机名称
+	'''
+	def set_host_name(self, hostname):
+		try:
+			host = self.cnEn.is_float(hostname)
+			self.frameElem.from_frame_to_otherFrame("mainFrame")
+			self.getElem.find_element_wait_and_clear_EC('id', "window_host_name")
+			self.getElem.find_element_wait_and_sendkeys('id', "window_host_name", host)
+		except Exception as e:
+			print "window_host_name is error :" + str(e)
+	

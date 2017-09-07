@@ -1064,7 +1064,7 @@ class CommonSuiteData():
         #切换到资源
         self.switch_to_moudle(u"运维管理", u"资源")
         #添加资源
-        self.add_resource_modele([2,6])
+        self.add_resource_modele([9,6])
         #切换到组织定义
         self.switch_to_moudle(u"运维管理", u"组织定义")
 
@@ -1106,7 +1106,7 @@ class CommonSuiteData():
         #切换到资源
         self.switch_to_moudle(u"运维管理", u"资源")
         #添加资源
-        self.add_resource_modele([2,6])
+        self.add_resource_modele([9,6])
         #添加资源账号
         self.add_res_account_module([3,8])
         #切换到授权
