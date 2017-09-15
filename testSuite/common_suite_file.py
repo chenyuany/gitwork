@@ -1141,7 +1141,7 @@ class CommonSuiteData():
         self.add_res_account_module([3,8])
         #切换到授权
         self.switch_to_moudle(u'运维管理', u'授权')
-        self.add_authrization([2])
+        self.add_authrization([1])
 
     def process_module_post_condition(self):
         #用户登录切换部门角色

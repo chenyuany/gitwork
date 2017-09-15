@@ -64,7 +64,7 @@ EndFunc
 ;执行输入的命令
 Func excute_cmd($cmdList)
 	$recmdList = StringSplit($cmdList,",", $STR_NOCOUNT  )
-	Sleep(3000)
+	Sleep(1000)
 	For $cmdStr in $recmdList
 		;writeTmpTxt($cmdStr)
 		Send($cmdStr)

@@ -264,7 +264,7 @@ class UserPage():
     '''     
     def operate_delete(self,account):
         try:
-            self.user_operate_list(account,"4")
+            self.user_operate_list(account,"5")
         except Exception:
             print("Click user operation delete button fail")
 
@@ -283,19 +283,18 @@ class UserPage():
         
         #获取用户行号
         row = self.cmf.find_row_by_name(reaccount,"fortUserAccount")
-        status_button_xpath = "//table[@id='content_table']/tbody/tr[" + str(row) + "]/td[8]/input[@id='btn_qh']"        
+        button_status_xpath = "//table[@id='content_table']/tbody/tr[" + str(row) + "]/td[8]/input[@id='btn_qh']"        
         try:
-            status_button = self.getElem.find_element_with_wait_EC('xpath',status_button_xpath)
-            if status_button.get_attribute('class') != revalue:
-                status_button.click()
+            button_status = self.getElem.find_element_with_wait_EC('xpath',status_button_xpath)
+            if button_status.get_attribute('class') != revalue:
+                button_status.click()
         except Exception as e:
-            print ("Change user status button error: ") + str(e)
-
+            print ("Change user button status  error: ") + str(e)
 
     u'''填写变量内容
         parameters:
             var_text : 变量内容
-            locator : 定位方式
+            value : 定位方式值
     '''      
     def set_common_func(self,var_text,value):
         try:
@@ -320,7 +319,6 @@ class UserPage():
             var_elem.send_keys(reaccountName)
         except Exception as e:
             print ("set search user accountOrname  error: ") + str(accountName) + str(e)
-
 
     u'''填写用户账号
         parameters:
@@ -692,7 +690,7 @@ class UserPage():
         except Exception as e:
             print ("NO users role is ") + str(reRole) + str(e)
 
-    #证书相关---------------------------------------------------------------
+#----------------------------------证书相关------------------------------------
     u'''生成证书'''
     def create_cert(self):
         self.frameElem.from_frame_to_otherFrame("mainFrame")
@@ -715,9 +713,9 @@ class UserPage():
             parameters:
                 locator ： ID值
     '''
-    def get_cert_var_text(self,locator):
+    def get_cert_var_text(self,value):
         try:
-            cert_var_text = self.getElem.find_element_with_wait_EC("id",locator).text
+            cert_var_text = self.getElem.find_element_with_wait_EC("id",value).text
             return cert_var_text
         
         except Exception as e:
