@@ -1205,6 +1205,25 @@ class CommonSuiteData():
         self.dep_switch_to_sys()
         self.module_common_post_condition()
 
+#------------------------------地址规则前置条件-----------------------------------
+    def addressrule_module_prefix_condition(self):
+        self.module_common_prefix_condition()
+        self.add_user_with_role()
+        #添加用户
+        self.add_user_data_module([3,5,14,15,16,17,18,19])
+        #退出
+        self.user_quit()
+        #使用添加的用户登录并切换至部门级角色
+        self.login_and_switch_to_dep()
+        #切换到规则定义
+        self.switch_to_moudle(u'运维管理', u'规则定义')
+        self.command.click_left_rule(2)
+
+    def addressrule_module_post_condition(self):
+        #切换至系统级角色
+        self.dep_switch_to_sys()
+        self.module_common_post_condition()
+
 
 
 
