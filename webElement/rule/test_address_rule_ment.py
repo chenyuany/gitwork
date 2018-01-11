@@ -84,7 +84,7 @@ class AddressRule(object):
 
 	u'''填写地址规则名称
 		Parameters:
-			- rulename:时间规则名称
+			- rulename:规则名称
 	'''
 	def set_rulename(self, rulename):
 		name = self.cnEn.is_float(rulename)
@@ -125,7 +125,7 @@ class AddressRule(object):
 
 	u'''填写ip地址掩码
 		Parameters:
-			- masklist:所填写的IP掩码列表集合
+			- masklist:所填写的IP掩码value值列表集合
 	'''
 	def set_ip_mask(self, masklist):
 		self.frameElem.from_frame_to_otherFrame("rigthFrame")
