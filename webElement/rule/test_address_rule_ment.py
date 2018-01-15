@@ -13,15 +13,13 @@ import sys,time
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.path.append("/testIsomp/common/")
-from _icommon import getElement,selectElement,frameElement,commonFun,tableElement
+from _icommon import getElement,selectElement,frameElement,commonFun
 from _cnEncode import cnEncode
 sys.path.append("/testIsomp/webElement/process/")
 from test_access_approval_ment import Accapproval
 #导入用户元素类
 sys.path.append("/testIsomp/webElement/user/")
 from userElement import UserPage
-sys.path.append("/testIsomp/webElement/rule")
-from test_time_rule_ment import TimeRule
 
 class AddressRule(object):
 	def __init__(self, driver):
@@ -29,12 +27,10 @@ class AddressRule(object):
 		self.getElem = getElement(driver)
 		self.selectElem = selectElement(driver)
 		self.frameElem = frameElement(driver)
-		self.tableElem = tableElement(driver)
 		self.cmf = commonFun(driver)
 		self.cnEn = cnEncode()
 		self.acproval = Accapproval(driver)
 		self.user = UserPage(driver)
-		self.timerule = TimeRule(driver)
 
 	u'''点击批量删除'''
 	def click_bulkdel_address(self):

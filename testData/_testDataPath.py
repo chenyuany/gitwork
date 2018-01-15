@@ -69,6 +69,10 @@ TIME_RULE_TEST_DATA_URL = r"/testIsomp/testData/time_rule_test_data.xlsx"
 #地址规则数据文件
 ADDRESS_RULE_TEST_DATA_URL = r"/testIsomp/testData/address_rule_test_data.xlsx"
 
+#资源时间规则数据文件
+RETIME_RULE_TEST_DATA_URL = r"/testIsomp/testData/resource_time_rule_test_data.xlsx"
+
+
 
 class dataFileName(object):
     #获取通用excel中的数据
@@ -154,6 +158,10 @@ class dataFileName(object):
     u"""获取地址规则数据"""
     def get_adrerule_test_data_url(self):
         return ADDRESS_RULE_TEST_DATA_URL
+
+    u"""获取资源时间规则数据"""
+    def get_retime_test_data_url(self):
+        return RETIME_RULE_TEST_DATA_URL
 
     #从sheet名称获取登陆数据
     def get_data(self,dataPath,sheetName):

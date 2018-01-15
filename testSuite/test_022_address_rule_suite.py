@@ -19,8 +19,6 @@ sys.path.append("/testIsomp/testSuite/common_suite_file/")
 from common_suite_file import setDriver,CommonSuiteData
 sys.path.append("/testIsomp/testCase/rule/")
 from test_address_rule import testAddress
-sys.path.append("/testIsomp/webElement/rule")
-from test_command_rule_ment import CommandRule
 
 class testAdreRuleSuite(unittest.TestCase):
 
@@ -30,7 +28,6 @@ class testAdreRuleSuite(unittest.TestCase):
 
 		self.comsuit = CommonSuiteData(self.browser)
 		self.adrerule = testAddress(self.browser)
-		self.command = CommandRule(self.browser)
 
 		#地址规则前置条件
 		self.comsuit.addressrule_module_prefix_condition()
