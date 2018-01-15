@@ -42,6 +42,9 @@ sys.path.append("/testIsomp/webElement/client_conf")
 from clientConfElement import ClientPage
 sys.path.append("/testIsomp/webElement/rule")
 from test_command_rule_ment import CommandRule
+sys.path.append("/testIsomp/webElement/ass_service")
+from ntpElement import NtpService
+
 
 #导入应用发布
 sys.path.append("/testIsomp/webElement/application")
@@ -101,6 +104,7 @@ class CommonSuiteData():
         self.testAutho = testAuthorization(self.driver)
         self.clientElem = ClientPage(self.driver)
         self.command = CommandRule(self.driver)
+        self.ntp = NtpService(self.driver)
 
     u'''切换模块
             parameter:
@@ -911,6 +915,18 @@ class CommonSuiteData():
     def client_module_post_condition(self):
         self.auth_method_post_condition()
 
+#-----------------------------AD域抽取前置条件------------------------------
+    def ad_module_prefix_condition(self):
+        self.module_common_prefix_condition()
+        self.add_user_with_role()
+        self.user_quit()
+        self.login_and_switch_to_sys()
+        self.switch_to_moudle(u"系统配置", u"AD定时抽取")
+    
+    def ad_module_post_condition(self):
+        self.auth_method_post_condition()
+
+
 #-------------------------------应用发布后置条件-------------------------------
     def application_module_prefix_condition(self):
         self.module_common_prefix_condition()
@@ -1254,6 +1270,41 @@ class CommonSuiteData():
         self.dep_switch_to_sys()
         self.module_common_post_condition()
 
+#------------------------------NTP服务前置条件---------------------------------
+    def ntp_module_prefix_condition(self):
+        self.module_common_prefix_condition()
+        self.add_user_with_role()
+        #添加用户
+        self.add_user_data_module([0])
+        #退出
+        self.user_quit()
+        time.sleep(1)
+        #使用添加的用户登录并切换至系统级角色
+        self.login_and_switch_to_sys()
+        #切换到NTP服务
+        self.switch_to_moudle(u'系统配置', u'关联服务')
+        self.ntp.click_left_moudle(0)
+        
+    def ntp_module_post_condition(self):
+        #切换至系统级角色
+        #self.dep_switch_to_sys()
+        self.module_common_post_condition()
+        
+#------------------------------会话配置前置条件--------------------------------
+    def session_module_prefix_condition(self):
+        self.module_common_prefix_condition()
+        #添加系统级和部门级角色的用户
+        self.add_user_with_role()
+        #添加用户
+        self.add_user_data_module([0])
+        #用户退出
+        self.user_quit()
+        #使用新用户登录并切换到系统级
+        self.login_and_switch_to_sys()
+        self.switch_to_moudle(u"策略配置", u"会话配置")
+
+    def session_module_post_condition(self):
+        self.module_common_post_condition()
 
 
 

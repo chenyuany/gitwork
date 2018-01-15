@@ -263,8 +263,15 @@ class UserPage():
             account : 用户账号
     '''     
     def operate_delete(self,account):
+        row = self.cmf.find_row_by_name(account, "fortUserAccount")
+        opt_xpath = "//table[@id='content_table']/tbody/tr[" + str(row) + "]/td[9]"
+        parent_elem = self.getElem.find_element_with_wait_EC("xpath",opt_xpath)
+        input_num = str(len(parent_elem.find_elements_by_tag_name("input")))
         try:
-            self.user_operate_list(account,"5")
+            if input_num == "4":
+                self.user_operate_list(account,"4")
+            else:
+                self.user_operate_list(account,"5")
         except Exception:
             print("Click user operation delete button fail")
 
@@ -285,7 +292,7 @@ class UserPage():
         row = self.cmf.find_row_by_name(reaccount,"fortUserAccount")
         button_status_xpath = "//table[@id='content_table']/tbody/tr[" + str(row) + "]/td[8]/input[@id='btn_qh']"        
         try:
-            button_status = self.getElem.find_element_with_wait_EC('xpath',status_button_xpath)
+            button_status = self.getElem.find_element_with_wait_EC('xpath',button_status_xpath)
             if button_status.get_attribute('class') != revalue:
                 button_status.click()
         except Exception as e:

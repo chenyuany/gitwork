@@ -36,6 +36,12 @@ APP_TEST_DATA_URL = r"/testIsomp/testData/application_test_data.xlsx"
 #sso数据文件
 SSO_TEST_DATA_URL = r"/testIsomp/testData/sso_test_data.xlsx"
 
+#AD域抽取数据文件
+AD_EXTRACT_DATA_URL = r"/testIsomp/testData/ad_extract_data.xlsx"
+
+#会话配置数据文件
+SESSION_CONFIGURATION_DATA_URL = r"/testIsomp/testData/session_configuration_test_data.xlsx"
+
 #linux资源数据文件
 LINUX_RESOURCE_TEST_DATA_URL = r"/testIsomp/testData/linux_resource_test_data.xlsx"
 
@@ -65,6 +71,9 @@ COMMAND_RULE_TEST_DATA_URL = r"/testIsomp/testData/command_rule_test_data.xlsx"
 
 #时间规则数据文件
 TIME_RULE_TEST_DATA_URL = r"/testIsomp/testData/time_rule_test_data.xlsx"
+
+#NTP服务数据文件
+EDIT_NTP_TEST_DATA_URL = r"/testIsomp/testData/edit_ntp_test_data.xlsx"
 
 #地址规则数据文件
 ADDRESS_RULE_TEST_DATA_URL = r"/testIsomp/testData/address_rule_test_data.xlsx"
@@ -110,6 +119,10 @@ class dataFileName(object):
     #SSO数据
     def get_sso_test_url(self):
         return SSO_TEST_DATA_URL
+    
+    #AD域抽取数据
+    def get_ad_extract_test_url(self):
+        return AD_EXTRACT_DATA_URL
 
     u"""获取角色定义数据文件的数据"""
     def get_role_test_data_url(self):
@@ -155,6 +168,10 @@ class dataFileName(object):
     def get_timerule_test_data_url(self):
         return TIME_RULE_TEST_DATA_URL
 
+    #获取会话配置数据
+    def get_session_configuration_data_url(self):
+        return SESSION_CONFIGURATION_DATA_URL
+
     u"""获取地址规则数据"""
     def get_adrerule_test_data_url(self):
         return ADDRESS_RULE_TEST_DATA_URL
@@ -169,6 +186,10 @@ class dataFileName(object):
         data = excelRead().get_excel_data(dataPath,sheetName)
         
         return data
+    
+    #获取NTP服务数据
+    def get_ntp_test_data_url(self):
+        return EDIT_NTP_TEST_DATA_URL
     
 #dataFile = dataFileName()
 #login_data = dataFileName().get_data(dataFileName().get_auth_method_test_data_url(),'add_auth_method')
