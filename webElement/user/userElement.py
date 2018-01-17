@@ -47,7 +47,6 @@ class UserPage():
     SEARCH_USER_STATUS = "fortUserState"
     #点击部门清空
     DEP_CLEAR = "clean_tree_data"
-
     #检索按钮
     SEARCH_BUTTON = "fort_user"
     #重置按钮
@@ -711,6 +710,7 @@ class UserPage():
     u'''删除证书'''
     def delete_cert(self):
         try:
+            time.sleep(1)
             self.getElem.find_element_with_wait_clickable_and_click("id",self.DELETE_CERT)
             
         except Exception as e:

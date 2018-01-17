@@ -36,8 +36,8 @@ class TestNtpSuite(unittest.TestCase):
         #定义驱动
         self.browser = setDriver().set_driver()
         self.commonSuite = CommonSuiteData(self.browser)
-
         self.service = ServiceNtp(self.browser)
+        self.initDriver = initDriver()
         
         #前置条件
         self.commonSuite.ntp_module_prefix_condition()
@@ -52,6 +52,9 @@ class TestNtpSuite(unittest.TestCase):
         
         #后置条件
         self.commonSuite.ntp_module_post_condition()
+        #关闭浏览器
+        self.initDriver.close_driver(self.browser)
+        
         
 if __name__ == "__main__":
     unittest.main()
