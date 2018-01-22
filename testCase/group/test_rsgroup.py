@@ -76,7 +76,7 @@ class testRegroup(object):
 					self.regroup.regroup_click_basic_operation(int(data[4]), data[2], data[3])
 					self.dptment.popup_sendkey(data[5])
 					self.dptment.click_ok_button()
-					time.sleep(2)
+					time.sleep(3)
 					self.frameElem.switch_to_content()
 					self.dptment.multil_div_check_point("xpath", regrMsg, data, flag, pagetext)
 			except Exception as e:

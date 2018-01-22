@@ -216,7 +216,7 @@ class AdExtractPage():
     def set_home_node2(self,homeNode):
         return self.set_common_func(homeNode,"xpath",self.USER_HOME_NODE2)
 
-    u'''设置查询条件'''
+    u'''设置用户查询条件'''
     def set_query_condition(self,cond):
         return self.set_common_func(cond,"id",self.QUERY_CONDTION)
 
@@ -399,7 +399,7 @@ class AdExtractPage():
     u'''选中指定的账号
         Parameters:
             - value:定位ul的id
-            - account:选中的账号
+            - accountText:选中的账号
     '''
     def select_ul_li(self,value,accountText):
         accountList = accountText.split(',')
@@ -473,6 +473,12 @@ class AdExtractPage():
         if elem.is_selected() == False:
             elem.click()
     
+    u'''设置执行日期:
+            parameters:
+                - ExType:周期执行方式
+                - oneText:设置星期、日期、月份
+                - twoType:设置月份
+    '''
     def set_execute_date(self,ExType,oneText,twoType):
         retype = self.cnEnde.is_float(ExType)
         retwoType = self.cnEnde.is_float(twoType)

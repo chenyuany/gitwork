@@ -53,6 +53,8 @@ sys.path.append("/testIsomp/webElement/authorization")
 from authrizationElement import AuthorizationPage
 sys.path.append("/testIsomp/testCase/authorization/")
 from test_authorization import testAuthorization
+sys.path.append("/testIsomp/webElement/mount")
+from test_mount_ment import MountPage
 
 class setDriver():
    
@@ -104,6 +106,7 @@ class CommonSuiteData():
         self.testAutho = testAuthorization(self.driver)
         self.clientElem = ClientPage(self.driver)
         self.command = CommandRule(self.driver)
+        self.mount = MountPage(self.driver)
         self.ntp = NtpService(self.driver)
 
     u'''切换模块
@@ -869,6 +872,8 @@ class CommonSuiteData():
         self.login_and_switch_to_sys()
         #配置认证方式
         self.add_meth_method()
+        self.user_quit()
+        self.login_and_switch_to_sys()
         #配置最大登录数
         self.set_login_max_num()
         #添加登录用户数据
@@ -1146,7 +1151,7 @@ class CommonSuiteData():
         self.module_common_prefix_condition()
         self.add_user_with_role()
         #添加用户
-        self.add_user_data_module([2,3,5,11])
+        self.add_user_data_module([2,5,11,12])
         #退出
         self.user_quit()
         #使用添加的用户登录并切换至部门级角色
@@ -1163,7 +1168,7 @@ class CommonSuiteData():
 
     def process_module_post_condition(self):
         #用户登录切换部门角色
-        self.login_and_switch_to_dep()
+        # self.login_and_switch_to_dep()
         #删除授权
         self.del_authorization()
         #删除资源
@@ -1306,6 +1311,21 @@ class CommonSuiteData():
         self.switch_to_moudle(u"策略配置", u"会话配置")
 
     def session_module_post_condition(self):
+        self.module_common_post_condition()
+
+#------------------------------审计存储扩展前置条件-----------------------------------
+    def audit_mount_module_prefix_condition(self):
+        self.module_common_prefix_condition()
+        self.add_user_with_role()
+        #退出
+        self.user_quit()
+        #使用添加的用户登录并切换至系统级角色
+        self.login_and_switch_to_sys()
+        #切换到维护配置
+        self.switch_to_moudle(u'系统配置', u'维护配置')
+        self.mount.click_right_button('1')
+
+    def audit_mount_module_post_condition(self):
         self.module_common_post_condition()
 
 

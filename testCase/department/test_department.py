@@ -76,7 +76,7 @@ class testDepartment(object):
 					self.dptment.click_basic_operation(data[2], int(data[3]))
 					self.dptment.popup_sendkey(data[4])
 					self.dptment.click_ok_button()
-					time.sleep(2)
+					time.sleep(3)
 					self.frameElem.switch_to_content()
 					self.dptment.multil_div_check_point("xpath", dptmMsg, data, flag, pagetext)
 			except Exception as e:
