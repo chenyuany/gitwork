@@ -1,55 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d88852f8-4469-4b19-b739-fed9070824cc" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testData/audit_mount_test_data.xlsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testCase/mount/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webElement/mount/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testCase/mount/test_mount.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webElement/mount/test_mount_ment.py" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_001_role_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_002_department_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_003_auth_method_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_004_login_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_005_user_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_006_linux_resource_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_007_regroup_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_008_usergroup_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_009_authori_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_010_network_resource_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_011_windows_resource_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_012_client_conf_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_013_app_conf_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_014_database_resource_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_015_command_rule_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_016_time_rule_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_017_accapproval_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_018_double_license_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_019_sso_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_020_database_sso_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_021_windows_sso_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_022_address_rule_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_023_ad_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_024_session_configuration_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_025_ntp_suite.py" afterPath="" />
-      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_026_retime_rule_suite.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/accapproval_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/accapproval_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/double_license_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/double_license_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/sso/sso_client.exe" afterPath="$PROJECT_DIR$/webElement/sso/sso_client.exe" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/_testDataPath.py" afterPath="$PROJECT_DIR$/testData/_testDataPath.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/ad_extract/adExtractElement.py" afterPath="$PROJECT_DIR$/webElement/ad_extract/adExtractElement.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/common_suite_file.py" afterPath="$PROJECT_DIR$/testSuite/common_suite_file.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/resource/databaseElement.py" afterPath="$PROJECT_DIR$/webElement/resource/databaseElement.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/sso/sso_client.au3" afterPath="$PROJECT_DIR$/webElement/sso/sso_client.au3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/process/test_access_approval.py" afterPath="$PROJECT_DIR$/testCase/process/test_access_approval.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/rule/test_command_rule_ment.py" afterPath="$PROJECT_DIR$/webElement/rule/test_command_rule_ment.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/department/test_department.py" afterPath="$PROJECT_DIR$/testCase/department/test_department.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/process/test_double_license.py" afterPath="$PROJECT_DIR$/testCase/process/test_double_license.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/department/test_dptm_ment.py" afterPath="$PROJECT_DIR$/webElement/department/test_dptm_ment.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/group/test_rsgroup.py" afterPath="$PROJECT_DIR$/testCase/group/test_rsgroup.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/group/test_usergroup.py" afterPath="$PROJECT_DIR$/testCase/group/test_usergroup.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="d88852f8-4469-4b19-b739-fed9070824cc" name="默认的" comment="" />
     <ignored path="testIsomp.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -140,10 +92,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="727" />
+    <option name="y" value="59" />
+    <option name="width" value="1280" />
+    <option name="height" value="924" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="添加" />
@@ -587,10 +539,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="727" y="59" width="1280" height="924" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18763326" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2885246" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4247059" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -600,7 +552,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32806325" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32182628" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3772846" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
