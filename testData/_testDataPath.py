@@ -84,6 +84,9 @@ RETIME_RULE_TEST_DATA_URL = r"/testIsomp/testData/resource_time_rule_test_data.x
 #审计存储扩展数据文件
 AUDIT_MOUNT_TEST_DATE = r"/testIsomp/testData/audit_mount_test_data.xlsx"
 
+#备份还原数据文件
+BACKUP_RESTORE_TEST_DATE = r"/testIsomp/testData/backup_restore_test_data.xlsx"
+
 class dataFileName(object):
     #获取通用excel中的数据
     def get_common_suite_test_data_url(self):
@@ -184,6 +187,10 @@ class dataFileName(object):
     u'''获取审计存储扩展数据'''
     def audit_mount_test_date_url(self):
         return AUDIT_MOUNT_TEST_DATE
+
+    u'''获取备份还原数据'''
+    def back_restore_test_date_url(self):
+        return BACKUP_RESTORE_TEST_DATE
 
     #从sheet名称获取登陆数据
     def get_data(self,dataPath,sheetName):

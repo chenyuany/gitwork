@@ -1328,6 +1328,18 @@ class CommonSuiteData():
     def audit_mount_module_post_condition(self):
         self.module_common_post_condition()
 
+#------------------------------备份还原前置条件-----------------------------------
+    def backup_restore_module_prefix_condition(self):
+        self.module_common_prefix_condition()
+        self.add_user_with_role()
+        #退出
+        self.user_quit()
+        #使用添加的用户登录并切换至系统级角色
+        self.login_and_switch_to_sys()
+
+    def backup_restore_module_post_condition(self):
+        self.module_common_post_condition()
+
 
 
 #if __name__ == "__main__":
