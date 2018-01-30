@@ -39,6 +39,12 @@ SSO_TEST_DATA_URL = r"/testIsomp/testData/sso_test_data.xlsx"
 #AD域抽取数据文件
 AD_EXTRACT_DATA_URL = r"/testIsomp/testData/ad_extract_data.xlsx"
 
+#配置报表数据文件
+CONF_REPORT_DATA_URL = r"/testIsomp/testData/conf_audit_report.xlsx"
+
+#运维报表数据文件
+OPT_REPORT_DATA_URL = r"/testIsomp/testData/operation_audit_report.xlsx"
+
 #会话配置数据文件
 SESSION_CONFIGURATION_DATA_URL = r"/testIsomp/testData/session_configuration_test_data.xlsx"
 
@@ -83,7 +89,13 @@ RETIME_RULE_TEST_DATA_URL = r"/testIsomp/testData/resource_time_rule_test_data.x
 
 #审计存储扩展数据文件
 AUDIT_MOUNT_TEST_DATE = r"/testIsomp/testData/audit_mount_test_data.xlsx"
+#密码策略数据文件
+PASSWORD_STRATRGY_TEST_DATA_URL = r"/testIsomp/testData/password_strategy_test_data.xlsx"
 
+#syslog服务数据文件
+SYSLOG_TEST_DATA_URL = r"/testIsomp/testData/syslog_test_data.xlsx"
+#邮件配置数据文件
+MAIL_TEST_DATE = r"/testIsomp/testData/mail_test_data.xlsx"
 #备份还原数据文件
 BACKUP_RESTORE_TEST_DATE = r"/testIsomp/testData/backup_restore_test_data.xlsx"
 
@@ -127,6 +139,14 @@ class dataFileName(object):
     #AD域抽取数据
     def get_ad_extract_test_url(self):
         return AD_EXTRACT_DATA_URL
+    
+    #配置审计报表数据
+    def get_conf_report_test_url(self):
+        return CONF_REPORT_DATA_URL
+    
+    #运维审计报表数据
+    def get_opt_report_test_url(self):
+        return OPT_REPORT_DATA_URL   
 
     u"""获取角色定义数据文件的数据"""
     def get_role_test_data_url(self):
@@ -183,14 +203,27 @@ class dataFileName(object):
     u"""获取资源时间规则数据"""
     def get_retime_test_data_url(self):
         return RETIME_RULE_TEST_DATA_URL
+    
+    #获取NTP服务数据
+    def get_ntp_test_data_url(self):
+        return EDIT_NTP_TEST_DATA_URL
 
     u'''获取审计存储扩展数据'''
     def audit_mount_test_date_url(self):
         return AUDIT_MOUNT_TEST_DATE
-
-    u'''获取备份还原数据'''
+    
+    u"""获取syslog服务数据"""
+    def get_syslog_test_data_url(self):
+        return SYSLOG_TEST_DATA_URL
+	
+    u'''获取邮件数据'''
+    def mail_test_date_url(self):
+        return MAIL_TEST_DATE
+	
+	u'''获取备份还原数据'''
     def back_restore_test_date_url(self):
         return BACKUP_RESTORE_TEST_DATE
+
 
     #从sheet名称获取登陆数据
     def get_data(self,dataPath,sheetName):
@@ -199,9 +232,10 @@ class dataFileName(object):
         
         return data
     
-    #获取NTP服务数据
-    def get_ntp_test_data_url(self):
-        return EDIT_NTP_TEST_DATA_URL
+    u"""获取密码策略数据"""
+    def get_password_stratrgy_test_data_url(self):
+        return PASSWORD_STRATRGY_TEST_DATA_URL
+
     
 #dataFile = dataFileName()
 #login_data = dataFileName().get_data(dataFileName().get_auth_method_test_data_url(),'add_auth_method')

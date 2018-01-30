@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d88852f8-4469-4b19-b739-fed9070824cc" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testCase/backup_restore/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webElement/backup_restore/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testSuite/test_031_backup_restore_suite.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testCase/backup_restore/test_backup_restore.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webElement/backup_restore/test_backup_restore_ment.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/edit_ntp_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/edit_ntp_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/_testDataPath.py" afterPath="$PROJECT_DIR$/testData/_testDataPath.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/common_suite_file.py" afterPath="$PROJECT_DIR$/testSuite/common_suite_file.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/isomp.log" afterPath="$PROJECT_DIR$/log/isomp.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/ass_service/ntpElement.py" afterPath="$PROJECT_DIR$/webElement/ass_service/ntpElement.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/test_016_ntp_suite.py" afterPath="$PROJECT_DIR$/testSuite/test_016_ntp_suite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/ass_service/test_ntp.py" afterPath="$PROJECT_DIR$/testCase/ass_service/test_ntp.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="G:\testIsomp\testSuite\test_031_backup_restore_suite.py" afterPath="$PROJECT_DIR$/testSuite/test_033_backup_restore_suite.py" />
     </list>
     <ignored path="testIsomp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -173,7 +161,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="testCase" />
+              <option name="myItemId" value="testSuite" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -188,10 +176,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="testCase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="role" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -227,7 +211,7 @@
       <recent name="G:\testIsomp\bb" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in test_031_backup_restore_suite">
+  <component name="RunManager" selected="Python tests.Unittests in test_033_backup_restore_suite">
     <configuration default="false" name="Unittests in test_026_accapproval_suite" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -320,7 +304,7 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="Unittests in test_031_backup_restore_suite" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="Unittests in test_033_backup_restore_suite" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -331,7 +315,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="testIsomp" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testSuite/test_031_backup_restore_suite.py" />
+      <option name="SCRIPT_NAME" value="G:\testIsomp\testSuite\test_033_backup_restore_suite.py" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
       <option name="FOLDER_NAME" value="" />
@@ -555,11 +539,11 @@
       <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in test_025_client_conf_suite" />
       <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in test_013_department_suite" />
       <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in test_014_usergroup_suite" />
-      <item index="5" class="java.lang.String" itemvalue="Python tests.Unittests in test_031_backup_restore_suite" />
+      <item index="5" class="java.lang.String" itemvalue="Python tests.Unittests in test_033_backup_restore_suite" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in test_031_backup_restore_suite" />
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in test_033_backup_restore_suite" />
         <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in test_014_usergroup_suite" />
         <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in test_013_department_suite" />
         <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in test_025_client_conf_suite" />
@@ -1017,15 +1001,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webElement/backup_restore/test_backup_restore_ment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43032786">
-          <caret line="33" column="47" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testSuite/test_031_backup_restore_suite.py">
+    <entry file="file://$PROJECT_DIR$/testSuite/test_033_backup_restore_suite.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4897541">
           <caret line="40" column="47" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
@@ -1033,10 +1009,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/webElement/backup_restore/test_backup_restore_ment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7418033">
+          <caret line="603" column="0" selection-start-line="603" selection-start-column="0" selection-end-line="603" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/testCase/backup_restore/test_backup_restore.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48689955">
-          <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.52868855">
+          <caret line="144" column="41" selection-start-line="144" selection-start-column="41" selection-end-line="144" selection-end-column="41" />
           <folding />
         </state>
       </provider>
