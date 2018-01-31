@@ -38,8 +38,8 @@ class testDatabaseResourceSuite(unittest.TestCase):
 		#添加数据库前置条件
 		self.comsuit.database_resource_prefix_condition()
 
-		# self.comsuit.login_and_switch_to_dep()
-		# self.comsuit.switch_to_moudle(u"运维管理", u"资源")
+#		self.comsuit.login_and_switch_to_dep()
+#		self.comsuit.switch_to_moudle(u"运维管理", u"资源")
 
 	def test_database_resource(self):
 		#------------------------------windows资源-----------------------------------

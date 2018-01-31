@@ -45,6 +45,12 @@ CONF_REPORT_DATA_URL = r"/testIsomp/testData/conf_audit_report.xlsx"
 #运维报表数据文件
 OPT_REPORT_DATA_URL = r"/testIsomp/testData/operation_audit_report.xlsx"
 
+#运维审计数据文件
+AUDIT_LOG_DATA_URL = r"/testIsomp/testData/audit_log.xlsx"
+
+#配置审计数据文件
+SYSTEM_LOG_DATA_URL = r"/testIsomp/testData/system_log.xlsx"
+
 #会话配置数据文件
 SESSION_CONFIGURATION_DATA_URL = r"/testIsomp/testData/session_configuration_test_data.xlsx"
 
@@ -92,8 +98,15 @@ AUDIT_MOUNT_TEST_DATE = r"/testIsomp/testData/audit_mount_test_data.xlsx"
 #密码策略数据文件
 PASSWORD_STRATRGY_TEST_DATA_URL = r"/testIsomp/testData/password_strategy_test_data.xlsx"
 
+#告警策略数据文件
+ALARM_STRATEGE_TEST_DATA_URL = r"/testIsomp/testData/alarm_strategy_test_data.xlsx"
+
 #syslog服务数据文件
 SYSLOG_TEST_DATA_URL = r"/testIsomp/testData/syslog_test_data.xlsx"
+
+#网卡配置数据文件
+NETWORK_TEST_DATA_URL = r"/testIsomp/testData/network_test_data.xlsx"
+
 #邮件配置数据文件
 MAIL_TEST_DATE = r"/testIsomp/testData/mail_test_data.xlsx"
 #备份还原数据文件
@@ -146,7 +159,15 @@ class dataFileName(object):
     
     #运维审计报表数据
     def get_opt_report_test_url(self):
-        return OPT_REPORT_DATA_URL   
+        return OPT_REPORT_DATA_URL
+    
+    #配置审计检索数据
+    def get_system_log_test_url(self):
+        return SYSTEM_LOG_DATA_URL
+    
+    #运维审计检索数据
+    def get_audit_log_test_url(self):
+        return AUDIT_LOG_DATA_URL   
 
     u"""获取角色定义数据文件的数据"""
     def get_role_test_data_url(self):
@@ -215,14 +236,18 @@ class dataFileName(object):
     u"""获取syslog服务数据"""
     def get_syslog_test_data_url(self):
         return SYSLOG_TEST_DATA_URL
-	
+
     u'''获取邮件数据'''
     def mail_test_date_url(self):
         return MAIL_TEST_DATE
-	
-	u'''获取备份还原数据'''
+    
+    u'''获取备份还原数据'''
     def back_restore_test_date_url(self):
         return BACKUP_RESTORE_TEST_DATE
+
+    u'''获取网卡配置数据'''
+    def get_network_test_data_url(self):
+        return NETWORK_TEST_DATA_URL    
 
 
     #从sheet名称获取登陆数据
@@ -235,6 +260,11 @@ class dataFileName(object):
     u"""获取密码策略数据"""
     def get_password_stratrgy_test_data_url(self):
         return PASSWORD_STRATRGY_TEST_DATA_URL
+    
+    u"""获取告警策略数据"""
+    def alarm_stratrgy_test_data_url(self):
+        return ALARM_STRATEGE_TEST_DATA_URL
+    
 
     
 #dataFile = dataFileName()
