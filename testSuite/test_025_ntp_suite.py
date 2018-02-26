@@ -50,6 +50,7 @@ class TestNtpSuite(unittest.TestCase):
         #更新系统时间
         self.service.update_ntp_003()        
         
+    def tearDown(self):
         #后置条件
         self.commonSuite.ntp_module_post_condition()
         #关闭浏览器

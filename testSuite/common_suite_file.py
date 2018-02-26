@@ -1448,8 +1448,8 @@ class CommonSuiteData():
 
     def backup_restore_module_post_condition(self):
         self.module_common_post_condition()
-	
-	#-------------------------------网卡配置前置条件-------------------------------
+        
+#-------------------------------网卡配置前置条件-------------------------------
     def network_card_module_prefix_condition(self):
         self.module_common_prefix_condition()
         self.add_user_with_role()
@@ -1464,6 +1464,22 @@ class CommonSuiteData():
         self.switch_to_moudle(u'系统配置', u'网络配置')
         
     def network_card_module_post_condition(self):
+        self.module_common_post_condition()
+        
+#-------------------------------路由配置前置条件-------------------------------
+    def routing_module_prefix_condition(self):
+        self.module_common_prefix_condition()
+        self.add_user_with_role()
+        #添加用户
+        self.add_user_data_module([0])
+        #退出
+        self.user_quit()
+        #使用添加的用户登录并切换至系统级角色
+        self.login_and_switch_to_sys()
+        #切换到路由配置
+        self.cmf.select_menu(u'系统配置', u'网络配置',u'路由配置')
+        
+    def routing_module_post_condition(self):
         self.module_common_post_condition()
         
 #-------------------------------SYSLOG前置条件---------------------------------
@@ -1543,6 +1559,21 @@ class CommonSuiteData():
         self.alarm.del_default_config()
         self.alarm.del_auth_config()
         self.alarm.del_ip_config()
+        self.module_common_post_condition()
+
+#------------------------------使用授权前置条件---------------------------------
+    def use_auth_module_prefix_condition(self):
+        self.module_common_prefix_condition()
+        self.add_user_with_role()
+        #添加用户
+        self.add_user_data_module([0])
+        #退出
+        self.user_quit()
+        #使用添加的用户登录并切换至系统级角色
+        self.login_and_switch_to_sys()
+        self.switch_to_moudle(u'系统配置', u'使用授权')
+
+    def alarm_strategy_module_post_condition(self):
         self.module_common_post_condition()
 
 

@@ -107,10 +107,16 @@ SYSLOG_TEST_DATA_URL = r"/testIsomp/testData/syslog_test_data.xlsx"
 #网卡配置数据文件
 NETWORK_TEST_DATA_URL = r"/testIsomp/testData/network_test_data.xlsx"
 
+#路由配置数据文件
+ROUTING_TEST_DATA_URL = r"/testIsomp/testData/routing_test_data.xlsx"
+
 #邮件配置数据文件
 MAIL_TEST_DATE = r"/testIsomp/testData/mail_test_data.xlsx"
 #备份还原数据文件
 BACKUP_RESTORE_TEST_DATE = r"/testIsomp/testData/backup_restore_test_data.xlsx"
+
+#使用授权数据文件
+USE_AUTH_TEST_DATE = r"/testIsomp/testData/use_of_authorization.xlsx"
 
 class dataFileName(object):
     #获取通用excel中的数据
@@ -247,15 +253,11 @@ class dataFileName(object):
 
     u'''获取网卡配置数据'''
     def get_network_test_data_url(self):
-        return NETWORK_TEST_DATA_URL    
-
-
-    #从sheet名称获取登陆数据
-    def get_data(self,dataPath,sheetName):
-        #获取excel数据
-        data = excelRead().get_excel_data(dataPath,sheetName)
-        
-        return data
+        return NETWORK_TEST_DATA_URL
+    
+    u'''获取路由配置数据'''
+    def get_routing_test_data_url(self):
+        return ROUTING_TEST_DATA_URL
     
     u"""获取密码策略数据"""
     def get_password_stratrgy_test_data_url(self):
@@ -265,7 +267,16 @@ class dataFileName(object):
     def alarm_stratrgy_test_data_url(self):
         return ALARM_STRATEGE_TEST_DATA_URL
     
+    u"""获取使用授权数据"""
+    def use_auth_test_data_url(self):
+        return USE_AUTH_TEST_DATE
 
+    #从sheet名称获取登陆数据
+    def get_data(self,dataPath,sheetName):
+        #获取excel数据
+        data = excelRead().get_excel_data(dataPath,sheetName)
+        
+        return data
     
 #dataFile = dataFileName()
 #login_data = dataFileName().get_data(dataFileName().get_auth_method_test_data_url(),'add_auth_method')

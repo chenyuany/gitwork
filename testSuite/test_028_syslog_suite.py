@@ -50,8 +50,9 @@ class SyslogSuite(unittest.TestCase):
         #校验syslog信息
         self.sys.checkout_syslog_003()
         
+    def tearDown(self):
         #后置条件
-        self.commonSuite.ntp_module_post_condition()
+        self.commonSuite.syslog_module_post_condition()
         #关闭浏览器
         self.initDriver.close_driver(self.browser)
         
