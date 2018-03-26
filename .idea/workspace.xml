@@ -2,82 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d88852f8-4469-4b19-b739-fed9070824cc" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testData/audit_log.xlsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testData/envelope_image.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testData/passwd_envelope_test_data.xlsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testData/routing_test_data.xlsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testData/use_of_authorization.xlsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testSuite/test_001_common_suit.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testSuite/test_001_common_suite.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testSuite/test_001_suite.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testSuite/test_039_use_auth_suite.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testSuite/test_040_passwd_envelope_suit.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testCase/passwd_envelope/test_passwd_envelope.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webElement/passwd_envelope/test_passwd_envelope_ment.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testCase/use_auth/test_use_auth.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webElement/use_of_authorization/useAuthElement.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/accapproval_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/accapproval_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/ad_extract_data.xlsx" afterPath="$PROJECT_DIR$/testData/ad_extract_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/address_rule_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/address_rule_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/application_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/application_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/authorization_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/authorization_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/backup_restore_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/backup_restore_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/command_rule_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/command_rule_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/common_suite_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/common_suite_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/conf_audit_report.xlsx" afterPath="$PROJECT_DIR$/testData/conf_audit_report.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/database_resource_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/database_resource_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/department_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/department_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/double_license_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/double_license_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/linux_resource_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/linux_resource_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/login_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/login_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/network_resource_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/network_resource_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/network_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/network_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/operation_audit_report.xlsx" afterPath="$PROJECT_DIR$/testData/operation_audit_report.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/password_strategy_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/password_strategy_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/resource_time_rule_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/resource_time_rule_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/role_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/role_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/sso_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/sso_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/time_rule_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/time_rule_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/user_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/user_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/usergroup_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/usergroup_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/windows_resource_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/windows_resource_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/_icommon.py" afterPath="$PROJECT_DIR$/common/_icommon.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/_testDataPath.py" afterPath="$PROJECT_DIR$/testData/_testDataPath.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/authorization/authrizationElement.py" afterPath="$PROJECT_DIR$/webElement/authorization/authrizationElement.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/common_suite_file.py" afterPath="$PROJECT_DIR$/testSuite/common_suite_file.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/report/confReportElement.py" afterPath="$PROJECT_DIR$/webElement/report/confReportElement.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/test_001_role_suite.py" afterPath="$PROJECT_DIR$/testSuite/test_001_role_suite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/test_002_department_suite.py" afterPath="$PROJECT_DIR$/testSuite/test_002_department_suite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/test_006_linux_resource_suite.py" afterPath="$PROJECT_DIR$/testSuite/test_006_linux_resource_suite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/test_010_network_resource_suite.py" afterPath="$PROJECT_DIR$/testSuite/test_010_network_resource_suite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/test_011_windows_resource_suite.py" afterPath="$PROJECT_DIR$/testSuite/test_011_windows_resource_suite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/test_013_app_conf_suite.py" afterPath="$PROJECT_DIR$/testSuite/test_013_app_conf_suite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/test_014_database_resource_suite.py" afterPath="$PROJECT_DIR$/testSuite/test_014_database_resource_suite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/test_018_double_license_suite.py" afterPath="$PROJECT_DIR$/testSuite/test_018_double_license_suite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/test_019_sso_suite.py" afterPath="$PROJECT_DIR$/testSuite/test_019_sso_suite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/test_023_ad_suite.py" afterPath="$PROJECT_DIR$/testSuite/test_023_ad_suite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/test_031_opt_report.py" afterPath="$PROJECT_DIR$/testSuite/test_031_opt_report.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/test_032_conf_report.py" afterPath="$PROJECT_DIR$/testSuite/test_032_conf_report.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/rule/test_address_rule.py" afterPath="$PROJECT_DIR$/testCase/rule/test_address_rule.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/application/test_app_conf.py" afterPath="$PROJECT_DIR$/testCase/application/test_app_conf.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/authorization/test_authorization.py" afterPath="$PROJECT_DIR$/testCase/authorization/test_authorization.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/backup_restore/test_backup_restore.py" afterPath="$PROJECT_DIR$/testCase/backup_restore/test_backup_restore.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/rule/test_command_rule.py" afterPath="$PROJECT_DIR$/testCase/rule/test_command_rule.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/sso/test_database_sso.py" afterPath="$PROJECT_DIR$/testCase/sso/test_database_sso.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/resource/test_linux_resource.py" afterPath="$PROJECT_DIR$/testCase/resource/test_linux_resource.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/network/test_network.py" afterPath="$PROJECT_DIR$/testCase/network/test_network.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/resource/test_network_resource.py" afterPath="$PROJECT_DIR$/testCase/resource/test_network_resource.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/resource/test_resource_common.py" afterPath="$PROJECT_DIR$/webElement/resource/test_resource_common.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/rule/test_resource_time_rule.py" afterPath="$PROJECT_DIR$/testCase/rule/test_resource_time_rule.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/role/test_roledf.py" afterPath="$PROJECT_DIR$/webElement/role/test_roledf.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/network/test_routing.py" afterPath="$PROJECT_DIR$/testCase/network/test_routing.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/sso/test_sso.py" afterPath="$PROJECT_DIR$/testCase/sso/test_sso.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_suite.py" afterPath="$PROJECT_DIR$/test_suite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/rule/test_time_rule.py" afterPath="$PROJECT_DIR$/testCase/rule/test_time_rule.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/user/test_user.py" afterPath="$PROJECT_DIR$/testCase/user/test_user.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/resource/test_windows_resource.py" afterPath="$PROJECT_DIR$/testCase/resource/test_windows_resource.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/user/userElement.py" afterPath="$PROJECT_DIR$/webElement/user/userElement.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_001_common_suit.py" afterPath="" />
+      <change type="DELETED" beforePath="G:\testIsomp\testSuite\test_001_suite.py" afterPath="" />
     </list>
     <ignored path="testIsomp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -137,7 +63,18 @@
     <favorites_list name="testIsomp" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="test_001_common_suite.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/testSuite/test_001_common_suite.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7051282">
+              <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -259,34 +196,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="testIsomp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="testIsomp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="testIsomp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="testSuite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="testIsomp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="testIsomp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="log" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1131,7 +1040,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testSuite/test_001_common_suit.py">
+    <entry file="file://$PROJECT_DIR$/log/isomp.log">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1141,24 +1050,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/testSuite/test_001_common_suite.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testSuite/test_001_suite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5192308">
-          <caret line="25" column="52" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/isomp.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.7051282">
+          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
           <folding />
         </state>
       </provider>
