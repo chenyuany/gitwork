@@ -9,7 +9,7 @@ import time
 import os
 
 sys.path.append("/testIsomp/common/")
-from _mail import sendMail
+from _mail import *
 from _transCoding import jsonTranscoding
 from _initDriver import initDriver
 from _globalVal import globalValue
@@ -55,3 +55,4 @@ class testSuite(unittest.TestCase):
         #直接跑测试用例
         #unittest.TextTestRunner().run(suite)
         sendMail().send_mail()
+

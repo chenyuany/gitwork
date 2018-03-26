@@ -175,7 +175,9 @@ class AuthorizationPage():
     u'''点击删除按钮'''
     def del_button(self):
         try:
-            self.click_button_common('id',self.DELETE_BUTTON)
+            self.getElem.find_element_with_wait_clickable_and_click("id",self.DELETE_BUTTON)
+            time.sleep(1)
+            #self.click_button_common('id',self.DELETE_BUTTON)
         except Exception as e:
             print ("Delete button error: ") + str(e)
     
@@ -350,22 +352,87 @@ class AuthorizationPage():
         except Exception as e:
             print("Click authorization operation res account button fail") + str(e)
     
-    u'''勾选授权对应的单选框
-            parameters :
-                name : 授权名称
+    u'''查询已存在名称位于第几行
+       Parameters:
+          - namevalue:传入的要被查询名称
+          - name:表格列的name属性
+       return：定位该名称位于第几行
     '''
+    def find_row_by_name(self, namevalue, name):
+        row = 0
+        try:
+            if self.cmf.is_namevalue_exsit(namevalue, name):
+                parent_table = self.getElem.find_element_with_wait_EC("id","content_table")
+                text_list = parent_table.find_elements_by_name(name)
+                for fortNameValue in text_list:
+                    row = row + 1
+                    fortNameValue_text = fortNameValue.text
+                    if fortNameValue_text == namevalue:
+                        break
+        except Exception:
+            print namevalue + "is not exsit."
+        return row
+    
     def click_auth_checkbox(self,name):
         self.frameElem.from_frame_to_otherFrame("mainFrame")
-        rename = self.cnEnde.is_float(name)
-        row = self.cmf.find_row_by_name(rename,"fortAuthorizationName")
-        update_xpath = "//table[@id='content_table']/tbody/tr[" + str(row) + "]/td[1]/span[1]/input[1]"
+        rename = self.cnEnde.is_float(name)        
+        row = 0
         try:
-            selem = self.getElem.find_element_with_wait_EC('xpath',update_xpath)
-            if selem.is_selected() == False:
-                selem.click()
-        except Exception as e:
-            print ("Click auth checkbox error: ") + str(e)
-
+            parent_table = self.getElem.find_element_with_wait_EC("id","content_table")
+            #text_list = parent_table.find_elements_by_name("fortAuthorizationName")
+            trs = text_list = parent_table.find_elements_by_tag_name("tr")
+            for i in range(len(trs)):
+                row = row + 1
+                path = "//table[@id='content_table']/tbody/tr[" + str(row) + "]/td[3]/span[1]"
+                
+                if self.getElem.is_element_exsit("xpath",path):
+                    name_elem = self.getElem.find_element_with_wait_EC("xpath",path)
+                    if name_elem.text == rename:
+                        print row
+                        update_xpath = "//table[@id='content_table']/tbody/tr[" + str(row) + "]/td[1]/span[1]/input[1]"
+                        time.sleep(1)
+                        selem = self.getElem.find_element_with_wait_EC('xpath',update_xpath)
+                        if selem.is_selected() == False:
+                            selem.click()
+#                            self.del_button()
+#                            self.cmf.click_login_msg_button()
+#                            self.cmf.click_login_msg_button()
+                            break
+                    
+#                for fortNameValue in text_list:
+#                    fortNameValue_text = fortNameValue.text
+#                    if fortNameValue_text == rename:
+#                        print row
+#                        update_xpath = "//table[@id='content_table']/tbody/tr[" + str(row) + "]/td[1]/span[1]/input[1]"
+#                        time.sleep(1)
+#                        selem = self.getElem.find_element_with_wait_EC('xpath',update_xpath)
+#                        if selem.is_selected() == False:
+#                            selem.click()
+#                            self.del_button()
+#                            self.cmf.click_login_msg_button()
+#                            self.cmf.click_login_msg_button()                        
+                        #break
+        except Exception:
+            print rename + "is not exsit."
+        #return row
+    
+#    u'''勾选授权对应的单选框
+#            parameters :
+#                name : 授权名称
+#    '''
+#    def click_auth_checkbox(self,name):
+#        self.frameElem.from_frame_to_otherFrame("mainFrame")
+#        rename = self.cnEnde.is_float(name)
+#        row = self.find_row(rename,"fortAuthorizationName")
+#        print row
+#        update_xpath = "//table[@id='content_table']/tbody/tr[" + str(row) + "]/td[1]/span[1]/input[1]"
+#        try:
+#            time.sleep(1)
+#            selem = self.getElem.find_element_with_wait_EC('xpath',update_xpath)
+#            if selem.is_selected() == False:
+#                selem.click()
+#        except Exception as e:
+#            print ("Click auth checkbox error: ") + str(e)
 
     u'''填写变量内容
         parameters:

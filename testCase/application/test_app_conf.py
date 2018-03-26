@@ -317,12 +317,12 @@ class testApp():
 				print ("Del account fail: ") + str(e)
 		self.log.log_end("Delaccount")
 
-#if __name__ == "__main__":
-#	browser = setDriver().set_local_driver()
-#	commonSuite = CommonSuiteData(browser)
-#	appTest = testApp(browser)
-#	commonSuite.login_and_switch_to_sys()
-#	commonSuite.switch_to_moudle(u"系统配置", u"关联服务")
+if __name__ == "__main__":
+	browser = setDriver().set_local_driver()
+	commonSuite = CommonSuiteData(browser)
+	appTest = testApp(browser)
+	commonSuite.login_and_switch_to_sys()
+	commonSuite.switch_to_moudle(u"系统配置", u"关联服务")
 #	appTest.add_app_001()
 #	appTest.edit_app_002()
 #	appTest.check_app_003()

@@ -118,6 +118,8 @@ BACKUP_RESTORE_TEST_DATE = r"/testIsomp/testData/backup_restore_test_data.xlsx"
 #使用授权数据文件
 USE_AUTH_TEST_DATE = r"/testIsomp/testData/use_of_authorization.xlsx"
 
+#密码信封数据文件
+PASSWD_ENVELOPE_TEST_DATA_URL = r"/testIsomp/testData/passwd_envelope_test_data.xlsx"
 class dataFileName(object):
     #获取通用excel中的数据
     def get_common_suite_test_data_url(self):
@@ -271,6 +273,9 @@ class dataFileName(object):
     def use_auth_test_data_url(self):
         return USE_AUTH_TEST_DATE
 
+    u'''获取密码信封数据'''
+    def passwd_envelope_test_data_url(self):
+        return PASSWD_ENVELOPE_TEST_DATA_URL
     #从sheet名称获取登陆数据
     def get_data(self,dataPath,sheetName):
         #获取excel数据
