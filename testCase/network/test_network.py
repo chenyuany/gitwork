@@ -102,8 +102,8 @@ class NetworkCard:
                         self.network.set_eth3_mask(data[3])
                         self.network.click_eth3_set_button()
                     elif dataRow == 4:
-                        self.network.set_eth0_gateway(data[4])
-                        self.network.click_eth0_set_button()
+                        self.network.gateway(data[4])
+                        self.network.click_set_gateWay_button()
                     #返回上级frame
                     self.frameElem.switch_to_content()
                     #判断测试项是否通过
@@ -172,7 +172,6 @@ class NetworkCard:
                     elif dataRow > 2:
                         self.network.set_eth1_ip(data[2])
                         self.network.set_eth1_mask(data[3])
-                        self.network.set_eth1_gateway(data[4])
                         self.network.click_eth1_set_button()
                     #返回上级frame
                     self.frameElem.switch_to_content()

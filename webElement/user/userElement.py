@@ -403,6 +403,7 @@ class UserPage():
                 elemid = elem.get_attribute("id")
     
                 if deptname == elemtext:
+                    time.sleep(1)
                     self.getElem.find_element_wait_and_click_EC('id',elemid)
                     break
     

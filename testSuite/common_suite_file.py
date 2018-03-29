@@ -1566,7 +1566,6 @@ class CommonSuiteData():
         self.alarm.del_command_config()
         self.alarm.del_default_config()
         self.alarm.del_auth_config()
-        self.alarm.del_ip_config()
         self.user_quit()
 
 #------------------------------使用授权前置条件---------------------------------

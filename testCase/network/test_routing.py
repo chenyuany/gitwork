@@ -145,8 +145,6 @@ class RoutingConfiguration():
                     if data[4] != "":
                         self.routing.click_box(data[4])
                     else:
-                        #全部删除路由
-#                        self.routing.click_all()
                         self.routing.click_box(data[3])
                     self.routing.click_del_button()
                     #返回上级frame

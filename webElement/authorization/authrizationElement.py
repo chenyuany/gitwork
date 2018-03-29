@@ -141,7 +141,7 @@ class AuthorizationPage():
     #关闭叉号
     AUI_CLOSE = "aui_close"
     #子页面返回按钮
-    CHILD_PAGE_BACK_BUTTON = "cancelButton"
+    CHILD_PAGE_BACK_BUTTON = "history_skip"
     
     def __init__(self,driver):
         self.driver = driver
@@ -1054,12 +1054,12 @@ class AuthorizationPage():
     
     u'''勾选全部审批人'''
     def click_all_approver(self):
-        self.frameElem.switch_to_artIframe()
+        self.frameElem.from_frame_to_otherFrame("mainFrame")
         self.click_checkbox(self.ALL_APPROVER)
     
     u'''勾选全部被审批人'''
     def click_all_candidate(self):
-        self.frameElem.switch_to_artIframe()
+        self.frameElem.from_frame_to_otherFrame("mainFrame")
         self.click_checkbox(self.ALL_CANDIDATE)
     
     u'''通过账号获取用户所在行数
@@ -1114,7 +1114,7 @@ class AuthorizationPage():
     
     u'''勾选是否启动关联'''
     def click_start_association(self):
-        self.frameElem.switch_to_artIframe()
+        self.frameElem.from_frame_to_otherFrame("mainFrame")
         checkbox = self.getElem.find_element_with_wait_EC("id",self.START_OR_NOT_ASSOCIATION)
         try:
             if checkbox.is_selected() == False:
@@ -1125,20 +1125,22 @@ class AuthorizationPage():
     
     u'''点击建立关联'''
     def click_create_relate(self):
+        self.frameElem.from_frame_to_otherFrame("mainFrame")
         self.click_button_common('id',self.CREATE_RELATE)
     
     u'''取消关联'''
     def click_quit_relate(self):
-        self.frameElem.switch_to_artIframe()
+        self.frameElem.from_frame_to_otherFrame("mainFrame")
         self.click_button_common('id',self.DEL_RELATE)
         
     u'''点击关闭按钮'''
     def click_close_button(self):
+        self.frameElem.from_frame_to_otherFrame("mainFrame")
         self.click_button_common('id',self.AUI_CLOSE)
         
     u'''点击子页面返回按钮'''
     def click_child_page_back_button(self):
-        self.frameElem.switch_to_artIframe()
+        self.frameElem.from_frame_to_otherFrame("mainFrame")
         page_back_button = self.getElem.find_element_with_wait_EC('id',self.CHILD_PAGE_BACK_BUTTON)
         if page_back_button.is_displayed():
             time.sleep(1)
