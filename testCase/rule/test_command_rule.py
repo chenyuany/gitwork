@@ -238,8 +238,8 @@ class testCommand(object):
 
 	u'''删除命令规则'''
 	def del_command_rule_006(self):
-		self.comsuit.sys_switch_to_dep()
-		self.comsuit.switch_to_moudle(u"运维管理", u"规则定义")
+		# self.comsuit.sys_switch_to_dep()
+		# self.comsuit.switch_to_moudle(u"运维管理", u"规则定义")
 		#日志开始记录
 		self.log.log_start("del_command_rule")
 		#获取删除命令规则测试数据

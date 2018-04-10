@@ -79,6 +79,7 @@ class Resource(object):
 	'''
 	def click_add_edit_button(self, resourcename='no'):
 		rename = self.cnEn.is_float(resourcename)
+		time.sleep(3)
 		try:
 			#如果资源名称等于no就点击添加按钮，否则点击编辑按钮
 			if rename == 'no':
@@ -133,9 +134,10 @@ class Resource(object):
 			self.frameElem.from_frame_to_otherFrame("mainFrame")
 			self.getElem.find_element_wait_and_clear('id', self.RESOURCE_IP)
 			self.getElem.find_element_wait_and_sendkeys('id', self.RESOURCE_IP, ipdress)
+			time.sleep(3)
 			self.getElem.find_element_wait_and_click_EC("id", "spanid")
 			self.getElem.find_element_with_wait_EC("classname", "ip_succ")
-			time.sleep(3)
+			time.sleep(5)
 		except Exception as e:
 			print "resourceip is error :" + str(e)
 

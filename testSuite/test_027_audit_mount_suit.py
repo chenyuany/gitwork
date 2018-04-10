@@ -33,7 +33,7 @@ class testMountSuit(unittest.TestCase):
 
 	def test_audit_mount(self):
 		#添加审计存储扩展
-		self.testmount.add_mount_windows_001()
+		self.testmount.add_mount_001()
 		#审计存储扩展校验
 		self.testmount.check_mount_002()
 

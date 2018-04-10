@@ -71,9 +71,6 @@ class testMount(object):
                     self.mountpage.local_path(data[5])
                 elif dataRow == 5:
                     self.mountpage.distal_account(data[6])
-                elif dataRow == 6:
-                    self.mountpage.distal_ip(data[3])
-                    self.mountpage.distal_passwd(data[7])
                 if dataRow != 0:
                     time.sleep(3)
                     self.mountpage.add()
@@ -84,8 +81,8 @@ class testMount(object):
 
         self.log.log_end("check audit mount")
 
-    u'''添加windows类型的审计存储扩展'''
-    def add_mount_windows_001(self):
+    u'''添加审计存储扩展'''
+    def add_mount_001(self):
 
         #日志开始记录
         self.log.log_start("addsysmount")
@@ -108,9 +105,9 @@ class testMount(object):
                     if dataRow == 1:
                         self.mountpage.distal_account(data[6])
                         self.mountpage.distal_passwd(data[7])
-                    time.sleep(10)
+                    time.sleep(3)
                     self.mountpage.add()
-                    time.sleep(10)
+                    time.sleep(3)
                     self.frameElem.switch_to_content()
                     self.cmf.test_win_check_point("xpath", mountMsg, data, flag)
                     if dataRow == 2:
@@ -120,5 +117,5 @@ class testMount(object):
                     self.cmf.click_msg_button(1)
             except Exception as e:
                 print ("add sysmount fail:" + str(e))
-        self.mountpage.click_right_button('1')
+        self.mountpage.click_right_button()
         self.log.log_end("add seccussful")

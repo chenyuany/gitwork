@@ -64,7 +64,7 @@ class UseAuth():
     #点击上传按钮
     def up_logo_button(self):
         try:
-            self.getElem.find_element_with_wait_clickable_and_click('id',self.UP_LOAD)
+            self.getElem.find_element_with_wait_clickable_and_click('id',self.UP_LOGO)
         except Exception as e:
             print ("up logo button error: ") + str(e)
     
@@ -99,9 +99,9 @@ class UseAuth():
         try:
             self.frameElem.from_frame_to_otherFrame("mainFrame")
             if index == 1:
-                value = "D://UseOfAuthorization/logo.png"
+                value = "H://testIsomp/testData/envelope_image.png"
             elif index == 2:
-                value = "D://UseOfAuthorization/logo_or_upgrade.xlsx"
+                value = "H://testIsomp/testData/use_of_authorization.xlsx"
             self.getElem.find_element_wait_and_sendkeys('id',self.LOGO_IMAGE,value)
         except Exception as e:
             print ("click  and check up logo button error: ") + str(e)

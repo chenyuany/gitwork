@@ -42,7 +42,7 @@ class testComRuleSuite(unittest.TestCase):
 		#校验命令规则
 		self.comm.check_command_rule_004()
 		#命令审批
-		self.comm.command_approval_005()
+		# self.comm.command_approval_005()
 		#删除命令规则
 		self.comm.del_command_rule_006()
 

@@ -46,6 +46,7 @@ class Accountmgr(object):
 	      - resourcename:传入的要编辑的资源账号名称
 	'''
 	def click_account_add_edit_button(self, accountname='no'):
+		time.sleep(3)
 		try:
 			actname = self.cnEn.is_float(accountname)
 			isexist = self.cmf.is_namevalue_exsit(actname, "fortAccountName")

@@ -9,7 +9,7 @@ import time
 import os
 
 sys.path.append("/testIsomp/common/")
-from _mail import *
+from _mail import sendMail
 from _transCoding import jsonTranscoding
 from _initDriver import initDriver
 from _globalVal import globalValue

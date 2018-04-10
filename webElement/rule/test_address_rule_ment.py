@@ -46,6 +46,7 @@ class AddressRule(object):
 			self.frameElem.from_frame_to_otherFrame("rigthFrame")
 			row = self.acproval.find_name_by_row(addressname, "fortRuleAddressName")
 			update_xpath = ".//*[@id='content_table']/tbody/tr[" + str(row) + "]/td[5]/input[1]"
+			time.sleep(2)
 			self.getElem.find_element_wait_and_click("xpath", update_xpath)
 		except Exception:
 			print("Click the Edit button to fail")

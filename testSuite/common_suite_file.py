@@ -1477,8 +1477,7 @@ class CommonSuiteData():
         self.login_and_switch_to_sys()
         #切换到维护配置
         self.switch_to_moudle(u'系统配置', u'维护配置')
-        time.sleep(3)
-        self.mount.click_right_button('1')
+        self.mount.click_right_button()
 
     def audit_mount_module_post_condition(self):
         self.user_quit()
@@ -1585,7 +1584,6 @@ class CommonSuiteData():
         self.passwdenvelope.click_left_moudle_envelope()
 
     def passwd_envelope_module_post_condition(self):
-        self.user_quit()
         self.user_quit()
 
 #if __name__ == "__main__":

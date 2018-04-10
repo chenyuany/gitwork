@@ -149,15 +149,10 @@ class MountPage(object):
        except Exception:
            print("distal passwd is error")
 
-    u'''点击左侧框
-	    Parameters：
-	       -value： 0代表选择审计留存，1代表选择审计存储扩展
-    '''
-    def click_right_button(self, value):
+    u'''点击左侧框'''
+    def click_right_button(self):
         self.frameElem.from_frame_to_otherFrame("leftFrame")
-        val = self.cnEn.is_float(value)
-        if val == '0':
-            self.getElem.find_element_wait_and_click_EC("id", "url0")
-        else:
-            self.getElem.find_element_wait_and_click_EC("id", "url1")
+        time.sleep(2)
+        self.getElem.find_element_wait_and_click_EC("id", "url1")
+        time.sleep(2)
 
