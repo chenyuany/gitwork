@@ -240,6 +240,7 @@ class testUsergroup(object):
 			try:
 				#如果不是第一行标题，则读取数据
 				if dataRow != 0:
+					time.sleep(3)
 					self.usergroup.click_usergroup_add_user(data[3], data[2])
 					self.regroup.check_depart(data[4])
 					self.usergroup.click_usergroup_add_user_query()

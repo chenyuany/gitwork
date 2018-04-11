@@ -2,31 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d88852f8-4469-4b19-b739-fed9070824cc" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/application_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/application_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/audit_mount_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/audit_mount_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/auth_method_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/auth_method_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/command_rule_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/command_rule_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/database_resource_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/database_resource_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/mail_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/mail_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/passwd_envelope_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/passwd_envelope_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/session_configuration_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/session_configuration_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/syslog_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/syslog_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/windows_resource_test_data.xlsx" afterPath="$PROJECT_DIR$/testData/windows_resource_test_data.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/application/appConfElement.py" afterPath="$PROJECT_DIR$/webElement/application/appConfElement.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/common_suite_file.py" afterPath="$PROJECT_DIR$/testSuite/common_suite_file.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/config.json" afterPath="$PROJECT_DIR$/common/config.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/test_015_command_rule_suite.py" afterPath="$PROJECT_DIR$/testSuite/test_015_command_rule_suite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSuite/test_027_audit_mount_suit.py" afterPath="$PROJECT_DIR$/testSuite/test_027_audit_mount_suit.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/rule/test_address_rule_ment.py" afterPath="$PROJECT_DIR$/webElement/rule/test_address_rule_ment.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/rule/test_command_rule.py" afterPath="$PROJECT_DIR$/testCase/rule/test_command_rule.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/mail/test_mail.py" afterPath="$PROJECT_DIR$/testCase/mail/test_mail.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/mount/test_mount.py" afterPath="$PROJECT_DIR$/testCase/mount/test_mount.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/mount/test_mount_ment.py" afterPath="$PROJECT_DIR$/webElement/mount/test_mount_ment.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/resource/test_resource_accountmgr_ment.py" afterPath="$PROJECT_DIR$/webElement/resource/test_resource_accountmgr_ment.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/resource/test_resource_common.py" afterPath="$PROJECT_DIR$/webElement/resource/test_resource_common.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/session_configuration/test_session_configuration.py" afterPath="$PROJECT_DIR$/testCase/session_configuration/test_session_configuration.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_suite.py" afterPath="$PROJECT_DIR$/test_suite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webElement/use_of_authorization/useAuthElement.py" afterPath="$PROJECT_DIR$/webElement/use_of_authorization/useAuthElement.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testCase/group/test_usergroup.py" afterPath="$PROJECT_DIR$/testCase/group/test_usergroup.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="testIsomp.iws" />
@@ -53,7 +30,7 @@
     <SUITE FILE_PATH="coverage/testIsomp$add.coverage" NAME="add Coverage Results" MODIFIED="1521793162296" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:/三元走测" />
     <SUITE FILE_PATH="coverage/testIsomp$Unittests_in_test_022_accapproval_suite.coverage" NAME="Unittests in test_022_accapproval_suite Coverage Results" MODIFIED="1516611279935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSuite" />
     <SUITE FILE_PATH="coverage/testIsomp$Unittests_in_test_018_database_resource_suite.coverage" NAME="Unittests in test_018_database_resource_suite Coverage Results" MODIFIED="1516343551466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSuite" />
-    <SUITE FILE_PATH="coverage/testIsomp$suit.coverage" NAME="suit Coverage Results" MODIFIED="1523255666426" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/testIsomp$suit.coverage" NAME="suit Coverage Results" MODIFIED="1523416063025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/testIsomp$Unittests_in_testAdreRuleSuite.coverage" NAME="Unittests in testAdreRuleSuite Coverage Results" MODIFIED="1515490875414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSuite" />
     <SUITE FILE_PATH="coverage/testIsomp$Unittests_in_test_020_authori_suite.coverage" NAME="Unittests in test_020_authori_suite Coverage Results" MODIFIED="1516344182076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSuite" />
     <SUITE FILE_PATH="coverage/testIsomp$Unittests_in_test_007_regroup_suite.coverage" NAME="Unittests in test_007_regroup_suite Coverage Results" MODIFIED="1519887193408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSuite" />
@@ -70,7 +47,7 @@
     <SUITE FILE_PATH="coverage/testIsomp$Unittests_in_test_011_windows_resource_suite.coverage" NAME="Unittests in test_011_windows_resource_suite Coverage Results" MODIFIED="1521685801217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSuite" />
     <SUITE FILE_PATH="coverage/testIsomp$Unittests_in_test_016_time_rule_suite.coverage" NAME="Unittests in test_016_time_rule_suite Coverage Results" MODIFIED="1519889279975" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSuite" />
     <SUITE FILE_PATH="coverage/testIsomp$Unittests_in_test_018_double_license_suite.coverage" NAME="Unittests in test_018_double_license_suite Coverage Results" MODIFIED="1519892526133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSuite" />
-    <SUITE FILE_PATH="coverage/testIsomp$python.coverage" NAME="python Coverage Results" MODIFIED="1523350915036" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSuite" />
+    <SUITE FILE_PATH="coverage/testIsomp$python.coverage" NAME="python Coverage Results" MODIFIED="1523415978556" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSuite" />
     <SUITE FILE_PATH="coverage/testIsomp$Unittests_in_test_025_client_conf_suite.coverage" NAME="Unittests in test_025_client_conf_suite Coverage Results" MODIFIED="1516768425281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSuite" />
     <SUITE FILE_PATH="coverage/testIsomp$Unittests_in_test_031_backup_restore_suite.coverage" NAME="Unittests in test_031_backup_restore_suite Coverage Results" MODIFIED="1517296788073" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSuite" />
     <SUITE FILE_PATH="coverage/testIsomp$Unittests_in_test_001_suite__1_.coverage" NAME="Unittests in test_001_suite (1) Coverage Results" MODIFIED="1522054922089" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSuite" />
@@ -94,28 +71,7 @@
     <favorites_list name="testIsomp" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="test_001_common_suite.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testSuite/test_001_common_suite.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="common_suite_file.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/testSuite/common_suite_file.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38333333">
-              <caret line="1578" column="35" selection-start-line="1578" selection-start-column="35" selection-end-line="1578" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -130,8 +86,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/testSuite/test_018_database_resource_suite.py" />
-        <option value="$PROJECT_DIR$/webElement/auth_method/authMethodElement.py" />
         <option value="$PROJECT_DIR$/testSuite/test_025_database_sso_suite.py" />
         <option value="$PROJECT_DIR$/testSuite/test_022_accapproval_suite.py" />
         <option value="$PROJECT_DIR$/common/_icommon.py" />
@@ -176,11 +130,13 @@
         <option value="$PROJECT_DIR$/webElement/resource/test_resource_accountmgr_ment.py" />
         <option value="$PROJECT_DIR$/testSuite/test_015_command_rule_suite.py" />
         <option value="$PROJECT_DIR$/testCase/rule/test_command_rule.py" />
-        <option value="$PROJECT_DIR$/webElement/rule/test_address_rule_ment.py" />
         <option value="$PROJECT_DIR$/webElement/resource/test_resource_common.py" />
-        <option value="$PROJECT_DIR$/log/isomp.log" />
-        <option value="$PROJECT_DIR$/log/error.log" />
         <option value="$PROJECT_DIR$/testSuite/common_suite_file.py" />
+        <option value="$PROJECT_DIR$/webElement/rule/test_address_rule_ment.py" />
+        <option value="$PROJECT_DIR$/webElement/group/test_usergroup_ment.py" />
+        <option value="$PROJECT_DIR$/testCase/group/test_usergroup.py" />
+        <option value="$PROJECT_DIR$/log/error.log" />
+        <option value="$PROJECT_DIR$/log/isomp.log" />
       </list>
     </option>
   </component>
@@ -194,8 +150,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1456" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="添加" />
@@ -240,20 +196,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="testIsomp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="testIsomp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="testSuite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -264,7 +206,7 @@
     <property name="restartRequiresConfirmation" value="true" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/testSuite/test_011_windows_resource_suite.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/testSuite/test_001_common_suite.py" />
     <property name="FullScreen" value="false" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -282,9 +224,9 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\testIsomp\testSuite" />
+      <recent name="G:\testIsomp\a" />
       <recent name="G:\testIsomp\aa" />
       <recent name="G:\testIsomp\me" />
-      <recent name="G:\testIsomp\a" />
       <recent name="G:\testIsomp\错误" />
     </key>
   </component>
@@ -490,7 +432,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="testIsomp" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testSuite/test_011_windows_resource_suite.py" />
+      <option name="SCRIPT_NAME" value="G:\testIsomp\testSuite\test_001_common_suite.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -541,10 +483,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="7" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31023455" sideWeight="0.49610677" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23925501" sideWeight="0.49610677" order="2" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30289534" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -554,7 +496,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32714286" sideWeight="0.49709725" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13859275" sideWeight="0.5038932" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.49709725" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36636972" sideWeight="0.4978678" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3983287" sideWeight="0.4978678" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -737,56 +679,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/common/data.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/_transCoding.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33266532">
-          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/_fileRead.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.252505">
-          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testSuite/test_001_role_suite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6012024">
-          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/_mail.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76152307">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webElement/rule/test_command_rule_ment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.626327">
-          <caret line="412" column="20" selection-start-line="412" selection-start-column="20" selection-end-line="412" selection-end-column="20" />
-          <folding>
-            <element signature="e#100#115#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/config.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38297874">
@@ -799,22 +691,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.74531835">
           <caret line="50" column="43" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testSuite/test_009_authori_suite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testSuite/test_003_auth_method_suite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63670415">
-          <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
           <folding />
         </state>
       </provider>
@@ -835,34 +711,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testSuite/test_014_database_resource_suite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.411985">
-          <caret line="38" column="42" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testSuite/test_019_sso_suite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30524343">
-          <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testSuite/test_013_app_conf_suite.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8614232">
           <caret line="23" column="42" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testSuite/test_012_client_conf_suite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63670415">
-          <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -1027,30 +879,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webElement/rule/test_address_rule_ment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5854342">
-          <caret line="58" column="12" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testCase/rule/test_address_rule.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5014006">
-          <caret line="149" column="46" selection-start-line="149" selection-start-column="46" selection-end-line="149" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testSuite/test_022_address_rule_suite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6162465">
-          <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testSuite/test_024_session_configuration_suite.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1115,6 +943,126 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/testSuite/common_suite_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.3462963">
+          <caret line="1586" column="24" selection-start-line="1586" selection-start-column="24" selection-end-line="1586" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testSuite/test_023_ad_suite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testSuite/test_019_sso_suite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30555555">
+          <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testSuite/test_012_client_conf_suite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7111111">
+          <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webElement/rule/test_address_rule_ment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5185185">
+          <caret line="48" column="24" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testCase/rule/test_address_rule.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="134" column="35" selection-start-line="134" selection-start-column="35" selection-end-line="134" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webElement/department/test_dptm_ment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6296296">
+          <caret line="133" column="50" selection-start-line="133" selection-start-column="50" selection-end-line="133" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webElement/group/test_usergroup_ment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5185185">
+          <caret line="152" column="43" selection-start-line="152" selection-start-column="43" selection-end-line="152" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testCase/group/test_usergroup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4074074">
+          <caret line="232" column="20" selection-start-line="232" selection-start-column="20" selection-end-line="232" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testSuite/test_022_address_rule_suite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6166667">
+          <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testSuite/test_009_authori_suite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testSuite/test_003_auth_method_suite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6296296">
+          <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testSuite/test_008_usergroup_suite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8148148">
+          <caret line="49" column="41" selection-start-line="49" selection-start-column="41" selection-end-line="49" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testSuite/test_014_database_resource_suite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41439205">
+          <caret line="38" column="42" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/error.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/log/isomp.log">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1126,26 +1074,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/log/error.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testSuite/test_001_common_suite.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testSuite/common_suite_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38333333">
-          <caret line="1578" column="35" selection-start-line="1578" selection-start-column="35" selection-end-line="1578" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.34739456">
+          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
           <folding />
         </state>
       </provider>
